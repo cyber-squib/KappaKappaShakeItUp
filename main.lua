@@ -21,6 +21,8 @@ function love.load()
   table.insert(_gfx,love.graphics.newImage("resource/ShakeLeft.png"))
 
   table.insert(_gfx,love.graphics.newImage("resource/ShakeRight.png"))
+  
+  table.insert(_gfx,love.graphics.newImage("resource/Stage.png"))
 
   table.insert(_sfx,love.audio.newSource("resource/KappaDanceTune.wav","static"))
 
@@ -51,6 +53,8 @@ end
 function love.draw()
 
   love.graphics.clear(.5,.5,.5,1)
+  
+  love.graphics.draw(_gfx[9],0,0)
   
   _blossom:draw()
   
@@ -90,7 +94,7 @@ function Blossom:init()
   
   self.x=480
   
-  self.y=360
+  self.y=225
   
   self.stageX=2
   
