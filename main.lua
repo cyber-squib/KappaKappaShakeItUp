@@ -74,6 +74,8 @@ end
 
 function Blossom:draw()
 
+  local distance
+
   if self.hopping then
   
     local a,si
@@ -86,13 +88,11 @@ function Blossom:draw()
     
     a=(a+1)/2
     
-    --b=_cfx[1]:getSample(si+50,1) --HEEEEEEELP
-    
-    --b=(b+1)/2
-    
     local bounce=64
     
     local height=-math.sin(math.pi*a)*bounce
+    
+    distance=a*self.flip*64
     
     local f=0
   
@@ -100,7 +100,7 @@ function Blossom:draw()
     
     local flip=self.flip
     
-    love.graphics.draw(_gfx[1],quad,self.x-self.flip*100,self.y+height,0,flip,1)
+    love.graphics.draw(_gfx[1],quad,self.x-self.flip*100+distance,self.y+height,0,flip,1)
   
     if self.b and self.b>a then
     
