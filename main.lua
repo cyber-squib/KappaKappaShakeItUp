@@ -25,6 +25,8 @@ function love.load()
   table.insert(_sfx,love.audio.newSource("resource/KappaDanceTune.wav","static"))
 
   table.insert(_cfx,love.sound.newSoundData("resource/KappaDanceControl.wav"))
+  
+  table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerHorizontal Bounced.wav"))
 
   love.window.setMode(960,720)
   
@@ -426,17 +428,17 @@ function Routine:init()
   --
   --self.shakeRightIndex=8
 
-  self.moveLeftPosition=0
-
-  self.moveRightPosition=0
-
-  self.moveUpPosition=0
-
-  self.moveDownPosition=0
-
-  self.shakeLeftPosition=0
-
-  self.shakeRightPosition=0
+  --self.moveLeftPosition=0
+  --
+  --self.moveRightPosition=0
+  --
+  --self.moveUpPosition=0
+  --
+  --self.moveDownPosition=0
+  --
+  --self.shakeLeftPosition=0
+  --
+  --self.shakeRightPosition=0
 
   return self
 
@@ -444,17 +446,37 @@ end
 
 function Routine:draw()
 
-  love.graphics.draw(_gfx[3],80,200)
+  local a,si
+  
+  si=_sfx[1]:tell("samples")
+  
+  a=0
+  
+  a=_cfx[2]:getSample(si,1)
+  
+  a=(a+1)/2
+  
+  xPosition=a*896
 
-  love.graphics.draw(_gfx[4],80,200)
+  love.graphics.draw(_gfx[3],xPosition,200)
+  
+  a=0
+  
+  a=_cfx[2]:getSample(si,2)
+  
+  a=(a+1)/2
+  
+  xPosition=a*1080
 
-  love.graphics.draw(_gfx[5],80,200)
+  love.graphics.draw(_gfx[4],xPosition,200)
 
-  love.graphics.draw(_gfx[6],80,200)
+  love.graphics.draw(_gfx[5],32,200)
 
-  love.graphics.draw(_gfx[7],80,200)
+  love.graphics.draw(_gfx[6],32,200)
 
-  love.graphics.draw(_gfx[8],80,200)
+  love.graphics.draw(_gfx[7],32,200)
+
+  love.graphics.draw(_gfx[8],32,200)
 
   love.graphics.draw(_gfx[2],0,0)
 
