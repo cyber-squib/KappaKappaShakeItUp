@@ -40,6 +40,12 @@ function love.mousepressed(x,y,b,t)
 
 end
 
+function love.keypressed(k,s,r)
+
+  _blossom:keyPressed(k,s,r)
+
+end
+
 Blossom={}
 
 Blossom.__index=Blossom
@@ -47,6 +53,8 @@ Blossom.__index=Blossom
 function Blossom:init()
 
   self.shaking=false
+  
+  self.hopping=false
   
   self.flip=1
   
@@ -66,41 +74,49 @@ end
 
 function Blossom:draw()
 
-  if self.shaking then
+  if self.hopping then
   
-    local a,si
-    
-    si=_sfx[1]:tell("samples")
-    
-    a=0
-    
-    a=_cfx[1]:getSample(si,1)
-    
-    a=(a+1)/2
-    
-    local f=math.floor(a*6)%6
-    
-    local offset=4
-    
-    f=f+offset
-    
-    if f>=6 then f=f-6 end
-    
-    local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
-    
-    local flip=self.flip
-    
-    love.graphics.draw(_gfx[1],quad,self.x-self.flip*100,self.y,0,flip,1)
-    
+  
+  
   else
-  
-    local f=0
-  
-    local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
+
+    if self.shaking then
     
-    local flip=self.flip
+      local a,si
+      
+      si=_sfx[1]:tell("samples")
+      
+      a=0
+      
+      a=_cfx[1]:getSample(si,1)
+      
+      a=(a+1)/2
+      
+      local f=math.floor(a*6)%6
+      
+      local offset=4
+      
+      f=f+offset
+      
+      if f>=6 then f=f-6 end
+      
+      local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
+      
+      local flip=self.flip
+      
+      love.graphics.draw(_gfx[1],quad,self.x-self.flip*100,self.y,0,flip,1)
+      
+    else
     
-    love.graphics.draw(_gfx[1],quad,self.x-self.flip*100,self.y,0,flip,1)
+      local f=0
+    
+      local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
+      
+      local flip=self.flip
+      
+      love.graphics.draw(_gfx[1],quad,self.x-self.flip*100,self.y,0,flip,1)
+    
+    end
   
   end
 
@@ -119,6 +135,32 @@ function Blossom:mousePressed(x,y,b,t)
     self.flip=1
   
     self.shaking=true
+  
+  end
+
+end
+
+function Blossom:keyPressed(k,s,r)
+
+  if k=="left" then
+  
+    self.flip=-1
+  
+    self.shaking=false
+  
+  elseif k=="right" then
+  
+    self.flip=1
+  
+    self.shaking=false
+  
+  elseif k=="up" then
+  
+    self.shaking=false
+  
+  elseif k=="down" then
+  
+    self.shaking=false
   
   end
 
