@@ -431,6 +431,8 @@ Routine.__index=Routine
 function Routine:init()
 
   self.score=0
+  
+  self.max=40
 
   return self
 
@@ -595,6 +597,24 @@ function Routine:checkShakeRight()
 end
 
 function Routine:draw()
+
+  love.graphics.setLineWidth(64)
+  
+  --love.graphics.setLineStyle"smooth"
+
+  love.graphics.setColor(0xf9/0xff,0x92/0xff,0x52/0xff,0xff/0xff)
+
+  local y=64
+  
+  local x=32
+
+  love.graphics.line(x,y,960-x,y)
+  
+  love.graphics.setLineWidth(1)
+  
+  love.graphics.setColor(1,1,1,1)
+  
+  --love.graphics.setLineStyle"rough"
 
   love.graphics.draw(_gfx[2],0,0)
   
