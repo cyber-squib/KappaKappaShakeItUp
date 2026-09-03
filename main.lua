@@ -31,6 +31,12 @@ function love.load()
   table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerVertical Bounced.wav"))
   
   table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerShake Bounced.wav"))
+  
+  table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerHorizontal copy Bounced.wav"))
+  
+  table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerVertical copy Bounced.wav"))
+  
+  table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerShake copy Bounced.wav"))
 
   love.window.setMode(960,720)
   
@@ -623,6 +629,70 @@ function Routine:draw()
   xPosition=a*moveWidth+xOffset
 
   love.graphics.draw(_gfx[8],xPosition,bottomPosition)
+  
+  --------------------------
+  
+  a=0
+  
+  a=_cfx[5]:getSample(si,1)
+  
+  a=(a+1)/2
+  
+  xPosition=a*moveWidth+xOffset
+
+  love.graphics.draw(_gfx[3],xPosition,bottomPosition)
+  
+  a=0
+  
+  a=_cfx[5]:getSample(si,2)
+  
+  a=(a+1)/2
+  
+  xPosition=a*moveWidth+xOffset
+
+  love.graphics.draw(_gfx[4],xPosition,bottomPosition)
+  
+  a=0
+  
+  a=_cfx[6]:getSample(si,1)
+  
+  a=(a+1)/2
+  
+  xPosition=a*moveWidth+xOffset
+
+  love.graphics.draw(_gfx[5],xPosition,bottomPosition)
+  
+  a=0
+  
+  a=_cfx[6]:getSample(si,2)
+  
+  a=(a+1)/2
+  
+  xPosition=a*moveWidth+xOffset
+
+  love.graphics.draw(_gfx[6],xPosition,bottomPosition)
+  
+  a=0
+  
+  a=_cfx[7]:getSample(si,1)
+  
+  a=(a+1)/2
+  
+  xPosition=a*moveWidth+xOffset
+
+  love.graphics.draw(_gfx[7],xPosition,bottomPosition)
+  
+  a=0
+  
+  a=_cfx[7]:getSample(si,2)
+  
+  a=(a+1)/2
+  
+  xPosition=a*moveWidth+xOffset
+
+  love.graphics.draw(_gfx[8],xPosition,bottomPosition)
+  
+  ------------------------------
 
 end
 
