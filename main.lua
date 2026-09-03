@@ -9,6 +9,18 @@ function love.load()
   table.insert(_gfx,love.graphics.newImage("resource/sliceAll_KappaDance.png"))
   
   table.insert(_gfx,love.graphics.newImage("resource/KappaRoutine.png"))
+  
+  table.insert(_gfx,love.graphics.newImage("resource/MoveLeft.png"))
+
+  table.insert(_gfx,love.graphics.newImage("resource/MoveRight.png"))
+
+  table.insert(_gfx,love.graphics.newImage("resource/MoveUp.png"))
+
+  table.insert(_gfx,love.graphics.newImage("resource/MoveDown.png"))
+
+  table.insert(_gfx,love.graphics.newImage("resource/ShakeLeft.png"))
+
+  table.insert(_gfx,love.graphics.newImage("resource/ShakeRight.png"))
 
   table.insert(_sfx,love.audio.newSource("resource/KappaDanceTune.wav","static"))
 
@@ -402,11 +414,47 @@ Routine.__index=Routine
 
 function Routine:init()
 
+  --self.moveLeftIndex=3
+  --
+  --self.moveRightIndex=4
+  --
+  --self.moveUpIndex=5
+  --
+  --self.moveDownIndex=6
+  --
+  --self.shakeLeftIndex=7
+  --
+  --self.shakeRightIndex=8
+
+  self.moveLeftPosition=0
+
+  self.moveRightPosition=0
+
+  self.moveUpPosition=0
+
+  self.moveDownPosition=0
+
+  self.shakeLeftPosition=0
+
+  self.shakeRightPosition=0
+
   return self
 
 end
 
 function Routine:draw()
+
+  love.graphics.draw(_gfx[3],80,200)
+
+  love.graphics.draw(_gfx[4],80,200)
+
+  love.graphics.draw(_gfx[5],80,200)
+
+  love.graphics.draw(_gfx[6],80,200)
+
+  love.graphics.draw(_gfx[7],80,200)
+
+  love.graphics.draw(_gfx[8],80,200)
 
   love.graphics.draw(_gfx[2],0,0)
 
