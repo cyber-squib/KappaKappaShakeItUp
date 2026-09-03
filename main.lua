@@ -92,7 +92,9 @@ function Blossom:draw()
     
     local height=-math.sin(math.pi*a)*bounce
     
-    distance=a*self.flip*64
+    local gridSize=96
+    
+    distance=a*self.flip*gridSize
     
     local f=0
   
@@ -100,15 +102,25 @@ function Blossom:draw()
     
     local flip=self.flip
     
-    love.graphics.draw(_gfx[1],quad,self.x-self.flip*100+distance,self.y+height,0,flip,1)
-  
+    
+    
     if self.b and self.b>a then
     
       self.hopping=false
+      
+      self.x=self.x+self.distance
     
     end
     
     self.b=a
+    
+    self.distance=distance
+    
+    
+    
+    love.graphics.draw(_gfx[1],quad,self.x-self.flip*100+distance,self.y+height,0,flip,1)
+  
+    
   
   else
 
