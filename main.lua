@@ -469,6 +469,10 @@ function Routine:checkMoveLeft()
     self.score=self.score+1
     
     _feedback:pass()
+    
+  else
+  
+    _feedback:fail()
   
   end
 
@@ -499,6 +503,10 @@ function Routine:checkMoveRight()
     self.score=self.score+1
     
     _feedback:pass()
+    
+  else
+  
+    _feedback:fail()
   
   end
 
@@ -527,6 +535,10 @@ function Routine:checkMoveUp()
     self.score=self.score+1
     
     _feedback:pass()
+    
+  else
+  
+    _feedback:fail()
   
   end
 
@@ -555,6 +567,10 @@ function Routine:checkMoveDown()
     self.score=self.score+1
     
     _feedback:pass()
+    
+  else
+  
+    _feedback:fail()
   
   end
 
@@ -583,6 +599,10 @@ function Routine:checkShakeLeft()
     self.score=self.score+1
     
     _feedback:pass()
+    
+  else
+  
+    _feedback:fail()
   
   end
 
@@ -611,6 +631,10 @@ function Routine:checkShakeRight()
     self.score=self.score+1
     
     _feedback:pass()
+    
+  else
+  
+    _feedback:fail()
   
   end
 
@@ -848,13 +872,13 @@ end
 
 function Feedback:pass()
 
-  self.grade=75
+  self.grade=30
 
 end
 
 function Feedback:fail()
 
-  self.grade=-75
+  self.grade=-30
 
 end
 
