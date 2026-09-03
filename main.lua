@@ -608,7 +608,9 @@ function Routine:draw()
   
   local x=32
 
-  love.graphics.line(x,y,960-x,y)
+  local width=(960-x*2)*self.score/self.max
+
+  love.graphics.line(x,y,x+width,y)
   
   love.graphics.setLineWidth(1)
   
