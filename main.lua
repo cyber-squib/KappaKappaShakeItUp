@@ -348,7 +348,7 @@ end
 
 function Blossom:keyPressed(k,s,r)
 
-  if k=="left" or k=="a" then
+  if k=="left" then --or k=="a" then
   
     self.stageX=self.stageX-1
   
@@ -364,7 +364,7 @@ function Blossom:keyPressed(k,s,r)
     
     end
   
-  elseif k=="right" or k=="d" then
+  elseif k=="right" then --or k=="d" then
   
     self.stageX=self.stageX+1
   
@@ -380,7 +380,7 @@ function Blossom:keyPressed(k,s,r)
     
     end
   
-  elseif k=="up" or k=="w" then
+  elseif k=="up" then --or k=="w" then
   
     self.stageY=self.stageY-1
   
@@ -396,7 +396,7 @@ function Blossom:keyPressed(k,s,r)
     
     end
   
-  elseif k=="down" or k=="s" then
+  elseif k=="down" then --or k=="s" then
   
     self.stageY=self.stageY+1
   
@@ -412,13 +412,13 @@ function Blossom:keyPressed(k,s,r)
     
     end
     
-  elseif k=="k" then
-  
-    self:shakeLeft()
-  
-  elseif k=="l" then
-  
-    self:shakeRight()
+  --elseif k=="k" then
+  --
+  --  self:shakeLeft()
+  --
+  --elseif k=="l" then
+  --
+  --  self:shakeRight()
   
   end
 
@@ -786,29 +786,29 @@ end
 
 function Routine:keyPressed(k,s,r)
 
-  if k=="left" or k=="a" then
+  if k=="left" then --or k=="a" then
   
     self:checkMoveLeft()
   
-  elseif k=="right" or k=="d" then
+  elseif k=="right" then --or k=="d" then
   
     self:checkMoveRight()
 
-  elseif k=="up" or k=="w" then
+  elseif k=="up" then --or k=="w" then
   
     self:checkMoveUp()
   
-  elseif k=="down" or k=="s" then
+  elseif k=="down" then --or k=="s" then
   
     self:checkMoveDown()
     
-  elseif k=="k" then
-  
-    self:checkShakeLeft()
-  
-  elseif k=="l" then
-  
-    self:checkShakeRight()
+  --elseif k=="k" then
+  --
+  --  self:checkShakeLeft()
+  --
+  --elseif k=="l" then
+  --
+  --  self:checkShakeRight()
   
   end
   
