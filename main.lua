@@ -27,6 +27,8 @@ function love.load()
   table.insert(_cfx,love.sound.newSoundData("resource/KappaDanceControl.wav"))
   
   table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerHorizontal Bounced.wav"))
+  
+  table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerVertical Bounced.wav"))
 
   love.window.setMode(960,720)
   
@@ -446,6 +448,12 @@ end
 
 function Routine:draw()
 
+  love.graphics.draw(_gfx[2],0,0)
+
+  local bottomPosition=580
+  
+  local xOffset=-32
+
   local a,si
   
   si=_sfx[1]:tell("samples")
@@ -456,9 +464,9 @@ function Routine:draw()
   
   a=(a+1)/2
   
-  xPosition=a*896
+  xPosition=a*1080+xOffset
 
-  love.graphics.draw(_gfx[3],xPosition,200)
+  love.graphics.draw(_gfx[3],xPosition,bottomPosition)
   
   a=0
   
@@ -466,19 +474,33 @@ function Routine:draw()
   
   a=(a+1)/2
   
-  xPosition=a*1080
+  xPosition=a*1080+xOffset
 
-  love.graphics.draw(_gfx[4],xPosition,200)
+  love.graphics.draw(_gfx[4],xPosition,bottomPosition)
+  
+  a=0
+  
+  a=_cfx[3]:getSample(si,1)
+  
+  a=(a+1)/2
+  
+  xPosition=a*1080+xOffset
 
-  love.graphics.draw(_gfx[5],32,200)
+  love.graphics.draw(_gfx[5],xPosition,bottomPosition)
+  
+  a=0
+  
+  a=_cfx[3]:getSample(si,2)
+  
+  a=(a+1)/2
+  
+  xPosition=a*1080+xOffset
 
-  love.graphics.draw(_gfx[6],32,200)
+  love.graphics.draw(_gfx[6],xPosition,bottomPosition)
 
-  love.graphics.draw(_gfx[7],32,200)
+  love.graphics.draw(_gfx[7],32,bottomPosition)
 
-  love.graphics.draw(_gfx[8],32,200)
-
-  love.graphics.draw(_gfx[2],0,0)
+  love.graphics.draw(_gfx[8],32,bottomPosition)
 
 end
 
