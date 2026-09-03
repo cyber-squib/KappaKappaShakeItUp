@@ -3,8 +3,15 @@ function love.load()
   _frame=0
 
   _gfx={}
+  
+  _sfx={}
+  
+  _cfx={}
 
   table.insert(_gfx,love.graphics.newImage("resource/sliceAll_KappaDance.png"))
+  
+  _tune=love.audio.newSource(      "resource/KappaDanceTune.wav","static")
+  _control=love.sound.newSoundData("resource/KappaDanceControl.wav")
 
   love.window.setMode(960,720)
 
