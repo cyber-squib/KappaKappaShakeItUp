@@ -496,7 +496,7 @@ function Routine:checkMoveLeft()
   
   b=math.abs(b)*100
   
-  if a<10 or b<10 then
+  if a<5 or b<5 then
   
     self.score=self.score+1
     
@@ -530,7 +530,7 @@ function Routine:checkMoveRight()
   
   --assert(false,"a=="..a)
   
-  if a<10 or b<10 then
+  if a<5 or b<5 then
   
     self.score=self.score+1
     
@@ -562,7 +562,7 @@ function Routine:checkMoveUp()
   
   b=math.abs(b)*100
   
-  if a<10 or b<10 then
+  if a<5 or b<5 then
   
     self.score=self.score+1
     
@@ -594,7 +594,7 @@ function Routine:checkMoveDown()
   
   b=math.abs(b)*100
   
-  if a<10 or b<10 then
+  if a<5 or b<5 then
   
     self.score=self.score+1
     
@@ -626,7 +626,7 @@ function Routine:checkShakeLeft()
   
   b=math.abs(b)*100
   
-  if a<10 or b<10 then
+  if a<5 or b<5 then
   
     self.score=self.score+1
     
@@ -658,7 +658,7 @@ function Routine:checkShakeRight()
   
   b=math.abs(b)*100
   
-  if a<10 or b<10 then
+  if a<5 or b<5 then
   
     self.score=self.score+1
     
