@@ -64,9 +64,17 @@ function Blossom:init()
   
   self.y=512
   
-  self.originalX=self.x
+  self.stageX=2
   
-  self.originalY=self.y
+  self.stageY=1
+  
+  self.stageXMin=0
+  
+  self.stageYMin=0
+  
+  self.stageXMax=4
+  
+  self.stageYMax=2
 
   return self
 
@@ -242,39 +250,79 @@ function Blossom:keyPressed(k,s,r)
 
   if k=="left" then
   
-    self.flip=-1
+    self.stageX=self.stageX-1
   
-    self.shaking=false
+    if self.stageX>=self.stageXMin then
+  
+      self.flip=-1
     
-    self.hopping=true
+      self.shaking=false
+      
+      self.hopping=true
+      
+      self.approach=0
     
-    self.approach=0
+    else
+    
+      self.stageX=self.stageXMin
+    
+    end
   
   elseif k=="right" then
   
-    self.flip=1
+    self.stageX=self.stageX+1
   
-    self.shaking=false
+    if self.stageX<=self.stageXMax then
+  
+      self.flip=1
+  
+      self.shaking=false
+      
+      self.hopping=true
+      
+      self.approach=0
     
-    self.hopping=true
+    else
     
-    self.approach=0
+      self.stageX=self.stageXMax
+    
+    end
   
   elseif k=="up" then
   
-    self.shaking=false
+    self.stageY=self.stageY-1
+  
+    if self.stageY>=self.stageYMin then
+  
+      self.shaking=false
+      
+      self.hopping=true
+      
+      self.approach=-1
     
-    self.hopping=true
+    else
     
-    self.approach=-1
+      self.stageY=self.stageYMin
+    
+    end
   
   elseif k=="down" then
   
-    self.shaking=false
+    self.stageY=self.stageY+1
+  
+    if self.stageY<=self.stageYMax then
+  
+      self.shaking=false
+      
+      self.hopping=true
+      
+      self.approach=1
     
-    self.hopping=true
+    else
     
-    self.approach=1
+      self.stageY=self.stageYMax
+    
+    end
   
   end
 
