@@ -49,6 +49,10 @@ function Blossom:init()
   self.shaking=false
   
   self.flip=1
+  
+  self.x=512
+  
+  self.y=512
 
   return self
 
@@ -86,7 +90,7 @@ function Blossom:draw()
     
     local flip=self.flip
     
-    love.graphics.draw(_gfx[1],quad,512,512,0,flip,1)
+    love.graphics.draw(_gfx[1],quad,self.x-self.flip*100,self.y,0,flip,1)
     
   else
   
@@ -96,7 +100,7 @@ function Blossom:draw()
     
     local flip=self.flip
     
-    love.graphics.draw(_gfx[1],quad,512,512,0,flip,1)
+    love.graphics.draw(_gfx[1],quad,self.x-self.flip*100,self.y,0,flip,1)
   
   end
 
