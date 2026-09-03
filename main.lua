@@ -438,7 +438,7 @@ function Routine:checkMoveLeft()
   
   a=math.abs(a)*100
   
-  if a<80 then
+  if a<10 then
   
     self.score=self.score+1
   
@@ -460,7 +460,7 @@ function Routine:checkMoveRight()
   
   --assert(false,"a=="..a)
   
-  if a<80 then
+  if a<10 then
   
     self.score=self.score+1
   
@@ -480,7 +480,7 @@ function Routine:checkMoveUp()
   
   a=math.abs(a)*100
   
-  if a<80 then
+  if a<10 then
   
     self.score=self.score+1
   
@@ -500,7 +500,7 @@ function Routine:checkMoveDown()
   
   a=math.abs(a)*100
   
-  if a<80 then
+  if a<10 then
   
     self.score=self.score+1
   
@@ -520,7 +520,7 @@ function Routine:checkShakeLeft()
   
   a=math.abs(a)*100
   
-  if a<80 then
+  if a<10 then
   
     self.score=self.score+1
   
@@ -540,7 +540,7 @@ function Routine:checkShakeRight()
   
   a=math.abs(a)*100
   
-  if a<80 then
+  if a<10 then
   
     self.score=self.score+1
   
@@ -556,7 +556,9 @@ function Routine:draw()
 
   local bottomPosition=580-17
   
-  local xOffset=20
+  local xOffset=20-1080
+  
+  local moveWidth=1080*2
 
   local a,si
   
@@ -568,7 +570,7 @@ function Routine:draw()
   
   a=(a+1)/2
   
-  xPosition=a*1080+xOffset
+  xPosition=a*moveWidth+xOffset
 
   love.graphics.draw(_gfx[3],xPosition,bottomPosition)
   
@@ -578,7 +580,7 @@ function Routine:draw()
   
   a=(a+1)/2
   
-  xPosition=a*1080+xOffset
+  xPosition=a*moveWidth+xOffset
 
   love.graphics.draw(_gfx[4],xPosition,bottomPosition)
   
@@ -588,7 +590,7 @@ function Routine:draw()
   
   a=(a+1)/2
   
-  xPosition=a*1080+xOffset
+  xPosition=a*moveWidth+xOffset
 
   love.graphics.draw(_gfx[5],xPosition,bottomPosition)
   
@@ -598,7 +600,7 @@ function Routine:draw()
   
   a=(a+1)/2
   
-  xPosition=a*1080+xOffset
+  xPosition=a*moveWidth+xOffset
 
   love.graphics.draw(_gfx[6],xPosition,bottomPosition)
   
@@ -608,7 +610,7 @@ function Routine:draw()
   
   a=(a+1)/2
   
-  xPosition=a*1080+xOffset
+  xPosition=a*moveWidth+xOffset
 
   love.graphics.draw(_gfx[7],xPosition,bottomPosition)
   
@@ -618,7 +620,7 @@ function Routine:draw()
   
   a=(a+1)/2
   
-  xPosition=a*1080+xOffset
+  xPosition=a*moveWidth+xOffset
 
   love.graphics.draw(_gfx[8],xPosition,bottomPosition)
 
