@@ -1,7 +1,5 @@
 function love.load()
 
-  _frame=0
-
   _gfx={}
   
   _sfx={}
@@ -17,12 +15,34 @@ function love.load()
   love.window.setMode(960,720)
   
   _sfx[1]:play()
+  
+  _blossom=setmetatable({},Blossom):init()
 
 end
 
 function love.draw()
 
   love.graphics.clear(.5,.5,.5,1)
+  
+  _blossom:draw()
+
+end
+
+Blossom={}
+
+Blossom.__index=Blossom
+
+function Blossom:init()
+
+  return self
+
+end
+
+function Blossom:update()
+
+end
+
+function Blossom:draw()
 
   local a,si
 
@@ -44,8 +64,10 @@ function love.draw()
 
 --  local f=math.floor(_frame/6)%6
   
-  love.graphics.draw(_gfx[1],love.graphics.newQuad(200*f,0,200,200,1200,200),8,8)
+  local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
   
-  _frame=_frame+1
+  local flip=1
+  
+  love.graphics.draw(_gfx[1],quad,512,512,0,flip,1)
 
 end
