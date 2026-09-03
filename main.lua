@@ -29,6 +29,8 @@ function love.load()
   table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerHorizontal Bounced.wav"))
   
   table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerVertical Bounced.wav"))
+  
+  table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerShake Bounced.wav"))
 
   love.window.setMode(960,720)
   
@@ -450,9 +452,9 @@ function Routine:draw()
 
   love.graphics.draw(_gfx[2],0,0)
 
-  local bottomPosition=580
+  local bottomPosition=580-17
   
-  local xOffset=-32
+  local xOffset=20
 
   local a,si
   
@@ -497,10 +499,26 @@ function Routine:draw()
   xPosition=a*1080+xOffset
 
   love.graphics.draw(_gfx[6],xPosition,bottomPosition)
+  
+  a=0
+  
+  a=_cfx[4]:getSample(si,1)
+  
+  a=(a+1)/2
+  
+  xPosition=a*1080+xOffset
 
-  love.graphics.draw(_gfx[7],32,bottomPosition)
+  love.graphics.draw(_gfx[7],xPosition,bottomPosition)
+  
+  a=0
+  
+  a=_cfx[4]:getSample(si,2)
+  
+  a=(a+1)/2
+  
+  xPosition=a*1080+xOffset
 
-  love.graphics.draw(_gfx[8],32,bottomPosition)
+  love.graphics.draw(_gfx[8],xPosition,bottomPosition)
 
 end
 
