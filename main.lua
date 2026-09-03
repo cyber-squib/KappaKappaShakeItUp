@@ -27,6 +27,8 @@ function love.load()
   table.insert(_gfx,love.graphics.newImage("resource/v.png"))
   
   table.insert(_gfx,love.graphics.newImage("resource/x.png"))
+  
+  table.insert(_gfx,love.graphics.newImage("resource/Title.png"))
 
   table.insert(_sfx,love.audio.newSource("resource/KappaDanceTune.wav","static"))
 
@@ -46,43 +48,73 @@ function love.load()
 
   love.window.setMode(960,720)
   
-  _sfx[1]:play()
+  --_sfx[1]:play()
   
   _blossom=setmetatable({},Blossom):init()
   
   _routine=setmetatable({},Routine):init()
   
   _feedback=setmetatable({},Feedback):init()
+  
+  _state=0
 
 end
 
 function love.draw()
 
-  love.graphics.clear(.5,.5,.5,1)
+  if _state==1 then
+
+    love.graphics.clear(.5,.5,.5,1)
+    
+    love.graphics.draw(_gfx[9],0,0)
+    
+    _blossom:draw()
+    
+    _routine:draw()
+    
+    _feedback:draw()
+    
+  else
   
-  love.graphics.draw(_gfx[9],0,0)
+    love.graphics.draw(_gfx[12],0,0)
   
-  _blossom:draw()
-  
-  _routine:draw()
-  
-  _feedback:draw()
+  end
 
 end
 
 function love.mousepressed(x,y,b,t)
 
-  _blossom:mousePressed(x,y,b,t)
+  if _state==1 then
+
+    _blossom:mousePressed(x,y,b,t)
+    
+    _routine:mousePressed(x,y,b,t)
   
-  _routine:mousePressed(x,y,b,t)
+  else
+  
+    _state=1
+    
+    _sfx[1]:play()
+  
+  end
 
 end
 
 function love.keypressed(k,s,r)
 
-  _blossom:keyPressed(k,s,r)
+  if _state==1 then
 
-  _routine:keyPressed(k,s,r)
+    _blossom:keyPressed(k,s,r)
+
+    _routine:keyPressed(k,s,r)
+  
+  else
+  
+    _state=1
+    
+    _sfx[1]:play()
+  
+  end
 
 end
 
