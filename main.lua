@@ -76,7 +76,37 @@ function Blossom:draw()
 
   if self.hopping then
   
+    local a,si
+      
+    si=_sfx[1]:tell("samples")
+    
+    a=0
+    
+    a=_cfx[1]:getSample(si,1)
+    
+    a=(a+1)/2
+    
+    b=_cfx[1]:getSample(si+100,1) --HEEEEEEELP
+    
+    b=(a+1)/2
+    
+    local bounce=64
+    
+    local height=-math.sin(math.pi*a)*bounce
+    
+    local f=0
   
+    local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
+    
+    local flip=self.flip
+    
+    love.graphics.draw(_gfx[1],quad,self.x-self.flip*100,self.y+height,0,flip,1)
+  
+    if b<a then
+    
+      self.hopping=false
+    
+    end
   
   else
 
@@ -147,20 +177,28 @@ function Blossom:keyPressed(k,s,r)
     self.flip=-1
   
     self.shaking=false
+    
+    self.hopping=true
   
   elseif k=="right" then
   
     self.flip=1
   
     self.shaking=false
+    
+    self.hopping=true
   
   elseif k=="up" then
   
     self.shaking=false
+    
+    self.hopping=true
   
   elseif k=="down" then
   
     self.shaking=false
+    
+    self.hopping=true
   
   end
 
