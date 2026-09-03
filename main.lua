@@ -17,6 +17,8 @@ function love.load()
   _sfx[1]:play()
   
   _blossom=setmetatable({},Blossom):init()
+  
+  _routine=setmetatable({},Routine):init()
 
 end
 
@@ -25,6 +27,8 @@ function love.draw()
   love.graphics.clear(.5,.5,.5,1)
   
   _blossom:draw()
+  
+  _routine:draw()
 
 end
 
@@ -37,12 +41,16 @@ end
 function love.mousepressed(x,y,b,t)
 
   _blossom:mousePressed(x,y,b,t)
+  
+  _routine:mousePressed(x,y,b,t)
 
 end
 
 function love.keypressed(k,s,r)
 
   _blossom:keyPressed(k,s,r)
+
+  _routine:keyPressed(k,s,r)
 
 end
 
@@ -395,5 +403,27 @@ function Blossom:keyPressed(k,s,r)
     self:shakeRight()
   
   end
+
+end
+
+Routine={}
+
+Routine.__index=Routine
+
+function Routine:init()
+
+  return self
+
+end
+
+function Routine:draw()
+
+end
+
+function Routine:mousePressed(x,y,b,t)
+
+end
+
+function Routine:keyPressed(k,s,r)
 
 end
