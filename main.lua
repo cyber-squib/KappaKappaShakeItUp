@@ -112,6 +112,8 @@ function Blossom:draw()
       
       distance=a*self.flip*gridSize
       
+      if self.here then distance=0 end
+      
       local f=0
       
       local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
@@ -123,6 +125,8 @@ function Blossom:draw()
       if self.b and self.b>a then
       
         self.hopping=false
+        
+        self.here=false
         
         self.x=self.x+self.distance
       
@@ -304,6 +308,18 @@ function Blossom:hopDown()
 
 end
 
+function Blossom:hopHere()
+
+  self.shaking=false
+  
+  self.hopping=true
+  
+  self.approach=0
+  
+  self.here=true
+
+end
+
 function Blossom:keyPressed(k,s,r)
 
   if k=="left" or k=="a" then
@@ -315,6 +331,8 @@ function Blossom:keyPressed(k,s,r)
       self:hopLeft()
     
     else
+    
+      self:hopHere()
     
       self.stageX=self.stageXMin
     
@@ -330,6 +348,8 @@ function Blossom:keyPressed(k,s,r)
     
     else
     
+      self:hopHere()
+    
       self.stageX=self.stageXMax
     
     end
@@ -344,6 +364,8 @@ function Blossom:keyPressed(k,s,r)
     
     else
     
+      self:hopHere()
+    
       self.stageY=self.stageYMin
     
     end
@@ -357,6 +379,8 @@ function Blossom:keyPressed(k,s,r)
       self:hopDown()
     
     else
+    
+      self:hopHere()
     
       self.stageY=self.stageYMax
     
