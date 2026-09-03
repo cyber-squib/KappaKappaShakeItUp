@@ -12,6 +12,6 @@ function love.draw()
 
   love.graphics.clear(.5,.5,.5,1)
   
-    love.graphics.draw(_gfx[1],8,8)--,0,1.25,1.25)
+  love.graphics.draw(_gfx[1],love.graphics.newQuad(160*0,0,160,160,960,160),8,8)--,0,1.25,1.25)
 
 end
