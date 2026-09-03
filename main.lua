@@ -7,6 +7,8 @@ function love.load()
   _cfx={}
 
   table.insert(_gfx,love.graphics.newImage("resource/sliceAll_KappaDance.png"))
+  
+  table.insert(_gfx,love.graphics.newImage("resource/KappaRoutine.png"))
 
   table.insert(_sfx,love.audio.newSource("resource/KappaDanceTune.wav","static"))
 
@@ -31,12 +33,6 @@ function love.draw()
   _routine:draw()
 
 end
-
---function love.update()
---
---  _blossom:update()
---
---end
 
 function love.mousepressed(x,y,b,t)
 
@@ -68,9 +64,9 @@ function Blossom:init()
   
   self.flip=1
   
-  self.x=512
+  self.x=480
   
-  self.y=512
+  self.y=360
   
   self.stageX=2
   
@@ -87,12 +83,6 @@ function Blossom:init()
   return self
 
 end
-
---function Blossom:update()
---
---  
---
---end
 
 function Blossom:draw()
 
@@ -417,6 +407,8 @@ function Routine:init()
 end
 
 function Routine:draw()
+
+  love.graphics.draw(_gfx[2],0,0)
 
 end
 
