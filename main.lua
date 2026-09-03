@@ -602,14 +602,22 @@ function Routine:draw()
   
   --love.graphics.setLineStyle"smooth"
 
-  love.graphics.setColor(0xf9/0xff,0x92/0xff,0x52/0xff,0xff/0xff)
+  love.graphics.setColor(0x6a/0xff,0x37/0xff,0x71/0xff,0xff/0xff)
 
   local y=64
   
   local x=32
 
-  local width=(960-x*2)*self.score/self.max
+  local percentage=self.score/self.max
+  
+  if percentage>1 then percentage=1 end
 
+  local width=(960-x*2)*percentage
+
+  love.graphics.line(x,y,x+(960-x*2),y)
+
+  love.graphics.setColor(0xf9/0xff,0x92/0xff,0x52/0xff,0xff/0xff)
+  
   love.graphics.line(x,y,x+width,y)
   
   love.graphics.setLineWidth(1)
@@ -620,7 +628,11 @@ function Routine:draw()
 
   love.graphics.draw(_gfx[2],0,0)
   
-  love.graphics.print("SCORE:"..self.score,64,56)
+  
+  
+  
+  
+  --love.graphics.print("SCORE:"..self.score,64,56)
 
   local bottomPosition=580-17
   
