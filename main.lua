@@ -306,7 +306,7 @@ end
 
 function Blossom:keyPressed(k,s,r)
 
-  if k=="left" then
+  if k=="left" or k=="a" then
   
     self.stageX=self.stageX-1
   
@@ -320,7 +320,7 @@ function Blossom:keyPressed(k,s,r)
     
     end
   
-  elseif k=="right" then
+  elseif k=="right" or k=="d" then
   
     self.stageX=self.stageX+1
   
@@ -334,7 +334,7 @@ function Blossom:keyPressed(k,s,r)
     
     end
   
-  elseif k=="up" then
+  elseif k=="up" or k=="w" then
   
     self.stageY=self.stageY-1
   
@@ -348,7 +348,7 @@ function Blossom:keyPressed(k,s,r)
     
     end
   
-  elseif k=="down" then
+  elseif k=="down" or k=="s" then
   
     self.stageY=self.stageY+1
   
@@ -361,6 +361,14 @@ function Blossom:keyPressed(k,s,r)
       self.stageY=self.stageYMax
     
     end
+    
+  elseif k=="k" then
+  
+    self:shakeLeft()
+  
+  elseif k=="l" then
+  
+    self:shakeRight()
   
   end
 
