@@ -28,46 +28,88 @@ function love.draw()
 
 end
 
+--function love.update()
+--
+--  _blossom:update()
+--
+--end
+
+function love.mousepressed(x,y,b,t)
+
+  _blossom:mousePressed(x,y,b,t)
+
+end
+
 Blossom={}
 
 Blossom.__index=Blossom
 
 function Blossom:init()
 
+  self.shaking=false
+
   return self
 
 end
 
-function Blossom:update()
-
-end
+--function Blossom:update()
+--
+--  
+--
+--end
 
 function Blossom:draw()
 
-  local a,si
-
-  si=_sfx[1]:tell("samples")
-
-  a=0
-
-  a=_cfx[1]:getSample(si,1)
-
-  a=(a+1)/2
-
-  local f=math.floor(a*6)%6
+  if self.shaking then
   
-  local offset=4
+    local a,si
+    
+    si=_sfx[1]:tell("samples")
+    
+    a=0
+    
+    a=_cfx[1]:getSample(si,1)
+    
+    a=(a+1)/2
+    
+    local f=math.floor(a*6)%6
+    
+    local offset=4
+    
+    f=f+offset
+    
+    if f>=6 then f=f-6 end
+    
+    local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
+    
+    local flip=1
+    
+    love.graphics.draw(_gfx[1],quad,512,512,0,flip,1)
+    
+  else
   
-  f=f+offset
+    local f=0
   
-  if f>=6 then f=f-6 end
+    local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
+    
+    local flip=1
+    
+    love.graphics.draw(_gfx[1],quad,512,512,0,flip,1)
+  
+  end
 
---  local f=math.floor(_frame/6)%6
+end
+
+function Blossom:mousePressed(x,y,b,t)
+
+  if b==1 then
   
-  local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
+    self.shaking=true
   
-  local flip=1
+  elseif b==2 then
   
-  love.graphics.draw(_gfx[1],quad,512,512,0,flip,1)
+    self.shaking=true
+  
+  end
 
 end
