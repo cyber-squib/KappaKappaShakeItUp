@@ -232,17 +232,75 @@ function Blossom:mousePressed(x,y,b,t)
 
   if b==1 then
   
-    self.flip=-1
-  
-    self.shaking=true
+    self:shakeLeft()
   
   elseif b==2 then
   
-    self.flip=1
-  
-    self.shaking=true
+    self:shakeRight()
   
   end
+
+end
+
+function Blossom:shakeLeft()
+  
+  self.flip=-1
+  
+  self.shaking=true
+
+end
+
+function Blossom:shakeRight()
+  
+  self.flip=1
+  
+  self.shaking=true
+
+end
+
+function Blossom:hopLeft()
+
+  self.flip=-1
+  
+  self.shaking=false
+  
+  self.hopping=true
+  
+  self.approach=0
+
+end
+
+function Blossom:hopRight()
+
+
+  
+  self.flip=1
+  
+  self.shaking=false
+  
+  self.hopping=true
+  
+  self.approach=0
+
+end
+
+function Blossom:hopUp()
+
+  self.shaking=false
+  
+  self.hopping=true
+  
+  self.approach=-1
+
+end
+
+function Blossom:hopDown()
+  
+  self.shaking=false
+  
+  self.hopping=true
+  
+  self.approach=1
 
 end
 
@@ -253,14 +311,8 @@ function Blossom:keyPressed(k,s,r)
     self.stageX=self.stageX-1
   
     if self.stageX>=self.stageXMin then
-  
-      self.flip=-1
     
-      self.shaking=false
-      
-      self.hopping=true
-      
-      self.approach=0
+      self:hopLeft()
     
     else
     
@@ -273,14 +325,8 @@ function Blossom:keyPressed(k,s,r)
     self.stageX=self.stageX+1
   
     if self.stageX<=self.stageXMax then
-  
-      self.flip=1
-  
-      self.shaking=false
-      
-      self.hopping=true
-      
-      self.approach=0
+    
+      self:hopRight()
     
     else
     
@@ -293,12 +339,8 @@ function Blossom:keyPressed(k,s,r)
     self.stageY=self.stageY-1
   
     if self.stageY>=self.stageYMin then
-  
-      self.shaking=false
-      
-      self.hopping=true
-      
-      self.approach=-1
+    
+      self:hopUp()
     
     else
     
@@ -311,12 +353,8 @@ function Blossom:keyPressed(k,s,r)
     self.stageY=self.stageY+1
   
     if self.stageY<=self.stageYMax then
-  
-      self.shaking=false
-      
-      self.hopping=true
-      
-      self.approach=1
+    
+      self:hopDown()
     
     else
     
