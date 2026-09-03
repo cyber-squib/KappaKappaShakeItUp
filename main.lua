@@ -29,6 +29,8 @@ function love.load()
   table.insert(_gfx,love.graphics.newImage("resource/x.png"))
   
   table.insert(_gfx,love.graphics.newImage("resource/Title.png"))
+  
+  table.insert(_gfx,love.graphics.newImage("resource/spicy.png"))
 
   table.insert(_sfx,love.audio.newSource("resource/KappaDanceTune.wav","static"))
 
@@ -89,6 +91,12 @@ function love.mousepressed(x,y,b,t)
     _blossom:mousePressed(x,y,b,t)
     
     _routine:mousePressed(x,y,b,t)
+    
+    if not _sfx[1]:isPlaying() then
+    
+      love.event.quit"restart"
+    
+    end
   
   else
   
@@ -107,6 +115,12 @@ function love.keypressed(k,s,r)
     _blossom:keyPressed(k,s,r)
 
     _routine:keyPressed(k,s,r)
+    
+    if not _sfx[1]:isPlaying() then
+    
+      love.event.quit"restart"
+    
+    end
   
   else
   
@@ -687,6 +701,7 @@ function Routine:draw()
   local percentage=self.score/self.max
   
   if percentage>1 then percentage=1 end
+  
 
   local width=(960-x*2)*percentage
 
@@ -701,6 +716,28 @@ function Routine:draw()
   love.graphics.setColor(1,1,1,1)
   
   --love.graphics.setLineStyle"rough"
+  
+  
+  
+  
+    if not _sfx[1]:isPlaying() then
+  
+    local spicy=math.floor(percentage/100*5)+1
+    
+    if spicy>5 then spicy=5 end
+    
+    --spicy=5
+    
+    for i=1,spicy do
+    
+      love.graphics.draw(_gfx[13],-200+175*i,64)
+    
+    end
+  
+  end
+  
+  
+  
 
   love.graphics.draw(_gfx[2],0,0)
   
