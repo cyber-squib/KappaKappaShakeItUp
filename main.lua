@@ -56,11 +56,17 @@ function Blossom:init()
   
   self.hopping=false
   
+  self.approach=0
+  
   self.flip=1
   
   self.x=512
   
   self.y=512
+  
+  self.originalX=self.x
+  
+  self.originalY=self.y
 
   return self
 
@@ -78,47 +84,95 @@ function Blossom:draw()
 
   if self.hopping then
   
-    local a,si
+    if self.approach==0 then
       
-    si=_sfx[1]:tell("samples")
-    
-    a=0
-    
-    a=_cfx[1]:getSample(si,1)
-    
-    a=(a+1)/2
-    
-    local bounce=64
-    
-    local height=-math.sin(math.pi*a)*bounce
-    
-    local gridSize=96
-    
-    distance=a*self.flip*gridSize
-    
-    local f=0
-  
-    local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
-    
-    local flip=self.flip
-    
-    
-    
-    if self.b and self.b>a then
-    
-      self.hopping=false
+      local a,si
+        
+      si=_sfx[1]:tell("samples")
       
-      self.x=self.x+self.distance
+      a=0
+      
+      a=_cfx[1]:getSample(si,1)
+      
+      a=(a+1)/2
+      
+      local bounce=64
+      
+      local height=-math.sin(math.pi*a)*bounce
+      
+      local gridSize=96
+      
+      distance=a*self.flip*gridSize
+      
+      local f=0
+      
+      local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
+      
+      local flip=self.flip
+      
+      
+      
+      if self.b and self.b>a then
+      
+        self.hopping=false
+        
+        self.x=self.x+self.distance
+      
+      end
+      
+      self.b=a
+      
+      self.distance=distance
+      
+      
+      
+      love.graphics.draw(_gfx[1],quad,self.x-self.flip*100+distance,self.y+height,0,flip,1)
+      
+    else
+    
+      local a,si
+        
+      si=_sfx[1]:tell("samples")
+      
+      a=0
+      
+      a=_cfx[1]:getSample(si,1)
+      
+      a=(a+1)/2
+      
+      local bounce=64
+      
+      local height=-math.sin(math.pi*a)*bounce
+      
+      local gridSize=64
+      
+      distance=a*self.approach*gridSize
+      
+      local f=0
+      
+      local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
+      
+      local flip=self.flip
+      
+      
+      
+      if self.b and self.b>a then
+      
+        self.hopping=false
+        
+        self.y=self.y+self.distance
+      
+      end
+      
+      self.b=a
+      
+      self.distance=distance
+      
+      
+      
+      love.graphics.draw(_gfx[1],quad,self.x-self.flip*100,self.y+distance+height,0,flip,1)
     
     end
-    
-    self.b=a
-    
-    self.distance=distance
-    
-    
-    
-    love.graphics.draw(_gfx[1],quad,self.x-self.flip*100+distance,self.y+height,0,flip,1)
   
     
   
@@ -193,6 +247,8 @@ function Blossom:keyPressed(k,s,r)
     self.shaking=false
     
     self.hopping=true
+    
+    self.approach=0
   
   elseif k=="right" then
   
@@ -201,18 +257,24 @@ function Blossom:keyPressed(k,s,r)
     self.shaking=false
     
     self.hopping=true
+    
+    self.approach=0
   
   elseif k=="up" then
   
     self.shaking=false
     
     self.hopping=true
+    
+    self.approach=-1
   
   elseif k=="down" then
   
     self.shaking=false
     
     self.hopping=true
+    
+    self.approach=1
   
   end
 
