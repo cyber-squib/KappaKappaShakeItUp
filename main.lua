@@ -434,7 +434,7 @@ end
 
 function Routine:checkMoveLeft()
 
-  local a,si
+  local a,b,si
   
   si=_sfx[1]:tell("samples")
   
@@ -444,7 +444,13 @@ function Routine:checkMoveLeft()
   
   a=math.abs(a)*100
   
-  if a<10 then
+  b=0
+  
+  b=_cfx[2+3]:getSample(si,1)
+  
+  b=math.abs(b)*100
+  
+  if a<10 or b<10 then
   
     self.score=self.score+1
   
@@ -454,7 +460,7 @@ end
 
 function Routine:checkMoveRight()
 
-  local a,si
+  local a,b,si
   
   si=_sfx[1]:tell("samples")
   
@@ -464,9 +470,15 @@ function Routine:checkMoveRight()
   
   a=math.abs(a)*100
   
+  b=0
+  
+  b=_cfx[2+3]:getSample(si,2)
+  
+  b=math.abs(b)*100
+  
   --assert(false,"a=="..a)
   
-  if a<10 then
+  if a<10 or b<10 then
   
     self.score=self.score+1
   
@@ -476,7 +488,7 @@ end
 
 function Routine:checkMoveUp()
 
-  local a,si
+  local a,b,si
   
   si=_sfx[1]:tell("samples")
   
@@ -486,7 +498,13 @@ function Routine:checkMoveUp()
   
   a=math.abs(a)*100
   
-  if a<10 then
+  b=0
+  
+  b=_cfx[3+3]:getSample(si,1)
+  
+  b=math.abs(b)*100
+  
+  if a<10 or b<10 then
   
     self.score=self.score+1
   
@@ -496,7 +514,7 @@ end
 
 function Routine:checkMoveDown()
 
-  local a,si
+  local a,b,si
   
   si=_sfx[1]:tell("samples")
   
@@ -506,7 +524,13 @@ function Routine:checkMoveDown()
   
   a=math.abs(a)*100
   
-  if a<10 then
+  b=0
+  
+  b=_cfx[3+3]:getSample(si,2)
+  
+  b=math.abs(b)*100
+  
+  if a<10 or b<10 then
   
     self.score=self.score+1
   
@@ -516,7 +540,7 @@ end
 
 function Routine:checkShakeLeft()
 
-  local a,si
+  local a,b,si
   
   si=_sfx[1]:tell("samples")
   
@@ -526,7 +550,13 @@ function Routine:checkShakeLeft()
   
   a=math.abs(a)*100
   
-  if a<10 then
+  b=0
+  
+  b=_cfx[4+3]:getSample(si,1)
+  
+  b=math.abs(b)*100
+  
+  if a<10 or b<10 then
   
     self.score=self.score+1
   
@@ -536,7 +566,7 @@ end
 
 function Routine:checkShakeRight()
 
-  local a,si
+  local a,b,si
   
   si=_sfx[1]:tell("samples")
   
@@ -546,7 +576,13 @@ function Routine:checkShakeRight()
   
   a=math.abs(a)*100
   
-  if a<10 then
+  b=0
+  
+  b=_cfx[4+3]:getSample(si,2)
+  
+  b=math.abs(b)*100
+  
+  if a<10 or b<10 then
   
     self.score=self.score+1
   
