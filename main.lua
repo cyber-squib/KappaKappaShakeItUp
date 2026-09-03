@@ -47,6 +47,8 @@ Blossom.__index=Blossom
 function Blossom:init()
 
   self.shaking=false
+  
+  self.flip=1
 
   return self
 
@@ -82,7 +84,7 @@ function Blossom:draw()
     
     local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
     
-    local flip=1
+    local flip=self.flip
     
     love.graphics.draw(_gfx[1],quad,512,512,0,flip,1)
     
@@ -92,7 +94,7 @@ function Blossom:draw()
   
     local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
     
-    local flip=1
+    local flip=self.flip
     
     love.graphics.draw(_gfx[1],quad,512,512,0,flip,1)
   
@@ -104,9 +106,13 @@ function Blossom:mousePressed(x,y,b,t)
 
   if b==1 then
   
+    self.flip=-1
+  
     self.shaking=true
   
   elseif b==2 then
+  
+    self.flip=1
   
     self.shaking=true
   
