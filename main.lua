@@ -23,6 +23,10 @@ function love.load()
   table.insert(_gfx,love.graphics.newImage("resource/ShakeRight.png"))
   
   table.insert(_gfx,love.graphics.newImage("resource/Stage.png"))
+  
+  table.insert(_gfx,love.graphics.newImage("resource/v.png"))
+  
+  table.insert(_gfx,love.graphics.newImage("resource/x.png"))
 
   table.insert(_sfx,love.audio.newSource("resource/KappaDanceTune.wav","static"))
 
@@ -47,6 +51,8 @@ function love.load()
   _blossom=setmetatable({},Blossom):init()
   
   _routine=setmetatable({},Routine):init()
+  
+  _feedback=setmetatable({},Feedback):init()
 
 end
 
@@ -59,6 +65,8 @@ function love.draw()
   _blossom:draw()
   
   _routine:draw()
+  
+  _feedback:draw()
 
 end
 
@@ -132,7 +140,7 @@ function Blossom:draw()
       
       local bounce=64
       
-      local height=-math.sin(math.pi*a)*bounce
+      local height=-math.sin(math.pi*(a))*bounce
       
       local gridSize=96
       
@@ -180,7 +188,7 @@ function Blossom:draw()
       
       local bounce=64
       
-      local height=-math.sin(math.pi*a)*bounce
+      local height=-math.sin(math.pi*(a))*bounce
       
       local gridSize=64
       
@@ -459,6 +467,8 @@ function Routine:checkMoveLeft()
   if a<10 or b<10 then
   
     self.score=self.score+1
+    
+    _feedback:pass()
   
   end
 
@@ -487,6 +497,8 @@ function Routine:checkMoveRight()
   if a<10 or b<10 then
   
     self.score=self.score+1
+    
+    _feedback:pass()
   
   end
 
@@ -513,6 +525,8 @@ function Routine:checkMoveUp()
   if a<10 or b<10 then
   
     self.score=self.score+1
+    
+    _feedback:pass()
   
   end
 
@@ -539,6 +553,8 @@ function Routine:checkMoveDown()
   if a<10 or b<10 then
   
     self.score=self.score+1
+    
+    _feedback:pass()
   
   end
 
@@ -565,6 +581,8 @@ function Routine:checkShakeLeft()
   if a<10 or b<10 then
   
     self.score=self.score+1
+    
+    _feedback:pass()
   
   end
 
@@ -591,6 +609,8 @@ function Routine:checkShakeRight()
   if a<10 or b<10 then
   
     self.score=self.score+1
+    
+    _feedback:pass()
   
   end
 
@@ -812,4 +832,52 @@ function Routine:keyPressed(k,s,r)
   
   end
   
+end
+
+Feedback={}
+
+Feedback.__index=Feedback
+
+function Feedback:init()
+
+  self.grade=0
+
+  return self
+  
+end
+
+function Feedback:pass()
+
+  self.grade=75
+
+end
+
+function Feedback:fail()
+
+  self.grade=-75
+
+end
+
+function Feedback:draw()
+
+  if self.grade>0 then
+
+    love.graphics.draw(_gfx[10],-16,350)
+  
+  elseif self.grade<0 then
+  
+    love.graphics.draw(_gfx[11],-32,350)
+  
+  end
+  
+  if self.grade<0 then
+  
+    self.grade=self.grade+1
+    
+  elseif self.grade>0 then
+  
+    self.grade=self.grade-1
+    
+  end
+
 end
