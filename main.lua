@@ -86,9 +86,9 @@ function Blossom:draw()
     
     a=(a+1)/2
     
-    b=_cfx[1]:getSample(si+100,1) --HEEEEEEELP
+    --b=_cfx[1]:getSample(si+50,1) --HEEEEEEELP
     
-    b=(a+1)/2
+    --b=(b+1)/2
     
     local bounce=64
     
@@ -102,11 +102,13 @@ function Blossom:draw()
     
     love.graphics.draw(_gfx[1],quad,self.x-self.flip*100,self.y+height,0,flip,1)
   
-    if b<a then
+    if self.b and self.b>a then
     
       self.hopping=false
     
     end
+    
+    self.b=a
   
   else
 
