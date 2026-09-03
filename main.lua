@@ -420,37 +420,139 @@ Routine.__index=Routine
 
 function Routine:init()
 
-  --self.moveLeftIndex=3
-  --
-  --self.moveRightIndex=4
-  --
-  --self.moveUpIndex=5
-  --
-  --self.moveDownIndex=6
-  --
-  --self.shakeLeftIndex=7
-  --
-  --self.shakeRightIndex=8
-
-  --self.moveLeftPosition=0
-  --
-  --self.moveRightPosition=0
-  --
-  --self.moveUpPosition=0
-  --
-  --self.moveDownPosition=0
-  --
-  --self.shakeLeftPosition=0
-  --
-  --self.shakeRightPosition=0
+  self.score=0
 
   return self
+
+end
+
+function Routine:checkMoveLeft()
+
+  local a,si
+  
+  si=_sfx[1]:tell("samples")
+  
+  a=0
+  
+  a=_cfx[2]:getSample(si,1)
+  
+  a=math.abs(a)*100
+  
+  if a<80 then
+  
+    self.score=self.score+1
+  
+  end
+
+end
+
+function Routine:checkMoveRight()
+
+  local a,si
+  
+  si=_sfx[1]:tell("samples")
+  
+  a=0
+  
+  a=_cfx[2]:getSample(si,2)
+  
+  a=math.abs(a)*100
+  
+  --assert(false,"a=="..a)
+  
+  if a<80 then
+  
+    self.score=self.score+1
+  
+  end
+
+end
+
+function Routine:checkMoveUp()
+
+  local a,si
+  
+  si=_sfx[1]:tell("samples")
+  
+  a=0
+  
+  a=_cfx[3]:getSample(si,1)
+  
+  a=math.abs(a)*100
+  
+  if a<80 then
+  
+    self.score=self.score+1
+  
+  end
+
+end
+
+function Routine:checkMoveDown()
+
+  local a,si
+  
+  si=_sfx[1]:tell("samples")
+  
+  a=0
+  
+  a=_cfx[3]:getSample(si,2)
+  
+  a=math.abs(a)*100
+  
+  if a<80 then
+  
+    self.score=self.score+1
+  
+  end
+
+end
+
+function Routine:checkShakeLeft()
+
+  local a,si
+  
+  si=_sfx[1]:tell("samples")
+  
+  a=0
+  
+  a=_cfx[4]:getSample(si,1)
+  
+  a=math.abs(a)*100
+  
+  if a<80 then
+  
+    self.score=self.score+1
+  
+  end
+
+end
+
+function Routine:checkShakeRight()
+
+  local a,si
+  
+  si=_sfx[1]:tell("samples")
+  
+  a=0
+  
+  a=_cfx[4]:getSample(si,2)
+  
+  a=math.abs(a)*100
+  
+  if a<80 then
+  
+    self.score=self.score+1
+  
+  end
 
 end
 
 function Routine:draw()
 
   love.graphics.draw(_gfx[2],0,0)
+  
+  love.graphics.print("SCORE:"..self.score,64,56)
 
   local bottomPosition=580-17
   
@@ -524,8 +626,44 @@ end
 
 function Routine:mousePressed(x,y,b,t)
 
+  if b==1 then
+  
+    self:checkShakeLeft()
+  
+  elseif b==2 then
+  
+    self:checkShakeRight()
+  
+  end
+
 end
 
 function Routine:keyPressed(k,s,r)
 
+  if k=="left" or k=="a" then
+  
+    self:checkMoveLeft()
+  
+  elseif k=="right" or k=="d" then
+  
+    self:checkMoveRight()
+
+  elseif k=="up" or k=="w" then
+  
+    self:checkMoveUp()
+  
+  elseif k=="down" or k=="s" then
+  
+    self:checkMoveDown()
+    
+  elseif k=="k" then
+  
+    self:checkShakeLeft()
+  
+  elseif k=="l" then
+  
+    self:checkShakeRight()
+  
+  end
+  
 end
