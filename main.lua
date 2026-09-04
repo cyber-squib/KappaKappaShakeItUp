@@ -739,7 +739,7 @@ function Routine:draw()
   
   
   
-    local limit=9
+    local limit=.5
   
   --love.graphics.print("SCORE:"..self.score,64,56)
 
@@ -761,7 +761,7 @@ function Routine:draw()
   
   xPosition=a*moveWidth+xOffset
   
-  if _lastControlPosition[1] and math.abs(xPosition-_lastControlPosition[1])<limit then
+  if _lastControlPosition[1] and (xPosition-_lastControlPosition[1])<limit then
 
     love.graphics.draw(_gfx[3],xPosition,bottomPosition)
   
@@ -777,7 +777,7 @@ function Routine:draw()
   
   xPosition=a*moveWidth+xOffset
   
-  if _lastControlPosition[2] and math.abs(xPosition-_lastControlPosition[2])<limit then
+  if _lastControlPosition[2] and (xPosition-_lastControlPosition[2])<limit then
 
     love.graphics.draw(_gfx[4],xPosition,bottomPosition)
   
@@ -793,7 +793,7 @@ function Routine:draw()
   
   xPosition=a*moveWidth+xOffset
   
-  if _lastControlPosition[3] and math.abs(xPosition-_lastControlPosition[3])<limit then
+  if _lastControlPosition[3] and (xPosition-_lastControlPosition[3])<limit then
 
     love.graphics.draw(_gfx[5],xPosition,bottomPosition)
   
@@ -809,7 +809,7 @@ function Routine:draw()
   
   xPosition=a*moveWidth+xOffset
   
-  if _lastControlPosition[4] and math.abs(xPosition-_lastControlPosition[4])<limit then
+  if _lastControlPosition[4] and (xPosition-_lastControlPosition[4])<limit then
 
     love.graphics.draw(_gfx[6],xPosition,bottomPosition)
     
@@ -825,7 +825,7 @@ function Routine:draw()
   
   xPosition=a*moveWidth+xOffset
   
-  if _lastControlPosition[5] and math.abs(xPosition-_lastControlPosition[5])<limit then
+  if _lastControlPosition[5] and (xPosition-_lastControlPosition[5])<limit then
 
     love.graphics.draw(_gfx[7],xPosition,bottomPosition)
     
@@ -841,7 +841,7 @@ function Routine:draw()
   
   xPosition=a*moveWidth+xOffset
   
-  if _lastControlPosition[6] and math.abs(xPosition-_lastControlPosition[6])<limit then
+  if _lastControlPosition[6] and (xPosition-_lastControlPosition[6])<limit then
 
     love.graphics.draw(_gfx[8],xPosition,bottomPosition)
   
@@ -859,7 +859,7 @@ function Routine:draw()
   
   xPosition=a*moveWidth+xOffset
   
-  if _lastControlPosition[7] and math.abs(xPosition-_lastControlPosition[7])<limit then
+  if _lastControlPosition[7] and (xPosition-_lastControlPosition[7])<limit then
 
     love.graphics.draw(_gfx[3],xPosition,bottomPosition)
   
@@ -875,7 +875,7 @@ function Routine:draw()
   
   xPosition=a*moveWidth+xOffset
   
-  if _lastControlPosition[8] and math.abs(xPosition-_lastControlPosition[8])<limit then
+  if _lastControlPosition[8] and (xPosition-_lastControlPosition[8])<limit then
 
     love.graphics.draw(_gfx[4],xPosition,bottomPosition)
   
@@ -891,7 +891,7 @@ function Routine:draw()
   
   xPosition=a*moveWidth+xOffset
   
-  if _lastControlPosition[9] and math.abs(xPosition-_lastControlPosition[9])<limit then
+  if _lastControlPosition[9] and (xPosition-_lastControlPosition[9])<limit then
 
     love.graphics.draw(_gfx[5],xPosition,bottomPosition)
   
@@ -907,7 +907,7 @@ function Routine:draw()
   
   xPosition=a*moveWidth+xOffset
   
-  if _lastControlPosition[10] and math.abs(xPosition-_lastControlPosition[10])<limit then
+  if _lastControlPosition[10] and (xPosition-_lastControlPosition[10])<limit then
 
     love.graphics.draw(_gfx[6],xPosition,bottomPosition)
   
@@ -923,7 +923,7 @@ function Routine:draw()
   
   xPosition=a*moveWidth+xOffset
   
-  if _lastControlPosition[11] and math.abs(xPosition-_lastControlPosition[11])<limit then
+  if _lastControlPosition[11] and (xPosition-_lastControlPosition[11])<limit then
 
     love.graphics.draw(_gfx[7],xPosition,bottomPosition)
   
@@ -939,7 +939,7 @@ function Routine:draw()
   
   xPosition=a*moveWidth+xOffset
   
-  if _lastControlPosition[12] and math.abs(xPosition-_lastControlPosition[12])<limit then
+  if _lastControlPosition[12] and (xPosition-_lastControlPosition[12])<limit then
 
     love.graphics.draw(_gfx[8],xPosition,bottomPosition)
   
