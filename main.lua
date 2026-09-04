@@ -195,6 +195,28 @@ function Blossom:draw()
     self.height=self.height+1
       
     local height=-math.sin(math.pi*(self.height/15))*64
+    
+    if self.here then
+      
+      local f=0
+      
+      local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
+      
+      love.graphics.draw(_gfx[1],quad,self.x-self.flip*100,self.y+height,0,self.flip,1)
+      
+      if self.height>12 then
+    
+        self.hopping=false
+        
+        self.here=false
+        
+        self.height=0
+    
+      end
+      
+      return
+    
+    end
   
     if self.approach==0 then
     
