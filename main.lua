@@ -390,6 +390,8 @@ end
 
 function Blossom:keyPressed(k,s,r)
 
+  if self.hopping then return end
+
   if k=="left" then --or k=="a" then
   
     if not self.hopping then self.stageX=self.stageX-1 end
