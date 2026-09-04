@@ -179,9 +179,9 @@ end
 function Blossom:draw()
 
 
-  love.graphics.print("_blossom.x:"..self.x.."\n"..
-                      "_blossom.y:"..self.y.."\n"..
-                      "_blossom.flip:"..self.flip,64,64*2)
+  --love.graphics.print("_blossom.x:"..self.x.."\n"..
+  --                    "_blossom.y:"..self.y.."\n"..
+  --                    "_blossom.flip:"..self.flip,64,64*2)
   
 
   local distance
