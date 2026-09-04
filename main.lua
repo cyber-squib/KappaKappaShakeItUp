@@ -761,12 +761,13 @@ function Routine:draw()
   
   xPosition=a*moveWidth+xOffset
   
-  if _lastControlPosition[1] and (xPosition-_lastControlPosition[1])<limit then
+  if _lastControlPosition[12+1] and (xPosition-_lastControlPosition[1+12])<limit then
 
     love.graphics.draw(_gfx[3],xPosition,bottomPosition)
   
   end
   
+  _lastControlPosition[1+12]=_lastControlPosition[1]
   _lastControlPosition[1]=xPosition
   
   a=0
@@ -777,12 +778,13 @@ function Routine:draw()
   
   xPosition=a*moveWidth+xOffset
   
-  if _lastControlPosition[2] and (xPosition-_lastControlPosition[2])<limit then
+  if _lastControlPosition[12+2] and (xPosition-_lastControlPosition[2+12])<limit then
 
     love.graphics.draw(_gfx[4],xPosition,bottomPosition)
   
   end
   
+  _lastControlPosition[2+12]=_lastControlPosition[2]
   _lastControlPosition[2]=xPosition
   
   a=0
@@ -793,12 +795,13 @@ function Routine:draw()
   
   xPosition=a*moveWidth+xOffset
   
-  if _lastControlPosition[3] and (xPosition-_lastControlPosition[3])<limit then
+  if _lastControlPosition[12+3] and (xPosition-_lastControlPosition[3+12])<limit then
 
     love.graphics.draw(_gfx[5],xPosition,bottomPosition)
   
   end
   
+  _lastControlPosition[3+12]=_lastControlPosition[3]
   _lastControlPosition[3]=xPosition
   
   a=0
@@ -809,12 +812,13 @@ function Routine:draw()
   
   xPosition=a*moveWidth+xOffset
   
-  if _lastControlPosition[4] and (xPosition-_lastControlPosition[4])<limit then
+  if _lastControlPosition[12+4] and (xPosition-_lastControlPosition[4+12])<limit then
 
     love.graphics.draw(_gfx[6],xPosition,bottomPosition)
     
   end
   
+  _lastControlPosition[4+12]=_lastControlPosition[4]
   _lastControlPosition[4]=xPosition
   
   a=0
@@ -825,12 +829,13 @@ function Routine:draw()
   
   xPosition=a*moveWidth+xOffset
   
-  if _lastControlPosition[5] and (xPosition-_lastControlPosition[5])<limit then
+  if _lastControlPosition[12+5] and (xPosition-_lastControlPosition[5+12])<limit then
 
     love.graphics.draw(_gfx[7],xPosition,bottomPosition)
     
   end
   
+  _lastControlPosition[5+12]=_lastControlPosition[5]
   _lastControlPosition[5]=xPosition
   
   a=0
@@ -841,12 +846,13 @@ function Routine:draw()
   
   xPosition=a*moveWidth+xOffset
   
-  if _lastControlPosition[6] and (xPosition-_lastControlPosition[6])<limit then
+  if _lastControlPosition[12+6] and (xPosition-_lastControlPosition[6+12])<limit then
 
     love.graphics.draw(_gfx[8],xPosition,bottomPosition)
   
   end
   
+  _lastControlPosition[6+12]=_lastControlPosition[6]
   _lastControlPosition[6]=xPosition
   
   --------------------------
@@ -859,12 +865,13 @@ function Routine:draw()
   
   xPosition=a*moveWidth+xOffset
   
-  if _lastControlPosition[7] and (xPosition-_lastControlPosition[7])<limit then
+  if _lastControlPosition[12+7] and (xPosition-_lastControlPosition[7+12])<limit then
 
     love.graphics.draw(_gfx[3],xPosition,bottomPosition)
   
   end
   
+  _lastControlPosition[7+12]=_lastControlPosition[7]
   _lastControlPosition[7]=xPosition
   
   a=0
@@ -875,12 +882,13 @@ function Routine:draw()
   
   xPosition=a*moveWidth+xOffset
   
-  if _lastControlPosition[8] and (xPosition-_lastControlPosition[8])<limit then
+  if _lastControlPosition[12+8] and (xPosition-_lastControlPosition[8+12])<limit then
 
     love.graphics.draw(_gfx[4],xPosition,bottomPosition)
   
   end
   
+  _lastControlPosition[8+12]=_lastControlPosition[8]
   _lastControlPosition[8]=xPosition
   
   a=0
@@ -891,12 +899,13 @@ function Routine:draw()
   
   xPosition=a*moveWidth+xOffset
   
-  if _lastControlPosition[9] and (xPosition-_lastControlPosition[9])<limit then
+  if _lastControlPosition[12+9] and (xPosition-_lastControlPosition[9+12])<limit then
 
     love.graphics.draw(_gfx[5],xPosition,bottomPosition)
   
   end
   
+  _lastControlPosition[9+12]=_lastControlPosition[9]
   _lastControlPosition[9]=xPosition
   
   a=0
@@ -907,12 +916,13 @@ function Routine:draw()
   
   xPosition=a*moveWidth+xOffset
   
-  if _lastControlPosition[10] and (xPosition-_lastControlPosition[10])<limit then
+  if _lastControlPosition[12+10] and (xPosition-_lastControlPosition[10+12])<limit then
 
     love.graphics.draw(_gfx[6],xPosition,bottomPosition)
   
   end
   
+  _lastControlPosition[10+12]=_lastControlPosition[10]
   _lastControlPosition[10]=xPosition
   
   a=0
@@ -923,12 +933,13 @@ function Routine:draw()
   
   xPosition=a*moveWidth+xOffset
   
-  if _lastControlPosition[11] and (xPosition-_lastControlPosition[11])<limit then
+  if _lastControlPosition[12+11] and (xPosition-_lastControlPosition[11+12])<limit then
 
     love.graphics.draw(_gfx[7],xPosition,bottomPosition)
   
   end
   
+  _lastControlPosition[11+12]=_lastControlPosition[11]
   _lastControlPosition[11]=xPosition
   
   a=0
@@ -939,12 +950,13 @@ function Routine:draw()
   
   xPosition=a*moveWidth+xOffset
   
-  if _lastControlPosition[12] and (xPosition-_lastControlPosition[12])<limit then
+  if _lastControlPosition[12+12] and (xPosition-_lastControlPosition[12+12])<limit then
 
     love.graphics.draw(_gfx[8],xPosition,bottomPosition)
   
   end
   
+  _lastControlPosition[12+12]=_lastControlPosition[12]
   _lastControlPosition[12]=xPosition
   
   ------------------------------
