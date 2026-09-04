@@ -190,13 +190,15 @@ function Blossom:draw()
 
   if self.hopping then
   
+    self.height=self.height+1
+      
+    local height=-math.sin(math.pi*(self.height/15))*64
+  
     if self.approach==0 then
     
       
 
       if not self.here then self.x=self.x+self.flip*speed end
-      
-      local height=self.height
       
       local f=0
       
@@ -210,8 +212,6 @@ function Blossom:draw()
       
       self.y=self.y+self.approach*speed
       
-      local height=self.height
-      
       local f=0
       
       local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
@@ -220,7 +220,7 @@ function Blossom:draw()
     
     end
     
-    local grid=128
+    local grid=96
   
     if (self.y-self.yOriginal)%grid==0 and (self.x-self.xOriginal)%grid==0 then
     
