@@ -120,11 +120,11 @@ function love.keypressed(k,s,r)
 
     _routine:keyPressed(k,s,r)
     
-    if not _sfx[1]:isPlaying() then
-    
-      love.event.quit"restart"
-    
-    end
+    --if not _sfx[1]:isPlaying() then
+    --
+    --  love.event.quit"restart"
+    --
+    --end
   
   else
   
@@ -921,13 +921,17 @@ end
 
 function Feedback:draw()
 
-  if self.grade>0 then
+  if _sfx[1]:isPlaying() then
 
-    love.graphics.draw(_gfx[10],-16,350)
-  
-  elseif self.grade<0 then
-  
-    love.graphics.draw(_gfx[11],-32,350)
+    if self.grade>0 then
+    
+      love.graphics.draw(_gfx[10],-16,350)
+    
+    elseif self.grade<0 then
+    
+      love.graphics.draw(_gfx[11],-32,350)
+    
+    end
   
   end
   
