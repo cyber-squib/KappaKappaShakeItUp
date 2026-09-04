@@ -192,7 +192,7 @@ function Blossom:draw()
     
       
 
-      self.x=self.x+self.flip*speed
+      if not self.here then self.x=self.x+self.flip*speed end
       
       
       
