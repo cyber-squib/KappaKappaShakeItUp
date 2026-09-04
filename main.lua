@@ -196,13 +196,13 @@ function Blossom:draw()
 
       if not self.here then self.x=self.x+self.flip*speed end
       
-      
+      local height=self.height
       
       local f=0
       
       local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
       
-      love.graphics.draw(_gfx[1],quad,self.x-self.flip*100,self.y+self.height,0,self.flip,1)
+      love.graphics.draw(_gfx[1],quad,self.x-self.flip*100,self.y+height,0,self.flip,1)
       
     else
     
@@ -210,13 +210,13 @@ function Blossom:draw()
       
       self.y=self.y+self.approach*speed
       
-      
+      local height=self.height
       
       local f=0
       
       local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
       
-      love.graphics.draw(_gfx[1],quad,self.x-self.flip*100,self.y+self.height,0,self.flip,1)
+      love.graphics.draw(_gfx[1],quad,self.x-self.flip*100,self.y+height,0,self.flip,1)
     
     end
     
@@ -227,6 +227,8 @@ function Blossom:draw()
         self.hopping=false
         
         self.here=false
+        
+        self.height=0
     
     end
   
@@ -366,7 +368,7 @@ function Blossom:keyPressed(k,s,r)
 
   if k=="left" then --or k=="a" then
   
-    self.stageX=self.stageX-1
+    if not self.hopping then self.stageX=self.stageX-1 end
   
     if self.stageX>=self.stageXMin then
     
@@ -382,7 +384,7 @@ function Blossom:keyPressed(k,s,r)
   
   elseif k=="right" then --or k=="d" then
   
-    self.stageX=self.stageX+1
+    if not self.hopping then self.stageX=self.stageX+1 end
   
     if self.stageX<=self.stageXMax then
     
@@ -398,7 +400,7 @@ function Blossom:keyPressed(k,s,r)
   
   elseif k=="up" then --or k=="w" then
   
-    self.stageY=self.stageY-1
+    if not self.hopping then self.stageY=self.stageY-1 end
   
     if self.stageY>=self.stageYMin then
     
@@ -414,7 +416,7 @@ function Blossom:keyPressed(k,s,r)
   
   elseif k=="down" then --or k=="s" then
   
-    self.stageY=self.stageY+1
+    if not self.hopping then self.stageY=self.stageY+1 end
   
     if self.stageY<=self.stageYMax then
     
