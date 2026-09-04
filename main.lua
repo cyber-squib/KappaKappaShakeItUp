@@ -154,6 +154,10 @@ function Blossom:init()
   
   self.y=225
   
+  self.xOriginal=self.x
+  
+  self.yOriginal=self.y
+  
   self.stageX=2
   
   self.stageY=1
@@ -165,6 +169,8 @@ function Blossom:init()
   self.stageXMax=4
   
   self.stageYMax=2
+  
+  self.height=0
 
   return self
 
@@ -172,105 +178,55 @@ end
 
 function Blossom:draw()
 
+
+  
+  
+
   local distance
+  
+  local speed=8
 
   if self.hopping then
   
     if self.approach==0 then
+    
       
-      local a,si
-        
-      si=_sfx[1]:tell("samples")
+
+      self.x=self.x+self.flip*speed
       
-      a=0
       
-      a=_cfx[1]:getSample(si,1)
-      
-      a=(a+1)/2
-      
-      local bounce=64
-      
-      local height=-math.sin(math.pi*(a))*bounce
-      
-      local gridSize=96
-      
-      distance=a*self.flip*gridSize
-      
-      if self.here then distance=0 end
       
       local f=0
       
       local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
       
-      local flip=self.flip
-      
-      
-      
-      if self.b and self.b>a then
-      
-        self.hopping=false
-        
-        self.here=false
-        
-        self.x=self.x+self.distance
-      
-      end
-      
-      self.b=a
-      
-      self.distance=distance
-      
-      
-      
-      love.graphics.draw(_gfx[1],quad,self.x-self.flip*100+distance,self.y+height,0,flip,1)
+      love.graphics.draw(_gfx[1],quad,self.x,self.y+self.height,0,flip,1)
       
     else
     
-      local a,si
-        
-      si=_sfx[1]:tell("samples")
+    
       
-      a=0
+      self.y=self.y+self.approach*speed
       
-      a=_cfx[1]:getSample(si,1)
       
-      a=(a+1)/2
-      
-      local bounce=64
-      
-      local height=-math.sin(math.pi*(a))*bounce
-      
-      local gridSize=64
-      
-      distance=a*self.approach*gridSize
       
       local f=0
       
       local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
       
-      local flip=self.flip
-      
-      
-      
-      if self.b and self.b>a then
-      
-        self.hopping=false
-        
-        self.y=self.y+self.distance
-      
-      end
-      
-      self.b=a
-      
-      self.distance=distance
-      
-      
-      
-      love.graphics.draw(_gfx[1],quad,self.x-self.flip*100,self.y+distance+height,0,flip,1)
+      love.graphics.draw(_gfx[1],quad,self.x,self.y+self.height,0,flip,1)
     
     end
-  
     
+    local grid=128
+  
+    if (self.y-self.yOriginal)%grid==0 and (self.x-self.xOriginal)%grid==0 then
+    
+        self.hopping=false
+        
+        self.here=false
+    
+    end
   
   else
 
