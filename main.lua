@@ -126,11 +126,11 @@ function love.keypressed(k,s,r)
     --
     --end
   
-  else
-  
-    _state=1
-    
-    _sfx[1]:play()
+  --else
+  --
+  --  _state=1
+  --  
+  --  _sfx[1]:play()
   
   end
 
