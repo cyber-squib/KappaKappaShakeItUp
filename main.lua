@@ -179,8 +179,9 @@ end
 function Blossom:draw()
 
 
-  love.graphics.print("player_x:"..self.x.."\n"..
-                      "player_y:"..self.y,64,64*2)
+  love.graphics.print("_blossom.x:"..self.x.."\n"..
+                      "_blossom.y:"..self.y.."\n"..
+                      "_blossom.flip:"..self.flip,64,64*2)
   
 
   local distance
@@ -201,7 +202,7 @@ function Blossom:draw()
       
       local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
       
-      love.graphics.draw(_gfx[1],quad,self.x-self.flip*100,self.y+self.height,0,flip,1)
+      love.graphics.draw(_gfx[1],quad,self.x-self.flip*100,self.y+self.height,0,self.flip,1)
       
     else
     
@@ -215,7 +216,7 @@ function Blossom:draw()
       
       local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
       
-      love.graphics.draw(_gfx[1],quad,self.x-self.flip*100,self.y+self.height,0,flip,1)
+      love.graphics.draw(_gfx[1],quad,self.x-self.flip*100,self.y+self.height,0,self.flip,1)
     
     end
     
