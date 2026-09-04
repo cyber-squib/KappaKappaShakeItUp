@@ -138,6 +138,18 @@ function love.keypressed(k,s,r)
 
 end
 
+--function love.mousereleased(x,y,b,t,p)
+--
+--  _routine:mouseReleased(x,y,b,t,p)
+--
+--end
+--
+--function love.keyreleased(k,s)
+--
+--  _routine:keyReleased(k,s)
+--
+--end
+
 Blossom={}
 
 Blossom.__index=Blossom
@@ -477,6 +489,10 @@ function Routine:init()
   self.score=0
   
   self.max=154
+  
+  self.lock=0
+  
+  self.cool=16
 
   return self
 
@@ -677,6 +693,8 @@ function Routine:checkShakeRight()
 end
 
 function Routine:draw()
+
+  if self.lock>0 then self.lock=self.lock-1 end
   
   --_lastControlPosition={}
 
@@ -953,6 +971,10 @@ end
 
 function Routine:mousePressed(x,y,b,t)
 
+  if self.lock>0 then return end
+
+  self.lock=self.cool
+
   if b==1 then
   
     self:checkShakeLeft()
@@ -966,6 +988,10 @@ function Routine:mousePressed(x,y,b,t)
 end
 
 function Routine:keyPressed(k,s,r)
+
+  if self.lock>0 then return end
+
+  self.lock=self.cool
 
   if k=="left" then --or k=="a" then
   
@@ -994,6 +1020,19 @@ function Routine:keyPressed(k,s,r)
   end
   
 end
+
+--function Routine:mouseReleased(x,y,b,t,p)
+--
+--  self.lock=false
+--
+--end
+--
+--function Routine:keyReleased(k,s)
+--
+--  self.lock=false
+--
+--end
+
 
 Feedback={}
 
