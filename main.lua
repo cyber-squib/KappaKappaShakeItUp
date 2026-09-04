@@ -450,7 +450,7 @@ function Routine:init()
 
   self.score=0
   
-  self.max=40
+  self.max=154
 
   return self
 
