@@ -34,7 +34,9 @@ function love.load()
   
   table.insert(_gfx,love.graphics.newImage("resource/SoSpicy.png"))
 
-  table.insert(_sfx,love.audio.newSource("resource/KappaDanceTune.wav","static"))
+  --table.insert(_sfx,love.audio.newSource("resource/KappaDanceTune.wav","static"))
+  
+  table.insert(_sfx,love.audio.newSource("resource/KappaShakeItUp.wav","static"))
 
   table.insert(_cfx,love.sound.newSoundData("resource/KappaDanceControl.wav"))
   
