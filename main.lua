@@ -31,6 +31,8 @@ function love.load()
   table.insert(_gfx,love.graphics.newImage("resource/Title.png"))
   
   table.insert(_gfx,love.graphics.newImage("resource/spicy.png"))
+  
+  table.insert(_gfx,love.graphics.newImage("resource/SoSpicy.png"))
 
   table.insert(_sfx,love.audio.newSource("resource/KappaDanceTune.wav","static"))
 
@@ -720,21 +722,7 @@ function Routine:draw()
   
   
   
-    if not _sfx[1]:isPlaying() then
-  
-    local spicy=math.floor(percentage/100*5)+1
-    
-    if spicy>5 then spicy=5 end
-    
-    --spicy=5
-    
-    for i=1,spicy do
-    
-      love.graphics.draw(_gfx[13],-200+175*i,64)
-    
-    end
-  
-  end
+
   
   
   
@@ -880,6 +868,24 @@ function Routine:draw()
   love.graphics.draw(_gfx[8],xPosition,bottomPosition)
   
   ------------------------------
+  
+  if not _sfx[1]:isPlaying() then
+  
+    local spicy=math.floor(percentage*4)+1
+    
+    if spicy>5 then spicy=5 end
+    
+    --spicy=5
+    
+    for i=1,spicy do
+    
+      love.graphics.draw(_gfx[13],-50+125*i,24)
+    
+    end
+    
+    love.graphics.draw(_gfx[14],160,382)
+  
+  end
 
 end
 
