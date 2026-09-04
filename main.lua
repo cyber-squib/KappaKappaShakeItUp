@@ -697,7 +697,7 @@ function Routine:draw()
   
   
   
-    local limit=10
+    local limit=9
   
   --love.graphics.print("SCORE:"..self.score,64,56)
 
