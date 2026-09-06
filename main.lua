@@ -65,6 +65,8 @@ function love.load()
   _state=0
   
   _lastControlPosition={}
+  
+  _singleAction=true
 
 end
 
