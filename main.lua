@@ -294,6 +294,14 @@ end
 
 function Blossom:mousePressed(x,y,b,t)
 
+  if _singleAction and (b==1 or b==2) then
+  
+    self:shakeBack()
+    
+    return
+  
+  end
+
   if b==1 then
   
     self:shakeLeft()
