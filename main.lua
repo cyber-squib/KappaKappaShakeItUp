@@ -1,5 +1,7 @@
 function love.load()
 
+  _singleAction=true
+
   _gfx={}
   
   _sfx={}
@@ -17,10 +19,20 @@ function love.load()
   table.insert(_gfx,love.graphics.newImage("resource/MoveUp.png"))
 
   table.insert(_gfx,love.graphics.newImage("resource/MoveDown.png"))
+  
+  if _singleAction then
+  
+    table.insert(_gfx,love.graphics.newImage("resource/ShakeBack.png"))
 
-  table.insert(_gfx,love.graphics.newImage("resource/ShakeLeft.png"))
+    table.insert(_gfx,love.graphics.newImage("resource/ShakeBack.png"))
+  
+  else
 
-  table.insert(_gfx,love.graphics.newImage("resource/ShakeRight.png"))
+    table.insert(_gfx,love.graphics.newImage("resource/ShakeLeft.png"))
+
+    table.insert(_gfx,love.graphics.newImage("resource/ShakeRight.png"))
+  
+  end
   
   table.insert(_gfx,love.graphics.newImage("resource/Stage.png"))
   
@@ -33,8 +45,6 @@ function love.load()
   table.insert(_gfx,love.graphics.newImage("resource/spicy.png"))
   
   table.insert(_gfx,love.graphics.newImage("resource/SoSpicy.png"))
-
-  --table.insert(_sfx,love.audio.newSource("resource/KappaDanceTune.wav","static"))
   
   table.insert(_sfx,love.audio.newSource("resource/KappaShakeItUp.wav","static"))
 
@@ -65,8 +75,6 @@ function love.load()
   _state=0
   
   _lastControlPosition={}
-  
-  _singleAction=true
 
 end
 
@@ -123,34 +131,10 @@ function love.keypressed(k,s,r)
     _blossom:keyPressed(k,s,r)
 
     _routine:keyPressed(k,s,r)
-    
-    --if not _sfx[1]:isPlaying() then
-    --
-    --  love.event.quit"restart"
-    --
-    --end
-  
-  --else
-  --
-  --  _state=1
-  --  
-  --  _sfx[1]:play()
   
   end
 
 end
-
---function love.mousereleased(x,y,b,t,p)
---
---  _routine:mouseReleased(x,y,b,t,p)
---
---end
---
---function love.keyreleased(k,s)
---
---  _routine:keyReleased(k,s)
---
---end
 
 Blossom={}
 
@@ -193,13 +177,7 @@ function Blossom:init()
 end
 
 function Blossom:draw()
-
-
-  --love.graphics.print("_blossom.x:"..self.x.."\n"..
-  --                    "_blossom.y:"..self.y.."\n"..
-  --                    "_blossom.flip:"..self.flip,64,64*2)
   
-
   local distance
   
   local speed=8
@@ -406,7 +384,7 @@ function Blossom:keyPressed(k,s,r)
 
   if self.hopping then return end
 
-  if k=="left" then --or k=="a" then
+  if k=="left" then
   
     if not self.hopping then self.stageX=self.stageX-1 end
   
@@ -422,7 +400,7 @@ function Blossom:keyPressed(k,s,r)
     
     end
   
-  elseif k=="right" then --or k=="d" then
+  elseif k=="right" then
   
     if not self.hopping then self.stageX=self.stageX+1 end
   
@@ -438,7 +416,7 @@ function Blossom:keyPressed(k,s,r)
     
     end
   
-  elseif k=="up" then --or k=="w" then
+  elseif k=="up" then
   
     if not self.hopping then self.stageY=self.stageY-1 end
   
@@ -454,7 +432,7 @@ function Blossom:keyPressed(k,s,r)
     
     end
   
-  elseif k=="down" then --or k=="s" then
+  elseif k=="down" then
   
     if not self.hopping then self.stageY=self.stageY+1 end
   
@@ -469,14 +447,6 @@ function Blossom:keyPressed(k,s,r)
       self.stageY=self.stageYMax
     
     end
-    
-  --elseif k=="k" then
-  --
-  --  self:shakeLeft()
-  --
-  --elseif k=="l" then
-  --
-  --  self:shakeRight()
   
   end
 
@@ -549,8 +519,6 @@ function Routine:checkMoveRight()
   b=_cfx[2+3]:getSample(si,2)
   
   b=math.abs(b)*100
-  
-  --assert(false,"a=="..a)
   
   if a<5 or b<5 then
   
@@ -697,12 +665,8 @@ end
 function Routine:draw()
 
   if self.lock>0 then self.lock=self.lock-1 end
-  
-  --_lastControlPosition={}
 
   love.graphics.setLineWidth(64)
-  
-  --love.graphics.setLineStyle"smooth"
 
   love.graphics.setColor(0x6a/0xff,0x37/0xff,0x71/0xff,0xff/0xff)
 
@@ -727,8 +691,6 @@ function Routine:draw()
   
   love.graphics.setColor(1,1,1,1)
   
-  --love.graphics.setLineStyle"rough"
-  
   
   
   
@@ -741,9 +703,7 @@ function Routine:draw()
   
   
   
-    local limit=.5
-  
-  --love.graphics.print("SCORE:"..self.score,64,56)
+  local limit=.5
 
   local bottomPosition=580-17
   
@@ -770,6 +730,7 @@ function Routine:draw()
   end
   
   _lastControlPosition[1+12]=_lastControlPosition[1]
+
   _lastControlPosition[1]=xPosition
   
   a=0
@@ -787,6 +748,7 @@ function Routine:draw()
   end
   
   _lastControlPosition[2+12]=_lastControlPosition[2]
+
   _lastControlPosition[2]=xPosition
   
   a=0
@@ -804,6 +766,7 @@ function Routine:draw()
   end
   
   _lastControlPosition[3+12]=_lastControlPosition[3]
+
   _lastControlPosition[3]=xPosition
   
   a=0
@@ -821,6 +784,7 @@ function Routine:draw()
   end
   
   _lastControlPosition[4+12]=_lastControlPosition[4]
+
   _lastControlPosition[4]=xPosition
   
   a=0
@@ -838,6 +802,7 @@ function Routine:draw()
   end
   
   _lastControlPosition[5+12]=_lastControlPosition[5]
+
   _lastControlPosition[5]=xPosition
   
   a=0
@@ -855,6 +820,7 @@ function Routine:draw()
   end
   
   _lastControlPosition[6+12]=_lastControlPosition[6]
+
   _lastControlPosition[6]=xPosition
   
   --------------------------
@@ -874,6 +840,7 @@ function Routine:draw()
   end
   
   _lastControlPosition[7+12]=_lastControlPosition[7]
+
   _lastControlPosition[7]=xPosition
   
   a=0
@@ -891,6 +858,7 @@ function Routine:draw()
   end
   
   _lastControlPosition[8+12]=_lastControlPosition[8]
+
   _lastControlPosition[8]=xPosition
   
   a=0
@@ -908,6 +876,7 @@ function Routine:draw()
   end
   
   _lastControlPosition[9+12]=_lastControlPosition[9]
+
   _lastControlPosition[9]=xPosition
   
   a=0
@@ -925,6 +894,7 @@ function Routine:draw()
   end
   
   _lastControlPosition[10+12]=_lastControlPosition[10]
+
   _lastControlPosition[10]=xPosition
   
   a=0
@@ -942,6 +912,7 @@ function Routine:draw()
   end
   
   _lastControlPosition[11+12]=_lastControlPosition[11]
+
   _lastControlPosition[11]=xPosition
   
   a=0
@@ -959,6 +930,7 @@ function Routine:draw()
   end
   
   _lastControlPosition[12+12]=_lastControlPosition[12]
+
   _lastControlPosition[12]=xPosition
   
   ------------------------------
@@ -968,8 +940,6 @@ function Routine:draw()
     local spicy=math.floor(percentage*4)+1
     
     if spicy>5 then spicy=5 end
-    
-    --spicy=5
     
     for i=1,spicy do
     
@@ -1007,45 +977,25 @@ function Routine:keyPressed(k,s,r)
 
   self.lock=self.cool
 
-  if k=="left" then --or k=="a" then
+  if k=="left" then
   
     self:checkMoveLeft()
   
-  elseif k=="right" then --or k=="d" then
+  elseif k=="right" then
   
     self:checkMoveRight()
 
-  elseif k=="up" then --or k=="w" then
+  elseif k=="up" then
   
     self:checkMoveUp()
   
-  elseif k=="down" then --or k=="s" then
+  elseif k=="down" then
   
     self:checkMoveDown()
-    
-  --elseif k=="k" then
-  --
-  --  self:checkShakeLeft()
-  --
-  --elseif k=="l" then
-  --
-  --  self:checkShakeRight()
   
   end
   
 end
-
---function Routine:mouseReleased(x,y,b,t,p)
---
---  self.lock=false
---
---end
---
---function Routine:keyReleased(k,s)
---
---  self.lock=false
---
---end
 
 
 Feedback={}
