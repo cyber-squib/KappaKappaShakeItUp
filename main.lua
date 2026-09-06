@@ -1,6 +1,6 @@
 function love.load()
 
-  --_singleAction=true
+  _singleAction=true
 
   _gfx={}
   
@@ -668,6 +668,22 @@ function Routine:checkShakeRight()
 
 end
 
+function Routine:checkShakeBack()
+  
+  if self:checkShake(1) or self:checkShake(2) then
+  
+    self.score=self.score+1
+    
+    _feedback:pass()
+    
+  else
+  
+    _feedback:fail()
+  
+  end
+
+end
+
 function Routine:draw()
 
   if self.lock>0 then self.lock=self.lock-1 end
@@ -966,8 +982,6 @@ function Routine:mousePressed(x,y,b,t)
   self.lock=self.cool
   
   if _singleAction and (b==1 or b==2) then
-  
-    assert(false)
   
     self:checkShakeBack()
     
