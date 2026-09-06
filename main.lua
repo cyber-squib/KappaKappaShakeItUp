@@ -1,6 +1,6 @@
 function love.load()
 
-  _singleAction=true
+  _singleAction=false
 
   _gfx={}
   
