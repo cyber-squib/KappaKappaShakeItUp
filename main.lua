@@ -1,6 +1,6 @@
 function love.load()
 
-  _singleAction=true
+  --_singleAction=true
 
   _gfx={}
   
@@ -322,6 +322,14 @@ function Blossom:shakeRight()
 
 end
 
+function Blossom:shakeBack()
+  
+  self.flip=-self.flip
+  
+  self.shaking=true
+
+end
+
 function Blossom:hopLeft()
 
   self.flip=-1
@@ -598,7 +606,7 @@ function Routine:checkMoveDown()
 
 end
 
-function Routine:checkShakeLeft()
+function Routine:checkShake(channel)
 
   local a,b,si
   
@@ -606,17 +614,31 @@ function Routine:checkShakeLeft()
   
   a=0
   
-  a=_cfx[4]:getSample(si,1)
+  a=_cfx[4]:getSample(si,channel)
   
   a=math.abs(a)*100
   
   b=0
   
-  b=_cfx[4+3]:getSample(si,1)
+  b=_cfx[4+3]:getSample(si,channel)
   
   b=math.abs(b)*100
   
   if a<5 or b<5 then
+  
+    return true
+    
+  else
+  
+    return false
+  
+  end
+
+end
+
+function Routine:checkShakeLeft()
+  
+  if self:checkShake(1) then
   
     self.score=self.score+1
     
@@ -631,24 +653,8 @@ function Routine:checkShakeLeft()
 end
 
 function Routine:checkShakeRight()
-
-  local a,b,si
   
-  si=_sfx[1]:tell("samples")
-  
-  a=0
-  
-  a=_cfx[4]:getSample(si,2)
-  
-  a=math.abs(a)*100
-  
-  b=0
-  
-  b=_cfx[4+3]:getSample(si,2)
-  
-  b=math.abs(b)*100
-  
-  if a<5 or b<5 then
+  if self:checkShake(2) then
   
     self.score=self.score+1
     
@@ -958,6 +964,16 @@ function Routine:mousePressed(x,y,b,t)
   if self.lock>0 then return end
 
   self.lock=self.cool
+  
+  if _singleAction and (b==1 or b==2) then
+  
+    assert(false)
+  
+    self:checkShakeBack()
+    
+    return
+  
+  end
 
   if b==1 then
   
