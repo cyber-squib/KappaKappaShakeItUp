@@ -13,3 +13,4 @@ backlog:
 [ ] new dance floor
 [ ] step retrigger switch
 [ ] change color palette
+[ ] pause menu

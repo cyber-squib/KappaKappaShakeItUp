@@ -2,7 +2,7 @@ function love.load()
 
   _singleAction=false
   
-  _playstationController=true
+  _playstationController=0
 
   _gfx={}
   
@@ -13,54 +13,26 @@ function love.load()
   table.insert(_gfx,love.graphics.newImage("resource/sliceAll_KappaDance.png"))
     
   table.insert(_gfx,love.graphics.newImage("resource/KappaRoutine.png"))
+    
+  table.insert(_gfx,love.graphics.newImage("resource/MoveLeft.png"))
   
-  if _playstationController then
-    
-    table.insert(_gfx,love.graphics.newImage("resource/MoveLeftPlaystation.png"))
-    
-    table.insert(_gfx,love.graphics.newImage("resource/MoveRightPlaystation.png"))
-    
-    table.insert(_gfx,love.graphics.newImage("resource/MoveUpPlaystation.png"))
-    
-    table.insert(_gfx,love.graphics.newImage("resource/MoveDownPlaystation.png"))
-    
-    if _singleAction then
-    
-      table.insert(_gfx,love.graphics.newImage("resource/ShakeRightPlaystation.png"))
-    
-      table.insert(_gfx,love.graphics.newImage("resource/ShakeRightPlaystation.png"))
-    
-    else
-    
-      table.insert(_gfx,love.graphics.newImage("resource/ShakeLeftPlaystation.png"))
-    
-      table.insert(_gfx,love.graphics.newImage("resource/ShakeRightPlaystation.png"))
-    
-    end
+  table.insert(_gfx,love.graphics.newImage("resource/MoveRight.png"))
+  
+  table.insert(_gfx,love.graphics.newImage("resource/MoveUp.png"))
+  
+  table.insert(_gfx,love.graphics.newImage("resource/MoveDown.png"))
+  
+  if _singleAction then
+  
+    table.insert(_gfx,love.graphics.newImage("resource/ShakeBack.png"))
+  
+    table.insert(_gfx,love.graphics.newImage("resource/ShakeBack.png"))
   
   else
-    
-    table.insert(_gfx,love.graphics.newImage("resource/MoveLeft.png"))
-    
-    table.insert(_gfx,love.graphics.newImage("resource/MoveRight.png"))
-    
-    table.insert(_gfx,love.graphics.newImage("resource/MoveUp.png"))
-    
-    table.insert(_gfx,love.graphics.newImage("resource/MoveDown.png"))
-    
-    if _singleAction then
-    
-      table.insert(_gfx,love.graphics.newImage("resource/ShakeBack.png"))
-    
-      table.insert(_gfx,love.graphics.newImage("resource/ShakeBack.png"))
-    
-    else
-    
-      table.insert(_gfx,love.graphics.newImage("resource/ShakeLeft.png"))
-    
-      table.insert(_gfx,love.graphics.newImage("resource/ShakeRight.png"))
-    
-    end
+  
+    table.insert(_gfx,love.graphics.newImage("resource/ShakeLeft.png"))
+  
+    table.insert(_gfx,love.graphics.newImage("resource/ShakeRight.png"))
   
   end
   
@@ -75,6 +47,28 @@ function love.load()
   table.insert(_gfx,love.graphics.newImage("resource/spicy.png"))
   
   table.insert(_gfx,love.graphics.newImage("resource/SoSpicy.png"))
+    
+  table.insert(_gfx,love.graphics.newImage("resource/MoveLeftPlaystation.png"))
+  
+  table.insert(_gfx,love.graphics.newImage("resource/MoveRightPlaystation.png"))
+  
+  table.insert(_gfx,love.graphics.newImage("resource/MoveUpPlaystation.png"))
+  
+  table.insert(_gfx,love.graphics.newImage("resource/MoveDownPlaystation.png"))
+  
+  if _singleAction then
+  
+    table.insert(_gfx,love.graphics.newImage("resource/ShakeRightPlaystation.png"))
+  
+    table.insert(_gfx,love.graphics.newImage("resource/ShakeRightPlaystation.png"))
+  
+  else
+  
+    table.insert(_gfx,love.graphics.newImage("resource/ShakeLeftPlaystation.png"))
+  
+    table.insert(_gfx,love.graphics.newImage("resource/ShakeRightPlaystation.png"))
+  
+  end
   
   table.insert(_sfx,love.audio.newSource("resource/KappaShakeItUp.wav","static"))
 
@@ -132,6 +126,8 @@ end
 
 function love.mousepressed(x,y,b,t)
 
+  _playstationController=0
+
   if _state==1 then
 
     _blossom:mousePressed(x,y,b,t)
@@ -156,6 +152,8 @@ end
 
 function love.keypressed(k,s,r)
 
+  _playstationController=0
+
   if _state==1 then
 
     _blossom:keyPressed(k,s,r)
@@ -167,6 +165,8 @@ function love.keypressed(k,s,r)
 end
 
 function love.gamepadpressed(j,b)
+
+  _playstationController=12
 
   if _state==1 then
 
@@ -899,7 +899,7 @@ function Routine:draw()
   
   if _lastControlPosition[12+1] and (xPosition-_lastControlPosition[1+12])<limit then
 
-    love.graphics.draw(_gfx[3],xPosition,bottomPosition)
+    love.graphics.draw(_gfx[_playstationController+3],xPosition,bottomPosition)
   
   end
   
@@ -917,7 +917,7 @@ function Routine:draw()
   
   if _lastControlPosition[12+2] and (xPosition-_lastControlPosition[2+12])<limit then
 
-    love.graphics.draw(_gfx[4],xPosition,bottomPosition)
+    love.graphics.draw(_gfx[_playstationController+4],xPosition,bottomPosition)
   
   end
   
@@ -935,7 +935,7 @@ function Routine:draw()
   
   if _lastControlPosition[12+3] and (xPosition-_lastControlPosition[3+12])<limit then
 
-    love.graphics.draw(_gfx[5],xPosition,bottomPosition)
+    love.graphics.draw(_gfx[_playstationController+5],xPosition,bottomPosition)
   
   end
   
@@ -953,7 +953,7 @@ function Routine:draw()
   
   if _lastControlPosition[12+4] and (xPosition-_lastControlPosition[4+12])<limit then
 
-    love.graphics.draw(_gfx[6],xPosition,bottomPosition)
+    love.graphics.draw(_gfx[_playstationController+6],xPosition,bottomPosition)
     
   end
   
@@ -971,7 +971,7 @@ function Routine:draw()
   
   if _lastControlPosition[12+5] and (xPosition-_lastControlPosition[5+12])<limit then
 
-    love.graphics.draw(_gfx[7],xPosition,bottomPosition)
+    love.graphics.draw(_gfx[_playstationController+7],xPosition,bottomPosition)
     
   end
   
@@ -989,7 +989,7 @@ function Routine:draw()
   
   if _lastControlPosition[12+6] and (xPosition-_lastControlPosition[6+12])<limit then
 
-    love.graphics.draw(_gfx[8],xPosition,bottomPosition)
+    love.graphics.draw(_gfx[_playstationController+8],xPosition,bottomPosition)
   
   end
   
@@ -1009,7 +1009,7 @@ function Routine:draw()
   
   if _lastControlPosition[12+7] and (xPosition-_lastControlPosition[7+12])<limit then
 
-    love.graphics.draw(_gfx[3],xPosition,bottomPosition)
+    love.graphics.draw(_gfx[_playstationController+3],xPosition,bottomPosition)
   
   end
   
@@ -1027,7 +1027,7 @@ function Routine:draw()
   
   if _lastControlPosition[12+8] and (xPosition-_lastControlPosition[8+12])<limit then
 
-    love.graphics.draw(_gfx[4],xPosition,bottomPosition)
+    love.graphics.draw(_gfx[_playstationController+4],xPosition,bottomPosition)
   
   end
   
@@ -1045,7 +1045,7 @@ function Routine:draw()
   
   if _lastControlPosition[12+9] and (xPosition-_lastControlPosition[9+12])<limit then
 
-    love.graphics.draw(_gfx[5],xPosition,bottomPosition)
+    love.graphics.draw(_gfx[_playstationController+5],xPosition,bottomPosition)
   
   end
   
@@ -1063,7 +1063,7 @@ function Routine:draw()
   
   if _lastControlPosition[12+10] and (xPosition-_lastControlPosition[10+12])<limit then
 
-    love.graphics.draw(_gfx[6],xPosition,bottomPosition)
+    love.graphics.draw(_gfx[_playstationController+6],xPosition,bottomPosition)
   
   end
   
@@ -1081,7 +1081,7 @@ function Routine:draw()
   
   if _lastControlPosition[12+11] and (xPosition-_lastControlPosition[11+12])<limit then
 
-    love.graphics.draw(_gfx[7],xPosition,bottomPosition)
+    love.graphics.draw(_gfx[_playstationController+7],xPosition,bottomPosition)
   
   end
   
@@ -1099,7 +1099,7 @@ function Routine:draw()
   
   if _lastControlPosition[12+12] and (xPosition-_lastControlPosition[12+12])<limit then
 
-    love.graphics.draw(_gfx[8],xPosition,bottomPosition)
+    love.graphics.draw(_gfx[_playstationController+8],xPosition,bottomPosition)
   
   end
   
