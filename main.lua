@@ -562,7 +562,7 @@ function Blossom:gamepadPressed(j,b)
   
   end
 
-  if _singleAction and (b=="a" or b=="b") then
+  if _singleAction and (b=="a" or b=="x" or b=="b" or b=="y") then
   
     self:shakeBack()
     
@@ -570,11 +570,11 @@ function Blossom:gamepadPressed(j,b)
   
   end
 
-  if b=="a" then
+  if b=="a" or b=="x" then
   
     self:shakeLeft()
   
-  elseif b=="b" then
+  elseif b=="b" or b=="y" then
   
     self:shakeRight()
   
@@ -1173,7 +1173,7 @@ function Routine:gamepadPressed(j,b)
   
   end
   
-  if _singleAction and (b=="a" or b=="b") then
+  if _singleAction and (b=="a" or b=="x" or b=="b" or b=="y") then
   
     self:checkShakeBack()
     
@@ -1181,11 +1181,11 @@ function Routine:gamepadPressed(j,b)
   
   end
 
-  if b=="a" then
+  if b=="a" or b=="x" then
   
     self:checkShakeLeft()
   
-  elseif b=="b" then
+  elseif b=="b" or b=="y" then
   
     self:checkShakeRight()
   
