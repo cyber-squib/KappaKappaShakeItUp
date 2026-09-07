@@ -136,6 +136,30 @@ function love.keypressed(k,s,r)
 
 end
 
+function love.gamepadpressed(j,b)
+
+  if _state==1 then
+
+    _blossom:gamepadPressed(j,b)
+
+    _routine:gamepadPressed(j,b)
+    
+    if not _sfx[1]:isPlaying() then
+    
+      love.event.quit"restart"
+    
+    end
+  
+  else
+  
+    _state=1
+    
+    _sfx[1]:play()
+  
+  end
+
+end
+
 Blossom={}
 
 Blossom.__index=Blossom
@@ -463,6 +487,96 @@ function Blossom:keyPressed(k,s,r)
       self.stageY=self.stageYMax
     
     end
+  
+  end
+
+end
+
+function Blossom:gamepadPressed(j,b)
+
+  if self.hopping then return end
+
+  if b=="dpleft" then
+  
+    if not self.hopping then self.stageX=self.stageX-1 end
+  
+    if self.stageX>=self.stageXMin then
+    
+      self:hopLeft()
+    
+    else
+    
+      self:hopHere()
+    
+      self.stageX=self.stageXMin
+    
+    end
+  
+  elseif b=="dpright" then
+  
+    if not self.hopping then self.stageX=self.stageX+1 end
+  
+    if self.stageX<=self.stageXMax then
+    
+      self:hopRight()
+    
+    else
+    
+      self:hopHere()
+    
+      self.stageX=self.stageXMax
+    
+    end
+  
+  elseif b=="dpup" then
+  
+    if not self.hopping then self.stageY=self.stageY-1 end
+  
+    if self.stageY>=self.stageYMin then
+    
+      self:hopUp()
+    
+    else
+    
+      self:hopHere()
+    
+      self.stageY=self.stageYMin
+    
+    end
+  
+  elseif b=="dpdown" then
+  
+    if not self.hopping then self.stageY=self.stageY+1 end
+  
+    if self.stageY<=self.stageYMax then
+    
+      self:hopDown()
+    
+    else
+    
+      self:hopHere()
+    
+      self.stageY=self.stageYMax
+    
+    end
+  
+  end
+
+  if _singleAction and (b=="a" or b=="b") then
+  
+    self:shakeBack()
+    
+    return
+  
+  end
+
+  if b=="a" then
+  
+    self:shakeLeft()
+  
+  elseif b=="b" then
+  
+    self:shakeRight()
   
   end
 
@@ -1035,6 +1149,49 @@ function Routine:keyPressed(k,s,r)
   
 end
 
+function Routine:gamepadPressed(j,b)
+
+  if self.lock>0 then return end
+
+  self.lock=self.cool
+
+  if b=="dpleft" then
+  
+    self:checkMoveLeft()
+  
+  elseif b=="dpright" then
+  
+    self:checkMoveRight()
+
+  elseif b=="dpup" then
+  
+    self:checkMoveUp()
+  
+  elseif b=="dpdown" then
+  
+    self:checkMoveDown()
+  
+  end
+  
+  if _singleAction and (b=="a" or b=="b") then
+  
+    self:checkShakeBack()
+    
+    return
+  
+  end
+
+  if b=="a" then
+  
+    self:checkShakeLeft()
+  
+  elseif b=="b" then
+  
+    self:checkShakeRight()
+  
+  end
+
+end
 
 Feedback={}
 
