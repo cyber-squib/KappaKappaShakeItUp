@@ -12,3 +12,4 @@ backlog:
 [ ] new dancer
 [ ] new dance floor
 [ ] step retrigger switch
+[ ] change color palette

@@ -1,6 +1,8 @@
 function love.load()
 
   _singleAction=false
+  
+  _playstationController=true
 
   _gfx={}
   
@@ -9,28 +11,56 @@ function love.load()
   _cfx={}
 
   table.insert(_gfx,love.graphics.newImage("resource/sliceAll_KappaDance.png"))
-  
+    
   table.insert(_gfx,love.graphics.newImage("resource/KappaRoutine.png"))
   
-  table.insert(_gfx,love.graphics.newImage("resource/MoveLeft.png"))
-
-  table.insert(_gfx,love.graphics.newImage("resource/MoveRight.png"))
-
-  table.insert(_gfx,love.graphics.newImage("resource/MoveUp.png"))
-
-  table.insert(_gfx,love.graphics.newImage("resource/MoveDown.png"))
-  
-  if _singleAction then
-  
-    table.insert(_gfx,love.graphics.newImage("resource/ShakeBack.png"))
-
-    table.insert(_gfx,love.graphics.newImage("resource/ShakeBack.png"))
+  if _playstationController then
+    
+    table.insert(_gfx,love.graphics.newImage("resource/MoveLeftPlaystation.png"))
+    
+    table.insert(_gfx,love.graphics.newImage("resource/MoveRightPlaystation.png"))
+    
+    table.insert(_gfx,love.graphics.newImage("resource/MoveUpPlaystation.png"))
+    
+    table.insert(_gfx,love.graphics.newImage("resource/MoveDownPlaystation.png"))
+    
+    if _singleAction then
+    
+      table.insert(_gfx,love.graphics.newImage("resource/ShakeRightPlaystation.png"))
+    
+      table.insert(_gfx,love.graphics.newImage("resource/ShakeRightPlaystation.png"))
+    
+    else
+    
+      table.insert(_gfx,love.graphics.newImage("resource/ShakeLeftPlaystation.png"))
+    
+      table.insert(_gfx,love.graphics.newImage("resource/ShakeRightPlaystation.png"))
+    
+    end
   
   else
-
-    table.insert(_gfx,love.graphics.newImage("resource/ShakeLeft.png"))
-
-    table.insert(_gfx,love.graphics.newImage("resource/ShakeRight.png"))
+    
+    table.insert(_gfx,love.graphics.newImage("resource/MoveLeft.png"))
+    
+    table.insert(_gfx,love.graphics.newImage("resource/MoveRight.png"))
+    
+    table.insert(_gfx,love.graphics.newImage("resource/MoveUp.png"))
+    
+    table.insert(_gfx,love.graphics.newImage("resource/MoveDown.png"))
+    
+    if _singleAction then
+    
+      table.insert(_gfx,love.graphics.newImage("resource/ShakeBack.png"))
+    
+      table.insert(_gfx,love.graphics.newImage("resource/ShakeBack.png"))
+    
+    else
+    
+      table.insert(_gfx,love.graphics.newImage("resource/ShakeLeft.png"))
+    
+      table.insert(_gfx,love.graphics.newImage("resource/ShakeRight.png"))
+    
+    end
   
   end
   
