@@ -1,2 +1,14 @@
+priorities:
+[ ] new title screen
 [ ] controller support
+[ ] new song
+[ ] improve routine designer workflow
+[ ] new routine
+[ ] song select menu
+backlog:
 [ ] touch support
+[ ] ios build script
+[ ] dynamic screen resolution
+[ ] new dancer
+[ ] new dance floor
+[ ] step retrigger switch
