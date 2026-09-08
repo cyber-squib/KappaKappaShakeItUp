@@ -14,3 +14,5 @@ backlog:
 [ ] step retrigger switch
 [ ] change color palette
 [ ] pause menu
+[ ] snap step grapgics to beat
+[ ] song timeline
