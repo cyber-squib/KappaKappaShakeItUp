@@ -1,6 +1,6 @@
 priorities:
 [ ] new title screen
-[ ] controller support
+[x] controller support
 [ ] new song
 [ ] improve routine designer workflow
 [ ] new routine
@@ -14,5 +14,7 @@ backlog:
 [ ] step retrigger switch
 [ ] change color palette
 [ ] pause menu
+[ ] looping mechanics
 [ ] snap step grapgics to beat
 [ ] song timeline
+[ ] auto playstation controller graphics
