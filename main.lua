@@ -893,7 +893,7 @@ function Routine:draw()
   
   a=_cfx[2]:getSample(si,1)
   
-  if math.abs(a)<.2 then a=math.pow(a,3)*2 end  a=(a+1)/2
+  if math.abs(a)<.05 then a=math.pow(a,3)*256 end  a=(a+1)/2
   
   xPosition=a*moveWidth+xOffset
   
@@ -911,7 +911,7 @@ function Routine:draw()
   
   a=_cfx[2]:getSample(si,2)
   
-  if math.abs(a)<.2 then a=math.pow(a,3)*2 end  a=(a+1)/2
+  if math.abs(a)<.05 then a=math.pow(a,3)*256 end  a=(a+1)/2
   
   xPosition=a*moveWidth+xOffset
   
@@ -929,7 +929,7 @@ function Routine:draw()
   
   a=_cfx[3]:getSample(si,1)
   
-  if math.abs(a)<.2 then a=math.pow(a,3)*2 end  a=(a+1)/2
+  if math.abs(a)<.05 then a=math.pow(a,3)*256 end  a=(a+1)/2
   
   xPosition=a*moveWidth+xOffset
   
@@ -947,7 +947,7 @@ function Routine:draw()
   
   a=_cfx[3]:getSample(si,2)
   
-  if math.abs(a)<.2 then a=math.pow(a,3)*2 end  a=(a+1)/2
+  if math.abs(a)<.05 then a=math.pow(a,3)*256 end  a=(a+1)/2
   
   xPosition=a*moveWidth+xOffset
   
@@ -965,7 +965,7 @@ function Routine:draw()
   
   a=_cfx[4]:getSample(si,1)
   
-  if math.abs(a)<.2 then a=math.pow(a,3)*2 end  a=(a+1)/2
+  if math.abs(a)<.05 then a=math.pow(a,3)*256 end  a=(a+1)/2
   
   xPosition=a*moveWidth+xOffset
   
@@ -983,7 +983,7 @@ function Routine:draw()
   
   a=_cfx[4]:getSample(si,2)
   
-  if math.abs(a)<.2 then a=math.pow(a,3)*2 end  a=(a+1)/2
+  if math.abs(a)<.05 then a=math.pow(a,3)*256 end  a=(a+1)/2
   
   xPosition=a*moveWidth+xOffset
   
@@ -1003,7 +1003,7 @@ function Routine:draw()
   
   a=_cfx[5]:getSample(si,1)
   
-  if math.abs(a)<.2 then a=math.pow(a,3)*2 end  a=(a+1)/2
+  if math.abs(a)<.05 then a=math.pow(a,3)*256 end  a=(a+1)/2
   
   xPosition=a*moveWidth+xOffset
   
@@ -1021,7 +1021,7 @@ function Routine:draw()
   
   a=_cfx[5]:getSample(si,2)
   
-  if math.abs(a)<.2 then a=math.pow(a,3)*2 end  a=(a+1)/2
+  if math.abs(a)<.05 then a=math.pow(a,3)*256 end  a=(a+1)/2
   
   xPosition=a*moveWidth+xOffset
   
@@ -1039,7 +1039,7 @@ function Routine:draw()
   
   a=_cfx[6]:getSample(si,1)
   
-  if math.abs(a)<.2 then a=math.pow(a,3)*2 end  a=(a+1)/2
+  if math.abs(a)<.05 then a=math.pow(a,3)*256 end  a=(a+1)/2
   
   xPosition=a*moveWidth+xOffset
   
@@ -1057,7 +1057,7 @@ function Routine:draw()
   
   a=_cfx[6]:getSample(si,2)
   
-  if math.abs(a)<.2 then a=math.pow(a,3)*2 end  a=(a+1)/2
+  if math.abs(a)<.05 then a=math.pow(a,3)*256 end  a=(a+1)/2
   
   xPosition=a*moveWidth+xOffset
   
@@ -1075,7 +1075,7 @@ function Routine:draw()
   
   a=_cfx[7]:getSample(si,1)
   
-  if math.abs(a)<.2 then a=math.pow(a,3)*2 end  a=(a+1)/2
+  if math.abs(a)<.05 then a=math.pow(a,3)*256 end  a=(a+1)/2
   
   xPosition=a*moveWidth+xOffset
   
@@ -1093,7 +1093,7 @@ function Routine:draw()
   
   a=_cfx[7]:getSample(si,2)
   
-  if math.abs(a)<.2 then a=math.pow(a,3)*2 end  a=(a+1)/2
+  if math.abs(a)<.05 then a=math.pow(a,3)*256 end  a=(a+1)/2
   
   xPosition=a*moveWidth+xOffset
   
