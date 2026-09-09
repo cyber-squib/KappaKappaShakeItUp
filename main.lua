@@ -838,6 +838,30 @@ end
 
 function Routine:draw()
 
+
+
+  local aB,siB
+  
+  siB=_sfx[1]:tell("samples")
+  
+  aB=0
+  
+  aB=_cfx[1]:getSample(siB,1)
+  
+  aB=(aB+1)/2
+  
+  aB=math.sin(math.pi*(aB+1))*22
+  
+  aBY=0
+  
+  aBY=_cfx[1]:getSample(siB,1)
+  
+  aBY=(aBY+1)/2
+  
+  aBY=-math.sin(math.pi*(aBY))*11
+  
+  
+
   if self.lock>0 then self.lock=self.lock-1 end
 
   love.graphics.setLineWidth(64)
@@ -893,13 +917,13 @@ function Routine:draw()
   
   a=_cfx[2]:getSample(si,1)
   
-  if math.abs(a)<.05 then a=math.pow(a,3)*256 end  a=(a+1)/2
+  --[[ if math.abs(a)<.05 then a=math.pow(a,3)*256 end ]] a=(a+1)/2
   
   xPosition=a*moveWidth+xOffset
   
   if _lastControlPosition[12+1] and (xPosition-_lastControlPosition[1+12])<limit then
 
-    love.graphics.draw(_gfx[_playstationController+3],xPosition,bottomPosition)
+    love.graphics.draw(_gfx[_playstationController+3],xPosition+aB,bottomPosition+aBY)
   
   end
   
@@ -911,13 +935,13 @@ function Routine:draw()
   
   a=_cfx[2]:getSample(si,2)
   
-  if math.abs(a)<.05 then a=math.pow(a,3)*256 end  a=(a+1)/2
+  --[[ if math.abs(a)<.05 then a=math.pow(a,3)*256 end ]] a=(a+1)/2
   
   xPosition=a*moveWidth+xOffset
   
   if _lastControlPosition[12+2] and (xPosition-_lastControlPosition[2+12])<limit then
 
-    love.graphics.draw(_gfx[_playstationController+4],xPosition,bottomPosition)
+    love.graphics.draw(_gfx[_playstationController+4],xPosition+aB,bottomPosition+aBY)
   
   end
   
@@ -929,13 +953,13 @@ function Routine:draw()
   
   a=_cfx[3]:getSample(si,1)
   
-  if math.abs(a)<.05 then a=math.pow(a,3)*256 end  a=(a+1)/2
+  --[[ if math.abs(a)<.05 then a=math.pow(a,3)*256 end ]] a=(a+1)/2
   
   xPosition=a*moveWidth+xOffset
   
   if _lastControlPosition[12+3] and (xPosition-_lastControlPosition[3+12])<limit then
 
-    love.graphics.draw(_gfx[_playstationController+5],xPosition,bottomPosition)
+    love.graphics.draw(_gfx[_playstationController+5],xPosition+aB,bottomPosition+aBY)
   
   end
   
@@ -947,13 +971,13 @@ function Routine:draw()
   
   a=_cfx[3]:getSample(si,2)
   
-  if math.abs(a)<.05 then a=math.pow(a,3)*256 end  a=(a+1)/2
+  --[[ if math.abs(a)<.05 then a=math.pow(a,3)*256 end ]] a=(a+1)/2
   
   xPosition=a*moveWidth+xOffset
   
   if _lastControlPosition[12+4] and (xPosition-_lastControlPosition[4+12])<limit then
 
-    love.graphics.draw(_gfx[_playstationController+6],xPosition,bottomPosition)
+    love.graphics.draw(_gfx[_playstationController+6],xPosition+aB,bottomPosition+aBY)
     
   end
   
@@ -965,13 +989,13 @@ function Routine:draw()
   
   a=_cfx[4]:getSample(si,1)
   
-  if math.abs(a)<.05 then a=math.pow(a,3)*256 end  a=(a+1)/2
+  --[[ if math.abs(a)<.05 then a=math.pow(a,3)*256 end ]] a=(a+1)/2
   
   xPosition=a*moveWidth+xOffset
   
   if _lastControlPosition[12+5] and (xPosition-_lastControlPosition[5+12])<limit then
 
-    love.graphics.draw(_gfx[_playstationController+7],xPosition,bottomPosition)
+    love.graphics.draw(_gfx[_playstationController+7],xPosition+aB,bottomPosition+aBY)
     
   end
   
@@ -983,13 +1007,13 @@ function Routine:draw()
   
   a=_cfx[4]:getSample(si,2)
   
-  if math.abs(a)<.05 then a=math.pow(a,3)*256 end  a=(a+1)/2
+  --[[ if math.abs(a)<.05 then a=math.pow(a,3)*256 end ]] a=(a+1)/2
   
   xPosition=a*moveWidth+xOffset
   
   if _lastControlPosition[12+6] and (xPosition-_lastControlPosition[6+12])<limit then
 
-    love.graphics.draw(_gfx[_playstationController+8],xPosition,bottomPosition)
+    love.graphics.draw(_gfx[_playstationController+8],xPosition+aB,bottomPosition+aBY)
   
   end
   
@@ -1003,13 +1027,13 @@ function Routine:draw()
   
   a=_cfx[5]:getSample(si,1)
   
-  if math.abs(a)<.05 then a=math.pow(a,3)*256 end  a=(a+1)/2
+  --[[ if math.abs(a)<.05 then a=math.pow(a,3)*256 end ]] a=(a+1)/2
   
   xPosition=a*moveWidth+xOffset
   
   if _lastControlPosition[12+7] and (xPosition-_lastControlPosition[7+12])<limit then
 
-    love.graphics.draw(_gfx[_playstationController+3],xPosition,bottomPosition)
+    love.graphics.draw(_gfx[_playstationController+3],xPosition+aB,bottomPosition+aBY)
   
   end
   
@@ -1021,13 +1045,13 @@ function Routine:draw()
   
   a=_cfx[5]:getSample(si,2)
   
-  if math.abs(a)<.05 then a=math.pow(a,3)*256 end  a=(a+1)/2
+  --[[ if math.abs(a)<.05 then a=math.pow(a,3)*256 end ]] a=(a+1)/2
   
   xPosition=a*moveWidth+xOffset
   
   if _lastControlPosition[12+8] and (xPosition-_lastControlPosition[8+12])<limit then
 
-    love.graphics.draw(_gfx[_playstationController+4],xPosition,bottomPosition)
+    love.graphics.draw(_gfx[_playstationController+4],xPosition+aB,bottomPosition+aBY)
   
   end
   
@@ -1039,13 +1063,13 @@ function Routine:draw()
   
   a=_cfx[6]:getSample(si,1)
   
-  if math.abs(a)<.05 then a=math.pow(a,3)*256 end  a=(a+1)/2
+  --[[ if math.abs(a)<.05 then a=math.pow(a,3)*256 end ]] a=(a+1)/2
   
   xPosition=a*moveWidth+xOffset
   
   if _lastControlPosition[12+9] and (xPosition-_lastControlPosition[9+12])<limit then
 
-    love.graphics.draw(_gfx[_playstationController+5],xPosition,bottomPosition)
+    love.graphics.draw(_gfx[_playstationController+5],xPosition+aB,bottomPosition+aBY)
   
   end
   
@@ -1057,13 +1081,13 @@ function Routine:draw()
   
   a=_cfx[6]:getSample(si,2)
   
-  if math.abs(a)<.05 then a=math.pow(a,3)*256 end  a=(a+1)/2
+  --[[ if math.abs(a)<.05 then a=math.pow(a,3)*256 end ]] a=(a+1)/2
   
   xPosition=a*moveWidth+xOffset
   
   if _lastControlPosition[12+10] and (xPosition-_lastControlPosition[10+12])<limit then
 
-    love.graphics.draw(_gfx[_playstationController+6],xPosition,bottomPosition)
+    love.graphics.draw(_gfx[_playstationController+6],xPosition+aB,bottomPosition+aBY)
   
   end
   
@@ -1075,13 +1099,13 @@ function Routine:draw()
   
   a=_cfx[7]:getSample(si,1)
   
-  if math.abs(a)<.05 then a=math.pow(a,3)*256 end  a=(a+1)/2
+  --[[ if math.abs(a)<.05 then a=math.pow(a,3)*256 end ]] a=(a+1)/2
   
   xPosition=a*moveWidth+xOffset
   
   if _lastControlPosition[12+11] and (xPosition-_lastControlPosition[11+12])<limit then
 
-    love.graphics.draw(_gfx[_playstationController+7],xPosition,bottomPosition)
+    love.graphics.draw(_gfx[_playstationController+7],xPosition+aB,bottomPosition+aBY)
   
   end
   
@@ -1093,13 +1117,13 @@ function Routine:draw()
   
   a=_cfx[7]:getSample(si,2)
   
-  if math.abs(a)<.05 then a=math.pow(a,3)*256 end  a=(a+1)/2
+  --[[ if math.abs(a)<.05 then a=math.pow(a,3)*256 end ]] a=(a+1)/2
   
   xPosition=a*moveWidth+xOffset
   
   if _lastControlPosition[12+12] and (xPosition-_lastControlPosition[12+12])<limit then
 
-    love.graphics.draw(_gfx[_playstationController+8],xPosition,bottomPosition)
+    love.graphics.draw(_gfx[_playstationController+8],xPosition+aB,bottomPosition+aBY)
   
   end
   
