@@ -18,3 +18,4 @@ backlog:
 [ ] snap step grapgics to beat
 [ ] song timeline
 [ ] auto playstation controller graphics
+[ ] wide eyed mistake animation
