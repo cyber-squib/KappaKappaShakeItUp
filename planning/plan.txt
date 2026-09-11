@@ -22,3 +22,4 @@ backlog:
 [x] refactor routine draw function
 [ ] parallax background layer
 [ ] memorized routine mode
+[ ] losing pitty party?
