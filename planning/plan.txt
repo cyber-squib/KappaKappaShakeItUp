@@ -15,7 +15,7 @@ backlog:
 [ ] change color palette
 [ ] pause menu
 [ ] looping mechanics
-[ ] snap step grapgics to beat
+[x] snap step grapgics to beat
 [ ] song timeline
 [ ] auto playstation controller graphics
 [ ] wide eyed mistake animation

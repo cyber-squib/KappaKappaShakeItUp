@@ -861,7 +861,7 @@ function Routine:waveShape(x)
   return
       (
       self:round(tanh(  pow(2,64)*sin(16*pi*(x-.21875)-pi/2)  ))
-                *tanh(          3*sin(16*pi*(x-.21875)     )  )
+                *tanh(          2.5*sin(16*pi*(x-.21875)     )  )
       -2*floor((((x-.21875)*8)+0.25)*2)
       )/(-32)+0.21875
 
@@ -983,6 +983,12 @@ function Routine:draw()
     if i%2~=0 then c=2 end
   
     a=_cfx[n]:getSample(si,c)
+    
+    
+    
+    a=a*1.1
+    
+    a=a+.05
     
     a=(a+1)/2
     
