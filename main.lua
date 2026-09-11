@@ -913,225 +913,38 @@ function Routine:draw()
   
   si=_sfx[1]:tell("samples")
   
-  a=0
   
-  a=_cfx[2]:getSample(si,1)
   
-  --[[ if math.abs(a)<.05 then a=math.pow(a,3)*256 end ]] a=(a+1)/2
+  for i=0,11 do
   
-  xPosition=a*moveWidth+xOffset
+    a=0
   
-  if _lastControlPosition[12+1] and (xPosition-_lastControlPosition[1+12])<limit then
-
-    love.graphics.draw(_gfx[_playstationController+3],xPosition+aB,bottomPosition+aBY)
-  
-  end
-  
-  _lastControlPosition[1+12]=_lastControlPosition[1]
-
-  _lastControlPosition[1]=xPosition
-  
-  a=0
-  
-  a=_cfx[2]:getSample(si,2)
-  
-  --[[ if math.abs(a)<.05 then a=math.pow(a,3)*256 end ]] a=(a+1)/2
-  
-  xPosition=a*moveWidth+xOffset
-  
-  if _lastControlPosition[12+2] and (xPosition-_lastControlPosition[2+12])<limit then
-
-    love.graphics.draw(_gfx[_playstationController+4],xPosition+aB,bottomPosition+aBY)
-  
-  end
-  
-  _lastControlPosition[2+12]=_lastControlPosition[2]
-
-  _lastControlPosition[2]=xPosition
-  
-  a=0
-  
-  a=_cfx[3]:getSample(si,1)
-  
-  --[[ if math.abs(a)<.05 then a=math.pow(a,3)*256 end ]] a=(a+1)/2
-  
-  xPosition=a*moveWidth+xOffset
-  
-  if _lastControlPosition[12+3] and (xPosition-_lastControlPosition[3+12])<limit then
-
-    love.graphics.draw(_gfx[_playstationController+5],xPosition+aB,bottomPosition+aBY)
-  
-  end
-  
-  _lastControlPosition[3+12]=_lastControlPosition[3]
-
-  _lastControlPosition[3]=xPosition
-  
-  a=0
-  
-  a=_cfx[3]:getSample(si,2)
-  
-  --[[ if math.abs(a)<.05 then a=math.pow(a,3)*256 end ]] a=(a+1)/2
-  
-  xPosition=a*moveWidth+xOffset
-  
-  if _lastControlPosition[12+4] and (xPosition-_lastControlPosition[4+12])<limit then
-
-    love.graphics.draw(_gfx[_playstationController+6],xPosition+aB,bottomPosition+aBY)
+    local n=2+math.floor(i/2)
     
-  end
-  
-  _lastControlPosition[4+12]=_lastControlPosition[4]
-
-  _lastControlPosition[4]=xPosition
-  
-  a=0
-  
-  a=_cfx[4]:getSample(si,1)
-  
-  --[[ if math.abs(a)<.05 then a=math.pow(a,3)*256 end ]] a=(a+1)/2
-  
-  xPosition=a*moveWidth+xOffset
-  
-  if _lastControlPosition[12+5] and (xPosition-_lastControlPosition[5+12])<limit then
-
-    love.graphics.draw(_gfx[_playstationController+7],xPosition+aB,bottomPosition+aBY)
+    local c=1
     
-  end
+    if i%2~=0 then c=2 end
   
-  _lastControlPosition[5+12]=_lastControlPosition[5]
+    a=_cfx[n]:getSample(si,c)
+    
+    a=(a+1)/2
+    
+    xPosition=a*moveWidth+xOffset
+    
+    if _lastControlPosition[12+1+i] and (xPosition-_lastControlPosition[i+1+12])<limit then
 
-  _lastControlPosition[5]=xPosition
+      love.graphics.draw(_gfx[_playstationController+3+i%6],xPosition+aB,bottomPosition+aBY)
   
-  a=0
+    end
   
-  a=_cfx[4]:getSample(si,2)
-  
-  --[[ if math.abs(a)<.05 then a=math.pow(a,3)*256 end ]] a=(a+1)/2
-  
-  xPosition=a*moveWidth+xOffset
-  
-  if _lastControlPosition[12+6] and (xPosition-_lastControlPosition[6+12])<limit then
+    _lastControlPosition[i+1+12]=_lastControlPosition[i+1]
 
-    love.graphics.draw(_gfx[_playstationController+8],xPosition+aB,bottomPosition+aBY)
-  
-  end
-  
-  _lastControlPosition[6+12]=_lastControlPosition[6]
-
-  _lastControlPosition[6]=xPosition
-  
-  --------------------------
-  
-  a=0
-  
-  a=_cfx[5]:getSample(si,1)
-  
-  --[[ if math.abs(a)<.05 then a=math.pow(a,3)*256 end ]] a=(a+1)/2
-  
-  xPosition=a*moveWidth+xOffset
-  
-  if _lastControlPosition[12+7] and (xPosition-_lastControlPosition[7+12])<limit then
-
-    love.graphics.draw(_gfx[_playstationController+3],xPosition+aB,bottomPosition+aBY)
+    _lastControlPosition[i+1]=xPosition
   
   end
   
-  _lastControlPosition[7+12]=_lastControlPosition[7]
-
-  _lastControlPosition[7]=xPosition
   
-  a=0
   
-  a=_cfx[5]:getSample(si,2)
-  
-  --[[ if math.abs(a)<.05 then a=math.pow(a,3)*256 end ]] a=(a+1)/2
-  
-  xPosition=a*moveWidth+xOffset
-  
-  if _lastControlPosition[12+8] and (xPosition-_lastControlPosition[8+12])<limit then
-
-    love.graphics.draw(_gfx[_playstationController+4],xPosition+aB,bottomPosition+aBY)
-  
-  end
-  
-  _lastControlPosition[8+12]=_lastControlPosition[8]
-
-  _lastControlPosition[8]=xPosition
-  
-  a=0
-  
-  a=_cfx[6]:getSample(si,1)
-  
-  --[[ if math.abs(a)<.05 then a=math.pow(a,3)*256 end ]] a=(a+1)/2
-  
-  xPosition=a*moveWidth+xOffset
-  
-  if _lastControlPosition[12+9] and (xPosition-_lastControlPosition[9+12])<limit then
-
-    love.graphics.draw(_gfx[_playstationController+5],xPosition+aB,bottomPosition+aBY)
-  
-  end
-  
-  _lastControlPosition[9+12]=_lastControlPosition[9]
-
-  _lastControlPosition[9]=xPosition
-  
-  a=0
-  
-  a=_cfx[6]:getSample(si,2)
-  
-  --[[ if math.abs(a)<.05 then a=math.pow(a,3)*256 end ]] a=(a+1)/2
-  
-  xPosition=a*moveWidth+xOffset
-  
-  if _lastControlPosition[12+10] and (xPosition-_lastControlPosition[10+12])<limit then
-
-    love.graphics.draw(_gfx[_playstationController+6],xPosition+aB,bottomPosition+aBY)
-  
-  end
-  
-  _lastControlPosition[10+12]=_lastControlPosition[10]
-
-  _lastControlPosition[10]=xPosition
-  
-  a=0
-  
-  a=_cfx[7]:getSample(si,1)
-  
-  --[[ if math.abs(a)<.05 then a=math.pow(a,3)*256 end ]] a=(a+1)/2
-  
-  xPosition=a*moveWidth+xOffset
-  
-  if _lastControlPosition[12+11] and (xPosition-_lastControlPosition[11+12])<limit then
-
-    love.graphics.draw(_gfx[_playstationController+7],xPosition+aB,bottomPosition+aBY)
-  
-  end
-  
-  _lastControlPosition[11+12]=_lastControlPosition[11]
-
-  _lastControlPosition[11]=xPosition
-  
-  a=0
-  
-  a=_cfx[7]:getSample(si,2)
-  
-  --[[ if math.abs(a)<.05 then a=math.pow(a,3)*256 end ]] a=(a+1)/2
-  
-  xPosition=a*moveWidth+xOffset
-  
-  if _lastControlPosition[12+12] and (xPosition-_lastControlPosition[12+12])<limit then
-
-    love.graphics.draw(_gfx[_playstationController+8],xPosition+aB,bottomPosition+aBY)
-  
-  end
-  
-  _lastControlPosition[12+12]=_lastControlPosition[12]
-
-  _lastControlPosition[12]=xPosition
-  
-  ------------------------------
   
   if not _sfx[1]:isPlaying() then
   
