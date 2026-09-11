@@ -858,15 +858,12 @@ function Routine:waveShape(x)
   local floor=math.floor
   local tanh=math.tanh
   
-  local yo=.25
-  local fo=2
-  
   return
       (
-      self:round(tanh(pow(2,64)*sin(fo*2*pi*(x-yo)-pi/2)))
-                *tanh(        4*sin(fo*2*pi*(x-yo)))
-      -2*floor(((x-yo)+0.25/fo)*2*fo)
-      )/(-4*fo)+yo
+      self:round(tanh(  pow(2,64)*sin(16*pi*(x-.21875)-pi/2)  ))
+                *tanh(          3*sin(16*pi*(x-.21875)     )  )
+      -2*floor((((x-.21875)*8)+0.25)*2)
+      )/(-32)+0.21875
 
 end
 
@@ -1023,10 +1020,6 @@ function Routine:draw()
     love.graphics.draw(_gfx[14],160,382)
   
   end
-
-  
-
-  self:debugDrawWaveShape()
 
 end
 
