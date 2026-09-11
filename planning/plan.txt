@@ -19,4 +19,4 @@ backlog:
 [ ] song timeline
 [ ] auto playstation controller graphics
 [ ] wide eyed mistake animation
-[ ] refactor routine draw function
+[x] refactor routine draw function

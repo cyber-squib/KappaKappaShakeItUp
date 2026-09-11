@@ -836,9 +836,69 @@ function Routine:checkShakeBack()
 
 end
 
+function Routine:round(n)
+
+  if n-math.floor(n)<.5 then
+  
+    return math.floor(n)
+  
+  else
+  
+    return math.ceil(n)
+  
+  end
+
+end
+
+function Routine:waveShape(x)
+
+  local pow=math.pow
+  local sin=math.sin
+  local pi=math.pi
+  local floor=math.floor
+  local tanh=math.tanh
+  
+  local yo=.25
+  local fo=2
+  
+  return
+      (
+      self:round(tanh(pow(2,64)*sin(fo*2*pi*(x-yo)-pi/2)))
+                *tanh(        4*sin(fo*2*pi*(x-yo)))
+      -2*floor(((x-yo)+0.25/fo)*2*fo)
+      )/(-4*fo)+yo
+
+end
+
+function Routine:debugDrawWaveShape()
+
+  local xo,yo=64,64
+
+  local r,g,b,a=love.graphics.getColor()
+
+  love.graphics.setColor(1,0,0,1)
+
+  for x=1,0,-.01 do
+  
+    --love.graphics.points(x,self:waveShape(x))
+    
+    local xa=128
+    
+    local ya=8
+    
+    local x=xo+(x)*xa
+    
+    local y=yo+(self:waveShape(x))*ya
+    
+    love.graphics.circle("fill",x,y,1)
+  
+  end
+  
+  love.graphics.setColor(r,g,b,a)
+
+end
+
 function Routine:draw()
-
-
 
   local aB,siB
   
@@ -929,11 +989,13 @@ function Routine:draw()
     
     a=(a+1)/2
     
+    a=self:waveShape(a)
+    
     xPosition=a*moveWidth+xOffset
     
     if _lastControlPosition[12+1+i] and (xPosition-_lastControlPosition[i+1+12])<limit then
 
-      love.graphics.draw(_gfx[_playstationController+3+i%6],xPosition+aB,bottomPosition+aBY)
+      love.graphics.draw(_gfx[_playstationController+3+i%6],xPosition,bottomPosition)
   
     end
   
@@ -961,6 +1023,10 @@ function Routine:draw()
     love.graphics.draw(_gfx[14],160,382)
   
   end
+
+  
+
+  self:debugDrawWaveShape()
 
 end
 
