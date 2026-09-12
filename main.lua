@@ -157,6 +157,8 @@ function love.load()
   _lastControlPosition={}
   
   _lastControlPositionUpdate={}
+  
+  _playbackSpeed=0
 
 end
 
@@ -255,6 +257,16 @@ end
 function love.update(t)
 
   _routine:update(t)
+  
+  local down=500
+  
+  if _playbackSpeed<0 and _playbackSpeed>-(down-1) then
+  
+    _playbackSpeed=_playbackSpeed-1
+    
+    _sfx[1]:setPitch(1+_playbackSpeed/down)
+    
+  end
 
 end
 
@@ -765,10 +777,10 @@ function Routine:checkMoveLeft()
     _feedback:pass()
     
   else
+  
+    if not self.stepPass then _feedback:fail() end
     
     self.stepPass=true
-  
-    _feedback:fail()
   
   end
 
@@ -801,10 +813,10 @@ function Routine:checkMoveRight()
     _feedback:pass()
     
   else
+  
+    if not self.stepPass then _feedback:fail() end
     
     self.stepPass=true
-  
-    _feedback:fail()
   
   end
 
@@ -837,10 +849,10 @@ function Routine:checkMoveUp()
     _feedback:pass()
     
   else
+  
+    if not self.stepPass then _feedback:fail() end
     
     self.stepPass=true
-  
-    _feedback:fail()
   
   end
 
@@ -873,10 +885,10 @@ function Routine:checkMoveDown()
     _feedback:pass()
     
   else
+  
+    if not self.stepPass then _feedback:fail() end
     
     self.stepPass=true
-  
-    _feedback:fail()
   
   end
 
@@ -923,10 +935,10 @@ function Routine:checkShakeLeft()
     _feedback:pass()
     
   else
+  
+    if not self.stepPass then _feedback:fail() end
     
     self.stepPass=true
-  
-    _feedback:fail()
   
   end
 
@@ -943,10 +955,10 @@ function Routine:checkShakeRight()
     _feedback:pass()
     
   else
+  
+    if not self.stepPass then _feedback:fail() end
     
     self.stepPass=true
-  
-    _feedback:fail()
   
   end
 
@@ -963,10 +975,10 @@ function Routine:checkShakeBack()
     _feedback:pass()
     
   else
+  
+    if not self.stepPass then _feedback:fail() end
     
     self.stepPass=true
-  
-    _feedback:fail()
   
   end
 
