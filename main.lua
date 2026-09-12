@@ -155,6 +155,8 @@ function love.load()
   _state=0
   
   _lastControlPosition={}
+  
+  _lastControlPositionUpdate={}
 
 end
 
@@ -243,6 +245,12 @@ function love.gamepadpressed(j,b)
     _sfx[1]:play()
   
   end
+
+end
+
+function love.update(t)
+
+  _routine:update(t)
 
 end
 
@@ -1210,6 +1218,58 @@ function Routine:gamepadPressed(j,b)
   elseif b=="b" or b=="y" then
   
     self:checkShakeRight()
+  
+  end
+
+end
+
+function Routine:update(t)
+
+  local a,si
+  
+  si=_sfx[1]:tell("samples")
+
+  for i=0,11 do
+  
+    a=0
+  
+    local n=2+math.floor(i/2)
+    
+    local c=1
+    
+    if i%2~=0 then c=2 end
+    
+    a=_cfx[n]:getSample(si,c)
+    
+    a=a*100
+    
+    --a=(a+1)/2
+    --
+    --xPosition=a*moveWidth+xOffset
+    --
+    --if _lastControlPositionUpdate[12+1+i] and (xPosition-_lastControlPositionUpdate[i+1+12])<limit then
+    --
+    --  love.graphics.draw(_gfx[blur+_playstationController+3+i%6],xPosition,bottomPosition-blurOffset)
+    --
+    --end
+    
+    if _lastControlPositionUpdate[i+1] and _lastControlPositionUpdate[i+1]>-self.range and a<-self.range then
+    
+      if not self.stepPass then
+      
+        _feedback:fail()
+      
+      else
+      
+        self.stepPass=false
+      
+      end
+    
+    end
+  
+    _lastControlPositionUpdate[i+1+12]=_lastControlPositionUpdate[i+1]
+
+    _lastControlPositionUpdate[i+1]=a
   
   end
 
