@@ -162,11 +162,7 @@ function love.load()
   
   _defaultPlaybackSpeed=.9
   
-  _tomatoes={
-  
-    setmetatable({},Tomato):init()
-  
-  }
+  _tomatoes={}
 
 end
 
@@ -302,7 +298,7 @@ function love.update(t)
     
       local o=_tomatoes[i]
       
-      if o then o:draw() end
+      if o then o:update() end
     
     end
     
@@ -752,7 +748,17 @@ function Blossom:oops()
 
   self.slip=self.slip+1
   
-  if _playbackSpeed==0 and self.slip>3 then _playbackSpeed=-1 end
+  if _playbackSpeed==0 and self.slip>3 then
+  
+    _playbackSpeed=-1
+    
+    for r=0,2 do
+    
+      table.insert(_tomatoes,setmetatable({},Tomato):init(64+r*256,784))
+    
+    end
+  
+  end
 
 end
 
@@ -1441,11 +1447,17 @@ Tomato={}
 
 Tomato.__index=Tomato
 
-function Tomato:init()
+function Tomato:init(x,y)
 
-  self.x=256
+  self.x=x
   
-  self.y=256
+  self.y=y
+  
+  self.xSpeed=8
+  
+  self.ySpeed=-36
+  
+  self.gravity=1.125
 
   return self
 
@@ -1458,5 +1470,11 @@ function Tomato:draw()
 end
 
 function Tomato:update()
+
+  self.x=self.x+self.xSpeed
+  
+  self.y=self.y+self.ySpeed
+  
+  self.ySpeed=self.ySpeed+self.gravity
 
 end
