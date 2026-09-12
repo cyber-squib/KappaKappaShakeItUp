@@ -144,8 +144,6 @@ function love.load()
 
   love.window.setMode(960,720)
   
-  --_sfx[1]:play()
-  
   _blossom=setmetatable({},Blossom):init()
   
   _routine=setmetatable({},Routine):init()
@@ -216,11 +214,7 @@ function love.mousepressed(x,y,b,t)
     
     else
     
-      _state=1
-      
-      _sfx[1]:play()
-      
-      _sfx[1]:setPitch(_defaultPlaybackSpeed)
+      _start()
     
     end
 
@@ -266,11 +260,7 @@ function love.gamepadpressed(j,b)
     
     else
     
-      _state=1
-      
-      _sfx[1]:play()
-      
-      _sfx[1]:setPitch(_defaultPlaybackSpeed)
+      _start()
     
     end
   
@@ -304,6 +294,30 @@ function love.update(t)
     
   end
     
+end
+
+function _start()
+
+  _state=1
+  
+  _sfx[1]:play()
+  
+  _sfx[1]:setPitch(_defaultPlaybackSpeed)
+  
+  _fail()
+
+end
+
+function _fail()
+
+  _playbackSpeed=-1
+  
+  for r=0,2 do
+  
+    table.insert(_tomatoes,setmetatable({},Tomato):init(64+r*256,784))
+  
+  end
+
 end
 
 Blossom={}
@@ -750,13 +764,7 @@ function Blossom:oops()
   
   if _playbackSpeed==0 and self.slip>3 then
   
-    _playbackSpeed=-1
-    
-    for r=0,2 do
-    
-      table.insert(_tomatoes,setmetatable({},Tomato):init(64+r*256,784))
-    
-    end
+    _fail()
   
   end
 
@@ -1458,6 +1466,14 @@ function Tomato:init(x,y)
   self.ySpeed=-36
   
   self.gravity=1.125
+  
+  self.frame=0
+  
+  self.sprite=_gfx[28]
+  
+  self.spriteWidth=self.sprite:getWidth()
+  
+  self.spriteHeight=self.sprite:getHeight()
 
   return self
 
@@ -1465,7 +1481,31 @@ end
 
 function Tomato:draw()
 
-  love.graphics.draw(_gfx[28],self.x,self.y)
+  local r=math.floor(self.frame/5)%4
+  
+  local w,h=self.spriteWidth/2,self.spriteHeight/2
+  
+  local xo,yo=0,0
+  
+  if r==0 then
+  
+    xo,yo=0,0
+  
+  elseif r==1 then
+  
+    xo,yo=self.spriteHeight,0
+  
+  elseif r==2 then
+  
+    xo,yo=self.spriteWidth,self.spriteHeight
+  
+  elseif r==3 then
+  
+    xo,yo=0,self.spriteWidth
+  
+  end
+
+  love.graphics.draw(self.sprite,xo+self.x-w,yo+self.y-h,r/2*math.pi)
 
 end
 
@@ -1476,5 +1516,7 @@ function Tomato:update()
   self.y=self.y+self.ySpeed
   
   self.ySpeed=self.ySpeed+self.gravity
+  
+  self.frame=self.frame+1
 
 end
