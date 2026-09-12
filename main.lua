@@ -159,6 +159,8 @@ function love.load()
   _lastControlPositionUpdate={}
   
   _playbackSpeed=0
+  
+  _defaultPlaybackSpeed=.9
 
 end
 
@@ -186,69 +188,81 @@ end
 
 function love.mousepressed(x,y,b,t)
 
-  _playstationController=0
+  if _playbackSpeed==0 then
 
-  if _state==1 then
-
-    _blossom:mousePressed(x,y,b,t)
+    _playstationController=0
     
-    _routine:mousePressed(x,y,b,t)
+    if _state==1 then
     
-    if not _sfx[1]:isPlaying() then
+      _blossom:mousePressed(x,y,b,t)
+      
+      _routine:mousePressed(x,y,b,t)
+      
+      if not _sfx[1]:isPlaying() then
+      
+        love.event.quit"restart"
+      
+      end
     
-      love.event.quit"restart"
+    else
+    
+      _state=1
+      
+      _sfx[1]:play()
+      
+      _sfx[1]:setPitch(_defaultPlaybackSpeed)
     
     end
-  
-  else
-  
-    _state=1
-    
-    _sfx[1]:play()
-    
-    _sfx[1]:setPitch(.9)
-  
+
   end
 
 end
 
 function love.keypressed(k,s,r)
 
-  _playstationController=0
+  if _playbackSpeed==0 then
 
-  if _state==1 then
+    _playstationController=0
+    
+    if _state==1 then
+    
+      _blossom:keyPressed(k,s,r)
+    
+      _routine:keyPressed(k,s,r)
+    
+    end
 
-    _blossom:keyPressed(k,s,r)
-
-    _routine:keyPressed(k,s,r)
-  
   end
 
 end
 
 function love.gamepadpressed(j,b)
 
-  _playstationController=12
+  if _playbackSpeed==0 then
 
-  if _state==1 then
-
-    _blossom:gamepadPressed(j,b)
-
-    _routine:gamepadPressed(j,b)
+    _playstationController=12
     
-    if not _sfx[1]:isPlaying() then
+    if _state==1 then
     
-      love.event.quit"restart"
+      _blossom:gamepadPressed(j,b)
+    
+      _routine:gamepadPressed(j,b)
+      
+      if not _sfx[1]:isPlaying() then
+      
+        love.event.quit"restart"
+      
+      end
+    
+    else
+    
+      _state=1
+      
+      _sfx[1]:play()
+      
+      _sfx[1]:setPitch(_defaultPlaybackSpeed)
     
     end
-  
-  else
-  
-    _state=1
-    
-    _sfx[1]:play()
-    
-    _sfx[1]:setPitch(.9)
   
   end
 
@@ -256,7 +270,7 @@ end
 
 function love.update(t)
 
-  _routine:update(t)
+  if _playbackSpeed==0 then _routine:update(t) end
   
   local down=500
   
@@ -264,7 +278,7 @@ function love.update(t)
   
     _playbackSpeed=_playbackSpeed-1
     
-    _sfx[1]:setPitch(1+_playbackSpeed/down)
+    _sfx[1]:setPitch(_defaultPlaybackSpeed+_playbackSpeed/down*_defaultPlaybackSpeed)
     
   end
 
@@ -428,7 +442,7 @@ function Blossom:draw()
   
   end
 
-  if self.slip>0 then
+  if self.slip>0 and self.slip<4 then
   
     for i=1,self.slip do
     
@@ -711,6 +725,8 @@ end
 function Blossom:oops()
 
   self.slip=self.slip+1
+  
+  if _playbackSpeed==0 and self.slip>3 then _playbackSpeed=-1 end
 
 end
 
@@ -1118,59 +1134,59 @@ function Routine:draw()
   
   si=_sfx[1]:tell("samples")
   
+  if _playbackSpeed==0 then
   
-  
-  for i=0,11 do
-  
-    local blur,blurOffset=0,0
-  
-    a=0
-  
-    local n=2+math.floor(i/2)
+    for i=0,11 do
     
-    local c=1
+      local blur,blurOffset=0,0
     
-    if i%2~=0 then c=2 end
-  
-    a=_cfx[n]:getSample(si,c)
+      a=0
     
-    if self.snapToBeat then
-    
-      a=a*1.1
+      local n=2+math.floor(i/2)
       
-      a=a+.025
-    
-    end
-    
-    a=(a+1)/2
-    
-    if self.snapToBeat then
-    
-      a=self:waveShape(a)
-    
-    end
-    
-    xPosition=a*moveWidth+xOffset
-    
-    if self.snapToBeat and _lastControlPosition[12+1+i] and math.abs(xPosition-_lastControlPosition[i+1+12])>6 then
-    
-      blur,blurOffset=18,6
+      local c=1
       
-    end
+      if i%2~=0 then c=2 end
     
-    if _lastControlPosition[12+1+i] and (xPosition-_lastControlPosition[i+1+12])<limit then
-
-      love.graphics.draw(_gfx[blur+_playstationController+3+i%6],xPosition,bottomPosition-blurOffset)
-  
+      a=_cfx[n]:getSample(si,c)
+      
+      if self.snapToBeat then
+      
+        a=a*1.1
+        
+        a=a+.025
+      
+      end
+      
+      a=(a+1)/2
+      
+      if self.snapToBeat then
+      
+        a=self:waveShape(a)
+      
+      end
+      
+      xPosition=a*moveWidth+xOffset
+      
+      if self.snapToBeat and _lastControlPosition[12+1+i] and math.abs(xPosition-_lastControlPosition[i+1+12])>6 then
+      
+        blur,blurOffset=18,6
+        
+      end
+      
+      if _lastControlPosition[12+1+i] and (xPosition-_lastControlPosition[i+1+12])<limit then
+    
+        love.graphics.draw(_gfx[blur+_playstationController+3+i%6],xPosition,bottomPosition-blurOffset)
+    
+      end
+    
+      _lastControlPosition[i+1+12]=_lastControlPosition[i+1]
+    
+      _lastControlPosition[i+1]=xPosition
+    
     end
-  
-    _lastControlPosition[i+1+12]=_lastControlPosition[i+1]
-
-    _lastControlPosition[i+1]=xPosition
   
   end
-  
-  
   
   
   if not _sfx[1]:isPlaying() then
