@@ -10,121 +10,121 @@ function love.load()
   
   _cfx={}
 
-  table.insert(_gfx,love.graphics.newImage("resource/sliceAll_KappaDance.png"))
-    
-  table.insert(_gfx,love.graphics.newImage("resource/KappaRoutine.png"))
-    
-  table.insert(_gfx,love.graphics.newImage("resource/MoveLeft.png"))
-  
-  table.insert(_gfx,love.graphics.newImage("resource/MoveRight.png"))
-  
-  table.insert(_gfx,love.graphics.newImage("resource/MoveUp.png"))
-  
-  table.insert(_gfx,love.graphics.newImage("resource/MoveDown.png"))
-  
-  if _singleAction then
-  
-    table.insert(_gfx,love.graphics.newImage("resource/ShakeBack.png"))
-  
-    table.insert(_gfx,love.graphics.newImage("resource/ShakeBack.png"))
-  
-  else
-  
-    table.insert(_gfx,love.graphics.newImage("resource/ShakeLeft.png"))
-  
-    table.insert(_gfx,love.graphics.newImage("resource/ShakeRight.png"))
-  
-  end
-  
-  table.insert(_gfx,love.graphics.newImage("resource/Stage.png"))
-  
-  table.insert(_gfx,love.graphics.newImage("resource/v.png"))
-  
-  table.insert(_gfx,love.graphics.newImage("resource/x.png"))
-  
-  table.insert(_gfx,love.graphics.newImage("resource/Title.png"))
-  
-  table.insert(_gfx,love.graphics.newImage("resource/spicy.png"))
-  
-  table.insert(_gfx,love.graphics.newImage("resource/SoSpicy.png"))
-    
-  table.insert(_gfx,love.graphics.newImage("resource/MoveLeftPlaystation.png"))
-  
-  table.insert(_gfx,love.graphics.newImage("resource/MoveRightPlaystation.png"))
-  
-  table.insert(_gfx,love.graphics.newImage("resource/MoveUpPlaystation.png"))
-  
-  table.insert(_gfx,love.graphics.newImage("resource/MoveDownPlaystation.png"))
-  
-  if _singleAction then
-  
-    table.insert(_gfx,love.graphics.newImage("resource/ShakeRightPlaystation.png"))
-  
-    table.insert(_gfx,love.graphics.newImage("resource/ShakeRightPlaystation.png"))
-  
-  else
-  
-    table.insert(_gfx,love.graphics.newImage("resource/ShakeLeftPlaystation.png"))
-  
-    table.insert(_gfx,love.graphics.newImage("resource/ShakeRightPlaystation.png"))
-  
-  end
-  
-  table.insert(_gfx,love.graphics.newImage("resource/MoveLeftMotionBlur.png"))
-  
-  table.insert(_gfx,love.graphics.newImage("resource/MoveRightMotionBlur.png"))
-  
-  table.insert(_gfx,love.graphics.newImage("resource/MoveUpMotionBlur.png"))
-  
-  table.insert(_gfx,love.graphics.newImage("resource/MoveDownMotionBlur.png"))
-  
-  if _singleAction then
-  
-    table.insert(_gfx,love.graphics.newImage("resource/ShakeBackMotionBlur.png"))
-  
-    table.insert(_gfx,love.graphics.newImage("resource/ShakeBackMotionBlur.png"))
-  
-  else
-  
-    table.insert(_gfx,love.graphics.newImage("resource/ShakeLeftMotionBlur.png"))
-  
-    table.insert(_gfx,love.graphics.newImage("resource/ShakeRightMotionBlur.png"))
-  
-  end
-  
-  table.insert(_gfx,love.graphics.newImage("resource/KappaSweat.png"))
-  
-  table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
-  
-  table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
-  
-  table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
-  
-  table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
-  
-  table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
-  
-  table.insert(_gfx,love.graphics.newImage("resource/MoveLeftPlaystationMotionBlur.png"))
-  
-  table.insert(_gfx,love.graphics.newImage("resource/MoveRightPlaystationMotionBlur.png"))
-  
-  table.insert(_gfx,love.graphics.newImage("resource/MoveUpPlaystationMotionBlur.png"))
-  
-  table.insert(_gfx,love.graphics.newImage("resource/MoveDownPlaystationMotionBlur.png"))
-  
-  if _singleAction then
-  
-    table.insert(_gfx,love.graphics.newImage("resource/ShakeRightPlaystationMotionBlur.png"))
-  
-    table.insert(_gfx,love.graphics.newImage("resource/ShakeRightPlaystationMotionBlur.png"))
-  
-  else
-  
-    table.insert(_gfx,love.graphics.newImage("resource/ShakeLeftPlaystationMotionBlur.png"))
-  
-    table.insert(_gfx,love.graphics.newImage("resource/ShakeRightPlaystationMotionBlur.png"))
-  
-  end
+  --[[ 001 ]] table.insert(_gfx,love.graphics.newImage("resource/sliceAll_KappaDance.png"))
+  --[[     ]]   
+  --[[ 002 ]] table.insert(_gfx,love.graphics.newImage("resource/KappaRoutine.png"))
+  --[[     ]]   
+  --[[ 003 ]] table.insert(_gfx,love.graphics.newImage("resource/MoveLeft.png"))
+  --[[     ]] 
+  --[[ 004 ]] table.insert(_gfx,love.graphics.newImage("resource/MoveRight.png"))
+  --[[     ]] 
+  --[[ 005 ]] table.insert(_gfx,love.graphics.newImage("resource/MoveUp.png"))
+  --[[     ]] 
+  --[[ 006 ]] table.insert(_gfx,love.graphics.newImage("resource/MoveDown.png"))
+  --[[     ]] 
+  --[[     ]] if _singleAction then
+  --[[     ]] 
+  --[[ 007 ]]   table.insert(_gfx,love.graphics.newImage("resource/ShakeBack.png"))
+  --[[     ]] 
+  --[[ 008 ]]   table.insert(_gfx,love.graphics.newImage("resource/ShakeBack.png"))
+  --[[     ]] 
+  --[[     ]] else
+  --[[     ]] 
+  --[[ 007 ]]   table.insert(_gfx,love.graphics.newImage("resource/ShakeLeft.png"))
+  --[[     ]] 
+  --[[ 008 ]]   table.insert(_gfx,love.graphics.newImage("resource/ShakeRight.png"))
+  --[[     ]] 
+  --[[     ]] end
+  --[[     ]] 
+  --[[ 009 ]] table.insert(_gfx,love.graphics.newImage("resource/Stage.png"))
+  --[[     ]] 
+  --[[ 010 ]] table.insert(_gfx,love.graphics.newImage("resource/v.png"))
+  --[[     ]] 
+  --[[ 011 ]] table.insert(_gfx,love.graphics.newImage("resource/x.png"))
+  --[[     ]] 
+  --[[ 012 ]] table.insert(_gfx,love.graphics.newImage("resource/Title.png"))
+  --[[     ]] 
+  --[[ 013 ]] table.insert(_gfx,love.graphics.newImage("resource/spicy.png"))
+  --[[     ]] 
+  --[[ 014 ]] table.insert(_gfx,love.graphics.newImage("resource/SoSpicy.png"))
+  --[[     ]]   
+  --[[ 015 ]] table.insert(_gfx,love.graphics.newImage("resource/MoveLeftPlaystation.png"))
+  --[[     ]] 
+  --[[ 016 ]] table.insert(_gfx,love.graphics.newImage("resource/MoveRightPlaystation.png"))
+  --[[     ]] 
+  --[[ 017 ]] table.insert(_gfx,love.graphics.newImage("resource/MoveUpPlaystation.png"))
+  --[[     ]] 
+  --[[ 018 ]] table.insert(_gfx,love.graphics.newImage("resource/MoveDownPlaystation.png"))
+  --[[     ]] 
+  --[[     ]] if _singleAction then
+  --[[     ]] 
+  --[[ 019 ]]   table.insert(_gfx,love.graphics.newImage("resource/ShakeRightPlaystation.png"))
+  --[[     ]] 
+  --[[ 020 ]]   table.insert(_gfx,love.graphics.newImage("resource/ShakeRightPlaystation.png"))
+  --[[     ]] 
+  --[[     ]] else
+  --[[     ]] 
+  --[[ 019 ]]   table.insert(_gfx,love.graphics.newImage("resource/ShakeLeftPlaystation.png"))
+  --[[     ]] 
+  --[[ 020 ]]   table.insert(_gfx,love.graphics.newImage("resource/ShakeRightPlaystation.png"))
+  --[[     ]] 
+  --[[     ]] end
+  --[[     ]] 
+  --[[ 021 ]] table.insert(_gfx,love.graphics.newImage("resource/MoveLeftMotionBlur.png"))
+  --[[     ]] 
+  --[[ 022 ]] table.insert(_gfx,love.graphics.newImage("resource/MoveRightMotionBlur.png"))
+  --[[     ]] 
+  --[[ 023 ]] table.insert(_gfx,love.graphics.newImage("resource/MoveUpMotionBlur.png"))
+  --[[     ]] 
+  --[[ 024 ]] table.insert(_gfx,love.graphics.newImage("resource/MoveDownMotionBlur.png"))
+  --[[     ]] 
+  --[[     ]] if _singleAction then
+  --[[     ]] 
+  --[[ 025 ]]   table.insert(_gfx,love.graphics.newImage("resource/ShakeBackMotionBlur.png"))
+  --[[     ]] 
+  --[[ 026 ]]   table.insert(_gfx,love.graphics.newImage("resource/ShakeBackMotionBlur.png"))
+  --[[     ]] 
+  --[[     ]] else
+  --[[     ]] 
+  --[[ 025 ]]   table.insert(_gfx,love.graphics.newImage("resource/ShakeLeftMotionBlur.png"))
+  --[[     ]] 
+  --[[ 026 ]]   table.insert(_gfx,love.graphics.newImage("resource/ShakeRightMotionBlur.png"))
+  --[[     ]] 
+  --[[     ]] end
+  --[[     ]] 
+  --[[ 027 ]] table.insert(_gfx,love.graphics.newImage("resource/KappaSweat.png"))
+  --[[     ]] 
+  --[[ 028 ]] table.insert(_gfx,love.graphics.newImage("resource/boo.png"))
+  --[[     ]] 
+  --[[ 029 ]] table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
+  --[[     ]] 
+  --[[ 030 ]] table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
+  --[[     ]] 
+  --[[ 031 ]] table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
+  --[[     ]] 
+  --[[ 032 ]] table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
+  --[[     ]] 
+  --[[ 033 ]] table.insert(_gfx,love.graphics.newImage("resource/MoveLeftPlaystationMotionBlur.png"))
+  --[[     ]] 
+  --[[ 034 ]] table.insert(_gfx,love.graphics.newImage("resource/MoveRightPlaystationMotionBlur.png"))
+  --[[     ]] 
+  --[[ 035 ]] table.insert(_gfx,love.graphics.newImage("resource/MoveUpPlaystationMotionBlur.png"))
+  --[[     ]] 
+  --[[ 036 ]] table.insert(_gfx,love.graphics.newImage("resource/MoveDownPlaystationMotionBlur.png"))
+  --[[     ]] 
+  --[[     ]] if _singleAction then
+  --[[     ]] 
+  --[[ 037 ]]   table.insert(_gfx,love.graphics.newImage("resource/ShakeRightPlaystationMotionBlur.png"))
+  --[[     ]] 
+  --[[ 038 ]]   table.insert(_gfx,love.graphics.newImage("resource/ShakeRightPlaystationMotionBlur.png"))
+  --[[     ]] 
+  --[[     ]] else
+  --[[     ]] 
+  --[[ 037 ]]   table.insert(_gfx,love.graphics.newImage("resource/ShakeLeftPlaystationMotionBlur.png"))
+  --[[     ]] 
+  --[[ 038 ]]   table.insert(_gfx,love.graphics.newImage("resource/ShakeRightPlaystationMotionBlur.png"))
+  --[[     ]] 
+  --[[     ]] end
   
   table.insert(_sfx,love.audio.newSource("resource/KappaShakeItUp.wav","static"))
 
@@ -161,6 +161,12 @@ function love.load()
   _playbackSpeed=0
   
   _defaultPlaybackSpeed=.9
+  
+  _tomatoes={
+  
+    setmetatable({},Tomato):init()
+  
+  }
 
 end
 
@@ -177,6 +183,14 @@ function love.draw()
     _routine:draw()
     
     _feedback:draw()
+    
+    for i=#_tomatoes,1,-1 do
+    
+      local o=_tomatoes[i]
+      
+      if o then o:draw() end
+    
+    end
     
   else
   
@@ -270,18 +284,30 @@ end
 
 function love.update(t)
 
-  if _playbackSpeed==0 then _routine:update(t) end
-  
-  local down=500
-  
-  if _playbackSpeed<0 and _playbackSpeed>-(down-1) then
-  
-    _playbackSpeed=_playbackSpeed-1
+  if _state==1 then
+
+    if _playbackSpeed==0 then _routine:update(t) end
     
-    _sfx[1]:setPitch(_defaultPlaybackSpeed+_playbackSpeed/down*_defaultPlaybackSpeed)
+    local down=500
+    
+    if _playbackSpeed<0 and _playbackSpeed>-(down-1) then
+    
+      _playbackSpeed=_playbackSpeed-1
+      
+      _sfx[1]:setPitch(_defaultPlaybackSpeed+_playbackSpeed/down*_defaultPlaybackSpeed)
+      
+    end
+    
+    for i=#_tomatoes,1,-1 do
+    
+      local o=_tomatoes[i]
+      
+      if o then o:draw() end
+    
+    end
     
   end
-
+    
 end
 
 Blossom={}
@@ -1408,5 +1434,29 @@ function Feedback:draw()
     self.grade=self.grade-1
     
   end
+
+end
+
+Tomato={}
+
+Tomato.__index=Tomato
+
+function Tomato:init()
+
+  self.x=256
+  
+  self.y=256
+
+  return self
+
+end
+
+function Tomato:draw()
+
+  love.graphics.draw(_gfx[28],self.x,self.y)
+
+end
+
+function Tomato:update()
 
 end
