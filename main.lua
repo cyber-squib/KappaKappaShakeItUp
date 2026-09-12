@@ -681,6 +681,8 @@ function Routine:init()
   self.lock=0
   
   self.cool=16
+  
+  self.snapToBeat=true
 
   return self
 
@@ -917,7 +919,7 @@ function Routine:waveShape(x)
   return
       (
       self:round(tanh(  pow(2,64)*sin(16*pi*(x-.21875)-pi/2)  ))
-                *tanh(          2.5*sin(16*pi*(x-.21875)     )  )
+                *tanh(          3.5*sin(16*pi*(x-.21875)     )  )
       -2*floor((((x-.21875)*8)+0.25)*2)
       )/(-32)+0.21875
 
@@ -1042,19 +1044,25 @@ function Routine:draw()
   
     a=_cfx[n]:getSample(si,c)
     
+    if self.snapToBeat then
     
+      a=a*1.1
+      
+      a=a+.05
     
-    a=a*1.1
-    
-    a=a+.05
+    end
     
     a=(a+1)/2
     
-    a=self:waveShape(a)
+    if self.snapToBeat then
+    
+      a=self:waveShape(a)
+    
+    end
     
     xPosition=a*moveWidth+xOffset
     
-    if _lastControlPosition[12+1+i] and math.abs(xPosition-_lastControlPosition[i+1+12])>6 then
+    if self.snapToBeat and _lastControlPosition[12+1+i] and math.abs(xPosition-_lastControlPosition[i+1+12])>6 then
     
       blur,blurOffset=18,6
       

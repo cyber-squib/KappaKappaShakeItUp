@@ -24,4 +24,4 @@ backlog:
 [ ] memorized routine mode
 [ ] losing pitty party?
 [x] motion blur step graphics
-[ ] routine step snap to beat menu switch
+[x] routine step snap to beat menu switch
