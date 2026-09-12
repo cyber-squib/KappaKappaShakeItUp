@@ -70,6 +70,62 @@ function love.load()
   
   end
   
+  table.insert(_gfx,love.graphics.newImage("resource/MoveLeftMotionBlur.png"))
+  
+  table.insert(_gfx,love.graphics.newImage("resource/MoveRightMotionBlur.png"))
+  
+  table.insert(_gfx,love.graphics.newImage("resource/MoveUpMotionBlur.png"))
+  
+  table.insert(_gfx,love.graphics.newImage("resource/MoveDownMotionBlur.png"))
+  
+  if _singleAction then
+  
+    table.insert(_gfx,love.graphics.newImage("resource/ShakeBackMotionBlur.png"))
+  
+    table.insert(_gfx,love.graphics.newImage("resource/ShakeBackMotionBlur.png"))
+  
+  else
+  
+    table.insert(_gfx,love.graphics.newImage("resource/ShakeLeftMotionBlur.png"))
+  
+    table.insert(_gfx,love.graphics.newImage("resource/ShakeRightMotionBlur.png"))
+  
+  end
+  
+  table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
+  
+  table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
+  
+  table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
+  
+  table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
+  
+  table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
+  
+  table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
+  
+  table.insert(_gfx,love.graphics.newImage("resource/MoveLeftPlaystationMotionBlur.png"))
+  
+  table.insert(_gfx,love.graphics.newImage("resource/MoveRightPlaystationMotionBlur.png"))
+  
+  table.insert(_gfx,love.graphics.newImage("resource/MoveUpPlaystationMotionBlur.png"))
+  
+  table.insert(_gfx,love.graphics.newImage("resource/MoveDownPlaystationMotionBlur.png"))
+  
+  if _singleAction then
+  
+    table.insert(_gfx,love.graphics.newImage("resource/ShakeRightPlaystationMotionBlur.png"))
+  
+    table.insert(_gfx,love.graphics.newImage("resource/ShakeRightPlaystationMotionBlur.png"))
+  
+  else
+  
+    table.insert(_gfx,love.graphics.newImage("resource/ShakeLeftPlaystationMotionBlur.png"))
+  
+    table.insert(_gfx,love.graphics.newImage("resource/ShakeRightPlaystationMotionBlur.png"))
+  
+  end
+  
   table.insert(_sfx,love.audio.newSource("resource/KappaShakeItUp.wav","static"))
 
   table.insert(_cfx,love.sound.newSoundData("resource/KappaDanceControl.wav"))
@@ -974,6 +1030,8 @@ function Routine:draw()
   
   for i=0,11 do
   
+    local blur,blurOffset=0,0
+  
     a=0
   
     local n=2+math.floor(i/2)
@@ -996,9 +1054,15 @@ function Routine:draw()
     
     xPosition=a*moveWidth+xOffset
     
+    if _lastControlPosition[12+1+i] and math.abs(xPosition-_lastControlPosition[i+1+12])>6 then
+    
+      blur,blurOffset=18,6
+      
+    end
+    
     if _lastControlPosition[12+1+i] and (xPosition-_lastControlPosition[i+1+12])<limit then
 
-      love.graphics.draw(_gfx[_playstationController+3+i%6],xPosition,bottomPosition)
+      love.graphics.draw(_gfx[blur+_playstationController+3+i%6],xPosition,bottomPosition-blurOffset)
   
     end
   

@@ -23,4 +23,5 @@ backlog:
 [ ] parallax background layer
 [ ] memorized routine mode
 [ ] losing pitty party?
-[ ] motion blur step graphics
+[x] motion blur step graphics
+[ ] routine step snap to beat menu switch
