@@ -683,6 +683,10 @@ function Routine:init()
   self.cool=16
   
   self.snapToBeat=true
+  
+  self.stepPass=false
+  
+  self.range=5
 
   return self
 
@@ -706,9 +710,11 @@ function Routine:checkMoveLeft()
   
   b=math.abs(b)*100
   
-  if a<5 or b<5 then
+  if a<self.range or b<self.range then
   
     self.score=self.score+1
+    
+    self.stepPass=true
     
     _feedback:pass()
     
@@ -738,9 +744,11 @@ function Routine:checkMoveRight()
   
   b=math.abs(b)*100
   
-  if a<5 or b<5 then
+  if a<self.range or b<self.range then
   
     self.score=self.score+1
+    
+    self.stepPass=true
     
     _feedback:pass()
     
@@ -770,9 +778,11 @@ function Routine:checkMoveUp()
   
   b=math.abs(b)*100
   
-  if a<5 or b<5 then
+  if a<self.range or b<self.range then
   
     self.score=self.score+1
+    
+    self.stepPass=true
     
     _feedback:pass()
     
@@ -802,9 +812,11 @@ function Routine:checkMoveDown()
   
   b=math.abs(b)*100
   
-  if a<5 or b<5 then
+  if a<self.range or b<self.range then
   
     self.score=self.score+1
+    
+    self.stepPass=true
     
     _feedback:pass()
     
@@ -834,7 +846,7 @@ function Routine:checkShake(channel)
   
   b=math.abs(b)*100
   
-  if a<5 or b<5 then
+  if a<self.range or b<self.range then
   
     return true
     
@@ -852,6 +864,8 @@ function Routine:checkShakeLeft()
   
     self.score=self.score+1
     
+    self.stepPass=true
+    
     _feedback:pass()
     
   else
@@ -868,6 +882,8 @@ function Routine:checkShakeRight()
   
     self.score=self.score+1
     
+    self.stepPass=true
+    
     _feedback:pass()
     
   else
@@ -883,6 +899,8 @@ function Routine:checkShakeBack()
   if self:checkShake(1) or self:checkShake(2) then
   
     self.score=self.score+1
+    
+    self.stepPass=true
     
     _feedback:pass()
     

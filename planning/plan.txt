@@ -25,3 +25,5 @@ backlog:
 [ ] losing pitty party?
 [x] motion blur step graphics
 [x] routine step snap to beat menu switch
+[ ] implement oopsies
+[ ] 50% and 200% game screen resolution
