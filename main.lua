@@ -92,7 +92,7 @@ function love.load()
   
   end
   
-  table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
+  table.insert(_gfx,love.graphics.newImage("resource/KappaSweat.png"))
   
   table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
   
@@ -293,6 +293,8 @@ function Blossom:init()
   self.stageYMax=2
   
   self.height=0
+  
+  self.slip=0
 
   return self
 
@@ -303,12 +305,14 @@ function Blossom:draw()
   local distance
   
   local speed=8
+  
+  local height=-math.sin(math.pi*(self.height/15))*64
 
   if self.hopping then
   
     self.height=self.height+1
       
-    local height=-math.sin(math.pi*(self.height/15))*64
+    
     
     if self.here then
       
@@ -408,6 +412,18 @@ function Blossom:draw()
       
       love.graphics.draw(_gfx[1],quad,self.x-self.flip*100,self.y,0,flip,1)
     
+    end
+  
+  end
+
+  if self.slip>0 then
+  
+    for i=1,self.slip do
+    
+      if i>3 then break end
+
+      love.graphics.draw(_gfx[27],-144+self.x+i*32,self.y+height)
+  
     end
   
   end
@@ -676,6 +692,22 @@ function Blossom:gamepadPressed(j,b)
   
     self:shakeRight()
   
+  end
+
+end
+
+function Blossom:oops()
+
+  self.slip=self.slip+1
+
+end
+
+function Blossom:recover()
+
+  if self.slip>0 then
+  
+    self.slip=self.slip-1
+    
   end
 
 end
@@ -1310,12 +1342,16 @@ end
 function Feedback:pass()
 
   self.grade=30
+  
+  _blossom:recover()
 
 end
 
 function Feedback:fail()
 
   self.grade=-30
+  
+  _blossom:oops()
 
 end
 
