@@ -203,6 +203,8 @@ function love.mousepressed(x,y,b,t)
     _state=1
     
     _sfx[1]:play()
+    
+    _sfx[1]:setPitch(.9)
   
   end
 
@@ -243,6 +245,8 @@ function love.gamepadpressed(j,b)
     _state=1
     
     _sfx[1]:play()
+    
+    _sfx[1]:setPitch(.9)
   
   end
 
@@ -695,6 +699,8 @@ function Routine:init()
   self.stepPass=false
   
   self.range=5
+  
+  self.rangeOffset=5
 
   return self
 
@@ -710,13 +716,13 @@ function Routine:checkMoveLeft()
   
   a=_cfx[2]:getSample(si,1)
   
-  a=math.abs(a)*100
+  a=math.abs(a*100+self.rangeOffset)
   
   b=0
   
   b=_cfx[2+3]:getSample(si,1)
   
-  b=math.abs(b)*100
+  b=math.abs(b*100+self.rangeOffset)
   
   if a<self.range or b<self.range then
   
@@ -727,6 +733,8 @@ function Routine:checkMoveLeft()
     _feedback:pass()
     
   else
+    
+    self.stepPass=true
   
     _feedback:fail()
   
@@ -744,13 +752,13 @@ function Routine:checkMoveRight()
   
   a=_cfx[2]:getSample(si,2)
   
-  a=math.abs(a)*100
+  a=math.abs(a*100+self.rangeOffset)
   
   b=0
   
   b=_cfx[2+3]:getSample(si,2)
   
-  b=math.abs(b)*100
+  b=math.abs(b*100+self.rangeOffset)
   
   if a<self.range or b<self.range then
   
@@ -761,6 +769,8 @@ function Routine:checkMoveRight()
     _feedback:pass()
     
   else
+    
+    self.stepPass=true
   
     _feedback:fail()
   
@@ -778,13 +788,13 @@ function Routine:checkMoveUp()
   
   a=_cfx[3]:getSample(si,1)
   
-  a=math.abs(a)*100
+  a=math.abs(a*100+self.rangeOffset)
   
   b=0
   
   b=_cfx[3+3]:getSample(si,1)
   
-  b=math.abs(b)*100
+  b=math.abs(b*100+self.rangeOffset)
   
   if a<self.range or b<self.range then
   
@@ -795,6 +805,8 @@ function Routine:checkMoveUp()
     _feedback:pass()
     
   else
+    
+    self.stepPass=true
   
     _feedback:fail()
   
@@ -812,13 +824,13 @@ function Routine:checkMoveDown()
   
   a=_cfx[3]:getSample(si,2)
   
-  a=math.abs(a)*100
+  a=math.abs(a*100+self.rangeOffset)
   
   b=0
   
   b=_cfx[3+3]:getSample(si,2)
   
-  b=math.abs(b)*100
+  b=math.abs(b*100+self.rangeOffset)
   
   if a<self.range or b<self.range then
   
@@ -829,6 +841,8 @@ function Routine:checkMoveDown()
     _feedback:pass()
     
   else
+    
+    self.stepPass=true
   
     _feedback:fail()
   
@@ -846,13 +860,13 @@ function Routine:checkShake(channel)
   
   a=_cfx[4]:getSample(si,channel)
   
-  a=math.abs(a)*100
+  a=math.abs(a*100+self.rangeOffset)
   
   b=0
   
   b=_cfx[4+3]:getSample(si,channel)
   
-  b=math.abs(b)*100
+  b=math.abs(b*100+self.rangeOffset)
   
   if a<self.range or b<self.range then
   
@@ -877,6 +891,8 @@ function Routine:checkShakeLeft()
     _feedback:pass()
     
   else
+    
+    self.stepPass=true
   
     _feedback:fail()
   
@@ -895,6 +911,8 @@ function Routine:checkShakeRight()
     _feedback:pass()
     
   else
+    
+    self.stepPass=true
   
     _feedback:fail()
   
@@ -913,6 +931,8 @@ function Routine:checkShakeBack()
     _feedback:pass()
     
   else
+    
+    self.stepPass=true
   
     _feedback:fail()
   
@@ -1074,7 +1094,7 @@ function Routine:draw()
     
       a=a*1.1
       
-      a=a+.05
+      a=a+.025
     
     end
     
@@ -1241,7 +1261,7 @@ function Routine:update(t)
     
     a=_cfx[n]:getSample(si,c)
     
-    a=a*100
+    a=a*100+self.rangeOffset
     
     --a=(a+1)/2
     --
