@@ -1,5 +1,9 @@
 function love.load()
 
+
+  
+  love.math.setRandomSeed(os.time())
+
   _singleAction=false
   
   _playstationController=0
@@ -96,7 +100,7 @@ function love.load()
   --[[     ]] 
   --[[ 028 ]] table.insert(_gfx,love.graphics.newImage("resource/boo.png"))
   --[[     ]] 
-  --[[ 029 ]] table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
+  --[[ 029 ]] table.insert(_gfx,love.graphics.newImage("resource/splat.png"))
   --[[     ]] 
   --[[ 030 ]] table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
   --[[     ]] 
@@ -304,7 +308,7 @@ function _start()
   
   _sfx[1]:setPitch(_defaultPlaybackSpeed)
   
-  _fail()
+  --_fail()
 
 end
 
@@ -798,9 +802,9 @@ function Routine:init()
   
   self.stepPass=false
   
-  self.range=5
+  self.range=7
   
-  self.rangeOffset=5
+  self.rangeOffset=0
 
   return self
 
@@ -1461,11 +1465,11 @@ function Tomato:init(x,y)
   
   self.y=y
   
-  self.xSpeed=8
+  self.xSpeed=4
   
-  self.ySpeed=-36
+  self.ySpeed=-26
   
-  self.gravity=1.125
+  self.gravity=.75
   
   self.frame=0
   
@@ -1474,6 +1478,10 @@ function Tomato:init(x,y)
   self.spriteWidth=self.sprite:getWidth()
   
   self.spriteHeight=self.sprite:getHeight()
+  
+  self.limit=53
+  
+  self.wait=love.math.random(200)
 
   return self
 
@@ -1481,42 +1489,66 @@ end
 
 function Tomato:draw()
 
-  local r=math.floor(self.frame/5)%4
-  
-  local w,h=self.spriteWidth/2,self.spriteHeight/2
-  
-  local xo,yo=0,0
-  
-  if r==0 then
-  
-    xo,yo=0,0
-  
-  elseif r==1 then
-  
-    xo,yo=self.spriteHeight,0
-  
-  elseif r==2 then
-  
-    xo,yo=self.spriteWidth,self.spriteHeight
-  
-  elseif r==3 then
-  
-    xo,yo=0,self.spriteWidth
+  if self.wait<0 then
+    
+    local w,h=self.spriteWidth/2,self.spriteHeight/2
+    
+    if self.frame < self.limit then
+    
+      local r=math.floor(self.frame/5)%4
+      
+      local xo,yo=0,0
+      
+      if r==0 then
+      
+        xo,yo=0,0
+      
+      elseif r==1 then
+      
+        xo,yo=self.spriteHeight,0
+      
+      elseif r==2 then
+      
+        xo,yo=self.spriteWidth,self.spriteHeight
+      
+      elseif r==3 then
+      
+        xo,yo=0,self.spriteWidth
+      
+      end
+      
+      love.graphics.draw(self.sprite,xo+self.x-w,yo+self.y-h,r/2*math.pi)
+      
+    else
+    
+      love.graphics.draw(_gfx[29],self.x-w,self.y-h)
+    
+    end
   
   end
-
-  love.graphics.draw(self.sprite,xo+self.x-w,yo+self.y-h,r/2*math.pi)
 
 end
 
 function Tomato:update()
 
-  self.x=self.x+self.xSpeed
+  if self.wait<0 then
+
+    if self.frame < self.limit then
+    
+      self.x=self.x+self.xSpeed
+      
+      self.y=self.y+self.ySpeed
+      
+      self.ySpeed=self.ySpeed+self.gravity
+      
+      self.frame=self.frame+1
+    
+    end
+    
+  else
   
-  self.y=self.y+self.ySpeed
+    self.wait=self.wait-1
   
-  self.ySpeed=self.ySpeed+self.gravity
-  
-  self.frame=self.frame+1
+  end
 
 end
