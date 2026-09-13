@@ -133,6 +133,8 @@ function love.load()
   --[[ 001 ]] table.insert(_sfx,love.audio.newSource("resource/KappaShakeItUp.wav","static"))
   --[[     ]]
   --[[ 002 ]] table.insert(_sfx,love.audio.newSource("resource/KappaBoo.wav","static"))
+  --[[     ]]
+  --[[ 003 ]] table.insert(_sfx,love.audio.newSource("resource/KappaSplat.wav","static"))
   --[[     ]] 
   --[[     ]] table.insert(_cfx,love.sound.newSoundData("resource/KappaDanceControl.wav"))
   --[[     ]] 
@@ -310,7 +312,7 @@ function _start()
   
   _sfx[1]:setPitch(_defaultPlaybackSpeed)
   
-  --_fail()
+  --[[]]_fail()
 
 end
 
@@ -1522,6 +1524,14 @@ function Tomato:draw()
       end
       
       love.graphics.draw(self.sprite,xo+self.x-w,yo+self.y-h,r/2*math.pi)
+    
+      if self.frame==self.limit-1 then
+      
+        local c=_sfx[3]:clone()
+      
+        c:play()
+
+      end
       
     else
     
@@ -1550,8 +1560,9 @@ function Tomato:update()
     end
     
   else
-  
+    
     self.wait=self.wait-1
+    
   
   end
 
