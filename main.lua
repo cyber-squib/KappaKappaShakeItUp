@@ -182,10 +182,6 @@ function love.draw()
     
     _blossom:draw()
     
-    _routine:draw()
-    
-    _feedback:draw()
-    
     for i=#_tomatoes,1,-1 do
     
       local o=_tomatoes[i]
@@ -193,6 +189,10 @@ function love.draw()
       if o then o:draw() end
     
     end
+    
+    _routine:draw()
+    
+    _feedback:draw()
     
   else
   
@@ -312,7 +312,7 @@ function _start()
   
   _sfx[1]:setPitch(_defaultPlaybackSpeed)
   
-  --[[]]_fail()
+  --_fail()
 
 end
 
@@ -324,7 +324,7 @@ function _fail()
   
   for r=0,2 do
   
-    table.insert(_tomatoes,setmetatable({},Tomato):init(64+r*256,784))
+    table.insert(_tomatoes,setmetatable({},Tomato):init(192,784))
   
   end
 
@@ -1467,11 +1467,13 @@ Tomato.__index=Tomato
 
 function Tomato:init(x,y)
 
-  self.x=x
+  self.x=x+love.math.random(400)
   
-  self.y=y
+  self.y=y-love.math.random(175)
   
   self.xSpeed=4
+  
+  if math.floor(love.math.random(2))==1 then self.xSpeed=self.xSpeed*-1 end
   
   self.ySpeed=-26
   
