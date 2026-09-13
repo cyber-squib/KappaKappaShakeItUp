@@ -1,6 +1,6 @@
 function love.load()
 
-
+  _frame=0
   
   love.math.setRandomSeed(os.time())
 
@@ -102,7 +102,7 @@ function love.load()
   --[[     ]] 
   --[[ 029 ]] table.insert(_gfx,love.graphics.newImage("resource/splat.png"))
   --[[     ]] 
-  --[[ 030 ]] table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
+  --[[ 030 ]] table.insert(_gfx,love.graphics.newImage("resource/KappaCrying.png"))
   --[[     ]] 
   --[[ 031 ]] table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
   --[[     ]] 
@@ -199,6 +199,8 @@ function love.draw()
     love.graphics.draw(_gfx[12],0,0)
   
   end
+
+  _frame=_frame+1
 
 end
 
@@ -374,11 +376,23 @@ end
 
 function Blossom:draw()
   
+  local height=-math.sin(math.pi*(self.height/15))*64
+
+  if _playbackSpeed<0 then
+  
+    local f=math.floor(_frame/7)%2
+  
+    local quad=love.graphics.newQuad(200*f,0,200,200,400,200)
+  
+    love.graphics.draw(_gfx[30],quad,self.x-self.flip*100,self.y+height,0,self.flip,1)
+  
+    return
+  
+  end
+  
   local distance
   
   local speed=8
-  
-  local height=-math.sin(math.pi*(self.height/15))*64
 
   if self.hopping then
   
@@ -1549,7 +1563,7 @@ function Tomato:update()
 
   if self.wait<0 then
 
-    if self.frame < self.limit then
+    if self.frame<self.limit then
     
       self.x=self.x+self.xSpeed
       
