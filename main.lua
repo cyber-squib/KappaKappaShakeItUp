@@ -169,6 +169,8 @@ function love.load()
   _defaultPlaybackSpeed=.9
   
   _tomatoes={}
+  
+  _down=300
 
 end
 
@@ -206,6 +208,8 @@ end
 
 function love.mousepressed(x,y,b,t)
 
+  
+
   if _playbackSpeed==0 then
 
     _playstationController=0
@@ -227,6 +231,10 @@ function love.mousepressed(x,y,b,t)
       _start()
     
     end
+      
+  elseif _playbackSpeed<0 and _playbackSpeed==-(_down-1) then
+    
+    love.event.quit"restart"
 
   end
 
@@ -284,7 +292,7 @@ function love.update(t)
 
     if _playbackSpeed==0 then _routine:update(t) end
     
-    local down=500
+    local down=_down
     
     if _playbackSpeed<0 and _playbackSpeed>-(down-1) then
     
@@ -381,10 +389,14 @@ function Blossom:draw()
   if _playbackSpeed<0 then
   
     local f=math.floor(_frame/7)%2
+    
+    local g=(math.abs(math.floor(_frame/3)%4-2))
+    
+    --local g=math.floor(_frame/5)%2
   
     local quad=love.graphics.newQuad(200*f,0,200,200,400,200)
   
-    love.graphics.draw(_gfx[30],quad,self.x-self.flip*100,self.y+height,0,self.flip,1)
+    love.graphics.draw(_gfx[30],quad,g+self.x-self.flip*100,self.y+height,0,self.flip,1)
   
     return
   
