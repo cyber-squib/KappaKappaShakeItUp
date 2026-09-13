@@ -104,7 +104,7 @@ function love.load()
   --[[     ]] 
   --[[ 030 ]] table.insert(_gfx,love.graphics.newImage("resource/KappaCrying.png"))
   --[[     ]] 
-  --[[ 031 ]] table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
+  --[[ 031 ]] table.insert(_gfx,love.graphics.newImage("resource/KappaYoinks.png"))
   --[[     ]] 
   --[[ 032 ]] table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
   --[[     ]] 
@@ -281,6 +281,10 @@ function love.gamepadpressed(j,b)
       _start()
     
     end
+      
+  elseif _playbackSpeed<0 and _playbackSpeed==-(_down-1) then
+    
+    love.event.quit"restart"
   
   end
 
@@ -377,12 +381,36 @@ function Blossom:init()
   self.height=0
   
   self.slip=0
+  
+  self.spriteYoinksOffset=30
+  
+  self.spriteYoinksEnable=0
+  
+  self.yoinks=0
 
   return self
 
 end
 
+function Blossom:yoinksThat()
+
+  self.yoinks=100
+
+end
+
+function Blossom:spriteYoinksEnabled()
+
+  if self.yoinks>0 then return 1
+  
+  else return 0
+  
+  end
+
+end
+
 function Blossom:draw()
+
+  if self.yoinks>0 then self.yoinks=self.yoinks-1 end
   
   local height=-math.sin(math.pi*(self.height/15))*64
 
@@ -418,7 +446,7 @@ function Blossom:draw()
       
       local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
       
-      love.graphics.draw(_gfx[1],quad,self.x-self.flip*100,self.y+height,0,self.flip,1)
+      love.graphics.draw(_gfx[self:spriteYoinksEnabled()*self.spriteYoinksOffset+1],quad,self.x-self.flip*100,self.y+height,0,self.flip,1)
       
       if self.height>12 then
     
@@ -444,7 +472,7 @@ function Blossom:draw()
       
       local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
       
-      love.graphics.draw(_gfx[1],quad,self.x-self.flip*100,self.y+height,0,self.flip,1)
+      love.graphics.draw(_gfx[self:spriteYoinksEnabled()*self.spriteYoinksOffset+1],quad,self.x-self.flip*100,self.y+height,0,self.flip,1)
       
     else
     
@@ -456,7 +484,7 @@ function Blossom:draw()
       
       local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
       
-      love.graphics.draw(_gfx[1],quad,self.x-self.flip*100,self.y+height,0,self.flip,1)
+      love.graphics.draw(_gfx[self:spriteYoinksEnabled()*self.spriteYoinksOffset+1],quad,self.x-self.flip*100,self.y+height,0,self.flip,1)
     
     end
     
@@ -498,7 +526,7 @@ function Blossom:draw()
       
       local flip=self.flip
       
-      love.graphics.draw(_gfx[1],quad,self.x-self.flip*100,self.y,0,flip,1)
+      love.graphics.draw(_gfx[self:spriteYoinksEnabled()*self.spriteYoinksOffset+1],quad,self.x-self.flip*100,self.y,0,flip,1)
       
     else
     
@@ -508,7 +536,7 @@ function Blossom:draw()
       
       local flip=self.flip
       
-      love.graphics.draw(_gfx[1],quad,self.x-self.flip*100,self.y,0,flip,1)
+      love.graphics.draw(_gfx[self:spriteYoinksEnabled()*self.spriteYoinksOffset+1],quad,self.x-self.flip*100,self.y,0,flip,1)
     
     end
   
@@ -795,6 +823,8 @@ function Blossom:gamepadPressed(j,b)
 end
 
 function Blossom:oops()
+
+  self:yoinksThat()
 
   self.slip=self.slip+1
   
