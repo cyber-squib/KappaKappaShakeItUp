@@ -129,22 +129,24 @@ function love.load()
   --[[ 038 ]]   table.insert(_gfx,love.graphics.newImage("resource/ShakeRightPlaystationMotionBlur.png"))
   --[[     ]] 
   --[[     ]] end
-  
-  table.insert(_sfx,love.audio.newSource("resource/KappaShakeItUp.wav","static"))
-
-  table.insert(_cfx,love.sound.newSoundData("resource/KappaDanceControl.wav"))
-  
-  table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerHorizontal Bounced.wav"))
-  
-  table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerVertical Bounced.wav"))
-  
-  table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerShake Bounced.wav"))
-  
-  table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerHorizontal copy Bounced.wav"))
-  
-  table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerVertical copy Bounced.wav"))
-  
-  table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerShake copy Bounced.wav"))
+  --[[     ]]
+  --[[ 001 ]] table.insert(_sfx,love.audio.newSource("resource/KappaShakeItUp.wav","static"))
+  --[[     ]]
+  --[[ 002 ]] table.insert(_sfx,love.audio.newSource("resource/KappaBoo.wav","static"))
+  --[[     ]] 
+  --[[     ]] table.insert(_cfx,love.sound.newSoundData("resource/KappaDanceControl.wav"))
+  --[[     ]] 
+  --[[     ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerHorizontal Bounced.wav"))
+  --[[     ]] 
+  --[[     ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerVertical Bounced.wav"))
+  --[[     ]] 
+  --[[     ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerShake Bounced.wav"))
+  --[[     ]] 
+  --[[     ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerHorizontal copy Bounced.wav"))
+  --[[     ]] 
+  --[[     ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerVertical copy Bounced.wav"))
+  --[[     ]] 
+  --[[     ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerShake copy Bounced.wav"))
 
   love.window.setMode(960,720)
   
@@ -313,6 +315,8 @@ function _start()
 end
 
 function _fail()
+
+  _sfx[2]:play()
 
   _playbackSpeed=-1
   
