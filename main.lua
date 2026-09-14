@@ -98,9 +98,9 @@ function love.load()
   --[[     ]] 
   --[[ 027 ]] table.insert(_gfx,love.graphics.newImage("resource/KappaSweat.png"))
   --[[     ]] 
-  --[[ 028 ]] table.insert(_gfx,love.graphics.newImage("resource/boo.png"))
+  --[[ 028 ]] table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
   --[[     ]] 
-  --[[ 029 ]] table.insert(_gfx,love.graphics.newImage("resource/splat.png"))
+  --[[ 029 ]] table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
   --[[     ]] 
   --[[ 030 ]] table.insert(_gfx,love.graphics.newImage("resource/KappaCrying.png"))
   --[[     ]] 
@@ -132,9 +132,9 @@ function love.load()
   --[[     ]]
   --[[ 001 ]] table.insert(_sfx,love.audio.newSource("resource/KappaShakeItUp.wav","static"))
   --[[     ]]
-  --[[ 002 ]] table.insert(_sfx,love.audio.newSource("resource/KappaBoo.wav","static"))
+  --[[ 002 ]] table.insert(_sfx,love.audio.newSource("resource/KappaShakeItUp.wav","static"))
   --[[     ]]
-  --[[ 003 ]] table.insert(_sfx,love.audio.newSource("resource/KappaSplat.wav","static"))
+  --[[ 003 ]] table.insert(_sfx,love.audio.newSource("resource/KappaShakeItUp.wav","static"))
   --[[     ]] 
   --[[     ]] table.insert(_cfx,love.sound.newSoundData("resource/KappaDanceControl.wav"))
   --[[     ]] 
