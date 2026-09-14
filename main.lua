@@ -168,9 +168,7 @@ function love.load()
   
   _defaultPlaybackSpeed=.9
   
-  _tomatoes={}
-  
-  _down=300
+  _down=75
 
 end
 
@@ -183,14 +181,6 @@ function love.draw()
     love.graphics.draw(_gfx[9],0,0)
     
     _blossom:draw()
-    
-    for i=#_tomatoes,1,-1 do
-    
-      local o=_tomatoes[i]
-      
-      if o then o:draw() end
-    
-    end
     
     _routine:draw()
     
@@ -306,14 +296,6 @@ function love.update(t)
       
     end
     
-    for i=#_tomatoes,1,-1 do
-    
-      local o=_tomatoes[i]
-      
-      if o then o:update() end
-    
-    end
-    
   end
     
 end
@@ -332,15 +314,7 @@ end
 
 function _fail()
 
-  _sfx[2]:play()
-
   _playbackSpeed=-1
-  
-  for r=0,2 do
-  
-    table.insert(_tomatoes,setmetatable({},Tomato):init(192,784))
-  
-  end
 
 end
 
@@ -1513,115 +1487,6 @@ function Feedback:draw()
   
     self.grade=self.grade-1
     
-  end
-
-end
-
-Tomato={}
-
-Tomato.__index=Tomato
-
-function Tomato:init(x,y)
-
-  self.x=x+love.math.random(400)
-  
-  self.y=y-love.math.random(175)
-  
-  self.xSpeed=4
-  
-  if math.floor(love.math.random(2))==1 then self.xSpeed=self.xSpeed*-1 end
-  
-  self.ySpeed=-26
-  
-  self.gravity=.75
-  
-  self.frame=0
-  
-  self.sprite=_gfx[28]
-  
-  self.spriteWidth=self.sprite:getWidth()
-  
-  self.spriteHeight=self.sprite:getHeight()
-  
-  self.limit=53
-  
-  self.wait=love.math.random(200)
-
-  return self
-
-end
-
-function Tomato:draw()
-
-  if self.wait<0 then
-    
-    local w,h=self.spriteWidth/2,self.spriteHeight/2
-    
-    if self.frame < self.limit then
-    
-      local r=math.floor(self.frame/5)%4
-      
-      local xo,yo=0,0
-      
-      if r==0 then
-      
-        xo,yo=0,0
-      
-      elseif r==1 then
-      
-        xo,yo=self.spriteHeight,0
-      
-      elseif r==2 then
-      
-        xo,yo=self.spriteWidth,self.spriteHeight
-      
-      elseif r==3 then
-      
-        xo,yo=0,self.spriteWidth
-      
-      end
-      
-      love.graphics.draw(self.sprite,xo+self.x-w,yo+self.y-h,r/2*math.pi)
-    
-      if self.frame==self.limit-1 then
-      
-        local c=_sfx[3]:clone()
-      
-        c:play()
-
-      end
-      
-    else
-    
-      love.graphics.draw(_gfx[29],self.x-w,self.y-h)
-    
-    end
-  
-  end
-
-end
-
-function Tomato:update()
-
-  if self.wait<0 then
-
-    if self.frame<self.limit then
-    
-      self.x=self.x+self.xSpeed
-      
-      self.y=self.y+self.ySpeed
-      
-      self.ySpeed=self.ySpeed+self.gravity
-      
-      self.frame=self.frame+1
-    
-    end
-    
-  else
-    
-    self.wait=self.wait-1
-    
-  
   end
 
 end
