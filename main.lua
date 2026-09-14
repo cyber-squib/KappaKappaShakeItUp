@@ -167,8 +167,6 @@ function love.load()
   _defaultPlaybackSpeed=.9
   
   _down=75
-  
-  _pause=false
 
 end
 
@@ -200,11 +198,13 @@ end
 
 function love.mousepressed(x,y,b,t)
   
-  if _pause then
+  if _pauseMenu.active then
   
     return
     
   else
+    
+    _pauseMenu:mousePressed(x,y,b,t)
   
   end
 
@@ -242,11 +242,13 @@ end
 
 function love.keypressed(k,s,r)
   
-  if _pause then
+  if _pauseMenu.active then
   
     return
     
   else
+      
+    _pauseMenu:keyPressed(k,s,r)
   
   end
 
@@ -270,11 +272,13 @@ end
 
 function love.gamepadpressed(j,b)
   
-  if _pause then
+  if _pauseMenu.active then
   
     return
     
   else
+      
+    _pauseMenu:gamepadPressed(j,b)
   
   end
 
@@ -312,11 +316,13 @@ end
 
 function love.update(t)
   
-  if _pause then
+  if _pauseMenu.active then
   
     return
     
   else
+      
+    _pauseMenu:update(t)
   
   end
 
@@ -1537,6 +1543,8 @@ PauseMenu.__index=PauseMenu
 
 function PauseMenu:init()
 
+  self.active=false
+
   return self
 
 end
@@ -1554,6 +1562,18 @@ function PauseMenu:mousePressed(x,y,b,t)
 end
 
 function PauseMenu:keyPressed(k,s,r)
+
+  if k=="return" then
+    
+    if _sfx[1]:isPlaying() then _sfx[1]:pause()
+    
+    else _sfx[1]:play()
+    
+    end
+  
+    self.active=not self.active
+    
+  end
 
 end
 
