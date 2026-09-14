@@ -11,19 +11,20 @@ backlog:
 [ ] dynamic screen resolution
 [ ] new dancer
 [ ] new dance floor
-[ ] step retrigger switch
+[x] step retrigger switch
 [ ] change color palette
 [ ] pause menu
 [ ] looping mechanics
 [x] snap step grapgics to beat
 [ ] song timeline
-[ ] auto playstation controller graphics
-[ ] wide eyed mistake animation
+[x] auto playstation controller graphics
+[x] wide eyed mistake animation
 [x] refactor routine draw function
 [ ] parallax background layer
 [ ] memorized routine mode
-[ ] losing pitty party?
+[ ] practice mode
+[x] losing pitty party?
 [x] motion blur step graphics
 [x] routine step snap to beat menu switch
-[ ] implement oopsies
+[x] implement oopsies
 [ ] 50% and 200% game screen resolution
