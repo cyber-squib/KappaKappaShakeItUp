@@ -21,6 +21,7 @@ backlog:
 [x] wide eyed mistake animation
 [x] refactor routine draw function
 [ ] parallax background layer
+[ ] animated background
 [ ] memorized routine mode
 [ ] practice mode
 [x] losing pitty party?

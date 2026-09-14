@@ -154,6 +154,8 @@ function love.load()
   
   _feedback=setmetatable({},Feedback):init()
   
+  _pauseMenu=setmetatable({},PauseMenu):init()
+  
   _state=0
   
   _lastControlPosition={}
@@ -165,6 +167,8 @@ function love.load()
   _defaultPlaybackSpeed=.9
   
   _down=75
+  
+  _pause=false
 
 end
 
@@ -182,6 +186,8 @@ function love.draw()
     
     _feedback:draw()
     
+    _pauseMenu:draw()
+    
   else
   
     love.graphics.draw(_gfx[12],0,0)
@@ -193,8 +199,14 @@ function love.draw()
 end
 
 function love.mousepressed(x,y,b,t)
-
   
+  if _pause then
+  
+    return
+    
+  else
+  
+  end
 
   if _playbackSpeed==0 then
 
@@ -205,6 +217,8 @@ function love.mousepressed(x,y,b,t)
       _blossom:mousePressed(x,y,b,t)
       
       _routine:mousePressed(x,y,b,t)
+    
+      _pauseMenu:mousePressed(x,y,b,t)
       
       if not _sfx[1]:isPlaying() then
       
@@ -227,6 +241,14 @@ function love.mousepressed(x,y,b,t)
 end
 
 function love.keypressed(k,s,r)
+  
+  if _pause then
+  
+    return
+    
+  else
+  
+  end
 
   if _playbackSpeed==0 then
 
@@ -237,6 +259,8 @@ function love.keypressed(k,s,r)
       _blossom:keyPressed(k,s,r)
     
       _routine:keyPressed(k,s,r)
+      
+      _pauseMenu:keyPressed(k,s,r)
     
     end
 
@@ -245,6 +269,14 @@ function love.keypressed(k,s,r)
 end
 
 function love.gamepadpressed(j,b)
+  
+  if _pause then
+  
+    return
+    
+  else
+  
+  end
 
   if _playbackSpeed==0 then
 
@@ -255,6 +287,8 @@ function love.gamepadpressed(j,b)
       _blossom:gamepadPressed(j,b)
     
       _routine:gamepadPressed(j,b)
+      
+      _pauseMenu:gamepadPressed(j,b)
       
       if not _sfx[1]:isPlaying() then
       
@@ -277,8 +311,18 @@ function love.gamepadpressed(j,b)
 end
 
 function love.update(t)
+  
+  if _pause then
+  
+    return
+    
+  else
+  
+  end
 
   if _state==1 then
+      
+    _pauseMenu:update(t)
 
     if _playbackSpeed==0 then _routine:update(t) end
     
@@ -1484,5 +1528,35 @@ function Feedback:draw()
     self.grade=self.grade-1
     
   end
+
+end
+
+PauseMenu={}
+
+PauseMenu.__index=PauseMenu
+
+function PauseMenu:init()
+
+  return self
+
+end
+
+function PauseMenu:update(t)
+
+end
+
+function PauseMenu:draw()
+
+end
+
+function PauseMenu:mousePressed(x,y,b,t)
+
+end
+
+function PauseMenu:keyPressed(k,s,r)
+
+end
+
+function PauseMenu:gamepadPressed(j,b)
 
 end
