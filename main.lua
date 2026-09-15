@@ -1315,7 +1315,7 @@ function Routine:draw()
   end
   
   
-  if not _sfx[1]:isPlaying() then
+  if _playbackSpeed==0 and not _sfx[1]:isPlaying() then
   
     local spicy=math.floor(percentage*4)+1
     
@@ -1564,14 +1564,18 @@ end
 function PauseMenu:keyPressed(k,s,r)
 
   if k=="return" then
+  
+    if _playbackSpeed==0 then
     
-    if _sfx[1]:isPlaying() then _sfx[1]:pause()
-    
-    else _sfx[1]:play()
+      if _sfx[1]:isPlaying() then _sfx[1]:pause()
+      
+      else _sfx[1]:play()
+      
+      end
+      
+      self.active=not self.active
     
     end
-  
-    self.active=not self.active
     
   end
 
