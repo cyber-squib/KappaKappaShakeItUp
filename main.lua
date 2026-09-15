@@ -98,7 +98,7 @@ function love.load()
   --[[     ]] 
   --[[ 027 ]] table.insert(_gfx,love.graphics.newImage("resource/KappaSweat.png"))
   --[[     ]] 
-  --[[ 028 ]] table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
+  --[[ 028 ]] table.insert(_gfx,love.graphics.newImage("resource/timeline.png"))
   --[[     ]] 
   --[[ 029 ]] table.insert(_gfx,love.graphics.newImage("resource/blank.png"))
   --[[     ]] 
@@ -1314,6 +1314,7 @@ function Routine:draw()
   
   end
   
+  self:drawTimeline()
   
   if _playbackSpeed==0 and not _sfx[1]:isPlaying() then
   
@@ -1481,6 +1482,20 @@ function Routine:update(t)
 
 end
 
+function Routine:drawTimeline()
+
+  local s=_sfx[1]
+
+  local p=s:tell()/s:getDuration()
+  
+  if p==0 then p=1 end
+  
+  local x=p*896-70
+  
+  love.graphics.draw(_gfx[28],x,23)
+
+end
+
 Feedback={}
 
 Feedback.__index=Feedback
@@ -1566,6 +1581,8 @@ function PauseMenu:keyPressed(k,s,r)
   if k=="return" then
   
     if _playbackSpeed==0 then
+    
+      --assert(not _sfx[1]:isPlaying())
     
       if _sfx[1]:isPlaying() then _sfx[1]:pause()
       
