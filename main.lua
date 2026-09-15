@@ -327,6 +327,10 @@ function love.update(t)
   end
 
   if _state==1 then
+
+
+    
+    --assert(_sfx[1]:isPlaying())
       
     _pauseMenu:update(t)
 
@@ -1559,6 +1563,8 @@ PauseMenu.__index=PauseMenu
 function PauseMenu:init()
 
   self.active=false
+  
+  self.debug=0
 
   return self
 
@@ -1582,15 +1588,17 @@ function PauseMenu:keyPressed(k,s,r)
   
     if _playbackSpeed==0 then
     
-      --assert(not _sfx[1]:isPlaying())
+      print("_pauseMenu.debug=="..self.debug)
+  
+      --_sfx[1]:pause()
     
-      if _sfx[1]:isPlaying() then _sfx[1]:pause()
+      if not self.active then _sfx[1]:pause() end
       
-      else _sfx[1]:play()
-      
-      end
+      if self.active then _sfx[1]:play() end
       
       self.active=not self.active
+      
+      self.debug=self.debug+1
     
     end
     
@@ -1601,3 +1609,5 @@ end
 function PauseMenu:gamepadPressed(j,b)
 
 end
+
+love._openConsole()
