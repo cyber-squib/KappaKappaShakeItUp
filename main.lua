@@ -198,15 +198,17 @@ end
 
 function love.mousepressed(x,y,b,t)
   
-  if _pauseMenu.active then
-  
-    return
-    
-  else
-    
-    _pauseMenu:mousePressed(x,y,b,t)
-  
-  end
+  --if _pauseMenu.active then
+  --
+  --  return
+  --  
+  --else
+  --  
+  --  _pauseMenu:mousePressed(x,y,b,t)
+  --  
+  --  return
+  --
+  --end
 
   if _playbackSpeed==0 then
 
@@ -242,15 +244,17 @@ end
 
 function love.keypressed(k,s,r)
   
-  if _pauseMenu.active then
-  
-    return
-    
-  else
-      
-    _pauseMenu:keyPressed(k,s,r)
-  
-  end
+  --if _pauseMenu.active then
+  --
+  --  return
+  --  
+  --else
+  --    
+  --  _pauseMenu:keyPressed(k,s,r)
+  --  
+  --  return
+  --
+  --end
 
   if _playbackSpeed==0 then
 
@@ -272,15 +276,17 @@ end
 
 function love.gamepadpressed(j,b)
   
-  if _pauseMenu.active then
-  
-    return
-    
-  else
-      
-    _pauseMenu:gamepadPressed(j,b)
-  
-  end
+  --if _pauseMenu.active then
+  --
+  --  return
+  --  
+  --else
+  --    
+  --  _pauseMenu:gamepadPressed(j,b)
+  --  
+  --  return
+  --
+  --end
 
   if _playbackSpeed==0 then
 
@@ -316,15 +322,17 @@ end
 
 function love.update(t)
   
-  if _pauseMenu.active then
-  
-    return
-    
-  else
-      
-    _pauseMenu:update(t)
-  
-  end
+  --if _pauseMenu.active then
+  --
+  --  return
+  --  
+  --else
+  --    
+  --  _pauseMenu:update(t)
+  --  
+  --  return
+  --
+  --end
 
   if _state==1 then
 
@@ -1588,7 +1596,7 @@ function PauseMenu:keyPressed(k,s,r)
   
     if _playbackSpeed==0 then
     
-      print("_pauseMenu.debug=="..self.debug)
+      --print("_pauseMenu.debug=="..self.debug)
   
       --_sfx[1]:pause()
     
@@ -1610,4 +1618,4 @@ function PauseMenu:gamepadPressed(j,b)
 
 end
 
-love._openConsole()
+--love._openConsole()
