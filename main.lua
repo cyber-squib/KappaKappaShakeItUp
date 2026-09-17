@@ -13,6 +13,8 @@ function love.load()
   _sfx={}
   
   _cfx={}
+  
+  _fnt={}
 
   --[[ 001 ]] table.insert(_gfx,love.graphics.newImage("resource/sliceAll_KappaDance.png"))
   --[[     ]]   
@@ -145,6 +147,9 @@ function love.load()
   --[[     ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerVertical copy Bounced.wav"))
   --[[     ]] 
   --[[     ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerShake copy Bounced.wav"))
+  --[[     ]]
+  --[[ 001 ]] table.insert(_fnt,love.graphics.newImageFont("resource/KappaFont.png","abcdefghijklmnopqrstuvwxyz "))
+
 
   love.window.setMode(960,720)
   
@@ -1585,6 +1590,14 @@ function PauseMenu:update(t)
 end
 
 function PauseMenu:draw()
+
+  if self.active then
+  
+    love.graphics.setFont(_fnt[1])
+    
+    love.graphics.print("pause",280,320)
+  
+  end
 
 end
 
