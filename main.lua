@@ -198,17 +198,13 @@ end
 
 function love.mousepressed(x,y,b,t)
   
-  --if _pauseMenu.active then
-  --
-  --  return
-  --  
-  --else
-  --  
-  --  _pauseMenu:mousePressed(x,y,b,t)
-  --  
-  --  return
-  --
-  --end
+  if _pauseMenu.active then
+    
+    _pauseMenu:mousePressed(x,y,b,t)
+    
+    return
+  
+  end
 
   if _playbackSpeed==0 then
 
@@ -244,17 +240,13 @@ end
 
 function love.keypressed(k,s,r)
   
-  --if _pauseMenu.active then
-  --
-  --  return
-  --  
-  --else
-  --    
-  --  _pauseMenu:keyPressed(k,s,r)
-  --  
-  --  return
-  --
-  --end
+  if _pauseMenu.active then
+      
+    _pauseMenu:keyPressed(k,s,r)
+    
+    return
+  
+  end
 
   if _playbackSpeed==0 then
 
@@ -276,17 +268,13 @@ end
 
 function love.gamepadpressed(j,b)
   
-  --if _pauseMenu.active then
-  --
-  --  return
-  --  
-  --else
-  --    
-  --  _pauseMenu:gamepadPressed(j,b)
-  --  
-  --  return
-  --
-  --end
+  if _pauseMenu.active then
+  
+    _pauseMenu:gamepadPressed(j,b)
+    
+    return
+  
+  end
 
   if _playbackSpeed==0 then
 
@@ -1328,7 +1316,7 @@ function Routine:draw()
   
   self:drawTimeline()
   
-  if _playbackSpeed==0 and not _sfx[1]:isPlaying() then
+  if self:finished() then
   
     local spicy=math.floor(percentage*4)+1
     
