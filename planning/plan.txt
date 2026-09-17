@@ -29,3 +29,6 @@ backlog:
 [x] routine step snap to beat menu switch
 [x] implement oopsies
 [ ] 50% and 200% game screen resolution
+[ ] expand blossoms move set
+[ ] dynamic max spicy
+[ ] reorder blossoms move set

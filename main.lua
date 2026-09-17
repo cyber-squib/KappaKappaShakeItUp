@@ -134,19 +134,23 @@ function love.load()
   --[[     ]]
   --[[ 001 ]] table.insert(_sfx,love.audio.newSource("resource/KappaShakeItUp.wav","static"))
   --[[     ]] 
-  --[[     ]] table.insert(_cfx,love.sound.newSoundData("resource/KappaDanceControl.wav"))
+  --[[ 002 ]] table.insert(_cfx,love.sound.newSoundData("resource/KappaDanceControl.wav"))
   --[[     ]] 
-  --[[     ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerHorizontal Bounced.wav"))
+  --[[ 003 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerHorizontal Bounced.wav"))
   --[[     ]] 
-  --[[     ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerVertical Bounced.wav"))
+  --[[ 004 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerVertical Bounced.wav"))
   --[[     ]] 
-  --[[     ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerShake Bounced.wav"))
+  --[[ 005 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerShake Bounced.wav"))
   --[[     ]] 
-  --[[     ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerHorizontal copy Bounced.wav"))
+  --[[ 006 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerHorizontal copy Bounced.wav"))
   --[[     ]] 
-  --[[     ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerVertical copy Bounced.wav"))
+  --[[ 007 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerVertical copy Bounced.wav"))
   --[[     ]] 
-  --[[     ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerShake copy Bounced.wav"))
+  --[[ 008 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerShake copy Bounced.wav"))
+  --[[     ]] 
+  --[[ 009 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerStep Bounced.wav"))
+  --[[     ]] 
+  --[[ 010 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerStep copy Bounced.wav"))
   --[[     ]]
   --[[ 001 ]] table.insert(_fnt,love.graphics.newImageFont("resource/KappaFont.png","abcdefghijklmnopqrstuvwxyz "))
 
