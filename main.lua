@@ -222,7 +222,7 @@ function love.mousepressed(x,y,b,t)
     
       _pauseMenu:mousePressed(x,y,b,t)
       
-      if not _sfx[1]:isPlaying() then
+      if _routine:finished() then
       
         love.event.quit"restart"
       
@@ -300,7 +300,7 @@ function love.gamepadpressed(j,b)
       
       _pauseMenu:gamepadPressed(j,b)
       
-      if not _sfx[1]:isPlaying() then
+      if _routine:finished() then
       
         love.event.quit"restart"
       
@@ -1496,15 +1496,29 @@ end
 
 function Routine:drawTimeline()
 
-  local s=_sfx[1]
-
-  local p=s:tell()/s:getDuration()
+  local p=self:progress()
   
   if p==0 then p=1 end
   
   local x=p*896-70
   
   love.graphics.draw(_gfx[28],x,23)
+
+end
+
+function Routine:progress()
+
+  local s=_sfx[1]
+  
+  return s:tell()/s:getDuration()
+
+end
+
+function Routine:finished()
+  
+  local p=self:progress()
+
+  return (p==0 or p==1) and not _sfx[1]:isPlaying()
 
 end
 
@@ -1538,7 +1552,7 @@ end
 
 function Feedback:draw()
 
-  if _sfx[1]:isPlaying() then
+    if not _routine:finished() then
 
     if self.grade>0 then
     
@@ -1594,6 +1608,40 @@ function PauseMenu:keyPressed(k,s,r)
 
   if k=="return" then
   
+    --if _playbackSpeed==0 then
+    --
+    --  --print("_pauseMenu.debug=="..self.debug)
+    --
+    --  --_sfx[1]:pause()
+    --
+    --  if not self.active then _sfx[1]:pause() end
+    --  
+    --  if self.active then _sfx[1]:play() end
+    --  
+    --  self.active=not self.active
+    --  
+    --  self.debug=self.debug+1
+    --
+    --end
+    
+    self:flip()
+    
+  end
+
+end
+
+function PauseMenu:gamepadPressed(j,b)
+
+  if b=="start" then
+  
+    self:flip()
+    
+  end
+
+end
+
+function PauseMenu:flip()
+  
     if _playbackSpeed==0 then
     
       --print("_pauseMenu.debug=="..self.debug)
@@ -1609,12 +1657,8 @@ function PauseMenu:keyPressed(k,s,r)
       self.debug=self.debug+1
     
     end
-    
-  end
 
-end
 
-function PauseMenu:gamepadPressed(j,b)
 
 end
 
