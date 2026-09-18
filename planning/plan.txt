@@ -30,5 +30,6 @@ backlog:
 [x] implement oopsies
 [ ] 50% and 200% game screen resolution
 [ ] expand blossoms move set
+[ ] expand blossoms move set graphics ***************
 [ ] dynamic max spicy
 [ ] reorder blossoms move set
