@@ -132,6 +132,22 @@ function love.load()
   --[[     ]] 
   --[[     ]] end
   --[[     ]]
+  --[[ 039 ]] table.insert(_gfx,love.graphics.newImage("resource/StepLeft.png"))
+  --[[     ]]
+  --[[ 040 ]] table.insert(_gfx,love.graphics.newImage("resource/StepRight.png"))
+  --[[     ]]
+  --[[ 041 ]] table.insert(_gfx,love.graphics.newImage("resource/StepLeftPlaystation.png"))
+  --[[     ]]
+  --[[ 042 ]] table.insert(_gfx,love.graphics.newImage("resource/StepRightPlaystation.png"))
+  --[[     ]]
+  --[[ 043 ]] table.insert(_gfx,love.graphics.newImage("resource/StepLeftMotionBlur.png"))
+  --[[     ]]
+  --[[ 044 ]] table.insert(_gfx,love.graphics.newImage("resource/StepRightMotionBlur.png"))
+  --[[     ]]
+  --[[ 045 ]] table.insert(_gfx,love.graphics.newImage("resource/StepLeftPlaystationMotionBlur.png"))
+  --[[     ]]
+  --[[ 046 ]] table.insert(_gfx,love.graphics.newImage("resource/StepRightPlaystationMotionBlur.png"))
+  --[[     ]]
   --[[ 001 ]] table.insert(_sfx,love.audio.newSource("resource/KappaShakeItUp.wav","static"))
   --[[     ]] 
   --[[ 002 ]] table.insert(_cfx,love.sound.newSoundData("resource/KappaDanceControl.wav"))
