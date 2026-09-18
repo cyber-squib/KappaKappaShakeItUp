@@ -196,25 +196,21 @@ function love.load()
   --[[     ]]
   --[[ 020 ]] 020, -- playstation
   --[[     ]]
-  --[[     ]] nil,
+  --[[ 021 ]] nil,
   --[[     ]]
-  --[[     ]] nil,
+  --[[ 022 ]] nil,
   --[[     ]]
-  --[[ 021 ]] 021, -- keyboard blur
+  --[[ 023 ]] 021, -- keyboard blur
   --[[     ]]
-  --[[ 022 ]] 022, -- keyboard blur
+  --[[ 024 ]] 022, -- keyboard blur
   --[[     ]]
-  --[[ 023 ]] 023, -- keyboard blur
+  --[[ 025 ]] 023, -- keyboard blur
   --[[     ]]
-  --[[ 024 ]] 024, -- keyboard blur
+  --[[ 026 ]] 024, -- keyboard blur
   --[[     ]]
-  --[[ 025 ]] 025, -- keyboard blur
+  --[[ 027 ]] 025, -- keyboard blur
   --[[     ]]
-  --[[ 026 ]] 026, -- keyboard blur
-  --[[     ]]
-  --[[ 027 ]] nil,
-  --[[     ]]
-  --[[ 028 ]] nil,
+  --[[ 028 ]] 026, -- keyboard blur
   --[[     ]]
   --[[ 029 ]] nil,
   --[[     ]]
@@ -224,21 +220,21 @@ function love.load()
   --[[     ]]
   --[[ 032 ]] nil,
   --[[     ]]
-  --[[ 033 ]] 033, -- playstation blur
+  --[[ 033 ]] nil,
   --[[     ]]
-  --[[ 034 ]] 034, -- playstation blur
+  --[[ 034 ]] nil,
   --[[     ]]
-  --[[ 035 ]] 035, -- playstation blur
+  --[[ 035 ]] 033, -- playstation blur
   --[[     ]]
-  --[[ 036 ]] 036, -- playstation blur
+  --[[ 036 ]] 034, -- playstation blur
   --[[     ]]
-  --[[ 037 ]] 037, -- playstation blur
+  --[[ 037 ]] 035, -- playstation blur
   --[[     ]]
-  --[[ 038 ]] 038, -- playstation blur
+  --[[ 038 ]] 036, -- playstation blur
   --[[     ]]
-  --[[ 039 ]] nil,
+  --[[ 039 ]] 037, -- playstation blur
   --[[     ]]
-  --[[ 040 ]] nil,
+  --[[ 040 ]] 038, -- playstation blur
   --[[     ]]
   --[[ 041 ]] nil,
   --[[     ]]
