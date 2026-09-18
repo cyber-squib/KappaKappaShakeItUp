@@ -160,17 +160,17 @@ function love.load()
   --[[     ]]
   --[[ 002 ]] nil,
   --[[     ]]
-  --[[ 003 ]] 003,
+  --[[ 003 ]] 003, -- keyboard
   --[[     ]]
-  --[[ 004 ]] 004,
+  --[[ 004 ]] 004, -- keyboard
   --[[     ]]
-  --[[ 005 ]] 005,
+  --[[ 005 ]] 005, -- keyboard
   --[[     ]]
-  --[[ 006 ]] 006,
+  --[[ 006 ]] 006, -- keyboard
   --[[     ]]
-  --[[ 007 ]] 007,
+  --[[ 007 ]] 007, -- keyboard
   --[[     ]]
-  --[[ 008 ]] 008,
+  --[[ 008 ]] 008, -- keyboard
   --[[     ]]
   --[[ 009 ]] nil,
   --[[     ]]
@@ -184,29 +184,33 @@ function love.load()
   --[[     ]]
   --[[ 014 ]] nil,
   --[[     ]]
-  --[[ 015 ]] 015,
+  --[[ 015 ]] 015, -- playstation
   --[[     ]]
-  --[[ 016 ]] 016,
+  --[[ 016 ]] 016, -- playstation
   --[[     ]]
-  --[[ 017 ]] 017,
+  --[[ 017 ]] 017, -- playstation
   --[[     ]]
-  --[[ 018 ]] 018,
+  --[[ 018 ]] 018, -- playstation
   --[[     ]]
-  --[[ 019 ]] 019,
+  --[[ 019 ]] 019, -- playstation
   --[[     ]]
-  --[[ 020 ]] 020,
+  --[[ 020 ]] 020, -- playstation
   --[[     ]]
-  --[[ 021 ]] 021,
+  --[[     ]] nil,
   --[[     ]]
-  --[[ 022 ]] 022,
+  --[[     ]] nil,
   --[[     ]]
-  --[[ 023 ]] 023,
+  --[[ 021 ]] 021, -- keyboard blur
   --[[     ]]
-  --[[ 024 ]] 024,
+  --[[ 022 ]] 022, -- keyboard blur
   --[[     ]]
-  --[[ 025 ]] 025,
+  --[[ 023 ]] 023, -- keyboard blur
   --[[     ]]
-  --[[ 026 ]] 026,
+  --[[ 024 ]] 024, -- keyboard blur
+  --[[     ]]
+  --[[ 025 ]] 025, -- keyboard blur
+  --[[     ]]
+  --[[ 026 ]] 026, -- keyboard blur
   --[[     ]]
   --[[ 027 ]] nil,
   --[[     ]]
@@ -220,17 +224,17 @@ function love.load()
   --[[     ]]
   --[[ 032 ]] nil,
   --[[     ]]
-  --[[ 033 ]] 033,
+  --[[ 033 ]] 033, -- playstation blur
   --[[     ]]
-  --[[ 034 ]] 034,
+  --[[ 034 ]] 034, -- playstation blur
   --[[     ]]
-  --[[ 035 ]] 035,
+  --[[ 035 ]] 035, -- playstation blur
   --[[     ]]
-  --[[ 036 ]] 036,
+  --[[ 036 ]] 036, -- playstation blur
   --[[     ]]
-  --[[ 037 ]] 037,
+  --[[ 037 ]] 037, -- playstation blur
   --[[     ]]
-  --[[ 038 ]] 038,
+  --[[ 038 ]] 038, -- playstation blur
   --[[     ]]
   --[[ 039 ]] nil,
   --[[     ]]
@@ -1432,7 +1436,7 @@ function Routine:drawMoves()
       
       if self.snapToBeat and _lastControlPosition[12+1+i] and math.abs(xPosition-_lastControlPosition[i+1+12])>6 then
       
-        blur,blurOffset=18,6
+        blur,blurOffset=20,6
         
       end
       
