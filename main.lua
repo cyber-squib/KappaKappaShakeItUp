@@ -1257,6 +1257,30 @@ function Routine:draw()
   
   
   
+  self:drawMoves()
+  
+  self:drawTimeline()
+  
+  if self:finished() then
+  
+    local spicy=math.floor(percentage*4)+1
+    
+    if spicy>5 then spicy=5 end
+    
+    for i=1,spicy do
+    
+      love.graphics.draw(_gfx[13],-50+125*i,24)
+    
+    end
+    
+    love.graphics.draw(_gfx[14],160,382)
+  
+  end
+
+end
+
+function Routine:drawMoves()
+  
   local limit=.5
 
   local bottomPosition=580-17
@@ -1323,24 +1347,6 @@ function Routine:draw()
   
   end
   
-  self:drawTimeline()
-  
-  if self:finished() then
-  
-    local spicy=math.floor(percentage*4)+1
-    
-    if spicy>5 then spicy=5 end
-    
-    for i=1,spicy do
-    
-      love.graphics.draw(_gfx[13],-50+125*i,24)
-    
-    end
-    
-    love.graphics.draw(_gfx[14],160,382)
-  
-  end
-
 end
 
 function Routine:mousePressed(x,y,b,t)
