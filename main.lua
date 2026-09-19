@@ -1188,7 +1188,9 @@ function Routine:checkMoveDown()
 
 end
 
-function Routine:checkShake(channel)
+function Routine:checkShake(channel,augment)
+
+  if not augment then augment=0 end
 
   local a,b,si
   
@@ -1196,13 +1198,13 @@ function Routine:checkShake(channel)
   
   a=0
   
-  a=_cfx[4]:getSample(si,channel)
+  a=_cfx[_controlMap[augment+4]]:getSample(si,channel)
   
   a=math.abs(a*100+self.rangeOffset)
   
   b=0
   
-  b=_cfx[4+3]:getSample(si,channel)
+  b=_cfx[_controlMap[augment+4+4]]:getSample(si,channel)
   
   b=math.abs(b*100+self.rangeOffset)
   
@@ -1241,6 +1243,46 @@ end
 function Routine:checkShakeRight()
   
   if self:checkShake(2) then
+  
+    self.score=self.score+1
+    
+    self.stepPass=true
+    
+    _feedback:pass()
+    
+  else
+  
+    if not self.stepPass then _feedback:fail() end
+    
+    self.stepPass=true
+  
+  end
+
+end
+
+function Routine:checkStepLeft()
+  
+  if self:checkShake(1,1) then
+  
+    self.score=self.score+1
+    
+    self.stepPass=true
+    
+    _feedback:pass()
+    
+  else
+  
+    if not self.stepPass then _feedback:fail() end
+    
+    self.stepPass=true
+  
+  end
+
+end
+
+function Routine:checkStepRight()
+  
+  if self:checkShake(2,1) then
   
     self.score=self.score+1
     
@@ -1517,6 +1559,14 @@ function Routine:mousePressed(x,y,b,t)
   elseif b==2 then
   
     self:checkShakeRight()
+    
+  elseif b==4 then
+  
+    self:checkStepLeft()
+    
+  elseif b==5 then
+  
+    self:checkStepRight()
   
   end
 
@@ -1597,8 +1647,10 @@ function Routine:update(t)
   local a,si
   
   si=_sfx[1]:tell("samples")
+  
+  local max=16
 
-  for i=0,11 do
+  for i=0,max-1 do
   
     a=0
   
@@ -1611,16 +1663,6 @@ function Routine:update(t)
     a=_cfx[n]:getSample(si,c)
     
     a=a*100+self.rangeOffset
-    
-    --a=(a+1)/2
-    --
-    --xPosition=a*moveWidth+xOffset
-    --
-    --if _lastControlPositionUpdate[12+1+i] and (xPosition-_lastControlPositionUpdate[i+1+12])<limit then
-    --
-    --  love.graphics.draw(_gfx[blur+_playstationController+3+i%6],xPosition,bottomPosition-blurOffset)
-    --
-    --end
     
     if _lastControlPositionUpdate[i+1] and _lastControlPositionUpdate[i+1]>-self.range and a<-self.range then
     
@@ -1636,7 +1678,7 @@ function Routine:update(t)
     
     end
   
-    _lastControlPositionUpdate[i+1+12]=_lastControlPositionUpdate[i+1]
+    _lastControlPositionUpdate[i+1+max]=_lastControlPositionUpdate[i+1]
 
     _lastControlPositionUpdate[i+1]=a
   
