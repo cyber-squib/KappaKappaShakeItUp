@@ -150,25 +150,47 @@ function love.load()
   --[[     ]]
   --[[ 001 ]] table.insert(_sfx,love.audio.newSource("resource/KappaShakeItUp.wav","static"))
   --[[     ]] 
-  --[[ 002 ]] table.insert(_cfx,love.sound.newSoundData("resource/KappaDanceControl.wav"))
+  --[[ 001 ]] table.insert(_cfx,love.sound.newSoundData("resource/KappaDanceControl.wav"))
   --[[     ]] 
-  --[[ 003 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerHorizontal Bounced.wav"))
+  --[[ 002 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerHorizontal Bounced.wav"))
   --[[     ]] 
-  --[[ 004 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerVertical Bounced.wav"))
+  --[[ 003 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerVertical Bounced.wav"))
   --[[     ]] 
-  --[[ 005 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerShake Bounced.wav"))
+  --[[ 004 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerShake Bounced.wav"))
   --[[     ]] 
-  --[[ 006 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerHorizontal copy Bounced.wav"))
+  --[[ 005 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerHorizontal copy Bounced.wav"))
   --[[     ]] 
-  --[[ 007 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerVertical copy Bounced.wav"))
+  --[[ 006 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerVertical copy Bounced.wav"))
   --[[     ]] 
-  --[[ 008 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerShake copy Bounced.wav"))
+  --[[ 007 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerShake copy Bounced.wav"))
   --[[     ]] 
-  --[[ 009 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerStep Bounced.wav"))
+  --[[ 008 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerStep Bounced.wav"))
   --[[     ]] 
-  --[[ 010 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerStep copy Bounced.wav"))
+  --[[ 009 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerStep copy Bounced.wav"))
   --[[     ]]
   --[[ 001 ]] table.insert(_fnt,love.graphics.newImageFont("resource/KappaFont.png","abcdefghijklmnopqrstuvwxyz "))
+
+  _controlMap={
+  
+  --[[ 001 ]] nil,
+
+  --[[ 002 ]] 002,
+
+  --[[ 003 ]] 003,
+
+  --[[ 004 ]] 004,
+
+  --[[ 008 ]] 008,
+
+  --[[ 005 ]] 005,
+
+  --[[ 006 ]] 006,
+
+  --[[ 007 ]] 007,
+
+  --[[ 009 ]] 009,
+  
+  }
 
   _moveMap={
   
@@ -1416,9 +1438,11 @@ function Routine:drawMoves()
   
   if _playbackSpeed==0 then
   
-    local max=14
+    local max=16
   
     for i=0,max-1 do
+    
+      ---[[debug]]if i>12 then break end
     
       local blur,blurOffset=0,0
     
@@ -1430,7 +1454,7 @@ function Routine:drawMoves()
       
       if i%2~=0 then c=2 end
     
-      a=_cfx[n]:getSample(si,c)
+      a=_cfx[_controlMap[n]]:getSample(si,c)
       
       if self.snapToBeat then
       
@@ -1458,7 +1482,7 @@ function Routine:drawMoves()
       
       if _lastControlPosition[max+1+i] and (xPosition-_lastControlPosition[i+1+max])<limit then
     
-        love.graphics.draw(_gfx[_moveMap[blur+_playstationController+3+i%6]],xPosition,bottomPosition-blurOffset)
+        love.graphics.draw(_gfx[_moveMap[blur+_playstationController+3+(i%(max/2))]],xPosition,bottomPosition-blurOffset)
     
       end
     
