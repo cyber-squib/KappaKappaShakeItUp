@@ -176,17 +176,17 @@ function love.load()
 
   --[[ 002 ]] 002, -- horizontal
 
-  --[[ 003 ]] 003, -- vertical
+  --[[ 003 ]] 005, -- horizontal
 
-  --[[ 004 ]] 004, -- shake
+  --[[ 004 ]] 003, -- vertical
 
-  --[[ 005 ]] 008, -- step
+  --[[ 005 ]] 006, -- vertical
 
-  --[[ 006 ]] 005, -- horizontal
+  --[[ 006 ]] 004, -- shake
 
-  --[[ 007 ]] 006, -- vertical
+  --[[ 007 ]] 007, -- shake
 
-  --[[ 008 ]] 007, -- shake
+  --[[ 008 ]] 008, -- step
 
   --[[ 009 ]] 009, -- step
   
@@ -194,20 +194,20 @@ function love.load()
   
   _controlOrder={{},{},{},{},{},{},{},{},{}}
   _controlOrder[2][1]={2,1} --  move left
-  _controlOrder[6][1]={2,2} --  move left
+  _controlOrder[3][1]={2,2} --  move left
   _controlOrder[2][2]={3,1} --  move right
-  _controlOrder[6][2]={3,2} --  move right
-  _controlOrder[3][1]={4,1} --  move up
-  _controlOrder[7][1]={4,2} --  move up
-  _controlOrder[3][2]={5,1} --  move down
-  _controlOrder[7][2]={5,2} --  move down
-  _controlOrder[4][1]={6,1} -- shake left
-  _controlOrder[8][1]={6,2} -- shake left
-  _controlOrder[4][2]={7,1} -- shake right
-  _controlOrder[8][2]={7,2} -- shake right
-  _controlOrder[5][1]={8,1} --  step left
+  _controlOrder[3][2]={3,2} --  move right
+  _controlOrder[4][1]={4,1} --  move up
+  _controlOrder[5][1]={4,2} --  move up
+  _controlOrder[4][2]={5,1} --  move down
+  _controlOrder[5][2]={5,2} --  move down
+  _controlOrder[6][1]={6,1} -- shake left
+  _controlOrder[7][1]={6,2} -- shake left
+  _controlOrder[6][2]={7,1} -- shake right
+  _controlOrder[7][2]={7,2} -- shake right
+  _controlOrder[8][1]={8,1} --  step left
   _controlOrder[9][1]={8,2} --  step left
-  _controlOrder[5][2]={9,1} --  step right
+  _controlOrder[8][2]={9,1} --  step right
   _controlOrder[9][2]={9,2} --  step right
 
   _moveMap={
@@ -706,7 +706,7 @@ function Blossom:draw()
       
       a=0
       
-      local pChannel,sChannel=1,1
+      local pChannel,sChannel = 1,1
       
       a=_cfx[pChannel]:getSample(si,sChannel)
       
@@ -1078,7 +1078,7 @@ function Routine:checkMoveLeft()
   
   a=0
   
-  local pChannel,sChannel=2,1
+  local pChannel,sChannel=_controlMap[2],1
   
   pChannel,sChannel=_controlRemap(pChannel,sChannel)
   
@@ -1088,7 +1088,7 @@ function Routine:checkMoveLeft()
   
   b=0
   
-  local pChannel,sChannel=2+3,1
+  local pChannel,sChannel=_controlMap[2+4],1
   
   pChannel,sChannel=_controlRemap(pChannel,sChannel)
   
@@ -1122,7 +1122,7 @@ function Routine:checkMoveRight()
   
   a=0
   
-  local pChannel,sChannel=2,2
+  local pChannel,sChannel=_controlMap[2],2
   
   pChannel,sChannel=_controlRemap(pChannel,sChannel)
   
@@ -1132,7 +1132,7 @@ function Routine:checkMoveRight()
   
   b=0
   
-  local pChannel,sChannel=2+3,2
+  local pChannel,sChannel=_controlMap[2+4],2
   
   pChannel,sChannel=_controlRemap(pChannel,sChannel)
   
@@ -1166,7 +1166,7 @@ function Routine:checkMoveUp()
   
   a=0
   
-  local pChannel,sChannel=3,1
+  local pChannel,sChannel=_controlMap[3],1
   
   pChannel,sChannel=_controlRemap(pChannel,sChannel)
   
@@ -1176,7 +1176,7 @@ function Routine:checkMoveUp()
   
   b=0
   
-  local pChannel,sChannel=3+3,1
+  local pChannel,sChannel=_controlMap[3+4],1
   
   pChannel,sChannel=_controlRemap(pChannel,sChannel)
   
@@ -1210,7 +1210,7 @@ function Routine:checkMoveDown()
   
   a=0
   
-  local pChannel,sChannel=3,2
+  local pChannel,sChannel=_controlMap[3],2
   
   pChannel,sChannel=_controlRemap(pChannel,sChannel)
   
@@ -1220,7 +1220,7 @@ function Routine:checkMoveDown()
   
   b=0
   
-  local pChannel,sChannel=3+3,2
+  local pChannel,sChannel=_controlMap[3+4],2
   
   pChannel,sChannel=_controlRemap(pChannel,sChannel)
   
@@ -1453,7 +1453,7 @@ function Routine:draw()
   
   aB=0
   
-  local pChannel,sChannel=1,1
+  local pChannel,sChannel = 1,1
   
   aB=_cfx[pChannel]:getSample(siB,sChannel)
   
@@ -1463,7 +1463,7 @@ function Routine:draw()
   
   aBY=0
   
-  local pChannel,sChannel=1,1
+  local pChannel,sChannel = 1,1
   
   aBY=_cfx[pChannel]:getSample(siB,sChannel)
   
@@ -1742,7 +1742,7 @@ function Routine:update(t)
     
     if i%2~=0 then c=2 end
     
-    local pChannel,sChannel=n,c
+    local pChannel,sChannel=_controlMap[n],c
     
     pChannel,sChannel=_controlRemap(pChannel,sChannel)
     
