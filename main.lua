@@ -700,7 +700,9 @@ function Blossom:draw()
       
       a=0
       
-      a=_cfx[1]:getSample(si,1)
+      local pChannel,sChannel=1,1
+      
+      a=_cfx[pChannel]:getSample(si,sChannel)
       
       a=(a+1)/2
       
@@ -1070,13 +1072,17 @@ function Routine:checkMoveLeft()
   
   a=0
   
-  a=_cfx[2]:getSample(si,1)
+  local pChannel,sChannel=2,1
+  
+  a=_cfx[pChannel]:getSample(si,sChannel)
   
   a=math.abs(a*100+self.rangeOffset)
   
   b=0
   
-  b=_cfx[2+3]:getSample(si,1)
+  local pChannel,sChannel=2+3,1
+  
+  b=_cfx[pChannel]:getSample(si,sChannel)
   
   b=math.abs(b*100+self.rangeOffset)
   
@@ -1106,13 +1112,17 @@ function Routine:checkMoveRight()
   
   a=0
   
-  a=_cfx[2]:getSample(si,2)
+  local pChannel,sChannel=2,2
+  
+  a=_cfx[pChannel]:getSample(si,sChannel)
   
   a=math.abs(a*100+self.rangeOffset)
   
   b=0
   
-  b=_cfx[2+3]:getSample(si,2)
+  local pChannel,sChannel=2+3,2
+  
+  b=_cfx[pChannel]:getSample(si,sChannel)
   
   b=math.abs(b*100+self.rangeOffset)
   
@@ -1142,13 +1152,17 @@ function Routine:checkMoveUp()
   
   a=0
   
-  a=_cfx[3]:getSample(si,1)
+  local pChannel,sChannel=3,1
+  
+  a=_cfx[pChannel]:getSample(si,sChannel)
   
   a=math.abs(a*100+self.rangeOffset)
   
   b=0
   
-  b=_cfx[3+3]:getSample(si,1)
+  local pChannel,sChannel=3+3,1
+  
+  b=_cfx[pChannel]:getSample(si,sChannel)
   
   b=math.abs(b*100+self.rangeOffset)
   
@@ -1178,13 +1192,17 @@ function Routine:checkMoveDown()
   
   a=0
   
-  a=_cfx[3]:getSample(si,2)
+  local pChannel,sChannel=3,2
+  
+  a=_cfx[pChannel]:getSample(si,sChannel)
   
   a=math.abs(a*100+self.rangeOffset)
   
   b=0
   
-  b=_cfx[3+3]:getSample(si,2)
+  local pChannel,sChannel=3+3,2
+  
+  b=_cfx[pChannel]:getSample(si,sChannel)
   
   b=math.abs(b*100+self.rangeOffset)
   
@@ -1216,13 +1234,17 @@ function Routine:checkShake(channel,augment)
   
   a=0
   
-  a=_cfx[_controlMap[augment+4]]:getSample(si,channel)
+  local pChannel,sChannel=_controlMap[augment+4],channel
+  
+  a=_cfx[pChannel]:getSample(si,sChannel)
   
   a=math.abs(a*100+self.rangeOffset)
   
   b=0
   
-  b=_cfx[_controlMap[augment+4+4]]:getSample(si,channel)
+  local pChannel,sChannel=_controlMap[augment+4+4],channel
+  
+  b=_cfx[pChannel]:getSample(si,sChannel)
   
   b=math.abs(b*100+self.rangeOffset)
   
@@ -1405,7 +1427,9 @@ function Routine:draw()
   
   aB=0
   
-  aB=_cfx[1]:getSample(siB,1)
+  local pChannel,sChannel=1,1
+  
+  aB=_cfx[pChannel]:getSample(siB,sChannel)
   
   aB=(aB+1)/2
   
@@ -1413,7 +1437,9 @@ function Routine:draw()
   
   aBY=0
   
-  aBY=_cfx[1]:getSample(siB,1)
+  local pChannel,sChannel=1,1
+  
+  aBY=_cfx[pChannel]:getSample(siB,sChannel)
   
   aBY=(aBY+1)/2
   
@@ -1513,8 +1539,10 @@ function Routine:drawMoves()
       local c=1
       
       if i%2~=0 then c=2 end
+      
+      local pChannel,sChannel=_controlMap[n],c
     
-      a=_cfx[_controlMap[n]]:getSample(si,c)
+      a=_cfx[pChannel]:getSample(si,sChannel)
       
       if self.snapToBeat then
       
@@ -1686,7 +1714,9 @@ function Routine:update(t)
     
     if i%2~=0 then c=2 end
     
-    a=_cfx[n]:getSample(si,c)
+    local pChannel,sChannel=n,c
+    
+    a=_cfx[pChannel]:getSample(si,sChannel)
     
     a=a*100+self.rangeOffset
     
