@@ -188,9 +188,9 @@ function love.load()
   --[[     ]]
   --[[ 008 ]] 008, -- keyboard
   --[[     ]]
-  --[[ 009 ]] nil,
+  --[[ 009 ]] 039, -- keyboard
   --[[     ]]
-  --[[ 010 ]] nil,
+  --[[ 010 ]] 040, -- keyboard
   --[[     ]]
   --[[ 011 ]] nil,
   --[[     ]]
@@ -212,9 +212,9 @@ function love.load()
   --[[     ]]
   --[[ 020 ]] 020, -- playstation
   --[[     ]]
-  --[[ 021 ]] nil,
+  --[[ 021 ]] 041, -- playstation
   --[[     ]]
-  --[[ 022 ]] nil,
+  --[[ 022 ]] 042, -- playstation
   --[[     ]]
   --[[ 023 ]] 021, -- keyboard blur
   --[[     ]]
@@ -228,9 +228,9 @@ function love.load()
   --[[     ]]
   --[[ 028 ]] 026, -- keyboard blur
   --[[     ]]
-  --[[ 029 ]] nil,
+  --[[ 029 ]] 043, -- keyboard blur
   --[[     ]]
-  --[[ 030 ]] nil,
+  --[[ 030 ]] 044, -- keyboard blur
   --[[     ]]
   --[[ 031 ]] nil,
   --[[     ]]
@@ -252,9 +252,9 @@ function love.load()
   --[[     ]]
   --[[ 040 ]] 038, -- playstation blur
   --[[     ]]
-  --[[ 041 ]] nil,
+  --[[ 041 ]] 045, -- playstation blur
   --[[     ]]
-  --[[ 042 ]] nil,
+  --[[ 042 ]] 046, -- playstation blur
   --[[     ]]
   --[[ 043 ]] nil,
   --[[     ]]
@@ -482,7 +482,9 @@ function _start()
   
   _sfx[1]:setPitch(_defaultPlaybackSpeed)
   
-  --_fail()
+  ---[[debug]]_fail()
+  
+  --[[debug]]_routine:setProgress(44/100)
 
 end
 
@@ -1414,7 +1416,9 @@ function Routine:drawMoves()
   
   if _playbackSpeed==0 then
   
-    for i=0,11 do
+    local max=14
+  
+    for i=0,max-1 do
     
       local blur,blurOffset=0,0
     
@@ -1446,19 +1450,19 @@ function Routine:drawMoves()
       
       xPosition=a*moveWidth+xOffset
       
-      if self.snapToBeat and _lastControlPosition[12+1+i] and math.abs(xPosition-_lastControlPosition[i+1+12])>6 then
+      if self.snapToBeat and _lastControlPosition[max+1+i] and math.abs(xPosition-_lastControlPosition[i+1+max])>6 then
       
         blur,blurOffset=20,6
         
       end
       
-      if _lastControlPosition[12+1+i] and (xPosition-_lastControlPosition[i+1+12])<limit then
+      if _lastControlPosition[max+1+i] and (xPosition-_lastControlPosition[i+1+max])<limit then
     
         love.graphics.draw(_gfx[_moveMap[blur+_playstationController+3+i%6]],xPosition,bottomPosition-blurOffset)
     
       end
     
-      _lastControlPosition[i+1+12]=_lastControlPosition[i+1]
+      _lastControlPosition[i+1+max]=_lastControlPosition[i+1]
     
       _lastControlPosition[i+1]=xPosition
     
@@ -1633,6 +1637,12 @@ function Routine:progress()
   local s=_sfx[1]
   
   return s:tell()/s:getDuration()
+
+end
+
+function Routine:setProgress(p)
+
+  _sfx[1]:seek(_sfx[1]:getDuration()*p)
 
 end
 
