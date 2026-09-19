@@ -506,7 +506,7 @@ function _start()
   
   ---[[debug]]_fail()
   
-  --[[debug]]_routine:setProgress(44/100)
+  ---[[debug]]_routine:setProgress(44/100)
 
 end
 
@@ -738,11 +738,11 @@ function Blossom:mousePressed(x,y,b,t)
   
   end
 
-  if b==1 then
+  if b==1 or b==4 then
   
     self:shakeLeft()
   
-  elseif b==2 then
+  elseif b==2 or b==5 then
   
     self:shakeRight()
   
@@ -1630,13 +1630,21 @@ function Routine:gamepadPressed(j,b)
   
   end
 
-  if b=="a" or b=="x" then
+  if b=="a" then
   
     self:checkShakeLeft()
   
-  elseif b=="b" or b=="y" then
+  elseif b=="x" then
+  
+    self:checkStepLeft()
+  
+  elseif b=="b" then
   
     self:checkShakeRight()
+  
+  elseif b=="y" then
+  
+    self:checkStepRight()
   
   end
 
