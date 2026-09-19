@@ -338,6 +338,12 @@ function love.load()
 
 end
 
+function _controlRemap(p,s)
+
+  return _controlOrder[p][s][1],_controlOrder[p][s][2]
+
+end
+
 function love.draw()
 
   if _state==1 then
@@ -1074,6 +1080,8 @@ function Routine:checkMoveLeft()
   
   local pChannel,sChannel=2,1
   
+  pChannel,sChannel=_controlRemap(pChannel,sChannel)
+  
   a=_cfx[pChannel]:getSample(si,sChannel)
   
   a=math.abs(a*100+self.rangeOffset)
@@ -1081,6 +1089,8 @@ function Routine:checkMoveLeft()
   b=0
   
   local pChannel,sChannel=2+3,1
+  
+  pChannel,sChannel=_controlRemap(pChannel,sChannel)
   
   b=_cfx[pChannel]:getSample(si,sChannel)
   
@@ -1114,6 +1124,8 @@ function Routine:checkMoveRight()
   
   local pChannel,sChannel=2,2
   
+  pChannel,sChannel=_controlRemap(pChannel,sChannel)
+  
   a=_cfx[pChannel]:getSample(si,sChannel)
   
   a=math.abs(a*100+self.rangeOffset)
@@ -1121,6 +1133,8 @@ function Routine:checkMoveRight()
   b=0
   
   local pChannel,sChannel=2+3,2
+  
+  pChannel,sChannel=_controlRemap(pChannel,sChannel)
   
   b=_cfx[pChannel]:getSample(si,sChannel)
   
@@ -1154,6 +1168,8 @@ function Routine:checkMoveUp()
   
   local pChannel,sChannel=3,1
   
+  pChannel,sChannel=_controlRemap(pChannel,sChannel)
+  
   a=_cfx[pChannel]:getSample(si,sChannel)
   
   a=math.abs(a*100+self.rangeOffset)
@@ -1161,6 +1177,8 @@ function Routine:checkMoveUp()
   b=0
   
   local pChannel,sChannel=3+3,1
+  
+  pChannel,sChannel=_controlRemap(pChannel,sChannel)
   
   b=_cfx[pChannel]:getSample(si,sChannel)
   
@@ -1194,6 +1212,8 @@ function Routine:checkMoveDown()
   
   local pChannel,sChannel=3,2
   
+  pChannel,sChannel=_controlRemap(pChannel,sChannel)
+  
   a=_cfx[pChannel]:getSample(si,sChannel)
   
   a=math.abs(a*100+self.rangeOffset)
@@ -1201,6 +1221,8 @@ function Routine:checkMoveDown()
   b=0
   
   local pChannel,sChannel=3+3,2
+  
+  pChannel,sChannel=_controlRemap(pChannel,sChannel)
   
   b=_cfx[pChannel]:getSample(si,sChannel)
   
@@ -1236,6 +1258,8 @@ function Routine:checkShake(channel,augment)
   
   local pChannel,sChannel=_controlMap[augment+4],channel
   
+  pChannel,sChannel=_controlRemap(pChannel,sChannel)
+  
   a=_cfx[pChannel]:getSample(si,sChannel)
   
   a=math.abs(a*100+self.rangeOffset)
@@ -1243,6 +1267,8 @@ function Routine:checkShake(channel,augment)
   b=0
   
   local pChannel,sChannel=_controlMap[augment+4+4],channel
+  
+  pChannel,sChannel=_controlRemap(pChannel,sChannel)
   
   b=_cfx[pChannel]:getSample(si,sChannel)
   
@@ -1541,6 +1567,8 @@ function Routine:drawMoves()
       if i%2~=0 then c=2 end
       
       local pChannel,sChannel=_controlMap[n],c
+      
+      pChannel,sChannel=_controlRemap(pChannel,sChannel)
     
       a=_cfx[pChannel]:getSample(si,sChannel)
       
@@ -1715,6 +1743,8 @@ function Routine:update(t)
     if i%2~=0 then c=2 end
     
     local pChannel,sChannel=n,c
+    
+    pChannel,sChannel=_controlRemap(pChannel,sChannel)
     
     a=_cfx[pChannel]:getSample(si,sChannel)
     
