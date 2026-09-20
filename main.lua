@@ -193,22 +193,43 @@ function love.load()
   }
   
   _controlOrder={{},{},{},{},{},{},{},{},{}}
-  _controlOrder[2][1]={2,1} --  move left
-  _controlOrder[2][2]={2,2} --  move left
-  _controlOrder[3][1]={3,1} --  move right
-  _controlOrder[3][2]={3,2} --  move right
-  _controlOrder[4][1]={4,1} --  move up
-  _controlOrder[4][2]={4,2} --  move up
-  _controlOrder[5][1]={5,1} --  move down
-  _controlOrder[5][2]={5,2} --  move down
-  _controlOrder[6][1]={6,1} -- shake left
-  _controlOrder[6][2]={6,2} -- shake left
-  _controlOrder[7][1]={7,1} -- shake right
-  _controlOrder[7][2]={7,2} -- shake right
-  _controlOrder[8][1]={8,1} --  step left
-  _controlOrder[8][2]={8,2} --  step left
-  _controlOrder[9][1]={9,1} --  step right
-  _controlOrder[9][2]={9,2} --  step right
+  
+  
+  _controlOrder[2][1]= --[[  move left  ]]       {2,1} -- move left 
+  _controlOrder[2][2]= --[[  move right ]]       {2,2} -- move right
+  _controlOrder[3][1]= --[[  move left  ]]       {3,1} -- move left 
+  _controlOrder[3][2]= --[[  move right ]]       {3,2} -- move right
+  _controlOrder[4][1]= --[[  move up    ]]       {4,1} -- move up   
+  _controlOrder[4][2]= --[[  move down  ]]       {4,2} -- move down 
+  _controlOrder[5][1]= --[[  move up    ]]       {5,1} -- move up   
+  _controlOrder[5][2]= --[[  move down  ]]       {5,2} -- move down 
+  _controlOrder[6][1]= --[[ shake left  ]]       {6,1} --shake left 
+  _controlOrder[6][2]= --[[ shake right ]]       {6,2} --shake right
+  _controlOrder[7][1]= --[[ shake left  ]]       {7,1} --shake left 
+  _controlOrder[7][2]= --[[ shake right ]]       {7,2} --shake right
+  _controlOrder[8][1]= --[[  step left  ]]       {8,1} -- step left 
+  _controlOrder[8][2]= --[[  step right ]]       {8,2} -- step right
+  _controlOrder[9][1]= --[[  step left  ]]       {9,1} -- step left 
+  _controlOrder[9][2]= --[[  step right ]]       {9,2} -- step right
+  
+  
+  --[[debug]]_controlOrder[2][1]= --[[  move left  ]]       {2,1} -- move left 
+  --[[debug]]_controlOrder[2][2]= --[[  move right ]]       {3,1} -- move left 
+  --[[debug]]_controlOrder[3][1]= --[[  move left  ]]       {2,2} -- move right
+  --[[debug]]_controlOrder[3][2]= --[[  move right ]]       {3,2} -- move right
+  --[[debug]]_controlOrder[4][1]= --[[  move up    ]]       {4,1} -- move up   
+  --[[debug]]_controlOrder[4][2]= --[[  move down  ]]       {5,1} -- move up   
+  --[[debug]]_controlOrder[5][1]= --[[  move up    ]]       {4,2} -- move down 
+  --[[debug]]_controlOrder[5][2]= --[[  move down  ]]       {5,2} -- move down 
+  --[[debug]]_controlOrder[6][1]= --[[ shake left  ]]       {6,1} --shake left 
+  --[[debug]]_controlOrder[6][2]= --[[ shake right ]]       {7,1} --shake left 
+  --[[debug]]_controlOrder[7][1]= --[[ shake left  ]]       {6,2} --shake right
+  --[[debug]]_controlOrder[7][2]= --[[ shake right ]]       {7,2} --shake right
+  --[[debug]]_controlOrder[8][1]= --[[  step left  ]]       {8,1} -- step left 
+  --[[debug]]_controlOrder[8][2]= --[[  step right ]]       {9,1} -- step left 
+  --[[debug]]_controlOrder[9][1]= --[[  step left  ]]       {8,2} -- step right
+  --[[debug]]_controlOrder[9][2]= --[[  step right ]]       {9,2} -- step right
+
 
   _moveMap={
   
