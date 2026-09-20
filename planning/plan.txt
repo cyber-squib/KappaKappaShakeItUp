@@ -1,35 +1,40 @@
 priorities:
-[ ] new title screen
-[x] controller support
-[ ] new song
-[ ] improve routine designer workflow
-[ ] new routine
 [ ] song select menu
+[ ] dynamic max spicy
+[ ] improve routine designer workflow
+[ ] new song
+[ ] new routine
+[ ] augmented/step blossom dance animation
+[ ] controller filter
+[ ] controller mouse mapper
 backlog:
+[ ] new title screen
 [ ] touch support
 [ ] ios build script
 [ ] dynamic screen resolution
 [ ] new dancer
 [ ] new dance floor
-[x] step retrigger switch
 [ ] change color palette
-[ ] pause menu
 [ ] looping mechanics
-[x] snap step grapgics to beat
-[ ] song timeline
-[x] auto playstation controller graphics
-[x] wide eyed mistake animation
-[x] refactor routine draw function
 [ ] parallax background layer
 [ ] animated background
 [ ] memorized routine mode
 [ ] practice mode
+[ ] 50% and 200% game screen resolution
+[ ] infinite mode
+completed:
+[x] song timeline
+[x] pause menu
+[x] controller support
+[x] step retrigger switch
+[x] snap step grapgics to beat
+[x] auto playstation controller graphics
+[x] wide eyed mistake animation
+[x] refactor routine draw function
 [x] losing pitty party?
 [x] motion blur step graphics
 [x] routine step snap to beat menu switch
 [x] implement oopsies
-[ ] 50% and 200% game screen resolution
-[ ] expand blossoms move set
-[ ] expand blossoms move set graphics ***************
-[ ] dynamic max spicy
-[ ] reorder blossoms move set
+[x] reorder blossoms move set
+[x] expand blossoms move set graphics
+[x] expand blossoms move set
