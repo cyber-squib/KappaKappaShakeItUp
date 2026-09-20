@@ -176,17 +176,17 @@ function love.load()
 
   --[[ 002 ]] 002, -- horizontal
 
-  --[[ 003 ]] 005, -- horizontal
+  --[[ 000 ]] 003, -- vertical
 
-  --[[ 004 ]] 003, -- vertical
+  --[[ 000 ]] 004, -- shake
 
-  --[[ 005 ]] 006, -- vertical
+  --[[ 000 ]] 008, -- step
 
-  --[[ 006 ]] 004, -- shake
+  --[[ 000 ]] 005, -- horizontal
 
-  --[[ 007 ]] 007, -- shake
+  --[[ 000 ]] 006, -- vertical
 
-  --[[ 008 ]] 008, -- step
+  --[[ 000 ]] 007, -- shake
 
   --[[ 009 ]] 009, -- step
   
@@ -194,20 +194,20 @@ function love.load()
   
   _controlOrder={{},{},{},{},{},{},{},{},{}}
   _controlOrder[2][1]={2,1} --  move left
-  _controlOrder[3][1]={2,2} --  move left
-  _controlOrder[2][2]={3,1} --  move right
+  _controlOrder[2][2]={2,2} --  move left
+  _controlOrder[3][1]={3,1} --  move right
   _controlOrder[3][2]={3,2} --  move right
   _controlOrder[4][1]={4,1} --  move up
-  _controlOrder[5][1]={4,2} --  move up
-  _controlOrder[4][2]={5,1} --  move down
+  _controlOrder[4][2]={4,2} --  move up
+  _controlOrder[5][1]={5,1} --  move down
   _controlOrder[5][2]={5,2} --  move down
   _controlOrder[6][1]={6,1} -- shake left
-  _controlOrder[7][1]={6,2} -- shake left
-  _controlOrder[6][2]={7,1} -- shake right
+  _controlOrder[6][2]={6,2} -- shake left
+  _controlOrder[7][1]={7,1} -- shake right
   _controlOrder[7][2]={7,2} -- shake right
   _controlOrder[8][1]={8,1} --  step left
-  _controlOrder[9][1]={8,2} --  step left
-  _controlOrder[8][2]={9,1} --  step right
+  _controlOrder[8][2]={8,2} --  step left
+  _controlOrder[9][1]={9,1} --  step right
   _controlOrder[9][2]={9,2} --  step right
 
   _moveMap={
