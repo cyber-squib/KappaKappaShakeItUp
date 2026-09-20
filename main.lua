@@ -152,21 +152,21 @@ function love.load()
   --[[     ]] 
   --[[ 001 ]] table.insert(_cfx,love.sound.newSoundData("resource/KappaDanceControl.wav"))
   --[[     ]] 
-  --[[ 002 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerHorizontal Bounced.wav"))
+  --[[ 002 ]] table.insert(_cfx,love.sound.newSoundData("resource/TestMicromanagerHorizontal Bounced.wav"))
   --[[     ]] 
-  --[[ 003 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerVertical Bounced.wav"))
+  --[[ 003 ]] table.insert(_cfx,love.sound.newSoundData("resource/TestMicromanagerVertical Bounced.wav"))
   --[[     ]] 
-  --[[ 004 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerShake Bounced.wav"))
+  --[[ 004 ]] table.insert(_cfx,love.sound.newSoundData("resource/TestMicromanagerShake Bounced.wav"))
   --[[     ]] 
-  --[[ 005 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerHorizontal copy Bounced.wav"))
+  --[[ 005 ]] table.insert(_cfx,love.sound.newSoundData("resource/TestMicromanagerHorizontal copy Bounced.wav"))
   --[[     ]] 
-  --[[ 006 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerVertical copy Bounced.wav"))
+  --[[ 006 ]] table.insert(_cfx,love.sound.newSoundData("resource/TestMicromanagerVertical copy Bounced.wav"))
   --[[     ]] 
-  --[[ 007 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerShake copy Bounced.wav"))
+  --[[ 007 ]] table.insert(_cfx,love.sound.newSoundData("resource/TestMicromanagerShake copy Bounced.wav"))
   --[[     ]] 
-  --[[ 008 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerStep Bounced.wav"))
+  --[[ 008 ]] table.insert(_cfx,love.sound.newSoundData("resource/TestMicromanagerStep Bounced.wav"))
   --[[     ]] 
-  --[[ 009 ]] table.insert(_cfx,love.sound.newSoundData("resource/MicromanagerStep copy Bounced.wav"))
+  --[[ 009 ]] table.insert(_cfx,love.sound.newSoundData("resource/TestMicromanagerStep copy Bounced.wav"))
   --[[     ]]
   --[[ 001 ]] table.insert(_fnt,love.graphics.newImageFont("resource/KappaFont.png","abcdefghijklmnopqrstuvwxyz "))
 
@@ -559,6 +559,8 @@ function Blossom:init()
   self.spriteYoinksEnable=0
   
   self.yoinks=0
+  
+  self.invincible=true
 
   return self
 
@@ -996,13 +998,17 @@ end
 
 function Blossom:oops()
 
-  self:yoinksThat()
-
-  self.slip=self.slip+1
+  if not self.invincible then
   
-  if _playbackSpeed==0 and self.slip>3 then
-  
-    _fail()
+    self:yoinksThat()
+    
+    self.slip=self.slip+1
+    
+    if _playbackSpeed==0 and self.slip>3 then
+    
+      _fail()
+    
+    end
   
   end
 
