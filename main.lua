@@ -1,12 +1,176 @@
 function love.load()
 
+  _scene=setmetatable({},SceneTitle):init()
+
+end
+
+SceneTitle={}
+
+SceneTitle.__index=SceneTitle
+
+function SceneTitle:init()
+  
+  love.draw=self.draw
+  
+  love.mousepressed=self.mousepressed
+  
+  love.keypressed=self.keypressed
+  
+  love.gamepadpressed=self.gamepadpressed
+  
+  love.update=self.update
+  
+  _gfx={}
+  
+  --[[ 001 ]] table.insert(_gfx,love.graphics.newImage("resource/Title.png"))
+  
+  love.window.setMode(960,720)
+
+  return self
+
+end
+
+function SceneTitle:final()
+
+  _gfx=nil
+  
+  self.draw=nil
+  
+  self.mousepressed=nil
+  
+  self.keypressed=nil
+  
+  self.gamepadpressed=nil
+  
+  self.update=nil
+
+  _scene=setmetatable({},SceneLoading):init(SceneDance)
+  
+end
+  
+function SceneTitle.draw()
+
+  love.graphics.clear()
+
+  love.graphics.draw(_gfx[1],0,0)
+
+end
+  
+function SceneTitle.mousepressed()
+
+  _scene:final()
+
+end
+  
+function SceneTitle.keypressed() end
+  
+function SceneTitle.gamepadpressed()
+
+  _playstationController=12
+
+  _scene:final()
+  
+end
+  
+function SceneTitle.update() end
+
+SceneLoading={}
+
+SceneLoading.__index=SceneLoading
+
+function SceneLoading:init(followup)
+
+  self.followup=followup
+
+  love.draw=self.draw
+
+  love.update=self.update
+
+  love.mousepressed=self.mousepressed
+
+  love.keypressed=self.keypressed
+
+  love.gamepadpressed=self.gamepadpressed
+
+  _fnt={}
+
+  --[[ 001 ]] table.insert(_fnt,love.graphics.newImageFont("resource/KappaFont.png","abcdefghijklmnopqrstuvwxyz "))
+
+  _frame=0
+
+  return self
+
+end
+
+function SceneLoading:final()
+
+  love.draw=nil
+  
+  love.update=nil
+  
+  love.mousepressed=nil
+  
+  love.keypressed=nil
+  
+  love.gamepadpressed=nil
+  
+  _fnt=nil
+  
+  _frame=nil
+  
+  _scene=setmetatable({},self.followup):init()
+
+end
+
+function SceneLoading.draw()
+
+  love.graphics.clear(0x1e/0xff,0x88/0xff,0x75/0xff,0xff/0xff)
+
+  love.graphics.setFont(_fnt[1])
+  
+  local j=40
+  
+  love.graphics.print("loading",j,640-j)
+
+end
+
+function SceneLoading.mousepressed() end
+
+function SceneLoading.keypressed() end
+
+function SceneLoading.gamepadpressed() end
+
+function SceneLoading.update()
+
+  if _frame>50 then _scene:final() end
+  
+  _frame=_frame+1
+
+end
+
+SceneDance={}
+
+SceneDance.__index=SceneDance
+
+function SceneDance:init()
+  
+  love.draw=self.draw
+  
+  love.mousepressed=self.mousepressed
+  
+  love.keypressed=self.keypressed
+  
+  love.gamepadpressed=self.gamepadpressed
+  
+  love.update=self.update
+
   _frame=0
   
   love.math.setRandomSeed(os.time())
 
   _singleAction=false
   
-  _playstationController=0
+  if not _playstationController then _playstationController=0 end
 
   _gfx={}
   
@@ -330,7 +494,7 @@ function love.load()
   
   }
 
-  love.window.setMode(960,720)
+  --love.window.setMode(960,720)
   
   _blossom=setmetatable({},Blossom):init()
   
@@ -351,16 +515,14 @@ function love.load()
   _defaultPlaybackSpeed=.9
   
   _down=75
+  
+  _start()
+  
+  return self
 
 end
 
-function _controlRemap(p,s)
-
-  return _controlOrder[p][s][1],_controlOrder[p][s][2]
-
-end
-
-function love.draw()
+function SceneDance.draw()
 
   if _state==1 then
 
@@ -386,7 +548,7 @@ function love.draw()
 
 end
 
-function love.mousepressed(x,y,b,t)
+function SceneDance.mousepressed(x,y,b,t)
   
   if _pauseMenu.active then
     
@@ -428,7 +590,7 @@ function love.mousepressed(x,y,b,t)
 
 end
 
-function love.keypressed(k,s,r)
+function SceneDance.keypressed(k,s,r)
   
   if _pauseMenu.active then
       
@@ -456,7 +618,7 @@ function love.keypressed(k,s,r)
 
 end
 
-function love.gamepadpressed(j,b)
+function SceneDance.gamepadpressed(j,b)
   
   if _pauseMenu.active then
   
@@ -498,25 +660,9 @@ function love.gamepadpressed(j,b)
 
 end
 
-function love.update(t)
-  
-  --if _pauseMenu.active then
-  --
-  --  return
-  --  
-  --else
-  --    
-  --  _pauseMenu:update(t)
-  --  
-  --  return
-  --
-  --end
+function SceneDance.update(t)
 
   if _state==1 then
-
-
-    
-    --assert(_sfx[1]:isPlaying())
       
     _pauseMenu:update(t)
 
@@ -534,6 +680,12 @@ function love.update(t)
     
   end
     
+end
+
+function _controlRemap(p,s)
+
+  return _controlOrder[p][s][1],_controlOrder[p][s][2]
+
 end
 
 function _start()
