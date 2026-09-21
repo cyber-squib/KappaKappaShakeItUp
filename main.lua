@@ -148,25 +148,25 @@ function love.load()
   --[[     ]]
   --[[ 046 ]] table.insert(_gfx,love.graphics.newImage("resource/StepRightPlaystationMotionBlur.png"))
   --[[     ]]
-  --[[ 001 ]] table.insert(_sfx,love.audio.newSource("resource/KappaShakeItUp.wav","static"))
+  --[[ 001 ]] table.insert(_sfx,love.audio.newSource("resource/Routines/02KappaKappaShakeItUp/Tune.wav","static"))
   --[[     ]] 
-  --[[ 001 ]] table.insert(_cfx,love.sound.newSoundData("resource/KappaDanceControl.wav"))
+  --[[ 001 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/02KappaKappaShakeItUp/Micromanager0Dance Bounced.wav"))
   --[[     ]] 
-  --[[ 002 ]] table.insert(_cfx,love.sound.newSoundData("resource/Micromanager1MoveLeft Bounced.wav"))
+  --[[ 002 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/02KappaKappaShakeItUp/Micromanager1MoveLeft Bounced.wav"))
   --[[     ]] 
-  --[[ 003 ]] table.insert(_cfx,love.sound.newSoundData("resource/Micromanager3MoveUp Bounced.wav"))
+  --[[ 003 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/02KappaKappaShakeItUp/Micromanager3MoveUp Bounced.wav"))
   --[[     ]] 
-  --[[ 004 ]] table.insert(_cfx,love.sound.newSoundData("resource/Micromanager5ShakeLeft Bounced.wav"))
+  --[[ 004 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/02KappaKappaShakeItUp/Micromanager5ShakeLeft Bounced.wav"))
   --[[     ]] 
-  --[[ 005 ]] table.insert(_cfx,love.sound.newSoundData("resource/Micromanager2MoveRight Bounced.wav"))
+  --[[ 005 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/02KappaKappaShakeItUp/Micromanager2MoveRight Bounced.wav"))
   --[[     ]] 
-  --[[ 006 ]] table.insert(_cfx,love.sound.newSoundData("resource/Micromanager4MoveDown Bounced.wav"))
+  --[[ 006 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/02KappaKappaShakeItUp/Micromanager4MoveDown Bounced.wav"))
   --[[     ]] 
-  --[[ 007 ]] table.insert(_cfx,love.sound.newSoundData("resource/Micromanager6ShakeRight Bounced.wav"))
+  --[[ 007 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/02KappaKappaShakeItUp/Micromanager6ShakeRight Bounced.wav"))
   --[[     ]] 
-  --[[ 008 ]] table.insert(_cfx,love.sound.newSoundData("resource/Micromanager7StepLeft Bounced.wav"))
+  --[[ 008 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/02KappaKappaShakeItUp/Micromanager7StepLeft Bounced.wav"))
   --[[     ]] 
-  --[[ 009 ]] table.insert(_cfx,love.sound.newSoundData("resource/Micromanager8StepRight Bounced.wav"))
+  --[[ 009 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/02KappaKappaShakeItUp/Micromanager8StepRight Bounced.wav"))
   --[[     ]]
   --[[ 001 ]] table.insert(_fnt,love.graphics.newImageFont("resource/KappaFont.png","abcdefghijklmnopqrstuvwxyz "))
 
