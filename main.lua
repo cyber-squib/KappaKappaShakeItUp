@@ -44,7 +44,7 @@ function SceneTitle:final()
   
   self.update=nil
 
-  _scene=setmetatable({},SceneLoading):init(SceneDance)
+  _scene=setmetatable({},SceneSelect):init()
   
 end
   
@@ -78,9 +78,11 @@ SceneLoading={}
 
 SceneLoading.__index=SceneLoading
 
-function SceneLoading:init(followup)
+function SceneLoading:init(followup,choice)
 
   self.followup=followup
+  
+  self.choice=choice
 
   love.draw=self.draw
 
@@ -118,7 +120,7 @@ function SceneLoading:final()
   
   _frame=nil
   
-  _scene=setmetatable({},self.followup):init(string.format("%02d",2))
+  _scene=setmetatable({},self.followup):init(string.format("%02d",self.choice))
 
 end
 
@@ -145,6 +147,81 @@ function SceneLoading.update()
   if _frame>50 then _scene:final() end
   
   _frame=_frame+1
+
+end
+
+SceneSelect={}
+
+SceneSelect.__index=SceneSelect
+
+function SceneSelect:init()
+
+  love.draw=self.draw
+
+  love.update=self.update
+
+  love.mousepressed=self.mousepressed
+
+  love.keypressed=self.keypressed
+
+  love.gamepadpressed=self.gamepadpressed
+  
+  _fnt={love.graphics.newImageFont("resource/KappaFont.png","abcdefghijklmnopqrstuvwxyz ")}
+  
+  _selection={[[
+kappa dance
+]],[[
+kappa kappa
+shake it up
+]]}
+  
+  self.choice=2
+
+  return self
+
+end
+
+function SceneSelect:final()
+
+  love.draw=nil
+  
+  love.update=nil
+  
+  love.mousepressed=nil
+  
+  love.keypressed=nil
+  
+  love.gamepadpressed=nil
+  
+  _fnt=nil
+
+  _scene=setmetatable({},SceneLoading):init(SceneDance,self.choice)
+
+end
+
+function SceneSelect.draw()
+
+  love.graphics.clear(0x11/0xff,0xad/0xff,0xc1/0xff,0xff/0xff)
+  
+  love.graphics.setFont(_fnt[1])
+  
+  love.graphics.print("select\n\n".._selection[_scene.choice],32,32)
+
+end
+
+function SceneSelect.update() end
+
+function SceneSelect.mousepressed()
+
+  _scene:final()
+
+end
+
+function SceneSelect.keypressed() end
+
+function SceneSelect.gamepadpressed()
+
+  _scene:final()
 
 end
 
