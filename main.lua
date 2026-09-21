@@ -1976,4 +1976,28 @@ function PauseMenu:flip()
 
 end
 
---love._openConsole()
+RoutineSelect={}
+
+RoutineSelect.__index=RoutineSelect
+
+function RoutineSelect:init()
+
+  return self
+  
+end
+
+function RoutineSelect:draw()
+
+end
+
+function RoutineSelect:mousePressed(x,y,b,t)
+
+end
+
+function RoutineSelect:keyPressed(k,s,r)
+
+end
+
+function RoutineSelect:gamepadPressed(j,b)
+
+end
