@@ -2060,7 +2060,7 @@ function PauseMenu:draw()
   
     love.graphics.setFont(_fnt[1])
     
-    love.graphics.print("pause",280,320)
+    love.graphics.print("pause",310,320)
   
   end
 
