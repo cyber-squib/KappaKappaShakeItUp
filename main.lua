@@ -168,12 +168,30 @@ function SceneSelect:init()
   
   _fnt={love.graphics.newImageFont("resource/KappaFont.png","abcdefghijklmnopqrstuvwxyz ")}
   
-  _selection={[[
+  self.selection={
+  
+{
+
+[[
 kappa dance
-]],[[
+]],
+
+1
+
+},
+
+{
+
+[[
 kappa kappa
 shake it up
-]]}
+]],
+
+.9
+
+}
+
+  }
   
   self.choice=2
 
@@ -194,6 +212,12 @@ function SceneSelect:final()
   love.gamepadpressed=nil
   
   _fnt=nil
+  
+  local p=self.selection[self.choice][2]
+  
+  _defaultPlaybackSpeed=p
+  
+  --assert(p,p)
 
   _scene=setmetatable({},SceneLoading):init(SceneDance,self.choice)
 
@@ -205,25 +229,89 @@ function SceneSelect.draw()
   
   love.graphics.setFont(_fnt[1])
   
-  love.graphics.print("select\n\n".._selection[_scene.choice],32,32)
+  love.graphics.print("select\n\n".._scene.selection[_scene.choice][1],32,32)
 
 end
 
 function SceneSelect.update() end
 
-function SceneSelect.mousepressed()
+function SceneSelect.mousepressed(x,y,b,t)
+  
+  if b==1 then
+
+    _scene:xButtonPressed()
+  
+  end
+
+end
+
+function SceneSelect.keypressed(k,s,r)
+
+  if k=="left" then
+  
+    _scene:lButtonPressed()
+  
+  elseif k=="right" then
+  
+    _scene:rButtonPressed()
+  
+  end
+
+end
+
+function SceneSelect.gamepadpressed(j,b)
+
+  if b=="a" then
+
+    _scene:xButtonPressed()
+    
+  elseif b=="dpleft" then
+  
+    _scene:lButtonPressed()
+  
+  elseif b=="dpright" then
+  
+    _scene:rButtonPressed()
+
+  end
+
+end
+
+function SceneSelect:lButtonPressed()
+
+  if 1<self.choice then
+  
+    self.choice=self.choice-1
+  
+  end
+
+end
+
+function SceneSelect:rButtonPressed()
+
+  if self.choice<2 then
+  
+    self.choice=self.choice+1
+  
+  end
+
+end
+
+function SceneSelect:uButtonPressed() end
+
+function SceneSelect:dButtonPressed() end
+
+function SceneSelect:oButtonPressed() end
+
+function SceneSelect:xButtonPressed()
 
   _scene:final()
 
 end
 
-function SceneSelect.keypressed() end
+function SceneSelect:tButtonPressed() end
 
-function SceneSelect.gamepadpressed()
-
-  _scene:final()
-
-end
+function SceneSelect:sButtonPressed() end
 
 SceneDance={}
 
@@ -589,7 +677,7 @@ function SceneDance:init(routineSelection)
   
   _playbackSpeed=0
   
-  _defaultPlaybackSpeed=.9
+  if not _defaultPlaybackSpeed then _defaultPlaybackSpeed=1 end
   
   _down=75
   
