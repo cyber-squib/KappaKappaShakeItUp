@@ -176,7 +176,9 @@ function SceneSelect:init()
 kappa dance
 ]],
 
-1
+1,
+
+44
 
 },
 
@@ -187,7 +189,9 @@ kappa kappa
 shake it up
 ]],
 
-.9
+.9,
+
+154
 
 }
 
@@ -216,6 +220,8 @@ function SceneSelect:final()
   local p=self.selection[self.choice][2]
   
   _defaultPlaybackSpeed=p
+  
+  _max=self.selection[self.choice][3]
   
   --assert(p,p)
 
@@ -1391,7 +1397,7 @@ function Routine:init()
 
   self.score=0
   
-  self.max=154
+  if not _max then _max=154 end
   
   self.lock=0
   
@@ -1822,7 +1828,7 @@ function Routine:draw()
   
   local x=32
 
-  local percentage=self.score/self.max
+  local percentage=self.score/_max
   
   if percentage>1 then percentage=1 end
   
