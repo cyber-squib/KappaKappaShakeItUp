@@ -193,7 +193,19 @@ shake it up
 
 154
 
-}
+},
+
+{
+
+[[
+new routine
+]],
+
+1,
+
+10
+
+},
 
   }
   
@@ -295,7 +307,7 @@ end
 
 function SceneSelect:rButtonPressed()
 
-  if self.choice<2 then
+  if self.choice<#self.selection then
   
     self.choice=self.choice+1
   
