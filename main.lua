@@ -178,7 +178,9 @@ kappa dance
 
 1,
 
-44
+44,
+
+1.1
 
 },
 
@@ -191,7 +193,9 @@ shake it up
 
 .9,
 
-154
+154,
+
+1.1
 
 },
 
@@ -203,7 +207,9 @@ new routine
 
 1,
 
-10
+10,
+
+1.4
 
 },
 
@@ -234,6 +240,8 @@ function SceneSelect:final()
   _defaultPlaybackSpeed=p
   
   _max=self.selection[self.choice][3]
+  
+  _ampOffset=self.selection[self.choice][4]
   
   --assert(p,p)
 
@@ -1422,6 +1430,8 @@ function Routine:init()
   self.range=7
   
   self.rangeOffset=0
+  
+  if not _ampOffset then _ampOffset=1 end
 
   return self
 
@@ -1931,7 +1941,7 @@ function Routine:drawMoves()
       
       if self.snapToBeat then
       
-        a=a*1.1
+        a=a*_ampOffset
         
         a=a+.025
       
