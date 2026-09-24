@@ -1,7 +1,4 @@
 priorities:
-[ ] song select menu
-[ ] dynamic max spicy
-[ ] improve routine designer workflow
 [ ] new song
 [ ] new routine
 [ ] augmented/step blossom dance animation
@@ -24,6 +21,8 @@ backlog:
 [ ] 50% and 200% game screen resolution
 [ ] infinite mode
 completed:
+[x] song select menu
+[x] improve routine designer workflow
 [x] song timeline
 [x] pause menu
 [x] controller support
@@ -39,3 +38,5 @@ completed:
 [x] reorder blossoms move set
 [x] expand blossoms move set graphics
 [x] expand blossoms move set
+deferred:
+[ ] dynamic max spicy
