@@ -24,7 +24,7 @@ function SceneTitle:init()
   
   --[[ 001 ]] table.insert(_gfx,love.graphics.newImage("resource/Title.png"))
   
-  love.window.setMode(960,720)
+  --love.window.setMode(960,720)
 
   return self
 
