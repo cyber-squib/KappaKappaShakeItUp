@@ -174,13 +174,13 @@ function SceneSelect:init()
 
 [[
 kappa dance
-]],
+]], -- routine title
 
-1,
+1, -- default playback speed
 
-44,
+44, -- total number of routine steps
 
-1.1
+1.1 -- control signal amplitude offset
 
 },
 
@@ -189,13 +189,13 @@ kappa dance
 [[
 kappa kappa
 shake it up
-]],
+]], -- routine title
 
-.9,
+.9, -- default playback speed
 
-154,
+154, -- total number of routine steps
 
-1.1
+1.1 -- control signal amplitude offset
 
 },
 
@@ -203,13 +203,28 @@ shake it up
 
 [[
 new routine
-]],
+]], -- routine title
 
-1,
+1, -- default playback speed
 
-43,
+43, -- total number of routine steps
 
-1.4
+1.4 -- control signal amplitude offset
+
+},
+
+{
+
+[[
+new routine
+two
+]], -- routine title
+
+1, -- default playback speed
+
+48, -- total number of routine steps
+
+1.4 -- control signal amplitude offset
 
 },
 
@@ -505,23 +520,23 @@ function SceneDance:init(routineSelection)
   --[[     ]]
   --[[ 001 ]] table.insert(_sfx,love.audio.newSource("resource/Routines/"..routineSelection.."/Tune.wav","static"))
   --[[     ]] 
-  --[[ 001 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/"..routineSelection.."/Micromanager0Dance Bounced.wav"))
+  --[[ 001 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/"..routineSelection.."/Micromanager0 Bounced.wav"))
   --[[     ]] 
-  --[[ 002 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/"..routineSelection.."/Micromanager1MoveLeft Bounced.wav"))
+  --[[ 002 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/"..routineSelection.."/Micromanager1 Bounced.wav"))
   --[[     ]] 
-  --[[ 003 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/"..routineSelection.."/Micromanager3MoveUp Bounced.wav"))
+  --[[ 003 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/"..routineSelection.."/Micromanager3 Bounced.wav"))
   --[[     ]] 
-  --[[ 004 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/"..routineSelection.."/Micromanager5ShakeLeft Bounced.wav"))
+  --[[ 004 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/"..routineSelection.."/Micromanager5 Bounced.wav"))
   --[[     ]] 
-  --[[ 005 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/"..routineSelection.."/Micromanager2MoveRight Bounced.wav"))
+  --[[ 005 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/"..routineSelection.."/Micromanager2 Bounced.wav"))
   --[[     ]] 
-  --[[ 006 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/"..routineSelection.."/Micromanager4MoveDown Bounced.wav"))
+  --[[ 006 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/"..routineSelection.."/Micromanager4 Bounced.wav"))
   --[[     ]] 
-  --[[ 007 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/"..routineSelection.."/Micromanager6ShakeRight Bounced.wav"))
+  --[[ 007 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/"..routineSelection.."/Micromanager6 Bounced.wav"))
   --[[     ]] 
-  --[[ 008 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/"..routineSelection.."/Micromanager7StepLeft Bounced.wav"))
+  --[[ 008 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/"..routineSelection.."/Micromanager7 Bounced.wav"))
   --[[     ]] 
-  --[[ 009 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/"..routineSelection.."/Micromanager8StepRight Bounced.wav"))
+  --[[ 009 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/"..routineSelection.."/Micromanager8 Bounced.wav"))
   --[[     ]]
   --[[ 001 ]] table.insert(_fnt,love.graphics.newImageFont("resource/KappaFont.png","abcdefghijklmnopqrstuvwxyz "))
 
