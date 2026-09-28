@@ -1814,6 +1814,25 @@ function Routine:waveShape(x)
 
 end
 
+function Routine:waveShapeShort(x)
+
+  local pow=math.pow
+  local sin=math.sin
+  local pi=math.pi
+  local floor=math.floor
+  local tanh=math.tanh
+  
+  local w=.21875
+  
+  return
+      (
+      self:round(tanh(  pow(2,64)*sin(8*pi*(x-w)-pi/2)  ))
+                *tanh(          3*sin(8*pi*(x-w)     )  )
+      -2*floor((((x-w)*4)+0.25)*2)
+      )/(-16)+w
+
+end
+
 function Routine:debugDrawWaveShape()
 
   local xo,yo=64,64
