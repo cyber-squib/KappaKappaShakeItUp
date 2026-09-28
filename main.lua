@@ -228,6 +228,21 @@ two
 
 },
 
+{
+
+[[
+new routine
+number five
+]], -- routine title
+
+1, -- default playback speed
+
+152, -- total number of routine steps
+
+1.4 -- control signal amplitude offset
+
+},
+
   }
   
   self.choice=2
