@@ -180,7 +180,9 @@ kappa dance
 
 44, -- total number of routine steps
 
-1.1 -- control signal amplitude offset
+1.1, -- control signal amplitude offset
+
+false, -- control signal wave shape type
 
 },
 
@@ -195,7 +197,9 @@ shake it up
 
 154, -- total number of routine steps
 
-1.1 -- control signal amplitude offset
+1.1, -- control signal amplitude offset
+
+false, -- control signal wave shape type
 
 },
 
@@ -209,7 +213,9 @@ new routine
 
 43, -- total number of routine steps
 
-1.4 -- control signal amplitude offset
+1.4, -- control signal amplitude offset
+
+false, -- control signal wave shape type
 
 },
 
@@ -224,7 +230,9 @@ two
 
 48, -- total number of routine steps
 
-1.4 -- control signal amplitude offset
+1.4, -- control signal amplitude offset
+
+false, -- control signal wave shape type
 
 },
 
@@ -239,7 +247,9 @@ number five
 
 152, -- total number of routine steps
 
-1.4 -- control signal amplitude offset
+1.4, -- control signal amplitude offset
+
+true, -- control signal wave shape type
 
 },
 
@@ -272,6 +282,16 @@ function SceneSelect:final()
   _max=self.selection[self.choice][3]
   
   _ampOffset=self.selection[self.choice][4]
+  
+  if self.selection[self.choice][5] then
+  
+    Routine.waveShape=Routine.waveShapeShort
+  
+  else
+  
+    Routine.waveShape=Routine.waveShapeLong
+  
+  end
   
   --assert(p,p)
 
@@ -1797,7 +1817,7 @@ function Routine:round(n)
 
 end
 
-function Routine:waveShape(x)
+function Routine:waveShapeLong(x)
 
   local pow=math.pow
   local sin=math.sin
@@ -1822,7 +1842,7 @@ function Routine:waveShapeShort(x)
   local floor=math.floor
   local tanh=math.tanh
   
-  local w=.21875
+  local w=.1875
   
   return
       (
@@ -1832,6 +1852,8 @@ function Routine:waveShapeShort(x)
       )/(-16)+w
 
 end
+
+Routine.waveShape=Routine.waveShapeLong
 
 function Routine:debugDrawWaveShape()
 
