@@ -2418,14 +2418,14 @@ function RoutineSelect:gamepadPressed(j,b)
 
 end
 
---  BLACK: 393457
--- ORANGE: F99252
---   LIME: A1E55A
--- YELLOW: F7E476
---   TEAL: 1E8875
---  WHITE: FFFFFF
--- 
--- 
+--   BLACK: 393457
+--  ORANGE: F99252
+--    LIME: A1E55A
+--  YELLOW: F7E476
+--    TEAL: 1E8875
+--   WHITE: FFFFFF
+-- MAGENTA: C92463
+--  SALMON: CB4D68
 -- 
 -- 
 -- 
