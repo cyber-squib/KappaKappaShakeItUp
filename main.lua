@@ -1017,6 +1017,22 @@ end
 
 function Blossom:draw()
 
+  -- REDOING BLOSSOM DRAW 202610220649
+  -- HERE ARE THE DEPENDENCIES FOR THE OLD FUNCTION:
+  -- self.yoinks
+  -- self.height
+  -- self.x
+  -- self.flip
+  -- self.y
+  -- self.hopping
+  -- self.here
+  -- self.spriteYoinksOffset
+  -- self.approach
+  -- self.shaking
+  -- self.slip
+
+
+
   if self.yoinks>0 then self.yoinks=self.yoinks-1 end
   
   local height=-math.sin(math.pi*(self.height/15))*64
