@@ -1069,7 +1069,7 @@ function Blossom:draw()
       
       local f=0
       
-      self.mover:render(f,self:spriteYoinksEnabled(),self.spriteYoinksOffset,quad,self.x,self.y,self.flip,height)
+      self.mover:render(f,self:spriteYoinksEnabled(),self.spriteYoinksOffset,self.x,self.y,self.flip,height)
       
       if self.height>12 then
     
@@ -1093,7 +1093,7 @@ function Blossom:draw()
       
       local f=0
       
-      self.mover:render(f,self:spriteYoinksEnabled(),self.spriteYoinksOffset,quad,self.x,self.y,self.flip,height)
+      self.mover:render(f,self:spriteYoinksEnabled(),self.spriteYoinksOffset,self.x,self.y,self.flip,height)
       
     else
     
@@ -1103,7 +1103,7 @@ function Blossom:draw()
       
       local f=0
       
-      self.mover:render(f,self:spriteYoinksEnabled(),self.spriteYoinksOffset,quad,self.x,self.y,self.flip,height)
+      self.mover:render(f,self:spriteYoinksEnabled(),self.spriteYoinksOffset,self.x,self.y,self.flip,height)
     
     end
     
@@ -1145,7 +1145,7 @@ function Blossom:draw()
       
       local flip=self.flip
       
-      self.mover:render(f,self:spriteYoinksEnabled(),self.spriteYoinksOffset,quad,self.x,self.y,self.flip,height)
+      self.mover:render(f,self:spriteYoinksEnabled(),self.spriteYoinksOffset,self.x,self.y,self.flip,height)
       
     else
     
@@ -1153,7 +1153,7 @@ function Blossom:draw()
       
       local flip=self.flip
       
-      self.mover:render(f,self:spriteYoinksEnabled(),self.spriteYoinksOffset,quad,self.x,self.y,self.flip,height)
+      self.mover:render(f,self:spriteYoinksEnabled(),self.spriteYoinksOffset,self.x,self.y,self.flip,height)
     
     end
   
@@ -2436,7 +2436,7 @@ function Mover:init()
 
 end
 
-function Mover:render(f,spriteYoinksEnabled,spriteYoinksOffset,quad,x,y,flip,height)
+function Mover:render(f,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,height)
 
   local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
 
