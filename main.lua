@@ -994,6 +994,8 @@ function Blossom:init()
   self.yoinks=0
   
   self.invincible=false
+  
+  self.mover=setmetatable({},Mover):init()
 
   return self
 
@@ -1069,7 +1071,7 @@ function Blossom:draw()
       
       local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
       
-      love.graphics.draw(_gfx[self:spriteYoinksEnabled()*self.spriteYoinksOffset+1],quad,self.x-self.flip*100,self.y+height,0,self.flip,1)
+      self.mover:render(self:spriteYoinksEnabled(),self.spriteYoinksOffset,quad,self.x,self.y,self.flip,height)
       
       if self.height>12 then
     
@@ -1095,7 +1097,7 @@ function Blossom:draw()
       
       local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
       
-      love.graphics.draw(_gfx[self:spriteYoinksEnabled()*self.spriteYoinksOffset+1],quad,self.x-self.flip*100,self.y+height,0,self.flip,1)
+      self.mover:render(self:spriteYoinksEnabled(),self.spriteYoinksOffset,quad,self.x,self.y,self.flip,height)
       
     else
     
@@ -1107,7 +1109,7 @@ function Blossom:draw()
       
       local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
       
-      love.graphics.draw(_gfx[self:spriteYoinksEnabled()*self.spriteYoinksOffset+1],quad,self.x-self.flip*100,self.y+height,0,self.flip,1)
+      self.mover:render(self:spriteYoinksEnabled(),self.spriteYoinksOffset,quad,self.x,self.y,self.flip,height)
     
     end
     
@@ -1151,7 +1153,7 @@ function Blossom:draw()
       
       local flip=self.flip
       
-      love.graphics.draw(_gfx[self:spriteYoinksEnabled()*self.spriteYoinksOffset+1],quad,self.x-self.flip*100,self.y,0,flip,1)
+      self.mover:render(self:spriteYoinksEnabled(),self.spriteYoinksOffset,quad,self.x,self.y,self.flip,height)
       
     else
     
@@ -1161,7 +1163,7 @@ function Blossom:draw()
       
       local flip=self.flip
       
-      love.graphics.draw(_gfx[self:spriteYoinksEnabled()*self.spriteYoinksOffset+1],quad,self.x-self.flip*100,self.y,0,flip,1)
+      self.mover:render(self:spriteYoinksEnabled(),self.spriteYoinksOffset,quad,self.x,self.y,self.flip,height)
     
     end
   
@@ -2431,6 +2433,22 @@ function RoutineSelect:keyPressed(k,s,r)
 end
 
 function RoutineSelect:gamepadPressed(j,b)
+
+end
+
+Mover={}
+
+Mover.__index=Mover
+
+function Mover:init()
+
+  return self
+
+end
+
+function Mover:render(spriteYoinksEnabled,spriteYoinksOffset,quad,x,y,flip,height)
+
+  love.graphics.draw(_gfx[spriteYoinksEnabled*spriteYoinksOffset+1],quad,x-flip*100,y+height,0,flip,1)
 
 end
 
