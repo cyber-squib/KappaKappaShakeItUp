@@ -1069,9 +1069,9 @@ function Blossom:draw()
     
     if self.here then
       
-      local f=0
+      local f,a=0,0
       
-      self.mover:render(f,self:spriteYoinksEnabled(),self.spriteYoinksOffset,self.x,self.y,self.flip,height)
+      self.mover:render(a,self:spriteYoinksEnabled(),self.spriteYoinksOffset,self.x,self.y,self.flip,height)
       
       if self.height>12 then
     
@@ -1093,9 +1093,9 @@ function Blossom:draw()
 
       if not self.here then self.x=self.x+self.flip*speed end
       
-      local f=0
+      local f,a=0,0
       
-      self.mover:render(f,self:spriteYoinksEnabled(),self.spriteYoinksOffset,self.x,self.y,self.flip,height)
+      self.mover:render(a,self:spriteYoinksEnabled(),self.spriteYoinksOffset,self.x,self.y,self.flip,height)
       
     else
     
@@ -1103,9 +1103,9 @@ function Blossom:draw()
       
       self.y=self.y+self.approach*speed
       
-      local f=0
+      local f,a=0,0
       
-      self.mover:render(f,self:spriteYoinksEnabled(),self.spriteYoinksOffset,self.x,self.y,self.flip,height)
+      self.mover:render(a,self:spriteYoinksEnabled(),self.spriteYoinksOffset,self.x,self.y,self.flip,height)
     
     end
     
@@ -1147,15 +1147,15 @@ function Blossom:draw()
       
       local flip=self.flip
       
-      self.mover:render(f,self:spriteYoinksEnabled(),self.spriteYoinksOffset,self.x,self.y,self.flip,height)
+      self.mover:render(a,self:spriteYoinksEnabled(),self.spriteYoinksOffset,self.x,self.y,self.flip,height)
       
     else
     
-      local f=0
+      local f,a=0,0
       
       local flip=self.flip
       
-      self.mover:render(f,self:spriteYoinksEnabled(),self.spriteYoinksOffset,self.x,self.y,self.flip,height)
+      self.mover:render(a,self:spriteYoinksEnabled(),self.spriteYoinksOffset,self.x,self.y,self.flip,height)
     
     end
   
@@ -2438,7 +2438,15 @@ function Mover:init()
 
 end
 
-function Mover:renderOld(f,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,height)
+function Mover:renderOld(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,height)
+
+  local f=math.floor(a*6)%6
+  
+  local offset=4
+  
+  f=f+offset
+  
+  if f>=6 then f=f-6 end
 
   local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
     
@@ -2446,7 +2454,7 @@ function Mover:renderOld(f,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
 
 end
 
-function Mover:renderNew(f,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,height)
+function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,height)
 
   local xo,yo=0,-85
 
