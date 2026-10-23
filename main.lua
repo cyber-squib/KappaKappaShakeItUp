@@ -1069,9 +1069,7 @@ function Blossom:draw()
       
       local f=0
       
-      local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
-      
-      self.mover:render(self:spriteYoinksEnabled(),self.spriteYoinksOffset,quad,self.x,self.y,self.flip,height)
+      self.mover:render(f,self:spriteYoinksEnabled(),self.spriteYoinksOffset,quad,self.x,self.y,self.flip,height)
       
       if self.height>12 then
     
@@ -1095,9 +1093,7 @@ function Blossom:draw()
       
       local f=0
       
-      local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
-      
-      self.mover:render(self:spriteYoinksEnabled(),self.spriteYoinksOffset,quad,self.x,self.y,self.flip,height)
+      self.mover:render(f,self:spriteYoinksEnabled(),self.spriteYoinksOffset,quad,self.x,self.y,self.flip,height)
       
     else
     
@@ -1107,9 +1103,7 @@ function Blossom:draw()
       
       local f=0
       
-      local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
-      
-      self.mover:render(self:spriteYoinksEnabled(),self.spriteYoinksOffset,quad,self.x,self.y,self.flip,height)
+      self.mover:render(f,self:spriteYoinksEnabled(),self.spriteYoinksOffset,quad,self.x,self.y,self.flip,height)
     
     end
     
@@ -1149,21 +1143,17 @@ function Blossom:draw()
       
       if f>=6 then f=f-6 end
       
-      local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
-      
       local flip=self.flip
       
-      self.mover:render(self:spriteYoinksEnabled(),self.spriteYoinksOffset,quad,self.x,self.y,self.flip,height)
+      self.mover:render(f,self:spriteYoinksEnabled(),self.spriteYoinksOffset,quad,self.x,self.y,self.flip,height)
       
     else
     
       local f=0
-    
-      local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
       
       local flip=self.flip
       
-      self.mover:render(self:spriteYoinksEnabled(),self.spriteYoinksOffset,quad,self.x,self.y,self.flip,height)
+      self.mover:render(f,self:spriteYoinksEnabled(),self.spriteYoinksOffset,quad,self.x,self.y,self.flip,height)
     
     end
   
@@ -2446,7 +2436,9 @@ function Mover:init()
 
 end
 
-function Mover:render(spriteYoinksEnabled,spriteYoinksOffset,quad,x,y,flip,height)
+function Mover:render(f,spriteYoinksEnabled,spriteYoinksOffset,quad,x,y,flip,height)
+
+  local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
 
   love.graphics.draw(_gfx[spriteYoinksEnabled*spriteYoinksOffset+1],quad,x-flip*100,y+height,0,flip,1)
 
