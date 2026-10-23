@@ -2459,12 +2459,30 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
   local xo,yo=0,-85
 
   local max=5
+  
+  local movement={
+  
+    {0,0};
+
+    {0,0};
+
+    {0,0};
+
+    {math.sin(a*math.pi*2)*8,math.cos(a*math.pi*2)*4};
+
+    {0,0};
+
+    {0,0};
+  
+  }
 
   for i=max,0,-1 do
+  
+    local mxo,myo=math.floor(movement[i+1][1]),math.floor(movement[i+1][2])
 
     local quad=love.graphics.newQuad(360*i,0,360,360,360*(max+1),360)
 
-    love.graphics.draw(_gfx[047],quad,xo+x-flip*180,yo+y+height,0,flip,1)
+    love.graphics.draw(_gfx[047],quad,mxo+xo+x-flip*180,myo+yo+y+height,0,flip,1)
   
   end
 
