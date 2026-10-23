@@ -2468,7 +2468,7 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
 
     {0,0};
 
-    {math.sin(a*math.pi*2)*8,math.cos(a*math.pi*2)*4};
+    {math.sin(a*math.pi*2)*8,math.abs(math.cos(a*math.pi*2)*4)};
 
     {0,0};
 
