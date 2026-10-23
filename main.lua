@@ -553,6 +553,8 @@ function SceneDance:init(routineSelection)
   --[[     ]]
   --[[ 046 ]] table.insert(_gfx,love.graphics.newImage("resource/StepRightPlaystationMotionBlur.png"))
   --[[     ]]
+  --[[ 047 ]] table.insert(_gfx,love.graphics.newImage("resource/KappaPuppet_spriteSheet.png"))
+  --[[     ]]
   --[[ 001 ]] table.insert(_sfx,love.audio.newSource("resource/Routines/"..routineSelection.."/Tune.wav","static"))
   --[[     ]] 
   --[[ 001 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/"..routineSelection.."/Micromanager0 Bounced.wav"))
@@ -2436,13 +2438,39 @@ function Mover:init()
 
 end
 
-function Mover:render(f,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,height)
+function Mover:renderOld(f,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,height)
 
   local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
-
+    
   love.graphics.draw(_gfx[spriteYoinksEnabled*spriteYoinksOffset+1],quad,x-flip*100,y+height,0,flip,1)
 
 end
+
+function Mover:renderNew(f,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,height)
+
+  local xo,yo=0,-85
+
+  local max=5
+
+  for i=max,0,-1 do
+
+    local quad=love.graphics.newQuad(360*i,0,360,360,360*(max+1),360)
+
+    love.graphics.draw(_gfx[047],quad,xo+x-flip*180,yo+y+height,0,flip,1)
+  
+  end
+
+end
+
+Mover.render=Mover.renderNew
+
+--function Mover:render(...)
+--
+--  self:renderOld(...)
+--  
+--  self:renderNew(...)
+--
+--end
 
 --    WHITE: ffffff
 --     MINT: 6df7c1
