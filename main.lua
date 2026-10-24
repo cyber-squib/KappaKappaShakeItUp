@@ -555,6 +555,10 @@ function SceneDance:init(routineSelection)
   --[[     ]]
   --[[ 047 ]] table.insert(_gfx,love.graphics.newImage("resource/KappaPuppet_spriteSheet.png"))
   --[[     ]]
+  --[[ 048 ]] table.insert(_gfx,love.graphics.newImage("resource/KappaPuppetOutline_spriteSheet.png"))
+  --[[     ]]
+  --[[ 049 ]] table.insert(_gfx,love.graphics.newImage("resource/KappaPuppetShadow_spriteSheet.png"))
+  --[[     ]]
   --[[ 001 ]] table.insert(_sfx,love.audio.newSource("resource/Routines/"..routineSelection.."/Tune.wav","static"))
   --[[     ]] 
   --[[ 001 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/"..routineSelection.."/Micromanager0 Bounced.wav"))
@@ -2517,14 +2521,18 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
     };
   
   }
-
-  for i=max,0,-1 do
   
-    local mxo,myo=math.floor(movement[i+1][1]),math.floor(movement[i+1][2])
+  for d=2,0,-1 do
 
-    local quad=love.graphics.newQuad(360*i,0,360,360,360*(max+1),360)
-
-    love.graphics.draw(_gfx[047],quad,mxo+xo+x-flip*180,myo+yo+y+height,0,flip,1)
+    for i=max,0,-1 do
+    
+      local mxo,myo=math.floor(movement[i+1][1]),math.floor(movement[i+1][2])
+    
+      local quad=love.graphics.newQuad(360*i,0,360,360,360*(max+1),360)
+    
+      love.graphics.draw(_gfx[d+047],quad,mxo+xo+x-flip*180,myo+yo+y+height,0,flip,1)
+    
+    end
   
   end
 
