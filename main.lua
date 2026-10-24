@@ -2440,6 +2440,8 @@ end
 
 function Mover:renderOld(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,height)
 
+  a=a*8%1
+
   local f=math.floor(a*6)%6
   
   local offset=4
@@ -2488,7 +2490,7 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
 
 end
 
-Mover.render=Mover.renderNew
+Mover.render=Mover.renderOld
 
 --function Mover:render(...)
 --
