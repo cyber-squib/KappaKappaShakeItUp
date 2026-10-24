@@ -2458,6 +2458,8 @@ end
 
 function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,height)
 
+  a=a*4%1
+
   local xo,yo=0,-85
 
   local max=5
@@ -2470,7 +2472,17 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
 
     {0,0};
 
-    {math.sin(a*math.pi*2)*8,math.abs(math.cos(a*math.pi*2)*4)};
+    {
+    
+      math.tanh(math.pow(2,1.5)*math.sin(a*math.pi*2))*12;
+    
+      --math.sin(a*math.pi*2)*8;
+      
+      --math.abs(math.cos(a*math.pi*2)*4);
+      
+      -math.tanh(math.pow(2,1.5)*math.abs(math.sin(a*math.pi*2)))*6;
+      
+    };
 
     {0,0};
 
@@ -2490,7 +2502,7 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
 
 end
 
-Mover.render=Mover.renderOld
+Mover.render=Mover.renderNew
 
 --function Mover:render(...)
 --
