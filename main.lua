@@ -2527,10 +2527,18 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
     for i=max,0,-1 do
     
       local mxo,myo=math.floor(movement[i+1][1]),math.floor(movement[i+1][2])
+      
+      if flip==-1 then
+      
+        mxo=mxo*-1
+      
+      end
+      
+      local flop=1
     
       local quad=love.graphics.newQuad(360*i,0,360,360,360*(max+1),360)
     
-      love.graphics.draw(_gfx[d+047],quad,mxo+xo+x-flip*180,myo+yo+y+height,0,flip,1)
+      love.graphics.draw(_gfx[d+047],quad,mxo+xo+x-flop*180,myo+yo+y+height,0,flop,1)
     
     end
   
