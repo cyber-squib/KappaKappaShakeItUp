@@ -995,7 +995,7 @@ function Blossom:init()
   
   self.yoinks=0
   
-  self.invincible=false
+  self.invincible=true
   
   self.mover=setmetatable({},Mover):init()
 
@@ -2464,29 +2464,57 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
 
   local max=5
   
-  local movement={
+  local tightness=1.75
   
-    {0,0};
-
-    {0,0};
-
-    {0,0};
+  local movement={
 
     {
     
-      math.tanh(math.pow(2,1.5)*math.sin(a*math.pi*2))*12;
-    
-      --math.sin(a*math.pi*2)*8;
+      math.tanh(math.pow(2,tightness)*math.sin(a*math.pi*2))*6;
       
-      --math.abs(math.cos(a*math.pi*2)*4);
-      
-      -math.tanh(math.pow(2,1.5)*math.abs(math.sin(a*math.pi*2)))*6;
+      -math.tanh(math.pow(2,tightness)*math.abs(math.sin(a*math.pi*2)))*9;
       
     };
 
-    {0,0};
+    {
+    
+      math.tanh(math.pow(2,tightness)*math.sin(a*math.pi*2))*6;
+      
+      -math.tanh(math.pow(2,tightness)*math.abs(math.sin(a*math.pi*2)))*9;
+      
+    };
 
-    {0,0};
+    {
+
+      0;
+
+      -math.tanh(math.pow(2,tightness)*math.abs(math.sin(a*math.pi*2)))*12;
+      
+    };
+
+    {
+    
+      math.tanh(math.pow(2,tightness)*math.sin(a*math.pi*2))*12;
+      
+      -math.tanh(math.pow(2,tightness)*math.abs(math.sin(a*math.pi*2)))*9;
+      
+    };
+
+    {
+    
+      math.tanh(math.pow(2,tightness)*math.sin(a*math.pi*2))*3;
+      
+      0;
+      
+    };
+
+    {
+    
+      math.tanh(math.pow(2,tightness)*math.sin(a*math.pi*2))*3;
+      
+      0;
+      
+    };
   
   }
 
