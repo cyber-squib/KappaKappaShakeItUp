@@ -2471,53 +2471,109 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
   local tightness=1.75
   
   local movement={
+  
+    { -- DanceMoveKappaGroove
 
-    {
+      { -- FootLeft
+      
+        math.tanh(math.pow(2,tightness)*math.sin(a*math.pi*2))*6;
+        
+        -math.tanh(math.pow(2,tightness)*math.abs(math.sin(a*math.pi*2)))*9;
+        
+      };
+      
+      { -- FootRight
+      
+        math.tanh(math.pow(2,tightness)*math.sin(a*math.pi*2))*6;
+        
+        -math.tanh(math.pow(2,tightness)*math.abs(math.sin(a*math.pi*2)))*9;
+        
+      };
+      
+      { -- Trunk
+      
+        0;
+      
+        -math.tanh(math.pow(2,tightness)*math.abs(math.sin(a*math.pi*2)))*12;
+        
+      };
+      
+      { -- Head
+      
+        math.tanh(math.pow(2,tightness)*math.sin(a*math.pi*2))*12;
+        
+        -math.tanh(math.pow(2,tightness)*math.abs(math.sin(a*math.pi*2)))*9;
+        
+      };
+      
+      { -- HandLeft
+      
+        math.tanh(math.pow(2,tightness)*math.sin(a*math.pi*2))*3;
+        
+        0;
+        
+      };
+      
+      { -- HandRight
+      
+        math.tanh(math.pow(2,tightness)*math.sin(a*math.pi*2))*3;
+        
+        0;
+        
+      };
     
-      math.tanh(math.pow(2,tightness)*math.sin(a*math.pi*2))*6;
-      
-      -math.tanh(math.pow(2,tightness)*math.abs(math.sin(a*math.pi*2)))*9;
-      
     };
+  
+    { -- DanceMoveKappaBounce
 
-    {
+      { -- HandRight
+      
+        0;
+        
+        0;
+        
+      };
+      
+      { -- HandLeft
+      
+        0;
+        
+        0;
+        
+      };
+      
+      { -- Head
+      
+        0;
+        
+        0;
+        
+      };
+      
+      { -- Trunk
+      
+        0;
+        
+        0;
+        
+      };
+      
+      { -- FootRight
+      
+        0;
+        
+        0;
+        
+      };
+      
+      { -- FootLeft
+      
+        0;
+        
+        0;
+        
+      };
     
-      math.tanh(math.pow(2,tightness)*math.sin(a*math.pi*2))*6;
-      
-      -math.tanh(math.pow(2,tightness)*math.abs(math.sin(a*math.pi*2)))*9;
-      
-    };
-
-    {
-
-      0;
-
-      -math.tanh(math.pow(2,tightness)*math.abs(math.sin(a*math.pi*2)))*12;
-      
-    };
-
-    {
-    
-      math.tanh(math.pow(2,tightness)*math.sin(a*math.pi*2))*12;
-      
-      -math.tanh(math.pow(2,tightness)*math.abs(math.sin(a*math.pi*2)))*9;
-      
-    };
-
-    {
-    
-      math.tanh(math.pow(2,tightness)*math.sin(a*math.pi*2))*3;
-      
-      0;
-      
-    };
-
-    {
-    
-      math.tanh(math.pow(2,tightness)*math.sin(a*math.pi*2))*3;
-      
-      0;
-      
     };
   
   }
@@ -2526,7 +2582,9 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
 
     for i=max,0,-1 do
     
-      local mxo,myo=math.floor(movement[i+1][1]),math.floor(movement[i+1][2])
+      local moveType=2
+    
+      local mxo,myo=math.floor(movement[moveType][i+1][1]),math.floor(movement[moveType][i+1][2])
       
       if flip==-1 then
       
