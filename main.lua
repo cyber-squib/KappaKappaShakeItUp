@@ -2465,6 +2465,18 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
   a=a*4%1
   
   a=a*2
+  
+  --[-[ DEBUG CONTROL SIGNAL 0
+  
+  love.graphics.setColor(1,0,0,1)
+  
+  love.graphics.rectangle("line",16,16,2*64,16)
+  
+  love.graphics.rectangle("fill",16,16,a*64,16)
+  
+  love.graphics.setColor(1,1,1,1)
+  
+  --]-]
 
   local xo,yo=0,-85
 
