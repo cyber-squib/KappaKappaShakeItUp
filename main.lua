@@ -2463,60 +2463,60 @@ end
 function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,height)
 
   a=a*4%1
+  
+  a=a*2
 
   local xo,yo=0,-85
 
   local max=5
   
-  local tightness=1.75
-  
   local movement={
   
     { -- DanceMoveKappaGroove
 
-      { -- FootLeft
+      { -- HandRight
       
-        math.tanh(math.pow(2,tightness)*math.sin(a*math.pi*2))*6;
+        math.tanh(math.pow(2,1.75)*math.sin(math.pi*(a)))*6;
         
-        -math.tanh(math.pow(2,tightness)*math.abs(math.sin(a*math.pi*2)))*9;
-        
-      };
-      
-      { -- FootRight
-      
-        math.tanh(math.pow(2,tightness)*math.sin(a*math.pi*2))*6;
-        
-        -math.tanh(math.pow(2,tightness)*math.abs(math.sin(a*math.pi*2)))*9;
-        
-      };
-      
-      { -- Trunk
-      
-        0;
-      
-        -math.tanh(math.pow(2,tightness)*math.abs(math.sin(a*math.pi*2)))*12;
-        
-      };
-      
-      { -- Head
-      
-        math.tanh(math.pow(2,tightness)*math.sin(a*math.pi*2))*12;
-        
-        -math.tanh(math.pow(2,tightness)*math.abs(math.sin(a*math.pi*2)))*9;
+        -math.tanh(math.pow(2,1.75)*math.abs(math.sin(math.pi*(a))))*9;
         
       };
       
       { -- HandLeft
       
-        math.tanh(math.pow(2,tightness)*math.sin(a*math.pi*2))*3;
+        math.tanh(math.pow(2,1.75)*math.sin(a))*6;
+        
+        -math.tanh(math.pow(2,1.75)*math.abs(math.sin(math.pi*(a))))*9;
+        
+      };
+      
+      {-- Head
+      
+        0;
+      
+        -math.tanh(math.pow(2,1.75)*math.abs(math.sin(math.pi*(a))))*12;
+        
+      };
+      
+      { -- Trunk 
+      
+        math.tanh(math.pow(2,1.75)*math.sin(math.pi*(a)))*12;
+        
+        -math.tanh(math.pow(2,1.75)*math.abs(math.sin(math.pi*(a))))*9;
+        
+      };
+      
+      { -- FootRight
+      
+        math.tanh(math.pow(2,1.75)*math.sin(math.pi*(a)))*3;
         
         0;
         
       };
       
-      { -- HandRight
+      { -- FootLeft
       
-        math.tanh(math.pow(2,tightness)*math.sin(a*math.pi*2))*3;
+        math.tanh(math.pow(2,1.75)*math.sin(math.pi*(a)))*3;
         
         0;
         
@@ -2528,33 +2528,33 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
 
       { -- HandRight
       
-        0;
+        -56+math.sin(math.pi*(a))*64+math.sin(math.pi*(  a*3))*16;
         
-        0;
+        math.cos(math.pi*(a*3))*16;
         
       };
       
       { -- HandLeft
       
-        0;
+         56+math.sin(math.pi*(a))*64+math.sin(math.pi*(1+a*3))*16;
         
-        0;
+        math.cos(math.pi*(1+a*3))*16;
         
       };
       
       { -- Head
       
         0;
-        
-        0;
+      
+        -math.tanh(math.pow(2,1.75)*math.abs(math.sin(math.pi*(a))))*12;
         
       };
       
       { -- Trunk
       
         0;
-        
-        0;
+      
+        -math.tanh(math.pow(2,1.75)*math.abs(math.sin(math.pi*(a))))*9;
         
       };
       
