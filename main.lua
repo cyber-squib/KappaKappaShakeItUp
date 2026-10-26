@@ -1139,7 +1139,31 @@ function Blossom:draw()
       
       a=_cfx[pChannel]:getSample(si,sChannel)
       
+      --[[ -- DEBUG CONTROL SIGNAL 0
+      
+      love.graphics.setColor(1,0,0,1)
+      
+      love.graphics.rectangle("line",96,256+32*0,2*64,16)
+      
+      love.graphics.rectangle("fill",96,256+32*0,a*64,16)
+      
+      love.graphics.setColor(1,1,1,1)
+      
+      --]] -- DEBUG CONTROL SIGNAL 0
+      
       a=(a+1)/2
+      
+      --[[ -- DEBUG CONTROL SIGNAL 0
+      
+      love.graphics.setColor(0,1,0,1)
+      
+      love.graphics.rectangle("line",96,256+32*1,2*64,16)
+      
+      love.graphics.rectangle("fill",96,256+32*1,a*64,16)
+      
+      love.graphics.setColor(1,1,1,1)
+      
+      --]] -- DEBUG CONTROL SIGNAL 0
       
       local f=math.floor(a*6)%6
       
@@ -1150,6 +1174,18 @@ function Blossom:draw()
       if f>=6 then f=f-6 end
       
       local flip=self.flip
+      
+      --[[ -- DEBUG CONTROL SIGNAL 0
+      
+      love.graphics.setColor(0,0,1,1)
+      
+      love.graphics.rectangle("line",96,256+32*2,2*64,16)
+      
+      love.graphics.rectangle("fill",96,256+32*2,a*64,16)
+      
+      love.graphics.setColor(1,1,1,1)
+      
+      --]] -- DEBUG CONTROL SIGNAL 0
       
       self.mover:render(a,self:spriteYoinksEnabled(),self.spriteYoinksOffset,self.x,self.y,self.flip,height)
       
@@ -2462,21 +2498,45 @@ end
 
 function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,height)
 
-  a=a*4%1
+  --[[ -- DEBUG CONTROL SIGNAL 0
   
-  a=a*2
+  love.graphics.setColor(1,1,0,1)
   
-  --[-[ DEBUG CONTROL SIGNAL 0
+  love.graphics.rectangle("line",96,256+32*3,2*64,16)
   
-  love.graphics.setColor(1,0,0,1)
-  
-  love.graphics.rectangle("line",16,16,2*64,16)
-  
-  love.graphics.rectangle("fill",16,16,a*64,16)
+  love.graphics.rectangle("fill",96,256+32*3,a*64,16)
   
   love.graphics.setColor(1,1,1,1)
   
-  --]-]
+  --]] -- DEBUG CONTROL SIGNAL 0
+
+  --a=a*4%1
+  
+  --[[ -- DEBUG CONTROL SIGNAL 0
+  
+  love.graphics.setColor(0,1,1,1)
+  
+  love.graphics.rectangle("line",96,256+32*4,2*64,16)
+  
+  love.graphics.rectangle("fill",96,256+32*4,a*64,16)
+  
+  love.graphics.setColor(1,1,1,1)
+  
+  --]] -- DEBUG CONTROL SIGNAL 0
+  
+  a=a*2
+  
+  --[[ -- DEBUG CONTROL SIGNAL 0
+  
+  love.graphics.setColor(1,0,1,1)
+  
+  love.graphics.rectangle("line",96,256+32*5,2*64,16)
+  
+  love.graphics.rectangle("fill",96,256+32*5,a*64,16)
+  
+  love.graphics.setColor(1,1,1,1)
+  
+  --]] -- DEBUG CONTROL SIGNAL 0
 
   local xo,yo=0,-85
 
@@ -2488,17 +2548,17 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
 
       { -- HandRight
       
-        math.tanh(math.pow(2,1.75)*math.sin(math.pi*(a)))*6;
+        math.tanh(math.pow(2,1.75)*math.sin(math.pi*(a*4)))*6;
         
-        -math.tanh(math.pow(2,1.75)*math.abs(math.sin(math.pi*(a))))*9;
+        -math.tanh(math.pow(2,1.75)*math.abs(math.sin(math.pi*(a*4))))*9;
         
       };
       
       { -- HandLeft
       
-        math.tanh(math.pow(2,1.75)*math.sin(a))*6;
+        math.tanh(math.pow(2,1.75)*math.sin(math.pi*(a*4)))*6;
         
-        -math.tanh(math.pow(2,1.75)*math.abs(math.sin(math.pi*(a))))*9;
+        -math.tanh(math.pow(2,1.75)*math.abs(math.sin(math.pi*(a*4))))*9;
         
       };
       
@@ -2506,21 +2566,21 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
       
         0;
       
-        -math.tanh(math.pow(2,1.75)*math.abs(math.sin(math.pi*(a))))*12;
+        -math.tanh(math.pow(2,1.75)*math.abs(math.sin(math.pi*(a*4))))*12;
         
       };
       
       { -- Trunk 
       
-        math.tanh(math.pow(2,1.75)*math.sin(math.pi*(a)))*12;
+        math.tanh(math.pow(2,1.75)*math.sin(math.pi*(a*4)))*12;
         
-        -math.tanh(math.pow(2,1.75)*math.abs(math.sin(math.pi*(a))))*9;
+        -math.tanh(math.pow(2,1.75)*math.abs(math.sin(math.pi*(a*4))))*9;
         
       };
       
       { -- FootRight
       
-        math.tanh(math.pow(2,1.75)*math.sin(math.pi*(a)))*3;
+        math.tanh(math.pow(2,1.75)*math.sin(math.pi*(a*4)))*3;
         
         0;
         
@@ -2528,7 +2588,7 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
       
       { -- FootLeft
       
-        math.tanh(math.pow(2,1.75)*math.sin(math.pi*(a)))*3;
+        math.tanh(math.pow(2,1.75)*math.sin(math.pi*(a*4)))*3;
         
         0;
         
@@ -2540,17 +2600,17 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
 
       { -- HandRight
       
-        -56+math.sin(math.pi*(a))*64+math.sin(math.pi*(  a*3))*16;
+        -56+math.sin(math.pi*(2*a))*64+math.sin(math.pi*(  4*a*3))*16;
         
-        math.cos(math.pi*(a*3))*16;
+        math.cos(math.pi*(4*a*3))*16;
         
       };
       
       { -- HandLeft
       
-         56+math.sin(math.pi*(a))*64+math.sin(math.pi*(1+a*3))*16;
+         56+math.sin(math.pi*(2*a))*64+math.sin(math.pi*(1+4*a*3))*16;
         
-        math.cos(math.pi*(1+a*3))*16;
+        math.cos(math.pi*(1+4*a*3))*16;
         
       };
       
@@ -2558,7 +2618,7 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
       
         0;
       
-        -math.tanh(math.pow(2,1.75)*math.abs(math.sin(math.pi*(a))))*12;
+        -math.tanh(math.pow(2,1.75)*math.abs(math.sin(math.pi*(4*a))))*12;
         
       };
       
@@ -2566,7 +2626,7 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
       
         0;
       
-        -math.tanh(math.pow(2,1.75)*math.abs(math.sin(math.pi*(a))))*9;
+        -math.tanh(math.pow(2,1.75)*math.abs(math.sin(math.pi*(4*a))))*9;
         
       };
       
