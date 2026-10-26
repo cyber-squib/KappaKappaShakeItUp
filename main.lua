@@ -2542,6 +2542,8 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
 
   local max=5
   
+  --a=a/4
+  
   local movement={
   
     { -- DanceMoveKappaGroove
@@ -2600,7 +2602,9 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
 
       { -- HandRight
       
-        -56+math.sin(math.pi*(2*a))*64+math.sin(math.pi*(  4*a*3))*16;
+        -60+
+        math.tanh(math.pow(2,2)*math.sin(math.pi*(2*a)))*40+
+        math.sin(math.pi*(  4*a*3))*8;
         
         math.cos(math.pi*(4*a*3))*16;
         
@@ -2608,7 +2612,9 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
       
       { -- HandLeft
       
-         56+math.sin(math.pi*(2*a))*64+math.sin(math.pi*(1+4*a*3))*16;
+         60+
+        math.tanh(math.pow(2,2)*math.sin(math.pi*(2*a)))*40+
+        math.sin(math.pi*(1+4*a*3))*8;
         
         math.cos(math.pi*(1+4*a*3))*16;
         
@@ -2624,7 +2630,7 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
       
       { -- Trunk
       
-        0;
+        math.tanh(math.pow(2,2)*math.sin(math.pi*(2*a+1)))*14;
       
         -math.tanh(math.pow(2,1.75)*math.abs(math.sin(math.pi*(4*a))))*9;
         
