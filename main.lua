@@ -2774,17 +2774,35 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
 
     for i=max,0,-1 do
     
-      local moveType=4
+      local moveType=2
     
       local mxo,myo=math.floor(movement[moveType][i+1][1]),math.floor(movement[moveType][i+1][2])
       
-      if flip==-1 then
+      local flop
       
-        mxo=mxo*-1
+      if 2<i and i<5 then
+      
+        if flip==-1 then
+        
+          mxo=mxo*-1
+        
+        end
+        
+        flop=1
+      
+      else
+      
+        assert(i~=3)
+      
+        if flip==1 then
+
+          mxo=mxo*-1
+
+        end
+       
+        flop=flip
       
       end
-      
-      local flop=1
     
       local quad=love.graphics.newQuad(360*i,0,360,360,360*(max+1),360)
     
