@@ -2598,7 +2598,7 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
     
     };
   
-    { -- DanceMoveKappaBounce
+    { -- DanceMoveKappaWhirl
 
       { -- HandRight
       
@@ -2653,14 +2653,118 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
       };
     
     };
-  
+
+    { -- DanceMoveKappaBounce
+
+      { -- HandRight
+      
+        math.tanh(math.pow(2,2)*math.sin(math.pi*(a*4)))*5;
+      
+        8+math.abs(math.tanh(math.pow(2,2)*math.sin(math.pi*(a*4))))*3;
+        
+      };
+      
+      { -- HandLeft
+      
+        math.tanh(math.pow(2,2)*math.sin(math.pi*(a*4)))*5;
+      
+        8+math.abs(math.tanh(math.pow(2,2)*math.sin(math.pi*(a*4))))*3;
+        
+      };
+      
+      { -- Head
+      
+        math.tanh(math.pow(2,2)*math.sin(math.pi*(a*4)))*20;
+      
+        math.abs(math.tanh(math.pow(2,2)*math.sin(math.pi*(a*4))))*12;
+        
+      };
+      
+      { -- Trunk
+      
+        math.tanh(math.pow(2,2)*math.sin(math.pi*(a*4)))*5;
+      
+        math.abs(math.tanh(math.pow(2,2)*math.sin(math.pi*(a*4))))*3;
+        
+      };
+      
+      { -- FootRight
+      
+        math.abs(math.tanh(math.pow(2,2)*math.sin(math.pi*(a*4))))*8;
+        
+        0;
+        
+      };
+      
+      { -- FootLeft
+      
+        -math.abs(math.tanh(math.pow(2,2)*math.sin(math.pi*(a*4))))*8;
+        
+        0;
+        
+      };
+    
+    };
+
+    { -- DanceMoveKappaSpin
+
+      { -- HandRight
+      
+        0;
+      
+        0;
+        
+      };
+      
+      { -- HandLeft
+      
+        0;
+      
+        0;
+        
+      };
+      
+      { -- Head
+      
+        0;
+      
+        0;
+        
+      };
+      
+      { -- Trunk
+      
+        0;
+      
+        0;
+        
+      };
+      
+      { -- FootRight
+      
+        0;
+        
+        0;
+        
+      };
+      
+      { -- FootLeft
+      
+        0;
+        
+        0;
+        
+      };
+    
+    };
+
   }
   
   for d=2,0,-1 do
 
     for i=max,0,-1 do
     
-      local moveType=2
+      local moveType=4
     
       local mxo,myo=math.floor(movement[moveType][i+1][1]),math.floor(movement[moveType][i+1][2])
       
