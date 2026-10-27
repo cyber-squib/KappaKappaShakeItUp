@@ -2706,37 +2706,47 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
     
     };
 
-    { -- DanceMoveKappaSpin
+    { -- DanceMoveKappaWhirl
 
       { -- HandRight
       
-        0;
+        -4+
+        math.sin(math.pi*(a))*6;
       
-        0;
+        10+
+        -math.tanh(math.pow(2,1.5)*math.abs(math.sin(math.pi*(a*4))))*4
+        +math.cos(math.pi*(a))*6;
         
       };
       
       { -- HandLeft
       
-        0;
+         4+
+        math.sin(math.pi*(a))*6;
       
-        0;
+        10+
+        -math.tanh(math.pow(2,1.5)*math.abs(math.sin(math.pi*(a*4))))*4
+        +math.cos(math.pi*(a))*6;
         
       };
       
       { -- Head
       
-        0;
+        math.sin(math.pi*(a))*6;
       
-        0;
+        6+
+        -math.tanh(math.pow(2,1.5)*math.abs(math.sin(math.pi*(a*4))))*4
+        +math.cos(math.pi*(a))*4;
         
       };
       
       { -- Trunk
       
-        0;
+        math.tanh(math.pow(2,0)*math.sin(math.pi*(a)))*28;
       
-        0;
+        8+
+        -math.tanh(math.pow(2,1.5)*math.abs(math.sin(math.pi*(a*4))))*11
+        +math.tanh(math.pow(2,1)*math.cos(math.pi*(a)))*6;
         
       };
       
