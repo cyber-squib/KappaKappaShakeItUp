@@ -999,7 +999,7 @@ function Blossom:init()
   
   self.yoinks=0
   
-  self.invincible=true
+  self.invincible=false
   
   self.mover=setmetatable({},Mover):init()
 
@@ -2845,8 +2845,16 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
         flop=flip
       
       --end
+      
+      local yoinks=0
+      
+      if i==3 and yoinksEnabled==1 then
+      
+        yoinks=4
+      
+      end
     
-      local quad=love.graphics.newQuad(360*i,0,360,360,360*(max+1),360)
+      local quad=love.graphics.newQuad(360*i+yoinks,0,360,360,360*(max+2),360)
     
       love.graphics.draw(_gfx[d+047],quad,mxo+xo+x-flop*180,myo+yo+y+height,0,flop,1)
     
