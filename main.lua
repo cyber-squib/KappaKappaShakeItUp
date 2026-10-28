@@ -1225,13 +1225,21 @@ function Blossom:mousePressed(x,y,b,t)
   
   end
 
-  if b==1 or b==4 then
+  if b==1 then
   
     self:shakeLeft()
   
-  elseif b==2 or b==5 then
+  elseif b==2 then
   
     self:shakeRight()
+    
+  elseif b==4 then
+  
+    self:stepLeft()
+    
+  elseif b==5 then
+  
+    self:stepRight()
   
   end
 
@@ -1493,13 +1501,21 @@ function Blossom:gamepadPressed(j,b)
   
   end
 
-  if b=="a" or b=="x" then
+  if b=="a" then
   
     self:shakeLeft()
   
-  elseif b=="b" or b=="y" then
+  elseif b=="b" then
   
     self:shakeRight()
+    
+  elseif b=="x" then
+  
+    self:stepLeft()
+    
+  elseif b=="y" then
+  
+    self:stepRight()
   
   end
 
