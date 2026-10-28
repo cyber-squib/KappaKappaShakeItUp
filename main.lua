@@ -1075,7 +1075,7 @@ function Blossom:draw()
       
       local f,a=0,0
       
-      self.mover:render(a,self:spriteYoinksEnabled(),self.spriteYoinksOffset,self.x,self.y,self.flip,height)
+      self.mover:render(a,self:spriteYoinksEnabled(),self.spriteYoinksOffset,self.x,self.y,self.flip,height,true)
       
       if self.height>12 then
     
@@ -1099,7 +1099,7 @@ function Blossom:draw()
       
       local f,a=0,0
       
-      self.mover:render(a,self:spriteYoinksEnabled(),self.spriteYoinksOffset,self.x,self.y,self.flip,height)
+      self.mover:render(a,self:spriteYoinksEnabled(),self.spriteYoinksOffset,self.x,self.y,self.flip,height,true)
       
     else
     
@@ -1109,7 +1109,7 @@ function Blossom:draw()
       
       local f,a=0,0
       
-      self.mover:render(a,self:spriteYoinksEnabled(),self.spriteYoinksOffset,self.x,self.y,self.flip,height)
+      self.mover:render(a,self:spriteYoinksEnabled(),self.spriteYoinksOffset,self.x,self.y,self.flip,height,true)
     
     end
     
@@ -1195,7 +1195,7 @@ function Blossom:draw()
       
       local flip=self.flip
       
-      self.mover:render(a,self:spriteYoinksEnabled(),self.spriteYoinksOffset,self.x,self.y,self.flip,height)
+      self.mover:render(a,self:spriteYoinksEnabled(),self.spriteYoinksOffset,self.x,self.y,self.flip,height,true)
     
     end
   
@@ -2538,7 +2538,7 @@ function Mover:renderOld(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
 
 end
 
-function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,height)
+function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,height,idle)
 
   --[[ -- DEBUG CONTROL SIGNAL 0
   
@@ -2819,6 +2819,8 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
       local moveType=self.moveType
     
       local mxo,myo=math.floor(movement[moveType][i+1][1]),math.floor(movement[moveType][i+1][2])
+      
+      if idle then mxo,myo=0,0 end
       
       local flop
       
