@@ -2774,25 +2774,25 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
 
     for i=max,0,-1 do
     
-      local moveType=2
+      local moveType=1
     
       local mxo,myo=math.floor(movement[moveType][i+1][1]),math.floor(movement[moveType][i+1][2])
       
       local flop
       
-      if 2<i and i<5 then
-      
-        if flip==-1 then
-        
-          mxo=mxo*-1
-        
-        end
-        
-        flop=1
-      
-      else
-      
-        assert(i~=3)
+      --if 2<i and i<5 then
+      --
+      --  if flip==-1 then
+      --  
+      --    mxo=mxo*-1
+      --  
+      --  end
+      --  
+      --  flop=1
+      --
+      --else
+      --
+      --  assert(i~=3)
       
         if flip==1 then
 
@@ -2802,7 +2802,7 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
        
         flop=flip
       
-      end
+      --end
     
       local quad=love.graphics.newQuad(360*i,0,360,360,360*(max+1),360)
     
