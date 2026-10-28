@@ -1239,7 +1239,9 @@ end
 
 function Blossom:shakeLeft()
   
-  self.flip=-1
+  self.mover.moveType=1
+  
+  self.flip=-self.flip
   
   self.shaking=true
 
@@ -1247,7 +1249,29 @@ end
 
 function Blossom:shakeRight()
   
-  self.flip=1
+  self.mover.moveType=2
+  
+  self.flip=-self.flip
+  
+  self.shaking=true
+
+end
+
+function Blossom:stepLeft()
+  
+  self.mover.moveType=3
+  
+  self.flip=-self.flip
+  
+  self.shaking=true
+
+end
+
+function Blossom:stepRight()
+  
+  self.mover.moveType=4
+  
+  self.flip=-self.flip
   
   self.shaking=true
 
@@ -2474,6 +2498,8 @@ Mover.__index=Mover
 
 function Mover:init()
 
+  self.moveType=1
+
   return self
 
 end
@@ -2774,7 +2800,7 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
 
     for i=max,0,-1 do
     
-      local moveType=1
+      local moveType=self.moveType
     
       local mxo,myo=math.floor(movement[moveType][i+1][1]),math.floor(movement[moveType][i+1][2])
       
