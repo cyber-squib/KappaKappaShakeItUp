@@ -2531,6 +2531,8 @@ function Mover:renderOld(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
   f=f+offset
   
   if f>=6 then f=f-6 end
+  
+  --assert(spriteYoinksEnabled~=1)
 
   local quad=love.graphics.newQuad(200*f,0,200,200,1200,200)
     
@@ -2850,13 +2852,15 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
       
       local yoinks=0
       
-      if i==3 and yoinksEnabled==1 then
+      --assert(spriteYoinksEnabled~=1)
+      
+      if i==2 and spriteYoinksEnabled==1 then
       
         yoinks=4
       
       end
     
-      local quad=love.graphics.newQuad(360*i+yoinks,0,360,360,360*(max+2),360)
+      local quad=love.graphics.newQuad(360*(i+yoinks),0,360,360,360*(max+2),360)
     
       love.graphics.draw(_gfx[d+047],quad,mxo+xo+x-flop*180,myo+yo+y+height,0,flop,1)
     
