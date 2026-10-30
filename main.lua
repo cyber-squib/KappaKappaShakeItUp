@@ -265,7 +265,7 @@ just me
 
 1.4, -- control signal amplitude offset
 
-true, -- control signal wave shape type
+false, -- control signal wave shape type
 
 },
 
