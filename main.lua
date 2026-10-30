@@ -261,7 +261,7 @@ just me
 
 1, -- default playback speed
 
-1, -- total number of routine steps
+129, -- total number of routine steps
 
 1.4, -- control signal amplitude offset
 
