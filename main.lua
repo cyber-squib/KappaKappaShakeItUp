@@ -253,9 +253,25 @@ true, -- control signal wave shape type
 
 },
 
+{
+
+[[
+just me
+]], -- routine title
+
+1, -- default playback speed
+
+1, -- total number of routine steps
+
+1.4, -- control signal amplitude offset
+
+true, -- control signal wave shape type
+
+},
+
   }
   
-  self.choice=2
+  self.choice=6
 
   return self
 
