@@ -1015,7 +1015,7 @@ function Blossom:init()
   
   self.yoinks=0
   
-  self.invincible=true
+  self.invincible=false
   
   self.mover=setmetatable({},Mover):init()
 
