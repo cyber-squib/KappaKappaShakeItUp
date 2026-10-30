@@ -2610,7 +2610,7 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
 
       { -- HandRight
       
-        math.tanh(math.pow(2,1.75)*math.sin(math.pi*(a*4)))*6;
+        math.tanh(math.pow(2,1.75)*math.sin(math.pi*(a*4)))*10;
         
         -math.tanh(math.pow(2,1.75)*math.abs(math.sin(math.pi*(a*4))))*9;
         
@@ -2618,7 +2618,7 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
       
       { -- HandLeft
       
-        math.tanh(math.pow(2,1.75)*math.sin(math.pi*(a*4)))*6;
+        math.tanh(math.pow(2,1.75)*math.sin(math.pi*(a*4)))*10;
         
         -math.tanh(math.pow(2,1.75)*math.abs(math.sin(math.pi*(a*4))))*9;
         
@@ -2628,14 +2628,17 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
       
         0;
       
+      
+        5+
         -math.tanh(math.pow(2,1.75)*math.abs(math.sin(math.pi*(a*4))))*12;
         
       };
       
       { -- Trunk 
       
-        math.tanh(math.pow(2,1.75)*math.sin(math.pi*(a*4)))*12;
+        math.tanh(math.pow(2,1.75)*math.sin(math.pi*(a*4)))*20;
         
+        4+
         -math.tanh(math.pow(2,1.75)*math.abs(math.sin(math.pi*(a*4))))*9;
         
       };
@@ -2770,7 +2773,7 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
 
       { -- HandRight
       
-        -4+
+        -16+
         math.sin(math.pi*(a*2))*8;
       
         8+
@@ -2781,7 +2784,7 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
       
       { -- HandLeft
       
-         4+
+         16+
         math.sin(math.pi*(a*2))*8;
       
         8+
@@ -2796,23 +2799,26 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
       
         6+
         -math.tanh(math.pow(2,1.5)*math.abs(math.sin(math.pi*(a*4))))*4
-        +math.cos(math.pi*(a*2))*4;
+        +math.cos(math.pi*(a*2))*6;
         
       };
       
       { -- Trunk
       
-        math.tanh(math.pow(2,0)*math.sin(math.pi*(a*2)))*28;
+        math.tanh(math.pow(2,0)*math.sin(math.pi*(a*2)))*32;
       
         10+
         -math.tanh(math.pow(2,1.5)*math.abs(math.sin(math.pi*(a*4))))*11
-        +math.tanh(math.pow(2,1)*math.cos(math.pi*(a*2)))*8;
+        +math.tanh(math.pow(2,1)*math.cos(math.pi*(a*2)))*5;
         
       };
       
       { -- FootRight
       
-        0;
+        -3+
+         math.tanh(math.pow(2,1.5)*math.abs(math.sin(math.pi*(a*4))))*4+
+        math.tanh(math.pow(2,0)*math.cos(math.pi*(a*2+.75)))*4+
+	math.tanh(math.pow(2,0)*math.sin(math.pi*(a*2)))*8;
         
         0;
         
@@ -2820,7 +2826,10 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
       
       { -- FootLeft
       
-        0;
+         3+
+        -math.tanh(math.pow(2,1.5)*math.abs(math.sin(math.pi*(a*4))))*4+
+        -math.tanh(math.pow(2,0)*math.cos(math.pi*(a*2+.75)))*4+
+	math.tanh(math.pow(2,0)*math.sin(math.pi*(a*2)))*8;
         
         0;
         
