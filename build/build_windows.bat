@@ -4,7 +4,7 @@ cd binaries
 mkdir KappaKappaShakeItUp_Windows
 cd ..
 
-tar -a -c -f KappaKappaShakeItUp_Windows.zip main.lua resource
+tar -a -c -f KappaKappaShakeItUp_Windows.zip main.lua conf.lua resource
 move KappaKappaShakeItUp_Windows.zip binaries/KappaKappaShakeItUp_Windows/KappaKappaShakeItUp_Windows.love
 
 cd binaries/KappaKappaShakeItUp_Windows
