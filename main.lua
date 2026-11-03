@@ -8,6 +8,8 @@ end
 
 function love.draw()
 
+  love.graphics.translate(480,180)
+
   if _render then _render() end
   
   love.graphics.draw(_gVGamepad,-480,-180)
