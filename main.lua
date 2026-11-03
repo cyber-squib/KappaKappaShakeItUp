@@ -1,6 +1,16 @@
 function love.load()
 
   _scene=setmetatable({},SceneTitle):init()
+  
+  _gVGamepad=love.graphics.newImage("resource/202611020658_VirtualGamepad.png")
+
+end
+
+function love.draw()
+
+  if _render then _render() end
+  
+  love.graphics.draw(_gVGamepad,-480,-180)
 
 end
 
@@ -10,7 +20,7 @@ SceneTitle.__index=SceneTitle
 
 function SceneTitle:init()
   
-  love.draw=self.draw
+  _render=self.draw
   
   love.mousepressed=self.mousepressed
   
@@ -84,7 +94,7 @@ function SceneLoading:init(followup,choice)
   
   self.choice=choice
 
-  love.draw=self.draw
+  _render=self.draw
 
   love.update=self.update
 
@@ -106,7 +116,7 @@ end
 
 function SceneLoading:final()
 
-  love.draw=nil
+  _render=nil
   
   love.update=nil
   
@@ -156,7 +166,7 @@ SceneSelect.__index=SceneSelect
 
 function SceneSelect:init()
 
-  love.draw=self.draw
+  _render=self.draw
 
   love.update=self.update
 
@@ -279,7 +289,7 @@ end
 
 function SceneSelect:final()
 
-  love.draw=nil
+  _render=nil
   
   love.update=nil
   
@@ -411,7 +421,7 @@ SceneDance.__index=SceneDance
 
 function SceneDance:init(routineSelection)
   
-  love.draw=self.draw
+  _render=self.draw
   
   love.mousepressed=self.mousepressed
   
