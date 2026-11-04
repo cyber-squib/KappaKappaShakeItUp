@@ -2,7 +2,16 @@ function love.load()
 
   _scene=setmetatable({},SceneTitle):init()
   
-  _gVGamepad=love.graphics.newImage("resource/202611020658_VirtualGamepad.png")
+  _gVGamepad={}
+  _gVGamepad[1]=love.graphics.newImage("resource/202611020658_VirtualGamepad.png")
+  _gVGamepad[2]=love.graphics.newImage("resource/202611020658_VirtualGamepad_DpadLeft.png")
+  _gVGamepad[3]=love.graphics.newImage("resource/202611020658_VirtualGamepad_DpadRight.png")
+  _gVGamepad[4]=love.graphics.newImage("resource/202611020658_VirtualGamepad_DpadUp.png")
+  _gVGamepad[5]=love.graphics.newImage("resource/202611020658_VirtualGamepad_DpadDown.png")
+  _gVGamepad[6]=love.graphics.newImage("resource/202611020658_VirtualGamepad_Face1.png")
+  _gVGamepad[7]=love.graphics.newImage("resource/202611020658_VirtualGamepad_Face2.png")
+  _gVGamepad[8]=love.graphics.newImage("resource/202611020658_VirtualGamepad_Face3.png")
+  _gVGamepad[9]=love.graphics.newImage("resource/202611020658_VirtualGamepad_Face4.png")
 
 end
 
@@ -12,7 +21,11 @@ function love.draw()
 
   if _render then _render() end
   
-  love.graphics.draw(_gVGamepad,-480,-180)
+  for i=1,9 do
+  
+    love.graphics.draw(_gVGamepad[i],-480,-180)
+  
+  end
 
 end
 
