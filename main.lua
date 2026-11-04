@@ -112,11 +112,47 @@ end
 
 function love.keypressed(k,s,r)
 
+  if k=='left' then
+  
+    _bVGamepad[1]=true
+  
+  elseif k=='right' then
+  
+    _bVGamepad[2]=true
+  
+  elseif k=='up' then
+  
+    _bVGamepad[3]=true
+  
+  elseif k=='down' then
+  
+    _bVGamepad[4]=true
+  
+  end
+
   _keypressed(k,s,r)
 
 end
 
 function love.keyreleased(k,s,r)
+
+  if k=='left' then
+  
+    _bVGamepad[1]=false
+  
+  elseif k=='right' then
+  
+    _bVGamepad[2]=false
+  
+  elseif k=='up' then
+  
+    _bVGamepad[3]=false
+  
+  elseif k=='down' then
+  
+    _bVGamepad[4]=false
+  
+  end
 
 end
 
