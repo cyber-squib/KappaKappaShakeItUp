@@ -64,33 +64,69 @@ function love.draw()
 
 end
 
-function love.mousepressed(...)
+function love.mousepressed(x,y,b,t)
 
-  _mousepressed(...)
+  if b==1 then
+  
+    _bVGamepad[5]=true
+  
+  elseif b==2 then
+  
+    _bVGamepad[6]=true
+  
+  elseif b==4 then
+  
+    _bVGamepad[7]=true
+  
+  elseif b==5 then
+  
+    _bVGamepad[8]=true
+  
+  end
 
-end
-
-function love.keypressed(...)
-
-  _keypressed(...)
-
-end
-
-function love.gamepadpressed(...)
-
-  _gamepadpressed(...)
-
-end
-
-function love.mousereleased()
-
-end
-
-function love.keyreleased()
+  _mousepressed(x,y,b,t)
 
 end
 
-function love.gamepadreleased()
+function love.mousereleased(x,y,b,t)
+
+  if b==1 then
+  
+    _bVGamepad[5]=false
+  
+  elseif b==2 then
+  
+    _bVGamepad[6]=false
+  
+  elseif b==4 then
+  
+    _bVGamepad[7]=false
+  
+  elseif b==5 then
+  
+    _bVGamepad[8]=false
+  
+  end
+
+end
+
+function love.keypressed(k,s,r)
+
+  _keypressed(k,s,r)
+
+end
+
+function love.keyreleased(k,s,r)
+
+end
+
+function love.gamepadpressed(j,b)
+
+  _gamepadpressed(j,b)
+
+end
+
+function love.gamepadreleased(j,b)
 
 end
 
