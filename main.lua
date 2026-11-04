@@ -158,11 +158,79 @@ end
 
 function love.gamepadpressed(j,b)
 
+  if b=='dpleft' then
+  
+    _bVGamepad[1]=true
+  
+  elseif b=='dpright' then
+  
+    _bVGamepad[2]=true
+  
+  elseif b=='dpup' then
+  
+    _bVGamepad[3]=true
+  
+  elseif b=='dpdown' then
+  
+    _bVGamepad[4]=true
+
+  elseif b=='a' then
+  
+    _bVGamepad[5]=true
+  
+  elseif b=='b' then
+  
+    _bVGamepad[6]=true
+  
+  elseif b=='x' then
+  
+    _bVGamepad[7]=true
+  
+  elseif b=='y' then
+  
+    _bVGamepad[8]=true
+  
+  end
+
   _gamepadpressed(j,b)
 
 end
 
 function love.gamepadreleased(j,b)
+
+  if b=='dpleft' then
+  
+    _bVGamepad[1]=false
+  
+  elseif b=='dpright' then
+  
+    _bVGamepad[2]=false
+  
+  elseif b=='dpup' then
+  
+    _bVGamepad[3]=false
+  
+  elseif b=='dpdown' then
+  
+    _bVGamepad[4]=false
+
+  elseif b=='a' then
+  
+    _bVGamepad[5]=false
+  
+  elseif b=='b' then
+  
+    _bVGamepad[6]=false
+  
+  elseif b=='x' then
+  
+    _bVGamepad[7]=false
+  
+  elseif b=='y' then
+  
+    _bVGamepad[8]=false
+  
+  end
 
 end
 
