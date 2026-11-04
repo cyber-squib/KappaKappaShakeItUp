@@ -2,15 +2,42 @@ function love.load()
 
   _scene=setmetatable({},SceneTitle):init()
   
+  _bVGamepad={}
+  
+  _bVGamepad[1]=false
+
+  _bVGamepad[2]=false
+
+  _bVGamepad[3]=false
+
+  _bVGamepad[4]=false
+
+  _bVGamepad[5]=false
+
+  _bVGamepad[6]=false
+
+  _bVGamepad[7]=false
+
+  _bVGamepad[8]=false
+  
   _gVGamepad={}
+
   _gVGamepad[1]=love.graphics.newImage("resource/202611020658_VirtualGamepad.png")
+
   _gVGamepad[2]=love.graphics.newImage("resource/202611020658_VirtualGamepad_DpadLeft.png")
+
   _gVGamepad[3]=love.graphics.newImage("resource/202611020658_VirtualGamepad_DpadRight.png")
+
   _gVGamepad[4]=love.graphics.newImage("resource/202611020658_VirtualGamepad_DpadUp.png")
+
   _gVGamepad[5]=love.graphics.newImage("resource/202611020658_VirtualGamepad_DpadDown.png")
+
   _gVGamepad[6]=love.graphics.newImage("resource/202611020658_VirtualGamepad_Face1.png")
+
   _gVGamepad[7]=love.graphics.newImage("resource/202611020658_VirtualGamepad_Face2.png")
+
   _gVGamepad[8]=love.graphics.newImage("resource/202611020658_VirtualGamepad_Face3.png")
+
   _gVGamepad[9]=love.graphics.newImage("resource/202611020658_VirtualGamepad_Face4.png")
 
 end
@@ -21,9 +48,17 @@ function love.draw()
 
   if _render then _render() end
   
-  for i=1,9 do
+  local x,y=-480,-180
   
-    love.graphics.draw(_gVGamepad[i],-480,-180)
+  love.graphics.draw(_gVGamepad[1],x,y)
+  
+  for i=1,8 do
+  
+    if not _bVGamepad[i] then
+  
+      love.graphics.draw(_gVGamepad[i+1],x,y)
+    
+    end
   
   end
 
