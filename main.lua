@@ -46,7 +46,7 @@ function love.draw()
 
   love.graphics.translate(480,180)
 
-  if _render then _render() end
+  if _draw then _draw() end
   
   local x,y=-480,-180
   
@@ -64,19 +64,49 @@ function love.draw()
 
 end
 
+function love.mousepressed(...)
+
+  _mousepressed(...)
+
+end
+
+function love.keypressed(...)
+
+  _keypressed(...)
+
+end
+
+function love.gamepadpressed(...)
+
+  _gamepadpressed(...)
+
+end
+
+function love.mousereleased()
+
+end
+
+function love.keyreleased()
+
+end
+
+function love.gamepadreleased()
+
+end
+
 SceneTitle={}
 
 SceneTitle.__index=SceneTitle
 
 function SceneTitle:init()
   
-  _render=self.draw
+  _draw=self.draw
   
-  love.mousepressed=self.mousepressed
+  _mousepressed=self.mousepressed
   
-  love.keypressed=self.keypressed
+  _keypressed=self.keypressed
   
-  love.gamepadpressed=self.gamepadpressed
+  _gamepadpressed=self.gamepadpressed
   
   love.update=self.update
   
@@ -144,15 +174,15 @@ function SceneLoading:init(followup,choice)
   
   self.choice=choice
 
-  _render=self.draw
+  _draw=self.draw
 
   love.update=self.update
 
-  love.mousepressed=self.mousepressed
+  _mousepressed=self.mousepressed
 
-  love.keypressed=self.keypressed
+  _keypressed=self.keypressed
 
-  love.gamepadpressed=self.gamepadpressed
+  _gamepadpressed=self.gamepadpressed
 
   _fnt={}
 
@@ -166,15 +196,15 @@ end
 
 function SceneLoading:final()
 
-  _render=nil
+  _draw=nil
   
   love.update=nil
   
-  love.mousepressed=nil
+  _mousepressed=nil
   
-  love.keypressed=nil
+  _keypressed=nil
   
-  love.gamepadpressed=nil
+  _gamepadpressed=nil
   
   _fnt=nil
   
@@ -216,15 +246,15 @@ SceneSelect.__index=SceneSelect
 
 function SceneSelect:init()
 
-  _render=self.draw
+  _draw=self.draw
 
   love.update=self.update
 
-  love.mousepressed=self.mousepressed
+  _mousepressed=self.mousepressed
 
-  love.keypressed=self.keypressed
+  _keypressed=self.keypressed
 
-  love.gamepadpressed=self.gamepadpressed
+  _gamepadpressed=self.gamepadpressed
   
   _fnt={love.graphics.newImageFont("resource/KappaFont.png","abcdefghijklmnopqrstuvwxyz ")}
   
@@ -339,15 +369,15 @@ end
 
 function SceneSelect:final()
 
-  _render=nil
+  _draw=nil
   
   love.update=nil
   
-  love.mousepressed=nil
+  _mousepressed=nil
   
-  love.keypressed=nil
+  _keypressed=nil
   
-  love.gamepadpressed=nil
+  _gamepadpressed=nil
   
   _fnt=nil
   
@@ -471,13 +501,13 @@ SceneDance.__index=SceneDance
 
 function SceneDance:init(routineSelection)
   
-  _render=self.draw
+  _draw=self.draw
   
-  love.mousepressed=self.mousepressed
+  _mousepressed=self.mousepressed
   
-  love.keypressed=self.keypressed
+  _keypressed=self.keypressed
   
-  love.gamepadpressed=self.gamepadpressed
+  _gamepadpressed=self.gamepadpressed
   
   love.update=self.update
 
