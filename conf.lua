@@ -13,5 +13,7 @@ function love.conf(t)
   t.window.height=1080
   
   t.window.borderless=true
+  
+  t.window.usedpiscale=false
 
 end
