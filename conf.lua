@@ -21,5 +21,9 @@ function love.conf(t)
   --t.window.fullscreentype="exclusive"
   
   --t.window.resizable=true
+  
+    t.window.highdpi=true
+  
+    t.window.usedpiscale=true
 
 end
