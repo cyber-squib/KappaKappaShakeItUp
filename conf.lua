@@ -15,5 +15,7 @@ function love.conf(t)
   t.window.borderless=true
   
   t.window.usedpiscale=false
+  
+  t.window.fullscreen=true
 
 end
