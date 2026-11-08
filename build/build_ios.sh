@@ -10,8 +10,10 @@ xcrun devicectl device install app --device CD09C94C-711B-5FDA-AEF4-2439749A0847
 
 xcrun devicectl device process launch --device CD09C94C-711B-5FDA-AEF4-2439749A0847 com.kappakappashakeitup.cybersquib
 
-xcrun devicectl device info processes --device CD09C94C-711B-5FDA-AEF4-2439749A0847 | grep "love"
-
-echo "xcrun devicectl device process terminate --device CD09C94C-711B-5FDA-AEF4-2439749A0847 --kill --pid <PID>"
-
 echo -e "\a"
+
+echo "\n"
+xcrun devicectl device info processes --device CD09C94C-711B-5FDA-AEF4-2439749A0847 | grep "love"
+echo "\n"
+echo "xcrun devicectl device process terminate --device CD09C94C-711B-5FDA-AEF4-2439749A0847 --kill --pid <PID>"
+echo "\n"
