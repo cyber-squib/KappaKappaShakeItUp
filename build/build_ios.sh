@@ -7,3 +7,5 @@ open /Users/peterhodgden/Library/Developer/Xcode/DerivedData/love-emkhzukmpfhogy
 
 #xcrun devicectl list devices
 xcrun devicectl device install app --device CD09C94C-711B-5FDA-AEF4-2439749A0847 /Users/peterhodgden/Library/Developer/Xcode/DerivedData/love-emkhzukmpfhogygonfkqwruhpign/Build/Products/Debug-iphoneos/love.app
+
+echo -e "\a"
