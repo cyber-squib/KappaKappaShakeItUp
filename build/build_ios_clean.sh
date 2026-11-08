@@ -1,0 +1,1 @@
+xcodebuild -project love-11.5-ios-source/platform/xcode/love.xcodeproj -scheme love-ios clean
