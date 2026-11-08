@@ -1,8 +1,8 @@
 function love.conf(t)
 
-  t.console=true
+  --t.console=true
   
-  t.vsync=2
+  --t.vsync=2
     
   --t.window.width=960
   
@@ -12,9 +12,9 @@ function love.conf(t)
   
   t.window.height=1080
   
-  t.window.borderless=true
+  --t.window.borderless=true
   
-  t.window.usedpiscale=false
+  --t.window.usedpiscale=false
   
   --t.window.fullscreen=true
 
