@@ -1,5 +1,7 @@
 function love.conf(t)
 
+  local scale=6/16
+
   --t.console=true
   
   --t.vsync=2
@@ -8,9 +10,9 @@ function love.conf(t)
   
   --t.window.height=720
     
-  t.window.width=2
+  t.window.width=1920*scale
   
-  t.window.height=2
+  t.window.height=1080*scale
   
   --t.window.borderless=true
   
