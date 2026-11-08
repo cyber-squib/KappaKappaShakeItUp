@@ -16,6 +16,8 @@ function love.conf(t)
   
   --t.window.usedpiscale=false
   
-  --t.window.fullscreen=true
+  t.window.fullscreen=true
+  
+  t.window.fullscreentype = "exclusive"
 
 end
