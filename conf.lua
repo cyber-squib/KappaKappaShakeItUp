@@ -8,9 +8,9 @@ function love.conf(t)
   
   --t.window.height=720
     
-  t.window.width=1920/2
+  t.window.width=2
   
-  t.window.height=1080/2
+  t.window.height=2
   
   --t.window.borderless=true
   
