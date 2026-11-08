@@ -1,1 +1,1 @@
-rm -r ../binaries
+rm -R ../binaries
