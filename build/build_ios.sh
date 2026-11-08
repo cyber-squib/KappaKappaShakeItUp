@@ -1,5 +1,7 @@
 xcodebuild -project love-11.5-ios-source/platform/xcode/love.xcodeproj -scheme love-ios build
 
+open /Users/peterhodgden/Library/Developer/Xcode/DerivedData/love-emkhzukmpfhogygonfkqwruhpign/Build/Products/Debug-iphoneos
+
 #sudo npm install -g ios-deploy
 #ios-deploy --debug --bundle /Users/peterhodgden/Library/Developer/Xcode/DerivedData/love-emkhzukmpfhogygonfkqwruhpign/Build/Products/Debug-iphoneos/love.app
 
