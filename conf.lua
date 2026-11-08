@@ -18,6 +18,8 @@ function love.conf(t)
   
   t.window.fullscreen=true
   
-  t.window.fullscreentype = "exclusive"
+  t.window.fullscreentype="exclusive"
+  
+  t.window.resizable=true
 
 end
