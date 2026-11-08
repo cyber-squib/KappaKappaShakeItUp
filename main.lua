@@ -44,7 +44,7 @@ end
 
 function love.draw()
 
-  local scale=15/32
+  local scale=16/32
 
   love.graphics.translate(480*scale,180*scale)
   
