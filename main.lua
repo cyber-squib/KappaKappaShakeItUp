@@ -42,15 +42,37 @@ function love.load()
 
 end
 
+_ios=true
+
 function love.draw()
 
   love.graphics.clear(0xf9/0xff,0x92/0xff,0x52/0xff,0xff/0xff)
 
-  local scale=59/128
+  local scale
+  
+  if not _ios then
+  
+    scale=1
+    
+  else
+  
+    scale=59/128
+  
+  end
   
   love.graphics.scale(scale)
   
-  local xo,yo=77,-63
+  local xo,yo
+  
+  if not _ios then
+  
+    xo,yo=0,0
+    
+  else
+  
+    xo,yo=77,-63
+  
+  end
 
   love.graphics.translate(480+xo,180+yo)
 

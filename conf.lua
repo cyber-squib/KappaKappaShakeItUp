@@ -1,6 +1,6 @@
-function love.conf(t)
+_ios=true
 
-  local scale=59/128
+function love.conf(t)
 
   --t.console=true
   
@@ -9,12 +9,22 @@ function love.conf(t)
   --t.window.width=960
   
   --t.window.height=720
+  
+  if not _ios then
     
-  t.window.width=1920*scale
+    t.window.width=1920
   
-  t.window.height=1080*scale
+    t.window.height=1080
   
-  --t.window.borderless=true
+  else
+    
+    t.window.width=955
+  
+    t.window.height=440
+  
+  end
+  
+  t.window.borderless=true
   
   --t.window.usedpiscale=false
   
