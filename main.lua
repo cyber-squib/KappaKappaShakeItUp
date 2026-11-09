@@ -48,7 +48,7 @@ function love.draw()
   
   love.graphics.scale(scale)
   
-  local xo,yo=77,-60
+  local xo,yo=77,-62
 
   love.graphics.translate(480+xo,180+yo)
 
