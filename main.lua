@@ -45,10 +45,12 @@ end
 function love.draw()
 
   local scale=30/64
-
-  love.graphics.translate(480*scale,180*scale)
   
   love.graphics.scale(scale)
+  
+  local xo,yo=60,-60
+
+  love.graphics.translate(480+xo,180+yo)
 
   if _draw then _draw() end
   
