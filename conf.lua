@@ -1,6 +1,6 @@
 function love.conf(t)
 
-  local scale=30/64
+  local scale=59/128
 
   --t.console=true
   

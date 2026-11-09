@@ -44,7 +44,7 @@ end
 
 function love.draw()
 
-  local scale=30/64
+  local scale=59/128
   
   love.graphics.scale(scale)
   
