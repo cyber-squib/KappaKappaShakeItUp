@@ -44,6 +44,8 @@ end
 
 function love.draw()
 
+  love.graphics.clear(0xf9/0xff,0x92/0xff,0x52/0xff,0xff/0xff)
+
   local scale=59/128
   
   love.graphics.scale(scale)
@@ -240,6 +242,26 @@ function love.gamepadreleased(j,b)
 
 end
 
+function _clear(r,g,b,a)
+
+  local w,x,y,z=love.graphics.getColor()
+
+  if r and g and b and a then
+
+    love.graphics.setColor(r,g,b,a)
+  
+  else
+  
+    love.graphics.setColor(0,0,0,1)
+  
+  end
+
+  love.graphics.rectangle('fill',0,0,960,720)
+
+  love.graphics.setColor(w,x,y,z)
+
+end
+
 SceneTitle={}
 
 SceneTitle.__index=SceneTitle
@@ -286,7 +308,7 @@ end
   
 function SceneTitle.draw()
 
-  love.graphics.clear()
+  _clear()
 
   love.graphics.draw(_gfx[1],0,0)
 
@@ -362,7 +384,7 @@ end
 
 function SceneLoading.draw()
 
-  love.graphics.clear(0x1e/0xff,0x88/0xff,0x75/0xff,0xff/0xff)
+  _clear(0x1e/0xff,0x88/0xff,0x75/0xff,0xff/0xff)
 
   love.graphics.setFont(_fnt[1])
   
@@ -553,7 +575,7 @@ end
 
 function SceneSelect.draw()
 
-  love.graphics.clear(0x11/0xff,0xad/0xff,0xc1/0xff,0xff/0xff)
+  _clear(0x11/0xff,0xad/0xff,0xc1/0xff,0xff/0xff)
   
   love.graphics.setFont(_fnt[1])
   
@@ -1025,7 +1047,7 @@ function SceneDance.draw()
 
   if _state==1 then
 
-    love.graphics.clear(.5,.5,.5,1)
+    _clear(.5,.5,.5,1)
     
     love.graphics.draw(_gfx[9],0,0)
     
