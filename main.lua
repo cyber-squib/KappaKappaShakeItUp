@@ -42,7 +42,7 @@ function love.load()
 
 end
 
-_ios=true
+--_ios=false
 
 function love.draw()
 
