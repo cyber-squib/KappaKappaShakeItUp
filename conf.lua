@@ -3,32 +3,58 @@ _ios=true
 _iOSRes={
 
   iPhoneDuoOut   ={2034,1398};
+
   iPhoneDuoIn    ={2670,1878};
+
   iPhone18ProMax ={2868,1320};
+
   iPhone18Pro    ={2622,1206};
+
   iPhoneAir      ={2736,1260};
+
   iPhone17ProMax ={2868,1320};
+
   iPhone17Pro    ={2622,1206};
+
   iPhone17e      ={2532,1170};
+
   iPhone17       ={2622,1206};
-  iPhone16ProMax ={   0,   0};
-  iPhone16Pro    ={   0,   0};
-  iPhone16Plus   ={   0,   0};
-  iPhone16e      ={   0,   0};
-  iPhone16       ={   0,   0};
-  iPhone15ProMax ={   0,   0};
-  iPhone15Pro    ={   0,   0};
-  iPhone15Plus   ={   0,   0};
-  iPhone15       ={   0,   0};
-  iPhone14ProMax ={   0,   0};
-  iPhone14Pro    ={   0,   0};
-  iPhone14Plus   ={   0,   0};
-  iPhone14       ={   0,   0};
-  iPhoneSE       ={   0,   0};
-  iPhone13ProMax ={   0,   0};
-  iPhone13Pro    ={   0,   0};
-  iPhone13Mini   ={2340,1080};--2021
-  iPhone13       ={2532,1170};--2021
+
+  iPhone16ProMax ={2868,1320};
+
+  iPhone16Pro    ={2622,1206};
+
+  iPhone16Plus   ={2796,1290};
+
+  iPhone16e      ={2532,1170};
+
+  iPhone16       ={2556,1179};
+
+  iPhone15ProMax ={2796,1290};
+
+  iPhone15Pro    ={2556,1179};
+
+  iPhone15Plus   ={2796,1290};
+
+  iPhone15       ={2556,1179};
+
+  iPhone14ProMax ={2796,1290};
+
+  iPhone14Pro    ={2556,1179};
+
+  iPhone14Plus   ={2778,1284};
+
+  iPhone14       ={2532,1170};
+
+  iPhoneSE       ={1334,0750};
+
+  iPhone13ProMax ={2778,1284};
+
+  iPhone13Pro    ={2532,1170};
+
+  iPhone13Mini   ={2340,1080};
+
+  iPhone13       ={2532,1170};
 
 }
 
