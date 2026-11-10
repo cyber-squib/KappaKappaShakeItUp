@@ -58,7 +58,7 @@ function love.draw()
   
     scale=59/128
     
-    scale=scale*(love.graphics.getHeight()/440)
+    scale=scale*(love.graphics.getWidth()/955)
   
   end
   
@@ -73,6 +73,8 @@ function love.draw()
   else
   
     xo,yo=77,-63
+    
+    --yo=yo+love.graphics.getHeight()/2
   
   end
 
