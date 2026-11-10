@@ -57,6 +57,8 @@ function love.draw()
   else
   
     scale=59/128
+    
+    scale=scale*(love.graphics.getHeight()/440)
   
   end
   

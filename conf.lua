@@ -132,7 +132,7 @@ function love.conf(t)
   
   else
   
-    local ios=_iOSRes.iPhone17Pro
+    local ios=_iOSRes.iPhone13Mini
     
     t.window.width =_round(ios[1]*(955/2868))
   
