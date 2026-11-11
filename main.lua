@@ -146,6 +146,8 @@ function love.touchpressed(id,x,y,dx,dy,p)
   
   end
   
+  _touchpressed(x,y,b,t)
+  
 end
 
 function love.touchreleased(id,x,y,dx,dy,p)
@@ -396,6 +398,8 @@ function SceneTitle:init()
   
   _mousepressed=self.mousepressed
   
+  _touchpressed=self.touchpressed
+  
   _keypressed=self.keypressed
   
   _gamepadpressed=self.gamepadpressed
@@ -438,6 +442,12 @@ function SceneTitle.draw()
 
 end
   
+function SceneTitle.touchpressed()
+
+  _scene:final()
+
+end
+  
 function SceneTitle.mousepressed()
 
   _scene:final()
@@ -471,6 +481,8 @@ function SceneLoading:init(followup,choice)
   love.update=self.update
 
   _mousepressed=self.mousepressed
+  
+  _touchpressed=self.touchpressed
 
   _keypressed=self.keypressed
 
@@ -493,6 +505,8 @@ function SceneLoading:final()
   love.update=nil
   
   _mousepressed=nil
+  
+  _touchpressed=nil
   
   _keypressed=nil
   
@@ -517,6 +531,8 @@ function SceneLoading.draw()
   love.graphics.print("loading",j,640-j)
 
 end
+
+function SceneLoading.touchpressed() end
 
 function SceneLoading.mousepressed() end
 
@@ -543,6 +559,8 @@ function SceneSelect:init()
   love.update=self.update
 
   _mousepressed=self.mousepressed
+  
+  _touchpressed=self.touchpressed
 
   _keypressed=self.keypressed
 
@@ -667,6 +685,8 @@ function SceneSelect:final()
   
   _mousepressed=nil
   
+  _touchpressed=nil
+  
   _keypressed=nil
   
   _gamepadpressed=nil
@@ -708,6 +728,10 @@ function SceneSelect.draw()
 end
 
 function SceneSelect.update() end
+
+function SceneSelect.touchpressed()
+
+end
 
 function SceneSelect.mousepressed(x,y,b,t)
   
@@ -796,6 +820,8 @@ function SceneDance:init(routineSelection)
   _draw=self.draw
   
   _mousepressed=self.mousepressed
+  
+  _touchpressed=self.touchpressed
   
   _keypressed=self.keypressed
   
@@ -1190,6 +1216,10 @@ function SceneDance.draw()
   end
 
   _frame=_frame+1
+
+end
+
+function SceneDance.touchpressed()
 
 end
 
