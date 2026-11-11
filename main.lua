@@ -102,47 +102,141 @@ function love.draw()
 
 end
 
-function love.mousepressed(x,y,b,t)
+function _touchpadButton(x,y,w,h)
 
+  return 1
+
+end
+
+function love.touchpressed(id,x,y,dx,dy,p)
+
+  local b=_touchpadButton(x,y,love.graphics.getWidth(),love.graphics.getHeight())
+  
   if b==1 then
   
-    _bVGamepad[5]=true
+    _bVGamepad[1]=true
   
   elseif b==2 then
   
-    _bVGamepad[6]=true
+    _bVGamepad[2]=true
+  
+  elseif b==3 then
+  
+    _bVGamepad[3]=true
   
   elseif b==4 then
   
-    _bVGamepad[7]=true
+    _bVGamepad[4]=true
   
   elseif b==5 then
+  
+    _bVGamepad[5]=true
+  
+  elseif b==6 then
+  
+    _bVGamepad[6]=true
+  
+  elseif b==7 then
+  
+    _bVGamepad[7]=true
+  
+  elseif b==8 then
   
     _bVGamepad[8]=true
   
   end
+  
+end
 
-  _mousepressed(x,y,b,t)
+function love.touchreleased(id,x,y,dx,dy,p)
+
+  local b=_touchpadButton(x,y,love.graphics.getWidth(),love.graphics.getHeight())
+  
+  if b==1 then
+  
+    _bVGamepad[1]=false
+  
+  elseif b==2 then
+  
+    _bVGamepad[2]=false
+  
+  elseif b==3 then
+  
+    _bVGamepad[3]=false
+  
+  elseif b==4 then
+  
+    _bVGamepad[4]=false
+  
+  elseif b==5 then
+  
+    _bVGamepad[5]=false
+  
+  elseif b==6 then
+  
+    _bVGamepad[6]=false
+  
+  elseif b==7 then
+  
+    _bVGamepad[7]=false
+  
+  elseif b==8 then
+  
+    _bVGamepad[8]=false
+  
+  end
+  
+end
+
+function love.mousepressed(x,y,b,t)
+
+  if not _ios  then
+
+    if b==1 then
+    
+      _bVGamepad[5]=true
+    
+    elseif b==2 then
+    
+      _bVGamepad[6]=true
+    
+    elseif b==4 then
+    
+      _bVGamepad[7]=true
+    
+    elseif b==5 then
+    
+      _bVGamepad[8]=true
+    
+    end
+    
+    _mousepressed(x,y,b,t)
+  
+  end
 
 end
 
 function love.mousereleased(x,y,b,t)
 
-  if b==1 then
-  
-    _bVGamepad[5]=false
-  
-  elseif b==2 then
-  
-    _bVGamepad[6]=false
-  
-  elseif b==4 then
-  
-    _bVGamepad[7]=false
-  
-  elseif b==5 then
-  
-    _bVGamepad[8]=false
+  if not _ios  then
+
+    if b==1 then
+    
+      _bVGamepad[5]=false
+    
+    elseif b==2 then
+    
+      _bVGamepad[6]=false
+    
+    elseif b==4 then
+    
+      _bVGamepad[7]=false
+    
+    elseif b==5 then
+    
+      _bVGamepad[8]=false
+    
+    end
   
   end
 
