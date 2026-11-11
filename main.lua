@@ -126,7 +126,7 @@ function _touchpadButton(x,y,w,h)
   
   end
   
-  local t=atan(x-b,y-c)*math.pi*2
+  local t=math.atan(x-b,y-c)*math.pi*2+.5
   
   if t<1 then
   
