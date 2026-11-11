@@ -62,8 +62,6 @@ function love.draw()
   
   end
   
-  --love.graphics.scale(scale)
-  
   local xo,yo
   
   if not _ios then
@@ -72,23 +70,19 @@ function love.draw()
     
   else
   
-    --xo,yo=77,-63
+    xo,yo=77,-63
     
-    xo,yo=0,0
-    
-    --yo=yo-love.graphics.getHeight()/2
-    
-    --yo=yo-225
-    
-    --yo=yo+love.graphics.getHeight()*(440/1320)
+    --yo=yo+love.graphics.getHeight()/2
   
   end
-
-  --love.graphics.translate(480+xo,180+yo)
   
-  love.graphics.translate(256+xo,54+yo)
+  love.graphics.translate(0,(117-477)*scale+love.graphics.getHeight()/2)
+  
+  --assert(false,":"..220/scale)
   
   love.graphics.scale(scale)
+
+  love.graphics.translate(480+xo,0)--180+yo-love.graphics.getHeight()/2/scale)
 
   if _draw then _draw() end
   

@@ -132,17 +132,13 @@ function love.conf(t)
   
   else
   
-    --local ios=_iOSRes.iPadGen9
+    local ios=_iOSRes.iPadGen9
     
-    local ios=_iOSRes.iPhone17ProMax
+    --local ios=_iOSRes.iPhone17ProMax
     
     t.window.width =_round(ios[1]*(955/2868))
   
     t.window.height=_round(ios[2]*(440/1320))
-    
-    --_windowWidth=t.window.width
-    
-    --_windowHeight=t.window.height
   
   end
   
