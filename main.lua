@@ -104,7 +104,47 @@ end
 
 function _touchpadButton(x,y,w,h)
 
-  return 1
+  local b
+  
+  local c=0
+  
+  local a=.1
+  
+  local m=0
+
+  if x<w/2 then
+  
+    b=w*a
+    
+    m=4
+  
+  else
+  
+    b=w-w*a
+    
+    m=4
+  
+  end
+  
+  local t=atan(x-b,y-c)*math.pi*2
+  
+  if t<1 then
+  
+    return 1+m
+  
+  elseif t<2 then
+  
+    return 2+m
+  
+  elseif t<3 then
+  
+    return 3+m
+  
+  elseif t<4 then
+  
+    return 4+m
+  
+  end
 
 end
 
