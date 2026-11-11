@@ -62,7 +62,7 @@ function love.draw()
   
   end
   
-  love.graphics.scale(scale)
+  --love.graphics.scale(scale)
   
   local xo,yo
   
@@ -72,13 +72,23 @@ function love.draw()
     
   else
   
-    xo,yo=77,-63
+    --xo,yo=77,-63
     
-    --yo=yo+love.graphics.getHeight()/2
+    xo,yo=0,0
+    
+    --yo=yo-love.graphics.getHeight()/2
+    
+    --yo=yo-225
+    
+    --yo=yo+love.graphics.getHeight()*(440/1320)
   
   end
 
-  love.graphics.translate(480+xo,180+yo)
+  --love.graphics.translate(480+xo,180+yo)
+  
+  love.graphics.translate(256+xo,54+yo)
+  
+  love.graphics.scale(scale)
 
   if _draw then _draw() end
   
