@@ -102,134 +102,6 @@ function love.draw()
 
 end
 
-function _touchpadButton(x,y,w,h)
-
-  local b
-  
-  local c=0
-  
-  local a=.1
-  
-  local m=0
-
-  if x<w/2 then
-  
-    b=w*a
-    
-    m=4
-  
-  else
-  
-    b=w-w*a
-    
-    m=4
-  
-  end
-  
-  local t=math.atan(x-b,y-c)*math.pi*2+.5
-  
-  if t<1 then
-  
-    return 1+m
-  
-  elseif t<2 then
-  
-    return 2+m
-  
-  elseif t<3 then
-  
-    return 3+m
-  
-  elseif t<4 then
-  
-    return 4+m
-  
-  end
-
-end
-
-function love.touchpressed(id,x,y,dx,dy,p)
-
-  local b=_touchpadButton(x,y,love.graphics.getWidth(),love.graphics.getHeight())
-  
-  if b==1 then
-  
-    _bVGamepad[1]=true
-  
-  elseif b==2 then
-  
-    _bVGamepad[2]=true
-  
-  elseif b==3 then
-  
-    _bVGamepad[3]=true
-  
-  elseif b==4 then
-  
-    _bVGamepad[4]=true
-  
-  elseif b==5 then
-  
-    _bVGamepad[5]=true
-  
-  elseif b==6 then
-  
-    _bVGamepad[6]=true
-  
-  elseif b==7 then
-  
-    _bVGamepad[7]=true
-  
-  elseif b==8 then
-  
-    _bVGamepad[8]=true
-  
-  end
-  
-  _touchpressed(x,y,b,t)
-  
-end
-
-function love.touchreleased(id,x,y,dx,dy,p)
-
-  local b=_touchpadButton(x,y,love.graphics.getWidth(),love.graphics.getHeight())
-  
-  if b==1 then
-  
-    _bVGamepad[1]=false
-  
-  elseif b==2 then
-  
-    _bVGamepad[2]=false
-  
-  elseif b==3 then
-  
-    _bVGamepad[3]=false
-  
-  elseif b==4 then
-  
-    _bVGamepad[4]=false
-  
-  elseif b==5 then
-  
-    _bVGamepad[5]=false
-  
-  elseif b==6 then
-  
-    _bVGamepad[6]=false
-  
-  elseif b==7 then
-  
-    _bVGamepad[7]=false
-  
-  elseif b==8 then
-  
-    _bVGamepad[8]=false
-  
-  end
-  
-end
-
 function love.mousepressed(x,y,b,t)
 
   if not _ios  then
@@ -406,6 +278,161 @@ function love.gamepadreleased(j,b)
   
   end
 
+end
+
+function _touchpadButton(x,y,w,h)
+
+  local b
+  
+  local c=h/2
+  
+  local a=.14
+  
+  local m=0
+
+  if x<w/2 then
+  
+    b=w*a
+    
+    m=0
+  
+  else
+  
+    b=w-w*a
+    
+    m=4
+  
+  end
+  
+  local t=math.atan(b-x/c-y)/math.pi*2
+  
+  --assert(false,math.atan(1)/math.pi)
+  
+  print('b: '..b)
+  print('x: '..x)
+  print()
+  print('c: '..c)
+  print('y: '..y)
+  print()
+  print('t: '..t)
+  print()
+  
+  if t<1 then
+  
+    return 1+m
+  
+  elseif t<2 then
+  
+    return 2+m
+  
+  elseif t<3 then
+  
+    return 3+m
+  
+  elseif t<4 then
+  
+    return 4+m
+  
+  end
+
+end
+
+function love.--[[touch]]mousepressed(--[[id,]]x,y,dx,dy,p)
+
+  local b=_touchpadButton(x,y,love.graphics.getWidth(),love.graphics.getHeight())
+  
+  if b==1 then
+  
+    _bVGamepad[1]=true
+  
+  elseif b==2 then
+  
+    _bVGamepad[2]=true
+  
+  elseif b==3 then
+  
+    _bVGamepad[3]=true
+  
+  elseif b==4 then
+  
+    _bVGamepad[4]=true
+  
+  elseif b==5 then
+  
+    _bVGamepad[5]=true
+  
+  elseif b==6 then
+  
+    _bVGamepad[6]=true
+  
+  elseif b==7 then
+  
+    _bVGamepad[7]=true
+  
+  elseif b==8 then
+  
+    _bVGamepad[8]=true
+  
+  end
+  
+  _touchpressed(x,y,b,t)
+  
+end
+
+function love.--[[touch]]mousereleased(--[[id,]]x,y,dx,dy,p)
+
+  --local b=_touchpadButton(x,y,love.graphics.getWidth(),love.graphics.getHeight())
+  --
+  --if b==1 then
+  --
+  --  _bVGamepad[1]=false
+  --
+  --elseif b==2 then
+  --
+  --  _bVGamepad[2]=false
+  --
+  --elseif b==3 then
+  --
+  --  _bVGamepad[3]=false
+  --
+  --elseif b==4 then
+  --
+  --  _bVGamepad[4]=false
+  --
+  --elseif b==5 then
+  --
+  --  _bVGamepad[5]=false
+  --
+  --elseif b==6 then
+  --
+  --  _bVGamepad[6]=false
+  --
+  --elseif b==7 then
+  --
+  --  _bVGamepad[7]=false
+  --
+  --elseif b==8 then
+  --
+  --  _bVGamepad[8]=false
+  --
+  --end
+  
+  _bVGamepad[1]=false
+  
+  _bVGamepad[2]=false
+  
+  _bVGamepad[3]=false
+  
+  _bVGamepad[4]=false
+  
+  _bVGamepad[5]=false
+  
+  _bVGamepad[6]=false
+  
+  _bVGamepad[7]=false
+  
+  _bVGamepad[8]=false
+  
 end
 
 function _clear(r,g,b,a)
