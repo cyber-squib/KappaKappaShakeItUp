@@ -304,7 +304,19 @@ function _touchpadButton(x,y,w,h)
   
   end
   
-  local t=math.atan((y-c)/(x-b))/math.pi*2
+  local tx,ty=x-b,y-c
+  
+  local t=math.atan((ty)/(tx))/math.pi
+  
+  if tx<0 and ty<0 then
+  
+    t=t+2
+    
+  elseif tx<0 or ty<0 then
+  
+    t=t+1
+  
+  end
   
   --assert(false,math.atan(1)/math.pi)
   
