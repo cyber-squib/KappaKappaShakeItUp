@@ -304,18 +304,22 @@ function _touchpadButton(x,y,w,h)
   
   end
   
-  local t=math.atan(b-x/c-y)/math.pi*2
+  local t=math.atan((y-c)/(x-b))/math.pi*2
   
   --assert(false,math.atan(1)/math.pi)
   
-  print('b: '..b)
-  print('x: '..x)
+  print('b == '..b)
+  print('x == '..x)
   print()
-  print('c: '..c)
-  print('y: '..y)
+  print('c == '..c)
+  print('y == '..y)
   print()
-  print('t: '..t)
+  print('t == '..t)
   print()
+  print('x-b == '..x-b)
+  print('y-c == '..y-c)
+  print()
+  print('math.sqrt(math.pow(x-b,2)+math.pow(y-c,2) == '..math.sqrt(math.pow(x-b,2)+math.pow(y-c,2)))
   
   if t<1 then
   
