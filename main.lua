@@ -308,13 +308,13 @@ function _touchpadButton(x,y,w,h)
   
   local t=math.atan((ty)/(tx))/math.pi
   
-  if tx<0 and ty<0 then
-  
-    t=t+2
-    
-  elseif tx<0 or ty<0 then
+  if tx<0 then
   
     t=t+1
+    
+  elseif ty<0 then
+  
+    t=t+2
   
   end
   
