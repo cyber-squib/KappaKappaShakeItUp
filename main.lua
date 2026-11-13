@@ -1343,7 +1343,7 @@ function SceneDance.touchpressed(id,x,y,dx,dy,p)
 
   }
 
-  self.gamepadpressed(0,b[t])
+  SceneDance.gamepadpressed(0,b[t])
 
 end
 
