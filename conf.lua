@@ -116,7 +116,7 @@ end
 
 function love.conf(t)
 
-  t.console=true
+  t.console=false
   
   --t.vsync=2
     

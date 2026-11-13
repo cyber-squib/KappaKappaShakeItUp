@@ -370,7 +370,7 @@ function _touchpadButton(x,y,w,h)
 
 end
 
-function love.--[[touch]]mousepressed(--[[id,]]x,y,dx,dy,p)
+function love.touchpressed(id,x,y,dx,dy,p)
 
   local b=_touchpadButton(x,y,love.graphics.getWidth(),love.graphics.getHeight())
   
@@ -408,11 +408,11 @@ function love.--[[touch]]mousepressed(--[[id,]]x,y,dx,dy,p)
   
   end
   
-  _touchpressed(x,y,b,t)
+  _touchpressed(id,x,y,dx,dy,p)
   
 end
 
-function love.--[[touch]]mousereleased(--[[id,]]x,y,dx,dy,p)
+function love.touchreleased(id,x,y,dx,dy,p)
 
   --local b=_touchpadButton(x,y,love.graphics.getWidth(),love.graphics.getHeight())
   --
@@ -1319,7 +1319,7 @@ function SceneDance.draw()
 
 end
 
-function SceneDance.touchpressed()
+function SceneDance.touchpressed(id,x,y,dx,dy,p)
 
 end
 
