@@ -1321,6 +1321,30 @@ end
 
 function SceneDance.touchpressed(id,x,y,dx,dy,p)
 
+  local t=_touchpadButton(x,y,love.graphics.getWidth(),love.graphics.getHeight())
+  
+  local b={
+
+    'dpleft';
+    
+    'dpright';
+    
+    'dpup';
+    
+    'dpdown';
+    
+    'a';
+    
+    'x';
+    
+    'b';
+    
+    'y';
+
+  }
+
+  self.gamepadpressed(0,b[t])
+
 end
 
 function SceneDance.mousepressed(x,y,b,t)
