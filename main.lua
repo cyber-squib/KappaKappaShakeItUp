@@ -318,36 +318,53 @@ function _touchpadButton(x,y,w,h)
   
   end
   
-  --assert(false,math.atan(1)/math.pi)
+  t=t*2
   
-  print('b == '..b)
-  print('x == '..x)
-  print()
-  print('c == '..c)
-  print('y == '..y)
-  print()
-  print('t == '..t)
-  print()
-  print('x-b == '..x-b)
-  print('y-c == '..y-c)
-  print()
-  print('math.sqrt(math.pow(x-b,2)+math.pow(y-c,2) == '..math.sqrt(math.pow(x-b,2)+math.pow(y-c,2)))
+  t=t+.5
   
-  if t<1 then
+  if t<0 then t=t+4 end
   
-    return 1+m
+  if 4<t then t=t-4 end
   
-  elseif t<2 then
+  if m==0 then
   
-    return 2+m
+    if t<1 then
+    
+      return 2
+    
+    elseif t<2 then
+    
+      return 4
+    
+    elseif t<3 then
+    
+      return 1
+    
+    elseif t<4 then
+    
+      return 3
+    
+    end
   
-  elseif t<3 then
+  else
   
-    return 3+m
-  
-  elseif t<4 then
-  
-    return 4+m
+    if t<1 then
+    
+      return 5
+    
+    elseif t<2 then
+    
+      return 6
+    
+    elseif t<3 then
+    
+      return 8
+    
+    elseif t<4 then
+    
+      return 7
+    
+    end
   
   end
 
