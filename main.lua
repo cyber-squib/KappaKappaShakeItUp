@@ -370,7 +370,7 @@ function _touchpadButton(x,y,w,h)
 
 end
 
-function love.touchpressed(id,x,y,dx,dy,p)
+function love.--[[touch]]mousepressed(--[[id,]]x,y,dx,dy,p)
 
   local b=_touchpadButton(x,y,love.graphics.getWidth(),love.graphics.getHeight())
   
@@ -412,7 +412,7 @@ function love.touchpressed(id,x,y,dx,dy,p)
   
 end
 
-function love.touchreleased(id,x,y,dx,dy,p)
+function love.--[[touch]]mousereleased(--[[id,]]x,y,dx,dy,p)
 
   --local b=_touchpadButton(x,y,love.graphics.getWidth(),love.graphics.getHeight())
   --
@@ -544,7 +544,7 @@ end
   
 function SceneTitle.touchpressed()
 
-  _scene:final()
+  SceneTitle.gamepadpressed()
 
 end
   
@@ -829,7 +829,31 @@ end
 
 function SceneSelect.update() end
 
-function SceneSelect.touchpressed()
+function SceneSelect.touchpressed(id,x,y,dx,dy,p)
+
+  local t=_touchpadButton(x,y,love.graphics.getWidth(),love.graphics.getHeight())
+  
+  local b={
+
+    'dpleft';
+    
+    'dpright';
+    
+    'dpup';
+    
+    'dpdown';
+    
+    'a';
+    
+    'x';
+    
+    'b';
+    
+    'y';
+
+  }
+
+  SceneSelect.gamepadpressed(0,b[t])
 
 end
 
