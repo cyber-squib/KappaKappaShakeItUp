@@ -290,18 +290,22 @@ function _touchpadButton(x,y,w,h)
   
   local m=0
 
-  if x<w/2 then
+  if x<w/4 then
   
     b=w*a
     
     m=0
   
-  else
+  elseif x>w-w/4 then
   
     b=w-w*a
     
     m=4
   
+  else
+  
+    return 9
+    
   end
   
   local tx,ty=x-b,y-c
@@ -1364,6 +1368,8 @@ function SceneDance.touchpressed(id,x,y,dx,dy,p)
     'b';
     
     'y';
+    
+    'start';
 
   }
 
@@ -3035,6 +3041,36 @@ function PauseMenu:gamepadPressed(j,b)
   end
 
 end
+
+--function PauseMenu:touchpressed(id,x,y,dx,dy,p)
+--
+--  local t=_touchpadButton(x,y,love.graphics.getWidth(),love.graphics.getHeight())
+--  
+--  local b={
+--
+--    'dpleft';
+--    
+--    'dpright';
+--    
+--    'dpup';
+--    
+--    'dpdown';
+--    
+--    'a';
+--    
+--    'x';
+--    
+--    'b';
+--    
+--    'y';
+--    
+--    'pause';
+--
+--  }
+--
+--  PauseMenu:gamepadpressed(0,b[t])
+--
+--end
 
 function PauseMenu:flip()
   
