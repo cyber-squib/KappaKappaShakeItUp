@@ -280,7 +280,7 @@ function love.gamepadreleased(j,b)
 
 end
 
-_faceButton={
+_faceButtonRegular={
 
   bottom="a";
   
@@ -291,6 +291,20 @@ _faceButton={
   top="y";
 
 }
+
+_faceButtonNintendo={
+
+  bottom="b";
+  
+  right="a";
+  
+  left="y";
+  
+  top="x";
+
+}
+
+_faceButton=_faceButtonNintendo
 
 function _touchpadButton(x,y,w,h)
 
