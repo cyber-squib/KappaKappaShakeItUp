@@ -220,19 +220,19 @@ function love.gamepadpressed(j,b)
   
     _bVGamepad[4]=true
 
-  elseif b=='a' then
+  elseif b==_faceButton.bottom then
   
     _bVGamepad[5]=true
   
-  elseif b=='b' then
+  elseif b==_faceButton.right then
   
     _bVGamepad[6]=true
   
-  elseif b=='x' then
+  elseif b==_faceButton.left then
   
     _bVGamepad[7]=true
   
-  elseif b=='y' then
+  elseif b==_faceButton.top then
   
     _bVGamepad[8]=true
   
@@ -260,25 +260,37 @@ function love.gamepadreleased(j,b)
   
     _bVGamepad[4]=false
 
-  elseif b=='a' then
+  elseif b==_faceButton.bottom then
   
     _bVGamepad[5]=false
   
-  elseif b=='b' then
+  elseif b==_faceButton.right then
   
     _bVGamepad[6]=false
   
-  elseif b=='x' then
+  elseif b==_faceButton.left then
   
     _bVGamepad[7]=false
   
-  elseif b=='y' then
+  elseif b==_faceButton.top then
   
     _bVGamepad[8]=false
   
   end
 
 end
+
+_faceButton={
+
+  bottom="a";
+  
+  right="b";
+  
+  left="x";
+  
+  top="y";
+
+}
 
 function _touchpadButton(x,y,w,h)
 
@@ -847,13 +859,13 @@ function SceneSelect.touchpressed(id,x,y,dx,dy,p)
     
     'dpdown';
     
-    'a';
+    _faceButton.bottom;
     
-    'x';
+    _faceButton.left;
     
-    'b';
+    _faceButton.right;
     
-    'y';
+    _faceButton.top;
 
   }
 
@@ -887,7 +899,7 @@ end
 
 function SceneSelect.gamepadpressed(j,b)
 
-  if b=="a" then
+  if b==_faceButton.bottom then
 
     _scene:xButtonPressed()
     
@@ -1361,13 +1373,13 @@ function SceneDance.touchpressed(id,x,y,dx,dy,p)
     
     'dpdown';
     
-    'a';
+    _faceButton.bottom;
     
-    'x';
+    _faceButton.left;
     
-    'b';
+    _faceButton.right;
     
-    'y';
+    _faceButton.top;
     
     'start';
 
@@ -2075,7 +2087,7 @@ function Blossom:gamepadPressed(j,b)
   
   end
 
-  if _singleAction and (b=="a" or b=="x" or b=="b" or b=="y") then
+  if _singleAction and (b==_faceButton.bottom or b==_faceButton.left or b==_faceButton.right or b==_faceButton.top) then
   
     self:shakeBack()
     
@@ -2083,19 +2095,19 @@ function Blossom:gamepadPressed(j,b)
   
   end
 
-  if b=="a" then
+  if b==_faceButton.bottom then
   
     self:shakeLeft()
   
-  elseif b=="b" then
+  elseif b==_faceButton.right then
   
     self:shakeRight()
     
-  elseif b=="x" then
+  elseif b==_faceButton.left then
   
     self:stepLeft()
     
-  elseif b=="y" then
+  elseif b==_faceButton.top then
   
     self:stepRight()
   
@@ -2806,7 +2818,7 @@ function Routine:gamepadPressed(j,b)
   
   end
   
-  if _singleAction and (b=="a" or b=="x" or b=="b" or b=="y") then
+  if _singleAction and (b==_faceButton.bottom or b==_faceButton.left or b==_faceButton.right or b==_faceButton.top) then
   
     self:checkShakeBack()
     
@@ -2814,19 +2826,19 @@ function Routine:gamepadPressed(j,b)
   
   end
 
-  if b=="a" then
+  if b==_faceButton.bottom then
   
     self:checkShakeLeft()
   
-  elseif b=="x" then
+  elseif b==_faceButton.left then
   
     self:checkStepLeft()
   
-  elseif b=="b" then
+  elseif b==_faceButton.right then
   
     self:checkShakeRight()
   
-  elseif b=="y" then
+  elseif b==_faceButton.top then
   
     self:checkStepRight()
   
@@ -3056,13 +3068,13 @@ end
 --    
 --    'dpdown';
 --    
---    'a';
+--    _faceButton.bottom;
 --    
---    'x';
+--    _faceButton.left;
 --    
---    'b';
+--    _faceButton.right;
 --    
---    'y';
+--    _faceButton.top;
 --    
 --    'pause';
 --
