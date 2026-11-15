@@ -1137,6 +1137,22 @@ function SceneDance:init(routineSelection)
   --[[     ]]
   --[[ 049 ]] table.insert(_gfx,love.graphics.newImage("resource/KappaPuppetShadow_spriteSheet.png"))
   --[[     ]]
+  --[[ 050 ]] table.insert(_gfx,love.graphics.newImage("resource/ShakeLeftXbox.png"))
+  --[[     ]]
+  --[[ 051 ]] table.insert(_gfx,love.graphics.newImage("resource/ShakeRightXbox.png"))
+  --[[     ]]
+  --[[ 052 ]] table.insert(_gfx,love.graphics.newImage("resource/StepLeftXbox.png"))
+  --[[     ]]
+  --[[ 053 ]] table.insert(_gfx,love.graphics.newImage("resource/StepRightXbox.png"))
+  --[[     ]]
+  --[[ 054 ]] table.insert(_gfx,love.graphics.newImage("resource/ShakeLeftXboxMotionBlur.png"))
+  --[[     ]]
+  --[[ 055 ]] table.insert(_gfx,love.graphics.newImage("resource/ShakeRightXboxMotionBlur.png"))
+  --[[     ]]
+  --[[ 056 ]] table.insert(_gfx,love.graphics.newImage("resource/StepLeftXboxMotionBlur.png"))
+  --[[     ]]
+  --[[ 057 ]] table.insert(_gfx,love.graphics.newImage("resource/StepRightXboxMotionBlur.png"))
+  --[[     ]]
   --[[ 001 ]] table.insert(_sfx,love.audio.newSource("resource/Routines/"..routineSelection.."/Tune.wav","static"))
   --[[     ]] 
   --[[ 001 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/"..routineSelection.."/Micromanager0 Bounced.wav"))
