@@ -304,7 +304,7 @@ _faceButtonNintendo={
 
 }
 
-_faceButton=_faceButtonNintendo
+_faceButton=_faceButtonRegular
 
 function _touchpadButton(x,y,w,h)
 
@@ -1214,6 +1214,16 @@ function SceneDance:init(routineSelection)
   --[[ 15 ]] _controlOrder[9][1]={8,2} --  step 1 right 
 
   --[[ 16 ]] _controlOrder[9][2]={9,2} --  step 2 right 
+  
+  _gamepadType={
+  
+    playstation=1;
+    
+    xbox=2;
+    
+    nintendo=3;
+  
+  }
 
   _moveMap={
   
@@ -1221,21 +1231,21 @@ function SceneDance:init(routineSelection)
   --[[     ]]
   --[[ 002 ]] nil,
   --[[     ]]
-  --[[ 003 ]] 003, -- keyboard
+  --[[ 003 ]] {003,003,003}, -- keyboard
   --[[     ]]
-  --[[ 004 ]] 004, -- keyboard
+  --[[ 004 ]] {004,004,004}, -- keyboard
   --[[     ]]
-  --[[ 005 ]] 005, -- keyboard
+  --[[ 005 ]] {005,005,005}, -- keyboard
   --[[     ]]
-  --[[ 006 ]] 006, -- keyboard
+  --[[ 006 ]] {006,006,006}, -- keyboard
   --[[     ]]
-  --[[ 007 ]] 007, -- keyboard
+  --[[ 007 ]] {007,007,007}, -- keyboard
   --[[     ]]
-  --[[ 008 ]] 008, -- keyboard
+  --[[ 008 ]] {008,008,008}, -- keyboard
   --[[     ]]
-  --[[ 009 ]] 039, -- keyboard
+  --[[ 009 ]] {039,039,039}, -- keyboard
   --[[     ]]
-  --[[ 010 ]] 040, -- keyboard
+  --[[ 010 ]] {040,040,040}, -- keyboard
   --[[     ]]
   --[[ 011 ]] nil,
   --[[     ]]
@@ -1245,37 +1255,37 @@ function SceneDance:init(routineSelection)
   --[[     ]]
   --[[ 014 ]] nil,
   --[[     ]]
-  --[[ 015 ]] 015, -- playstation
+  --[[ 015 ]] {015,015,015}, -- gamepad
   --[[     ]]
-  --[[ 016 ]] 016, -- playstation
+  --[[ 016 ]] {016,016,016}, -- gamepad
   --[[     ]]
-  --[[ 017 ]] 017, -- playstation
+  --[[ 017 ]] {017,017,017}, -- gamepad
   --[[     ]]
-  --[[ 018 ]] 018, -- playstation
+  --[[ 018 ]] {018,018,018}, -- gamepad
   --[[     ]]
-  --[[ 019 ]] 019, -- playstation
+  --[[ 019 ]] {019,019,019}, -- gamepad
   --[[     ]]
-  --[[ 020 ]] 020, -- playstation
+  --[[ 020 ]] {020,020,020}, -- gamepad
   --[[     ]]
-  --[[ 021 ]] 041, -- playstation
+  --[[ 021 ]] {041,041,041}, -- gamepad
   --[[     ]]
-  --[[ 022 ]] 042, -- playstation
+  --[[ 022 ]] {042,042,042}, -- gamepad
   --[[     ]]
-  --[[ 023 ]] 021, -- keyboard blur
+  --[[ 023 ]] {021,021,021}, -- keyboard blur
   --[[     ]]
-  --[[ 024 ]] 022, -- keyboard blur
+  --[[ 024 ]] {022,022,022}, -- keyboard blur
   --[[     ]]
-  --[[ 025 ]] 023, -- keyboard blur
+  --[[ 025 ]] {023,023,023}, -- keyboard blur
   --[[     ]]
-  --[[ 026 ]] 024, -- keyboard blur
+  --[[ 026 ]] {024,024,024}, -- keyboard blur
   --[[     ]]
-  --[[ 027 ]] 025, -- keyboard blur
+  --[[ 027 ]] {025,025,025}, -- keyboard blur
   --[[     ]]
-  --[[ 028 ]] 026, -- keyboard blur
+  --[[ 028 ]] {026,026,026}, -- keyboard blur
   --[[     ]]
-  --[[ 029 ]] 043, -- keyboard blur
+  --[[ 029 ]] {043,043,043}, -- keyboard blur
   --[[     ]]
-  --[[ 030 ]] 044, -- keyboard blur
+  --[[ 030 ]] {044,044,044}, -- keyboard blur
   --[[     ]]
   --[[ 031 ]] nil,
   --[[     ]]
@@ -1285,21 +1295,21 @@ function SceneDance:init(routineSelection)
   --[[     ]]
   --[[ 034 ]] nil,
   --[[     ]]
-  --[[ 035 ]] 033, -- playstation blur
+  --[[ 035 ]] {033,033,033}, -- gamepad blur
   --[[     ]]
-  --[[ 036 ]] 034, -- playstation blur
+  --[[ 036 ]] {034,034,034}, -- gamepad blur
   --[[     ]]
-  --[[ 037 ]] 035, -- playstation blur
+  --[[ 037 ]] {035,035,035}, -- gamepad blur
   --[[     ]]
-  --[[ 038 ]] 036, -- playstation blur
+  --[[ 038 ]] {036,036,036}, -- gamepad blur
   --[[     ]]
-  --[[ 039 ]] 037, -- playstation blur
+  --[[ 039 ]] {037,037,037}, -- gamepad blur
   --[[     ]]
-  --[[ 040 ]] 038, -- playstation blur
+  --[[ 040 ]] {038,038,038}, -- gamepad blur
   --[[     ]]
-  --[[ 041 ]] 045, -- playstation blur
+  --[[ 041 ]] {045,045,045}, -- gamepad blur
   --[[     ]]
-  --[[ 042 ]] 046, -- playstation blur
+  --[[ 042 ]] {046,046,046}, -- gamepad blur
   --[[     ]]
   --[[ 043 ]] nil,
   --[[     ]]
@@ -2734,7 +2744,7 @@ function Routine:drawMoves()
       
       if _lastControlPosition[max+1+i] and (xPosition-_lastControlPosition[i+1+max])<limit then
     
-        love.graphics.draw(_gfx[_moveMap[blur+_playstationController+3+(i%(max/2))]],xPosition,bottomPosition-blurOffset)
+        love.graphics.draw(_gfx[_moveMap[blur+_playstationController+3+(i%(max/2))][_gamepadType.playstation]],xPosition,bottomPosition-blurOffset)
     
       end
     
