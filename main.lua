@@ -220,19 +220,19 @@ function love.gamepadpressed(j,b)
   
     _bVGamepad[4]=true
 
-  elseif b==_faceButton.bottom then
+  elseif b==_faceButton.right then
   
     _bVGamepad[5]=true
   
-  elseif b==_faceButton.right then
+  elseif b==_faceButton.bottom then
   
     _bVGamepad[6]=true
   
-  elseif b==_faceButton.left then
+  elseif b==_faceButton.top then
   
     _bVGamepad[7]=true
   
-  elseif b==_faceButton.top then
+  elseif b==_faceButton.left then
   
     _bVGamepad[8]=true
   
@@ -260,19 +260,19 @@ function love.gamepadreleased(j,b)
   
     _bVGamepad[4]=false
 
-  elseif b==_faceButton.bottom then
+  elseif b==_faceButton.right then
   
     _bVGamepad[5]=false
   
-  elseif b==_faceButton.right then
+  elseif b==_faceButton.bottom then
   
     _bVGamepad[6]=false
   
-  elseif b==_faceButton.left then
+  elseif b==_faceButton.top then
   
     _bVGamepad[7]=false
   
-  elseif b==_faceButton.top then
+  elseif b==_faceButton.left then
   
     _bVGamepad[8]=false
   
@@ -1373,13 +1373,13 @@ function SceneDance.touchpressed(id,x,y,dx,dy,p)
     
     'dpdown';
     
-    _faceButton.bottom;
-    
-    _faceButton.left;
-    
     _faceButton.right;
     
+    _faceButton.bottom;
+    
     _faceButton.top;
+    
+    _faceButton.left;
     
     'start';
 
