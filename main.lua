@@ -280,6 +280,18 @@ function love.gamepadreleased(j,b)
 
 end
 
+  _gamepadType={
+  
+    playstation=1;
+    
+    xbox=2;
+    
+    nintendo=3;
+  
+  }
+
+_gamepadCurrentType=_gamepadType.nintendo
+
 _faceButtonRegular={
 
   bottom="a";
@@ -305,6 +317,12 @@ _faceButtonNintendo={
 }
 
 _faceButton=_faceButtonRegular
+
+if _gamepadCurrentType==_gamepadType.nintendo then
+
+  _faceButton=_faceButtonNintendo
+  
+end
 
 function _touchpadButton(x,y,w,h)
 
@@ -1230,16 +1248,6 @@ function SceneDance:init(routineSelection)
   --[[ 15 ]] _controlOrder[9][1]={8,2} --  step 1 right 
 
   --[[ 16 ]] _controlOrder[9][2]={9,2} --  step 2 right 
-  
-  _gamepadType={
-  
-    playstation=1;
-    
-    xbox=2;
-    
-    nintendo=3;
-  
-  }
 
   _moveMap={
   
@@ -1279,13 +1287,13 @@ function SceneDance:init(routineSelection)
   --[[     ]]
   --[[ 018 ]] {018,018,018}, -- gamepad
   --[[     ]]
-  --[[ 019 ]] {019,019,019}, -- gamepad
+  --[[ 019 ]] {019,050,051}, -- gamepad
   --[[     ]]
-  --[[ 020 ]] {020,020,020}, -- gamepad
+  --[[ 020 ]] {020,051,050}, -- gamepad
   --[[     ]]
-  --[[ 021 ]] {041,041,041}, -- gamepad
+  --[[ 021 ]] {041,052,053}, -- gamepad
   --[[     ]]
-  --[[ 022 ]] {042,042,042}, -- gamepad
+  --[[ 022 ]] {042,053,052}, -- gamepad
   --[[     ]]
   --[[ 023 ]] {021,021,021}, -- keyboard blur
   --[[     ]]
@@ -1319,13 +1327,13 @@ function SceneDance:init(routineSelection)
   --[[     ]]
   --[[ 038 ]] {036,036,036}, -- gamepad blur
   --[[     ]]
-  --[[ 039 ]] {037,037,037}, -- gamepad blur
+  --[[ 039 ]] {037,054,055}, -- gamepad blur
   --[[     ]]
-  --[[ 040 ]] {038,038,038}, -- gamepad blur
+  --[[ 040 ]] {038,055,054}, -- gamepad blur
   --[[     ]]
-  --[[ 041 ]] {045,045,045}, -- gamepad blur
+  --[[ 041 ]] {045,056,057}, -- gamepad blur
   --[[     ]]
-  --[[ 042 ]] {046,046,046}, -- gamepad blur
+  --[[ 042 ]] {046,057,056}, -- gamepad blur
   --[[     ]]
   --[[ 043 ]] nil,
   --[[     ]]
@@ -2760,7 +2768,7 @@ function Routine:drawMoves()
       
       if _lastControlPosition[max+1+i] and (xPosition-_lastControlPosition[i+1+max])<limit then
     
-        love.graphics.draw(_gfx[_moveMap[blur+_playstationController+3+(i%(max/2))][_gamepadType.playstation]],xPosition,bottomPosition-blurOffset)
+        love.graphics.draw(_gfx[_moveMap[blur+_playstationController+3+(i%(max/2))][_gamepadCurrentType]],xPosition,bottomPosition-blurOffset)
     
       end
     
