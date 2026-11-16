@@ -2766,9 +2766,13 @@ function Routine:drawMoves()
         
       end
       
-      if _lastControlPosition[max+1+i] and (xPosition-_lastControlPosition[i+1+max])<limit then
+      if xPosition>-125 and xPosition<900 then
+      
+        if _lastControlPosition[max+1+i] and (xPosition-_lastControlPosition[i+1+max])<limit then
     
-        love.graphics.draw(_gfx[_moveMap[blur+_playstationController+3+(i%(max/2))][_gamepadCurrentType]],xPosition,bottomPosition-blurOffset)
+          love.graphics.draw(_gfx[_moveMap[blur+_playstationController+3+(i%(max/2))][_gamepadCurrentType]],xPosition,bottomPosition-blurOffset)
+
+        end
     
       end
     
