@@ -418,7 +418,9 @@ function _touchpadButton(x,y,w,h)
 
 end
 
-function love.touchpressed(id,x,y,dx,dy,p)
+function love.mousepressed(x,y,dx,dy,p)
+
+--function love.touchpressed(id,x,y,dx,dy,p)
 
   local b=_touchpadButton(x,y,love.graphics.getWidth(),love.graphics.getHeight())
   
@@ -460,43 +462,9 @@ function love.touchpressed(id,x,y,dx,dy,p)
   
 end
 
-function love.touchreleased(id,x,y,dx,dy,p)
+function love.mousereleased(x,y,dx,dy,p)
 
-  --local b=_touchpadButton(x,y,love.graphics.getWidth(),love.graphics.getHeight())
-  --
-  --if b==1 then
-  --
-  --  _bVGamepad[1]=false
-  --
-  --elseif b==2 then
-  --
-  --  _bVGamepad[2]=false
-  --
-  --elseif b==3 then
-  --
-  --  _bVGamepad[3]=false
-  --
-  --elseif b==4 then
-  --
-  --  _bVGamepad[4]=false
-  --
-  --elseif b==5 then
-  --
-  --  _bVGamepad[5]=false
-  --
-  --elseif b==6 then
-  --
-  --  _bVGamepad[6]=false
-  --
-  --elseif b==7 then
-  --
-  --  _bVGamepad[7]=false
-  --
-  --elseif b==8 then
-  --
-  --  _bVGamepad[8]=false
-  --
-  --end
+--function love.touchreleased(id,x,y,dx,dy,p)
   
   _bVGamepad[1]=false
   
