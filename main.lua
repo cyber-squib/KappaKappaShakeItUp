@@ -22,23 +22,41 @@ function love.load()
   
   _gVGamepad={}
 
-  _gVGamepad[1]=love.graphics.newImage("resource/202611020658_VirtualGamepad.png")
+  _gVGamepad[01]=love.graphics.newImage("resource/202611020658_VirtualGamepad.png")
 
-  _gVGamepad[2]=love.graphics.newImage("resource/202611020658_VirtualGamepad_DpadLeft.png")
+  _gVGamepad[02]=love.graphics.newImage("resource/202611020658_VirtualGamepad_DpadLeft.png")
 
-  _gVGamepad[3]=love.graphics.newImage("resource/202611020658_VirtualGamepad_DpadRight.png")
+  _gVGamepad[03]=love.graphics.newImage("resource/202611020658_VirtualGamepad_DpadRight.png")
 
-  _gVGamepad[4]=love.graphics.newImage("resource/202611020658_VirtualGamepad_DpadUp.png")
+  _gVGamepad[04]=love.graphics.newImage("resource/202611020658_VirtualGamepad_DpadUp.png")
 
-  _gVGamepad[5]=love.graphics.newImage("resource/202611020658_VirtualGamepad_DpadDown.png")
+  _gVGamepad[05]=love.graphics.newImage("resource/202611020658_VirtualGamepad_DpadDown.png")
 
-  _gVGamepad[6]=love.graphics.newImage("resource/202611020658_VirtualGamepad_Face1.png")
+  _gVGamepad[06]=love.graphics.newImage("resource/202611020658_VirtualGamepad_Face1.png")
 
-  _gVGamepad[7]=love.graphics.newImage("resource/202611020658_VirtualGamepad_Face2.png")
+  _gVGamepad[07]=love.graphics.newImage("resource/202611020658_VirtualGamepad_Face2.png")
 
-  _gVGamepad[8]=love.graphics.newImage("resource/202611020658_VirtualGamepad_Face3.png")
+  _gVGamepad[08]=love.graphics.newImage("resource/202611020658_VirtualGamepad_Face3.png")
 
-  _gVGamepad[9]=love.graphics.newImage("resource/202611020658_VirtualGamepad_Face4.png")
+  _gVGamepad[09]=love.graphics.newImage("resource/202611020658_VirtualGamepad_Face4.png")
+
+  _gVGamepad[10]=love.graphics.newImage("resource/202611020658_VirtualGamepadXbox.png")
+
+  _gVGamepad[11]=_gVGamepad[02]
+
+  _gVGamepad[12]=_gVGamepad[03]
+
+  _gVGamepad[13]=_gVGamepad[04]
+
+  _gVGamepad[14]=_gVGamepad[05]
+
+  _gVGamepad[15]=love.graphics.newImage("resource/202611020658_VirtualGamepad_Face1_Xbox.png")
+
+  _gVGamepad[16]=love.graphics.newImage("resource/202611020658_VirtualGamepad_Face2_Xbox.png")
+
+  _gVGamepad[17]=love.graphics.newImage("resource/202611020658_VirtualGamepad_Face3_Xbox.png")
+
+  _gVGamepad[18]=love.graphics.newImage("resource/202611020658_VirtualGamepad_Face4_Xbox.png")
 
 end
 
@@ -46,7 +64,11 @@ end
 
 function love.draw()
 
+  local c=_vGamepadTypeColor[_gamepadCurrentType]
+
   love.graphics.clear(0xf9/0xff,0x92/0xff,0x52/0xff,0xff/0xff)
+  
+  love.graphics.clear(c[1],c[2],c[3],1)
 
   local scale
   
@@ -88,13 +110,13 @@ function love.draw()
   
   local x,y=-480,-180
   
-  love.graphics.draw(_gVGamepad[1],x,y)
+  love.graphics.draw(_gVGamepad[1+_offsetVGamepad*9],x,y)
   
   for i=1,8 do
   
     if not _bVGamepad[i] then
   
-      love.graphics.draw(_gVGamepad[i+1],x,y)
+      love.graphics.draw(_gVGamepad[i+1+_offsetVGamepad*9],x,y)
     
     end
   
@@ -280,17 +302,27 @@ function love.gamepadreleased(j,b)
 
 end
 
-  _gamepadType={
-  
-    playstation=1;
-    
-    xbox=2;
-    
-    nintendo=3;
-  
-  }
+_gamepadType={
 
-_gamepadCurrentType=_gamepadType.nintendo
+  playstation=1;
+  
+  xbox=2;
+  
+  nintendo=3;
+
+}
+
+_vGamepadTypeColor={
+
+  {0x11/0xff,0xad/0xff,0xc1/0xff}; -- playstation
+
+  {0x5b/0xff,0xb3/0xff,0x61/0xff}; -- xbox
+
+  {0xf9/0xff,0x92/0xff,0x52/0xff}; -- nintendo
+
+}
+
+_gamepadCurrentType=_gamepadType.xbox
 
 _faceButtonRegular={
 
@@ -322,6 +354,14 @@ if _gamepadCurrentType==_gamepadType.nintendo then
 
   _faceButton=_faceButtonNintendo
   
+end
+
+_offsetVGamepad=0
+
+if _gamepadCurrentType==_gamepadType.xbox then
+
+  _offsetVGamepad=1
+
 end
 
 function _touchpadButton(x,y,w,h)
