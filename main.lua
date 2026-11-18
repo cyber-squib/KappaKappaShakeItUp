@@ -340,7 +340,7 @@ _vGamepadTypeColor={
 
 }
 
-_gamepadCurrentType=_gamepadType.playstation
+_gamepadCurrentType=_gamepadType.nintendo
 
 _faceButtonRegular={
 
@@ -636,7 +636,7 @@ function SceneTitle.keypressed() end
   
 function SceneTitle.gamepadpressed()
 
-  _playstationController=12
+  _gamepadController=12
 
   _scene:final()
   
@@ -1037,7 +1037,7 @@ function SceneDance:init(routineSelection)
 
   _singleAction=false
   
-  if not _playstationController then _playstationController=0 end
+  if not _gamepadController then _gamepadController=0 end
 
   _gfx={}
   
@@ -1479,7 +1479,7 @@ function SceneDance.mousepressed(x,y,b,t)
 
   if _playbackSpeed==0 then
 
-    _playstationController=0
+    _gamepadController=0
     
     if _state==1 then
     
@@ -1521,7 +1521,7 @@ function SceneDance.keypressed(k,s,r)
 
   if _playbackSpeed==0 then
 
-    _playstationController=0
+    --_gamepadController=0
     
     if _state==1 then
     
@@ -1549,7 +1549,7 @@ function SceneDance.gamepadpressed(j,b)
 
   if _playbackSpeed==0 then
 
-    _playstationController=12
+    _gamepadController=12
     
     if _state==1 then
     
@@ -2800,7 +2800,7 @@ function Routine:drawMoves()
       
         if _lastControlPosition[max+1+i] and (xPosition-_lastControlPosition[i+1+max])<limit then
     
-          love.graphics.draw(_gfx[_moveMap[blur+_playstationController+3+(i%(max/2))][_gamepadCurrentType]],xPosition,bottomPosition-blurOffset)
+          love.graphics.draw(_gfx[_moveMap[blur+_gamepadController+3+(i%(max/2))][_gamepadCurrentType]],xPosition,bottomPosition-blurOffset)
 
         end
     
@@ -2953,6 +2953,9 @@ function Routine:update(t)
     a=_cfx[pChannel]:getSample(si,sChannel)
     
     a=a*100+self.rangeOffset
+    
+    -- for each control signal, checking to see if the last position 
+    -- is in range and the current position is out of range
     
     if _lastControlPositionUpdate[i+1] and _lastControlPositionUpdate[i+1]>-self.range and a<-self.range then
     
