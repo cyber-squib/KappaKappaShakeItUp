@@ -58,6 +58,24 @@ function love.load()
 
   _gVGamepad[18]=love.graphics.newImage("resource/202611020658_VirtualGamepad_Face4_Xbox.png")
 
+  _gVGamepad[19]=love.graphics.newImage("resource/202611020658_VirtualGamepadPlaystation.png")
+
+  _gVGamepad[20]=_gVGamepad[02]
+
+  _gVGamepad[21]=_gVGamepad[03]
+
+  _gVGamepad[22]=_gVGamepad[04]
+
+  _gVGamepad[23]=_gVGamepad[05]
+
+  _gVGamepad[24]=love.graphics.newImage("resource/202611020658_VirtualGamepad_Face1_Playstation.png")
+
+  _gVGamepad[25]=love.graphics.newImage("resource/202611020658_VirtualGamepad_Face2_Playstation.png")
+
+  _gVGamepad[26]=love.graphics.newImage("resource/202611020658_VirtualGamepad_Face3_Playstation.png")
+
+  _gVGamepad[27]=love.graphics.newImage("resource/202611020658_VirtualGamepad_Face4_Playstation.png")
+
 end
 
 --_ios=false
@@ -322,7 +340,7 @@ _vGamepadTypeColor={
 
 }
 
-_gamepadCurrentType=_gamepadType.xbox
+_gamepadCurrentType=_gamepadType.playstation
 
 _faceButtonRegular={
 
@@ -361,6 +379,10 @@ _offsetVGamepad=0
 if _gamepadCurrentType==_gamepadType.xbox then
 
   _offsetVGamepad=1
+  
+elseif _gamepadCurrentType==_gamepadType.playstation then
+
+  _offsetVGamepad=2
 
 end
 
