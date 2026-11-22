@@ -1,4 +1,5 @@
 binaries
+bounce
 .DS_Store
 build/love-11.5-ios-source/platform/xcode/liblove.xcodeproj/xcuserdata
 build/love-11.5-ios-source/platform/xcode/love.xcodeproj/project.xcworkspace/xcuserdata
