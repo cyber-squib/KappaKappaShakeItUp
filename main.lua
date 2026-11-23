@@ -1037,7 +1037,7 @@ function SceneDance:init(routineSelection)
 
   _singleAction=false
   
-  if not _gamepadController then _gamepadController=0 end
+  if not _gamepadController then _gamepadController=12 end
 
   _gfx={}
   
@@ -1478,8 +1478,6 @@ function SceneDance.mousepressed(x,y,b,t)
   end
 
   if _playbackSpeed==0 then
-
-    _gamepadController=0
     
     if _state==1 then
     
@@ -1520,8 +1518,6 @@ function SceneDance.keypressed(k,s,r)
   end
 
   if _playbackSpeed==0 then
-
-    --_gamepadController=0
     
     if _state==1 then
     
@@ -1548,8 +1544,6 @@ function SceneDance.gamepadpressed(j,b)
   end
 
   if _playbackSpeed==0 then
-
-    _gamepadController=12
     
     if _state==1 then
     
