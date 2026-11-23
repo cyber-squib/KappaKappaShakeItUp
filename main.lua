@@ -3087,6 +3087,8 @@ function PauseMenu:draw()
 
   if self.active then
   
+    _clear(0x60,0x6c,0x81)
+  
     love.graphics.setFont(_fnt[1])
     
     love.graphics.print("pause",310,320)
