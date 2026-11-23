@@ -668,7 +668,7 @@ function SceneLoading:init(followup,choice)
 
   _fnt={}
 
-  --[[ 001 ]] table.insert(_fnt,love.graphics.newImageFont("resource/KappaFont.png","abcdefghijklmnopqrstuvwxyz "))
+  --[[ 001 ]] table.insert(_fnt,love.graphics.newImageFont("resource/KappaFont.png","abcdefghijklmnopqrstuvwxyz0123456789:<> "))
 
   _frame=0
 
@@ -744,7 +744,7 @@ function SceneSelect:init()
 
   _gamepadpressed=self.gamepadpressed
   
-  _fnt={love.graphics.newImageFont("resource/KappaFont.png","abcdefghijklmnopqrstuvwxyz ")}
+  _fnt={love.graphics.newImageFont("resource/KappaFont.png","abcdefghijklmnopqrstuvwxyz0123456789:<> ")}
   
   self.selection={
   
@@ -1221,7 +1221,7 @@ function SceneDance:init(routineSelection)
   --[[     ]] 
   --[[ 009 ]] table.insert(_cfx,love.sound.newSoundData("resource/Routines/"..routineSelection.."/Micromanager8 Bounced.wav"))
   --[[     ]]
-  --[[ 001 ]] table.insert(_fnt,love.graphics.newImageFont("resource/KappaFont.png","abcdefghijklmnopqrstuvwxyz "))
+  --[[ 001 ]] table.insert(_fnt,love.graphics.newImageFont("resource/KappaFont.png","abcdefghijklmnopqrstuvwxyz0123456789:<> "))
 
   _controlMap={
   
@@ -3094,9 +3094,9 @@ function PauseMenu:draw()
     local s=
         '    pause'..                                     '\n'..
                                                           '\n'..
-        ' offset:'..tostring(_routine.rangeOffset)..      '\n'..
+        ' offset: '..tostring(_routine.rangeOffset)..      '\n'..
                                                           '\n'..
-        ' range:' ..tostring(_routine.range)..            '\n'..
+        '  range: ' ..tostring(_routine.range)..           '\n'..
 --                                                        '\n'..
 --      ' voice:'..                                       '\n'..
         ''
