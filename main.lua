@@ -546,13 +546,13 @@ function love.mousereleased(x,y,dx,dy,p)
   
 end
 
-function _clear(r,g,b,a)
+function _clear(r,g,b)
 
   local w,x,y,z=love.graphics.getColor()
 
-  if r and g and b and a then
+  if r and g and b then
 
-    love.graphics.setColor(r,g,b,a)
+    love.graphics.setColor(r/0xff,g/0xff,b/0xff,1)
   
   else
   
@@ -700,7 +700,7 @@ end
 
 function SceneLoading.draw()
 
-  _clear(0x1e/0xff,0x88/0xff,0x75/0xff,0xff/0xff)
+  _clear(0x1e,0x88,0x75)
 
   love.graphics.setFont(_fnt[1])
   
@@ -897,7 +897,7 @@ end
 
 function SceneSelect.draw()
 
-  _clear(0x11/0xff,0xad/0xff,0xc1/0xff,0xff/0xff)
+  _clear(0x11,0xad,0xc1)
   
   love.graphics.setFont(_fnt[1])
   
@@ -1415,7 +1415,7 @@ function SceneDance.draw()
 
   if _state==1 then
 
-    _clear(.5,.5,.5,1)
+    _clear(0x7f,0x7f,0x7f)
     
     love.graphics.draw(_gfx[9],0,0)
     
