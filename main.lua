@@ -3014,6 +3014,8 @@ Feedback.__index=Feedback
 function Feedback:init()
 
   self.grade=0
+  
+  self.wait=15
 
   return self
   
@@ -3021,7 +3023,7 @@ end
 
 function Feedback:pass()
 
-  self.grade=30
+  self.grade=self.wait
   
   _blossom:recover()
 
@@ -3029,7 +3031,7 @@ end
 
 function Feedback:fail()
 
-  self.grade=-30
+  self.grade=-self.wait
   
   _blossom:oops()
 
@@ -3132,36 +3134,6 @@ function PauseMenu:gamepadPressed(j,b)
   end
 
 end
-
---function PauseMenu:touchpressed(id,x,y,dx,dy,p)
---
---  local t=_touchpadButton(x,y,love.graphics.getWidth(),love.graphics.getHeight())
---  
---  local b={
---
---    'dpleft';
---    
---    'dpright';
---    
---    'dpup';
---    
---    'dpdown';
---    
---    _faceButton.bottom;
---    
---    _faceButton.left;
---    
---    _faceButton.right;
---    
---    _faceButton.top;
---    
---    'pause';
---
---  }
---
---  PauseMenu:gamepadpressed(0,b[t])
---
---end
 
 function PauseMenu:flip()
   
@@ -3583,14 +3555,6 @@ function Mover:renderNew(a,spriteYoinksEnabled,spriteYoinksOffset,x,y,flip,heigh
 end
 
 Mover.render=Mover.renderNew
-
---function Mover:render(...)
---
---  self:renderOld(...)
---  
---  self:renderNew(...)
---
---end
 
 --    WHITE: ffffff
 --     MINT: 6df7c1
