@@ -3092,14 +3092,22 @@ function PauseMenu:draw()
     love.graphics.setFont(_fnt[1])
     
     local s=
-        '    pause'..                                     '\n'..
-                                                          '\n'..
-        ' offset: '..tostring(_routine.rangeOffset)..      '\n'..
-                                                          '\n'..
-        '  range: ' ..tostring(_routine.range)..           '\n'..
---                                                        '\n'..
---      ' voice:'..                                       '\n'..
+        '    pause'..                                           '\n'..
+                                                                '\n'..
+        '] offset: '..tostring(_routine.rangeOffset)..' ['..      '\n'..
+                                                                '\n'..
+        '}  range: ' ..tostring(_routine.range)..     ' {'..      '\n'..
+--                                                              '\n'..
+--      ' voice:'..                                             '\n'..
         ''
+
+    --s=string.gsub(s,']','>')
+    --
+    --s=string.gsub(s,'[','<')
+    --
+    --s=string.gsub(s,'}','>')
+    --
+    --s=string.gsub(s,'{','<')
     
     love.graphics.print(s,40,56)
   
